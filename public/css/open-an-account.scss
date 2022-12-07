@@ -1,0 +1,74 @@
+.single-page {
+  &.page-live, 
+  &.page-demo {
+    padding-top: 0px !important;
+
+    .page-section {
+      line-height: inherit !important;
+    }
+  }
+
+  &.page-live {
+    .page-header {
+      background: url(../img/live-banner.png) no-repeat center right;
+    }
+  }
+
+  &.page-demo {
+    .page-header {
+        background: url(../img/live-banner.png) no-repeat center right;
+    }
+  }
+
+  article {
+    &.page-header {
+      display: none;
+
+      @media only screen and (min-width: 768px) {
+        display: block;
+      }      
+
+      .page-header__container {
+        .page-header__heading--style {
+          font-size: 34px !important;
+        }
+
+        .page-header__description {
+          line-height: 30px !important;
+          font-size: 16px !important;
+        }
+      }
+    }
+
+    &.page-header__menu-container {
+      padding: 15px 0 !important;
+      display: none;
+
+      @media only screen and (min-width: 768px) {
+        display: block;
+      }      
+
+      .page-header__menu {
+        .menu-item {
+          > a {
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+
+    &.page-content-container {
+      .page-content {
+        &.pt-20 {
+          padding-top: 20px !important;
+        }
+      }
+    }
+  }
+}
+
+.ReactModalPortal {
+  p {
+      margin-bottom: 10px;
+  }
+}

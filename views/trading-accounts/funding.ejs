@@ -1,0 +1,362 @@
+<% setI18nPrefix('pages.trading-accounts.funding') %>
+<link rel="stylesheet" href="<%=md5('/css/pages/funding.css')%>">
+<script src="<%=md5('/js/funding.js')%>" charset="utf-8"></script>
+<meta name="description" content="<%- $t('meta', true) %>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+    <div class="single-page funding">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('funding_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('funding_2')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="funding_1" class="icm-btn icm-btn-primary" href="<%=localePath('open-trading-account-live') %>"><%-$t('funding_0')%></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+            <%- include('./_menu.ejs', { current: 'trading-accounts-funding' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="currency_map">
+                        <% if (cysec) { %>
+                            <div class="currency_badge"><a href="#" id="usd"><b>USD - </b><%-$t('funding_18')%></a></div>
+                            <div class="currency_badge"><a href="#" id="eur"><b>EUR - </b><%-$t('funding_19')%></a></div>
+                            <div class="currency_badge"><a href="#" id="gbp"><b>GBP - </b><%-$t('funding_21')%></a></div>
+                        <% } else if(fca) { %>
+                            <div class="currency_badge"><a href="#" id="usd"><b>USD - </b><%-$t('funding_18')%></a></div>
+                            <div class="currency_badge"><a href="#" id="eur"><b>EUR - </b><%-$t('funding_19')%></a></div>
+                            <div class="currency_badge"><a href="#" id="gbp"><b>GBP - </b><%-$t('funding_21')%></a></div>
+                        <% } else {%>
+                            <div class="currency_badge"><a href="#" id="aud"><b>AUD - </b><%-$t('funding_17')%></a></div>
+                            <div class="currency_badge"><a href="#" id="usd"><b>USD - </b><%-$t('funding_18')%></a></div>
+                            <div class="currency_badge"><a href="#" id="eur"><b>EUR - </b><%-$t('funding_19')%></a></div>
+                            <div class="currency_badge"><a href="#" id="cad"><b>CAD - </b><%-$t('funding_20')%></a></div>
+                            <div class="currency_badge"><a href="#" id="gbp"><b>GBP - </b><%-$t('funding_21')%></a></div>
+                            <div class="currency_badge"><a href="#" id="sgd"><b>SGD - </b><%-$t('funding_211')%></a></div>
+                            <div class="currency_badge"><a href="#" id="nzd"><b>NZD - </b><%-$t('funding_22')%></a></div>
+                            <div class="currency_badge"><a href="#" id="jpy"><b>JPY - </b><%-$t('funding_23')%></a></div>
+                            <div class="currency_badge"><a href="#" id="hkd"><b>HKD - </b><%-$t('funding_24')%></a></div>
+                            <div class="currency_badge"><a href="#" id="chf"><b>CHF - </b><%-$t('funding_25')%></a></div>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="page-section first-section">
+                    <div class="funding-cards-grid">
+                        <%- include('../_partials/components/deposit-card.ejs', {class: 'card1', show_popular: true,
+                            title: $t('funding_9'), popular: $t('funding_99'),
+                            accepted_currencies: $t('funding_10'),
+                            approx_processing_time: $t('funding_11'),
+                            type: $t('deposit_creditanddebitcards'),
+                            typeSmall: '',
+                            logo1: 'visa',
+                            logo2: 'master',
+                            currency1: (cysec || fca) ? ['USD', 'EUR', 'GBP'] : ['AUD','USD','JPY','EUR'],
+                            currency2: (cysec || fca) ? [] : ['NZD','SGD','GBP','CAD'],
+                            time: $t('funding_12'),
+                            buttonRoute: '',
+                            buttonText: $t('funding_16')
+                        }); %>
+                        <% if (!fca) { %>
+                            <% if (!cysec && !scb) { %>
+                                <%- include('../_partials/components/deposit-card.ejs', {class: 'card2', show_popular: false,
+                                    title: $t('funding_9'), popular: $t('funding_99'),
+                                    accepted_currencies: $t('funding_10'),
+                                    approx_processing_time: $t('funding_11'),
+                                    type: $t('deposit_paypal'),
+                                    typeSmall: '',
+                                    logo1: 'paypal',
+                                    logo2: '',
+                                    currency1: cysec ? ['EUR'] : ['AUD','USD','JPY','EUR','NZD'],
+                                    currency2: cysec ? [] : ['SGD','GBP','CAD','HKD','CHF'],
+                                    time: $t('funding_12'),
+                                    buttonRoute: '',
+                                    buttonText: $t('funding_16')
+                                }); %>
+                            <% } %>
+                            <% if (!scb) { %>
+                                <%- include('../_partials/components/deposit-card.ejs', {class: 'card3', show_popular: false,
+                                    title: $t('funding_9'), popular: $t('funding_99'),
+                                    accepted_currencies: $t('funding_10'),
+                                    approx_processing_time: $t('funding_11'),
+                                    type: $t('deposit_neteller'),
+                                    typeSmall: cysec ? $t('deposit_neteller_cy_small') : '',
+                                    logo1: 'neteller',
+                                    logo2: '',
+                                    currency1: cysec ? ['USD', 'GBP', 'EUR'] : ['USD','AUD','GBP','EUR'],
+                                    currency2: cysec ? [] : ['CAD','SGD','JPY'],
+                                    time: $t('funding_12'),
+                                    buttonRoute: '',
+                                    buttonText: $t('funding_16')
+                                }); %>
+                            <% } %>
+                            <% if (!cysec && !scb) { %>
+                                <%- include('../_partials/components/deposit-card.ejs', {class: 'card4', show_popular: false,
+                                    title: $t('funding_9'), popular: $t('funding_99'),
+                                    accepted_currencies: $t('funding_10'),
+                                    approx_processing_time: $t('funding_11'),
+                                    type: $t('deposit_neteller_vip'),
+                                    typeSmall: '',
+                                    logo1: 'neteller_vip',
+                                    logo2: '',
+                                    currency1: cysec ? ['EUR'] : ['AUD','GBP','EUR'],
+                                    currency2: cysec ? [] : ['CAD','SGD','JPY'],
+                                    time: $t('funding_12'),
+                                    buttonRoute: 'trading-accounts-funding-netellervip',
+                                    buttonText: $t('funding_16')
+                                }); %>
+                            <% } %>
+                            <% if (!scb) { %>
+                                <%- include('../_partials/components/deposit-card.ejs', {class: 'card5', show_popular: false,
+                                    title: $t('funding_9'), popular: $t('funding_99'),
+                                    accepted_currencies: $t('funding_10'),
+                                    approx_processing_time: $t('funding_11'),
+                                    type: $t('deposit_skrill'),
+                                    typeSmall: cysec ? $t('deposit_neteller_cy_small') : '',
+                                    logo1: 'skrill',
+                                    logo2: '',
+                                    currency1: cysec ? ['USD','EUR','GBP'] : ['AUD','USD','JPY','EUR'],
+                                    currency2: cysec ? [] : ['SGD','GBP'],
+                                    time: $t('funding_12'),
+                                    buttonRoute: '',
+                                    buttonText: $t('funding_16')
+                                }); %>
+                            <% } %>
+                            <% if (!cysec && !scb) { %>
+                                <%- include('../_partials/components/deposit-card.ejs', {class: 'card6', show_popular: false,
+                                    title: $t('funding_9'), popular: $t('funding_99'),
+                                    accepted_currencies: $t('funding_10'),
+                                    approx_processing_time: $t('funding_11'),
+                                    type: $t('deposit_union_pay'),
+                                    typeSmall: '',
+                                    logo1: 'union_pay',
+                                    logo2: '',
+                                    currency1: cysec ? ['EUR'] : ['RMB'],
+                                    currency2: cysec ? [] : [],
+                                    time: $t('funding_12'),
+                                    buttonRoute: '',
+                                    buttonText: $t('funding_16')
+                                }); %>
+                            <% } %>
+                        <% } %>
+                        <%- include('../_partials/components/deposit-card.ejs', {class: 'card7', show_popular: false,
+                            title: $t('funding_9'), popular: $t('funding_99'),
+                            accepted_currencies: $t('funding_10'),
+                            approx_processing_time: $t('funding_11'),
+                            type: $t('deposit_wire_transfer'),
+                            typeSmall: '',
+                            logo1: 'wire_transfer',
+                            logo2: '',
+                            currency1: cysec ? ['USD','EUR','GBP'] : fca ? ['USD','EUR','GBP'] : ['AUD','USD','JPY','EUR','NZD'],
+                            currency2: cysec ? [] : fca ? [] : ['SGD','GBP','CAD','CHF'],
+                            time: $t('funding_1111'),
+                            buttonRoute: '',
+                            buttonText: $t('funding_16')
+                        }); %>
+                        <% if (!fca) { %>
+                            <% if (!cysec && !scb) { %>
+                                <%- include('../_partials/components/deposit-card.ejs', {class: 'card8', show_popular: false,
+                                    title: $t('funding_9'), popular: $t('funding_99'),
+                                    accepted_currencies: $t('funding_10'),
+                                    approx_processing_time: $t('funding_11'),
+                                    type: $t('deposit_bpay'),
+                                    typeSmall: '',
+                                    logo1: 'bpay',
+                                    logo2: '',
+                                    currency1: cysec ? ['EUR'] : ['AUD'],
+                                    currency2: cysec ? [] : [],
+                                    time: $t('deposit_time_1248'),
+                                    buttonRoute: '',
+                                    buttonText: $t('funding_16')
+                                }); %>
+                            <% } %>
+                            <% if (!cysec && !scb) { %>
+                                <%- include('../_partials/components/deposit-card.ejs', {class: 'card9', show_popular: false,
+                                    title: $t('funding_9'), popular: $t('funding_99'),
+                                    accepted_currencies: $t('funding_10'),
+                                    approx_processing_time: $t('funding_11'),
+                                    type: $t('deposit_fasa_pay'),
+                                    typeSmall: '',
+                                    logo1: 'fasa_pay',
+                                    logo2: '',
+                                    currency1: cysec ? ['EUR'] : ['USD'],
+                                    currency2: cysec ? [] : [],
+                                    time: $t('funding_12'),
+                                    buttonRoute: '',
+                                    buttonText: $t('funding_16')
+                                }); %>
+                            <% } %>
+                            <% if (!cysec) { %>
+                                <%- include('../_partials/components/deposit-card.ejs', {class: 'card10', show_popular: false,
+                                    title: $t('funding_9'), popular: $t('funding_99'),
+                                    accepted_currencies: $t('funding_10'),
+                                    approx_processing_time: $t('funding_11'),
+                                    type: $t('deposit_broker_to_broker'),
+                                    typeSmall: '',
+                                    logo1: 'broker_to_broker',
+                                    logo2: '',
+                                    currency1: cysec ? ['EUR'] : ['AUD','USD','JPY','EUR','NZD'],
+                                    currency2: cysec ? [] : ['SGD','GBP','CAD','CHF','HKD'],
+                                    time: $t('funding_1112'),
+                                    buttonRoute: '',
+                                    buttonText: $t('funding_16')
+                                }); %>
+                            <% } %>
+                            <% if (!cysec && !scb) { %>
+                                <%- include('../_partials/components/deposit-card.ejs', {class: 'card11', show_popular: false,
+                                    title: $t('funding_9'), popular: $t('funding_99'),
+                                    accepted_currencies: $t('funding_10'),
+                                    approx_processing_time: $t('funding_11'),
+                                    type: $t('deposit_poli'),
+                                    typeSmall: '',
+                                    logo1: 'poli',
+                                    logo2: '',
+                                    currency1: cysec ? ['EUR'] : ['AUD'],
+                                    currency2: cysec ? [] : [],
+                                    time: $t('funding_12'),
+                                    buttonRoute: '',
+                                    buttonText: $t('funding_16')
+                                }); %>
+                            <% } %>
+                            <% if (!cysec) { %>
+                                <%- include('../_partials/components/deposit-card.ejs', {class: 'card12', show_popular: false,
+                                    title: $t('funding_9'), popular: $t('funding_99'),
+                                    accepted_currencies: $t('funding_10'),
+                                    approx_processing_time: $t('funding_11'),
+                                    type: $t('deposit_thai'),
+                                    typeSmall: '',
+                                    logo1: 'thai',
+                                    logo2: '',
+                                    currency1: cysec ? ['EUR'] : ['USD'],
+                                    currency2: cysec ? [] : [],
+                                    time: $t('deposit_time_1530'),
+                                    buttonRoute: '',
+                                    buttonText: $t('funding_16')
+                                }); %>
+                            <% } %>
+                            <% if (!cysec && !scb) { %>
+                                <%- include('../_partials/components/deposit-card.ejs', {class: 'card13', show_popular: false,
+                                    title: $t('funding_9'), popular: $t('funding_99'),
+                                    accepted_currencies: $t('funding_10'),
+                                    approx_processing_time: $t('funding_11'),
+                                    type: 'Rapidpay',
+                                    typeSmall: '',
+                                    logo1: 'rapidpay',
+                                    logo2: '',
+                                    currency1: cysec ? ['EUR'] : ['EUR', 'GBP'],
+                                    currency2: cysec ? [] : [],
+                                    time: $t('funding_12'),
+                                    buttonRoute: '',
+                                    buttonText: $t('funding_16')
+                                }); %>
+                            <% } %>
+                            <% if (!cysec && !scb) { %>
+                                <%- include('../_partials/components/deposit-card.ejs', {class: 'card14', show_popular: false,
+                                    title: $t('funding_9'), popular: $t('funding_99'),
+                                    accepted_currencies: $t('funding_10'),
+                                    approx_processing_time: $t('funding_11'),
+                                    type: 'Klarna',
+                                    typeSmall: '',
+                                    logo1: 'klarna',
+                                    logo2: '',
+                                    currency1: cysec ? ['EUR'] : ['EUR', 'GBP'],
+                                    currency2: cysec ? [] : [],
+                                    time: $t('funding_12'),
+                                    buttonRoute: '',
+                                    buttonText: $t('funding_16')
+                                }); %>
+                            <% } %>
+                            <% if (false) { %>
+                                <%- include('../_partials/components/deposit-card.ejs', {class: 'card15', show_popular: false,
+                                    title: $t('funding_9'), popular: $t('funding_99'),
+                                    accepted_currencies: $t('funding_10'),
+                                    approx_processing_time: $t('funding_11'),
+                                    type: 'Bitcoin Wallet',
+                                    typeSmall: '',
+                                    logo1: 'btcwallet',
+                                    logo2: '',
+                                    currency1: cysec ? ['EUR'] : ['BTC'],
+                                    currency2: cysec ? [] : [],
+                                    time: $t('funding_1_2'),
+                                    buttonRoute: '',
+                                    buttonText: $t('funding_16')
+                                }); %>
+                            <% } %>
+                            <% if (!cysec) { %>
+                                <%- include('../_partials/components/deposit-card.ejs', {class: 'card16', show_popular: false,
+                                    title: $t('funding_9'), popular: $t('funding_99'),
+                                    accepted_currencies: $t('funding_10'),
+                                    approx_processing_time: $t('funding_11'),
+                                    type: $t('deposit_viet'),
+                                    typeSmall: '',
+                                    logo1: 'viet',
+                                    logo2: '',
+                                    currency1: cysec ? ['EUR'] : ['USD'],
+                                    currency2: cysec ? [] : [],
+                                    time: $t('funding_12'),
+                                    buttonRoute: '',
+                                    buttonText: $t('funding_16')
+                                }); %>
+                            <% } %>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content">
+                <% if (cysec) {%>
+                    <div class="page-section">
+                    <%-$t('funding_39')%><a id="funding_2" target="_blank" href="https://cdn.icmarkets.eu/uploads/EU/RISK+DISCLOSURE+NOTICE.pdf"><%-$t('funding_40')%></a>
+                    <%-$t('funding_41')%><a id="funding_3" target="_blank" href="https://cdn.icmarkets.eu/uploads/EU/DEPOSITS+AND+WITHDRAWALS+POLICY.pdf"><%-$t('funding_42')%></a>
+                    <%-$t('funding_43')%><a id="funding_4" target="_blank" href="https://cdn.icmarkets.eu/uploads/EU/REFUND+AND+CANCELLATION+POLICY.pdf"><%-$t('funding_44')%></a>
+                    <%-$t('funding_45')%>
+                    </div>
+                <% } else if (fca) { %>
+                    <div class="page-section">
+                      <%-$t('funding_39')%><a id="funding_2" target="_blank" href="https://cdn.icmarkets.eu/uploads/EU/RISK+DISCLOSURE+NOTICE.pdf"><%-$t('funding_40')%></a>
+                      <%-$t('funding_41')%><a id="funding_3" target="_blank" href="https://cdn.icmarkets.eu/uploads/EU/DEPOSITS+AND+WITHDRAWALS+POLICY.pdf"><%-$t('funding_42')%></a>
+                      <%-$t('funding_43')%><a id="funding_4" target="_blank" href="https://cdn.icmarkets.eu/uploads/EU/REFUND+AND+CANCELLATION+POLICY.pdf"><%-$t('funding_44')%></a>
+                      <%-$t('funding_45')%>
+                    </div>
+                <% } else { %>
+                    <div class="page-section split-2">
+                        <div class="left-section">
+                            <h1><%-$t('funding_26')%></h1>
+                            <p><%-$t('funding_27')%></p>
+                            <p><%-$t('funding_28')%></p>
+                        </div>
+                        <div class="right-section">
+                            <h1><%-$t('funding_29')%></h1>
+                            <p><%-$t('funding_30')%></p>
+                        </div>
+                    </div>
+                    <div class="page-section split-2">
+                        <div class="left-section">
+                            <h1><%-$t('funding_31')%></h1>
+                            <p><%-$t('funding_32')%></p>
+                        </div>
+                        <div class="right-section">
+                            <h1><%-$t('funding_33')%></h1>
+                            <p><%-$t('funding_34')%></p>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+            <% if (!fca) { %>
+                <div class="page-content global-markets-today">
+                    <div class="page-section">
+                        <div class="start-trading"><%-$t('funding_35')%></div>
+                        <div class="global-today"><%-$t('funding_36')%></div>
+                        <div class="icm-button-wrapper page-header__primary-button">
+                            <a id="funding_5"  class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('funding_37')%></a>
+                            <a id="funding_6"  class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('funding_38')%></a>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </article>
+    </div>

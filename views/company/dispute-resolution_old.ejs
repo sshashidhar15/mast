@@ -1,0 +1,74 @@
+<% setI18nPrefix('pages.company.dispute-resolution') %>
+<meta name="description" content="<%- $t('meta', true) %>">
+<link rel="stylesheet" href="<%=md5('/css/pages/dispute-resolution.css')%>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+    <div class="aml-policy-page">
+        <div class="generic-layout2-container">
+            <article class="generic-layout-col-1">
+
+                  <div class="generic-layout2-col1-item icm-border-standard-bottom">
+                      <h2 class="generic-layout2-col1-item__heading"><%- $t('makingacomplaint') %></h2>
+                      <div slot="slot-paragraph-list">
+                          <p class="generic-layout2-col1-item__paragraph"><%-$t('shouldyouwishtomakeacomplaintw')%></p>
+                          <p class="generic-layout2-col1-item__paragraph"><%-$t('firstlygatherallsupportingdoc')%></p>
+                          <p class="generic-layout2-col1-item__paragraph"><%-$t('nextcontactyouraccountmanager')%></p>
+                          <p class="generic-layout2-col1-item__paragraph"><%-$t('ifyourcomplaintcannotberesolve')%></p>
+                          <% if (!fsa && !scb && !fsc && !cima) { %>
+                          <p class="generic-layout2-col1-item__paragraph"><%-$t('youmaycontactourcompliancedepa')%></p>
+                          <address class="padding-bottom-std">
+                              <p>Compliance</p>
+                              <p>International Capital Markets Pty Ltd</p>
+                              <p>Level 4/50 Carrington Street</p>
+                              <p>Sydney NSW 2000</p>
+                          </address>
+                          <% } %>
+                          <% if (!asic) { %>
+                              <p class="generic-layout2-col1-item__paragraph"><%-$t('youmaycontactourcompliancedepa_seychells')%></p>
+                              <address class="padding-bottom-std">
+                                  <p>Compliance Department</p>
+                                  <p>Raw Trading Ltd</p>
+                                  <p>Eden Plaza, Office 209,</p>
+                                  <p>Eden Island, Mahe, Seychelles</p>
+                              </address>
+                              <p class="generic-layout2-col1-item__paragraph"><%-$t('weaimtoresolvemostmatterswithi')%></p>
+                          <% } %>
+                      </div>
+                  </div>
+
+                  <div class="generic-layout2-col1-item icm-border-standard-bottom">
+                      <h2 class="generic-layout2-col1-item__heading"><%- $t('disputeresolution') %></h2>
+                    <div slot="slot-paragraph-list">
+                        <p class="generic-layout2-col1-item__paragraph"><%-$t('weexpectthatouraccountmanagers')%></p>
+                        <% if (!fsa && !scb && !fsc && !cima) { %>
+                            <h4>IC Markets AU</h4>
+                            <p class="generic-layout2-col1-item__paragraph"><%-$t('dispute-resolution_0')%></p>
+                            <h3 class="padding-bottom-std"><%-$t('dispute-resolution_3')%></h3>
+                            <address class="padding-bottom-std">
+                                <p>Australian Financial Complaints Authority</p>
+                                <p>GPO Box 3</p>
+                                <p>Melbourne Vic 3000.</p>
+                                <p>Phone: 1800 931 678</p>
+                                <p>Website: <a id="dispute_resolution_old" href="http://www.afca.org.au" target="_blank">www.afca.org.au</a></p>
+                            </address>
+                        <% } %>
+                        <% if (!asic) { %>
+                            <h4>IC Markets Global</h4>
+                            <p class="generic-layout2-col1-item__paragraph"><%-$t('dispute-resolution_4')%></p>
+                            <h3 class="padding-bottom-std"><%-$t('dispute-resolution_2')%></h3>
+                            <address class="padding-bottom-std">
+                                <p>The Contact details for FSA are:</p>
+                                <p>Financial Services Authority (FSA) Seychelles</p>
+                                <p>PO Boz 991</p>
+                                <p>Bois de Rose Avenue</p>
+                                <p>Roche Chairman Victoria Mahe Republic of Seychelles       </p>
+                                <p>(+248) 438 08 00  </p>
+                                <p>(+248) 438 08 88</p>
+                            </address>
+                        <% } %>
+                    </div>
+            </article>
+            <%- include('../_partials/sidebar-blocks.ejs') %>
+        </div>
+    </div>

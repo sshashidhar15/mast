@@ -1,0 +1,78 @@
+<% setI18nPrefix('pages.trading-pricing.trading-conditions')%>
+<meta name="description" content="<%-$t('meta', true)%>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/trading-conditions.css')%>">
+<%- contentFor('title')%>
+  <%-$t('title')%>
+<%- contentFor('body')%>
+    <div class="single-page page-trading-conditions">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('trading_conditions_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('trading_conditions_2')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="trading_conditions_1" class="icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('trading_conditions_3')%></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'trading-pricing-trading-conditions' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="pre-imaged-section pre-img-1">
+                        <h1><%-$t('trading_conditions_4')%></h1>
+                        <p><%-$t('trading_conditions_5')%></p>
+                    </div>
+                </div>
+                <div class="page-section">
+                    <div class="pre-imaged-section pre-img-2">
+                        <h1><%-$t('trading_conditions_6')%></h1>
+                        <p><%-$t('trading_conditions_7')%></p>
+                    </div>
+                </div>
+                <div class="page-section">
+                    <div class="pre-imaged-section pre-img-3">
+                        <h1><%-$t('trading_conditions_8')%></h1>
+                        <p>
+                            <% if (isAPACcountry(countryCode)) { %>
+                                <%-$t('trading_conditions_9_apac')%>
+                            <% } else { %>
+                                <%-$t('trading_conditions_9')%>
+                            <% } %>                            
+                        </p>
+                    </div>
+                </div>
+                <div class="page-section">
+                    <div class="pre-imaged-section pre-img-4">
+                        <h1><%-$t('trading_conditions_10')%></h1>
+                        <p><%-$t('trading_conditions_11')%></p>
+                    </div>
+                </div>
+                <div class="page-section">
+                    <div class="pre-imaged-section pre-img-5">
+                        <h1><%-$t('trading_conditions_12')%></h1>
+                        <p><%-$t('trading_conditions_13')%></p>
+                    </div>
+                </div>
+                <div class="page-section">
+                    <div class="pre-imaged-section pre-img-6">
+                        <h1><%-$t('trading_conditions_14')%></h1>
+                        <p><%-$t('trading_conditions_15')%></p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('trading_conditions_16')%></div>
+                    <div class="global-today"><%-$t('trading_conditions_17')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                      <a id="trading_conditions_2" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live')%>"><%-$t('trading_conditions_18')%></a>
+                      <a id="trading_conditions_3" class="icm-btn demo" href="<%= localePath('open-trading-account-demo')%>"><%-$t('trading_conditions_19')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

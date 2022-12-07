@@ -1,0 +1,25 @@
+<% setI18nPrefix('menu.trading-pricing') %>
+<div class="page-header__menu">
+<%
+(cysec
+  ?
+    [
+      'trading-pricing-spreads',
+      'trading-pricing-trading-hours',
+      'trading-pricing-swap-rates'
+    ]
+  :
+    [
+      'trading-pricing-trading-conditions',
+      'trading-pricing-spreads',
+      'trading-pricing-trading-hours',
+      'trading-pricing-swap-rates'
+    ]
+).map(e => { %>
+      <% if (!fca || $t(e) != 'Trading Conditions') { %>
+        <div class="menu-item<%= typeof current !== 'undefined' && e === current ? ' current-page' : '' %>"><a id="trading_pricing_menu_1"  href="<%= localePath(e) %>" class="menu-title"><%-$t(e)%></a></div>
+      <% } %>
+    <% }) %>
+    <div class="menu-item menu-switch"><span class="menu-icon icon-switch"></span></div>
+  </div>
+<% prevI18nPrefix() %>

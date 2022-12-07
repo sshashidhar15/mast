@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="<%=md5('/css/components/deposit-card.css')%>">
+<div class="deposit-card-container">
+    <div class="deposit-content">
+        <% if(show_popular) {%>
+            <div class="popular-container">
+                <div class="popular_green"><%= popular %></div>
+            </div>
+        <%}%>
+        <div class="deposit-header">
+            <div id="deposit-title-<%=logo1%>" class="deposit-header__row1"><%= title %></div>
+            <% if(typeSmall !== '') {%>
+            <div id="deposit-type-<%=logo1%>" class="deposit-header__row2" style="padding-top: 13px;"><%= type %></div>
+            <% } else { %>
+            <div id="deposit-type1-<%=logo1%>" class="deposit-header__row2"><%= type %></div>
+            <% } %>
+            <% if(typeSmall) {%>
+                <div id="deposit-typesmall-<%=logo1%>" class="deposit-header__row-small"><%= typeSmall %></div>
+            <%}%>
+        </div>
+        <div class="deposit-row">
+            <div class="deposit-row__logo">
+                <% if(logo1) {%>
+                    <div class="deposit-row__logo-image <%= logo1 %>"></div>
+                <%}%>
+                <% if(logo2) {%>
+                    <div class="deposit-row__logo-image <%= logo2 %>"></div>
+                <%}%>
+            </div>
+        </div>
+        <div class="deposit-row currency-list">
+            <div class="deposit-row__accepted"><%= accepted_currencies %></div>
+            <div class="deposit-row__currency-list1">
+                <% currency1.forEach(item => {%>
+                    <div class="currency-item"><%= item %></div>
+                <%})%>
+            </div>
+            <div class="deposit-row__currency-list2">
+                <% currency2.forEach(item => {%>
+                    <div class="currency-item"><%= item %></div>
+                <%})%>
+            </div>
+        </div>
+        <div class="deposit-row approx-time">
+            <div class="deposit-row__approx"><%= approx_processing_time %></div>
+            <div class="deposit-row__time_col">
+                <div class="deposit-row__time"><%= time %></div>
+            </div>
+        </div>
+        <a id="deposit-btn-<%= logo1%>" class="icm-btn icm-btn-primary" href="<%= buttonRoute ? localePath(buttonRoute) : clientAreaPath() %>"><%= buttonText %></a>
+    </div>
+</div>

@@ -1,0 +1,149 @@
+<% setI18nPrefix('pages.trading-markets.indices')%>
+<meta name="description" content="<%-$t('meta', true)%>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/indices.css')%>">
+<%- contentFor('title')%>
+  <%-$t('title')%>
+<%- contentFor('body')%>
+    <div class="single-page page-indices">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('indices_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('indices_2')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="indices_1" class="icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('starttrading')%></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'trading-markets-indices' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="market-facts-card">
+                        <div class="facts-header">
+                            <div class="header-label"><%-$t('indices_4')%></div>
+                            <div class="header-title"><%-$t('indices_5')%></div>
+                        </div>
+                        <div class="facts-items">
+                            <div class="facts-item"><%-$t('indices_6')%></div>
+                            <div class="facts-item"><% if (cysec) { %><%-$t('indices_72')%><% } else { %><%-$t('indices_7')%><% } %></div>
+                            <div class="facts-item"><%-$t('indices_8')%></div>
+                            <div class="facts-item"><%-$t('indices_9')%></div>
+                            <div class="facts-item"><%-$t('indices_10')%></div>
+                            <div class="facts-item"><%-$t('indices_11')%></div>
+                        </div>
+                        <div class="action-buttons-container">
+                            <a id="indices_2" class="action-button icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('indices_12')%></a>
+                        </div>
+                    </div>
+                    <div class="first-section">
+                        <div class="page-first-text">
+                            <p><%-$t('indices_13')%></p>
+                            <p><%-$t('indices_14')%></p>
+                            <p><%-$t('indices_15')%></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content highlighted-content">
+                <div class="page-section split-2">
+                    <div class="left-section">
+                        <h1><%-$t('indices_16')%></h1>
+                        <p><%-$t('indices_17')%></p>
+                    </div>
+                    <div class="right-section">
+                        <h1><%-$t('indices_18')%></h1>
+                        <p><%-$t('indices_19')%></p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="page-section">
+                    <h1><%-$t('indices_20')%></h1>
+                    <div class="accent-block"><%-$t('indices_21')%></div>
+                    <div class="flex-section">
+                        <div class="flex-content">
+                            <div class="content-head"><%-$t('indices_22')%></div>
+                            <div class="content-inside label"><%-$t('indices_23')%></div>
+                            <div class="content-inside value">4951</div>
+                            <div class="content-inside label"><%-$t('indices_24')%></div>
+                            <div class="content-inside value">4970</div>
+                            <div class="content-inside label"><%-$t('indices_25')%></div>
+                            <div class="content-inside value">19</div>
+                            <div class="content-inside label"><%-$t('indices_26')%></div>
+                            <div class="content-inside value"><%-$t('indices_27')%></div>
+                        </div>
+                        <div class="flex-content">
+                            <div class="content-head"><%-$t('indices_28')%></div>
+                            <div class="content-inside ordinary"><%-$t('indices_29')%></div>
+                            <div class="content-inside description"><%-$t('indices_30')%></div>
+                        </div>
+                        <div class="flex-content">
+                            <div class="content-head"><%-$t('indices_31')%></div>
+                            <div class="content-inside ordinary"><%-$t('indices_32')%></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content highlighted-content">
+                <div class="page-section split-2">
+                    <div class="left-section">
+                        <h1 style="padding-right:30px;"><%-$t('indices_33')%></h1>
+                        <div class="risk-image"></div>
+                    </div>
+                    <div class="right-section">
+                        <p><%-$t('indices_34')%></p>
+                        <p><%-$t('indices_35')%></p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="page-section">
+                    <h1><%-$t('indices_36')%></h1>
+                    <div class="accent-block"><%-$t('indices_37')%></div>
+                    <article class="spreads-block icm-page-subsection-content">
+                        <div class="spreads-block__spread-item">
+                            <div class="spreads-accordion">
+                                <div class="panel-collapse collapse in">
+                                    <%- include('../_partials/components/indices-spread-table.ejs') %>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <% if (asic) { %>
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="profile-buttons">
+                        <a id="indices_3" style="text-decoration:none;" class="profile-button" href="<%= localePath('trading-pricing-spreads')%>">
+                            <div class="profile-button-label"><%-$t('indices_381')%></div>
+                            <div class="profile-button-value"><%-$t('indices_382')%></div>
+                        </a>
+                        <a id="indices_4" style="text-decoration:none;" class="profile-button" href="<%- getCDN() %>/uploads/AU/Indices-Product-Specification-Sheet.pdf" target="_blank">
+                            <div class="profile-button-label"><%-$t('indices_391')%></div>
+                            <div class="profile-button-value"><%-$t('indices_392')%></div>
+                        </a>
+                        <a id="indices_5" style="text-decoration:none;" class="profile-button" href="<%= localePath('trading-accounts-raw-spread-account')%>">
+                            <div class="profile-button-label"><%-$t('indices_401')%></div>
+                            <div class="profile-button-value"><%-$t('indices_4021')%></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('indices_41')%></div>
+                    <div class="global-today"><%-$t('indices_42')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="indices_6" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live')%>"><%-$t('indices_43')%></a>
+                        <a id="indices_7" class="icm-btn demo" href="<%= localePath('open-trading-account-demo')%>"><%-$t('indices_44')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

@@ -1,0 +1,345 @@
+<% setI18nPrefix('pages.trading-markets.cryptocurrency')%>
+<meta name="description" content="<%-$t('meta', true)%>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/cryptocurrency.css')%>">
+<%- contentFor('title')%>
+<%-$t('title')%>
+<%- contentFor('body')%>
+<div class="single-page page-cryptocurrency">
+    <article class="page-header">
+        <section class="page-header__container">
+            <header>
+                <h1 class="page-header__heading--style"><%-$t('crypto_1')%></h1>
+            </header>
+            <div class="page-header__description"><%-$t('crypto_2')%></div>
+            <div class="icm-button-wrapper page-header__primary-button">
+                <a id="digitalcurrency_1" class="icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('starttrading')%></a>
+            </div>
+        </section>
+    </article>
+    <article class="page-header__menu-container">
+        <%- include('./_menu.ejs', { current: 'trading-markets-digitalcurrency' }) %>
+    </article>
+    <article class="page-content-container">
+        <div class="page-content">
+            <div class="page-section">
+                <div class="market-facts-card">
+                    <div class="facts-header">
+                        <div class="header-label"><%-$t('crypto_4')%></div>
+                        <div class="header-title"><%-$t('crypto_5')%></div>
+                    </div>
+                    <div class="facts-items">
+                        <div class="facts-item"><% if (cysec) { %><%-$t('crypto_66')%><% } else { %><%-$t('crypto_6')%><% } %></div>
+                        <div class="facts-item"><%-$t('crypto_7')%></div>
+                        <div class="facts-item"><%-$t('crypto_8')%></div>
+                        <div class="facts-item"><%-$t('crypto_9')%></div>
+                        <div class="facts-item"><%-$t('crypto_10')%></div>
+                        <div class="facts-item"><%-$t('crypto_11')%></div>
+                    </div>
+                    <div class="action-buttons-container">
+                        <a id="digitalcurrency_2" class="action-button icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('crypto_12')%></a>
+                    </div>
+                </div>
+                <div class="first-section">
+                    <p><%-$t('crypto_13a')%></p>
+                    <div class="page-first-text">
+                        <p><%-$t('crypto_13')%></p>
+                        <p><%-$t('crypto_14')%></p>
+                        <p><%-$t('crypto_15')%></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-content highlighted-content">
+            <div class="page-section crypto-items-container">
+                <div class="crypto-item c-bitcoin">
+                    <div class="crypto-image"></div>
+                    <div class="crypto-content">
+                        <h1><%-$t('crypto_16')%></h1>
+                        <p><%-$t('crypto_17')%></p>
+                    </div>
+                </div>
+                <div class="crypto-item c-ethereum">
+                    <div class="crypto-image"></div>
+                    <div class="crypto-content">
+                        <h1><%-$t('crypto_18')%></h1>
+                        <p><%-$t('crypto_19')%></p>
+                    </div>
+                </div>
+                <div class="crypto-item c-dash">
+                    <div class="crypto-image"></div>
+                    <div class="crypto-content">
+                        <h1><%-$t('crypto_20')%></h1>
+                        <p><%-$t('crypto_21')%></p>
+                    </div>
+                </div>
+                <div class="crypto-item c-litecoin">
+                    <div class="crypto-image"></div>
+                    <div class="crypto-content">
+                        <h1><%-$t('crypto_22')%></h1>
+                        <p><%-$t('crypto_23')%></p>
+                    </div>
+                </div>
+                <div class="crypto-item c-bitcoin-cash">
+                    <div class="crypto-image"></div>
+                    <div class="crypto-content">
+                        <h1><%-$t('crypto_24')%></h1>
+                        <p><%-$t('crypto_25')%></p>
+                    </div>
+                </div>
+                <div class="crypto-item c-ripple">
+                    <div class="crypto-image"></div>
+                    <div class="crypto-content">
+                        <h1><%-$t('crypto_26')%></h1>
+                        <p><%-$t('crypto_27')%></p>
+                    </div>
+                </div>
+                <div class="crypto-item c-eos">
+                    <div class="crypto-image"></div>
+                    <div class="crypto-content">
+                        <h1><%-$t('crypto_101')%></h1>
+                        <p><%-$t('crypto_102')%></p>
+                    </div>
+                </div>
+                <div class="crypto-item c-emc">
+                    <div class="crypto-image"></div>
+                    <div class="crypto-content">
+                        <h1><%-$t('crypto_103')%></h1>
+                        <p><%-$t('crypto_104')%></p>
+                    </div>
+                </div>
+                <div class="crypto-item c-nmc">
+                    <div class="crypto-image"></div>
+                    <div class="crypto-content">
+                        <h1><%-$t('crypto_105')%></h1>
+                        <p><%-$t('crypto_106')%></p>
+                    </div>
+                </div>
+                <div class="crypto-item c-ppc">
+                    <div class="crypto-image"></div>
+                    <div class="crypto-content">
+                        <h1><%-$t('crypto_107')%></h1>
+                        <p><%-$t('crypto_108')%></p>
+                    </div>
+                </div>
+                <div class="crypto-item c-dot">
+                    <div class="crypto-image"></div>
+                    <div class="crypto-content">
+                        <h1><%-$t('crypto_109')%></h1>
+                        <p><%-$t('crypto_110')%></p>
+                    </div>
+                </div>
+                <div class="crypto-item c-lnk">
+                    <div class="crypto-image"></div>
+                    <div class="crypto-content">
+                        <h1><%-$t('crypto_111')%></h1>
+                        <p><%-$t('crypto_112')%></p>
+                    </div>
+                </div>
+                <div class="crypto-item c-xlm">
+                    <div class="crypto-image"></div>
+                    <div class="crypto-content">
+                        <h1><%-$t('crypto_113')%></h1>
+                        <p><%-$t('crypto_114_2')%></p>
+                    </div>
+                </div>
+                <div class="crypto-item c-dgc">
+                    <div class="crypto-image"></div>
+                    <div class="crypto-content">
+                        <h1>
+                            <%-$t('crypto_115')%>
+                        </h1>
+                        <p>
+                            <%-$t('crypto_115_1')%>
+                        </p>
+                    </div>
+                </div>
+                <div class="crypto-item c-tzs">
+                    <div class="crypto-image"></div>
+                    <div class="crypto-content">
+                        <h1>
+                            <%-$t('crypto_116')%>
+                        </h1>
+                        <p>
+                            <%-$t('crypto_116_1')%>
+                        </p>
+                    </div>
+                </div>
+                <div class="crypto-item c-usp">
+                    <div class="crypto-image"></div>
+                    <div class="crypto-content">
+                        <h1>
+                            <%-$t('crypto_117')%>
+                        </h1>
+                        <p>
+                            <%-$t('crypto_117_1')%>
+                        </p>
+                    </div>
+                </div>
+                <div class="crypto-item c-cdo">
+                    <div class="crypto-image"></div>
+                    <div class="crypto-content">
+                        <h1>
+                            <%-$t('crypto_118')%>
+                        </h1>
+                        <p>
+                            <%-$t('crypto_118_1')%>
+                        </p>
+                    </div>
+                </div>
+                <div class="crypto-item c-bnc">
+                    <div class="crypto-image"></div>
+                    <div class="crypto-content">
+                        <h1>
+                            <%-$t('crypto_119')%>
+                        </h1>
+                        <p>
+                            <%-$t('crypto_119_1')%>
+                        </p>
+                    </div>
+                </div>
+                <div class="crypto-item c-avalanche">
+                    <div class="crypto-image"></div>
+                    <div class="crypto-content">
+                        <h1>
+                            <%-$t('crypto_120')%>
+                        </h1>
+                        <p>
+                            <%-$t('crypto_120_1')%>
+                        </p>
+                    </div>
+                </div>
+                <div class="crypto-item c-luna">
+                    <div class="crypto-image"></div>
+                    <div class="crypto-content">
+                        <h1>
+                            <%-$t('crypto_121')%>
+                        </h1>
+                        <p>
+                            <%-$t('crypto_121_1')%>
+                        </p>
+                    </div>
+                </div>
+                <div class="crypto-item c-polygon-matic">
+                    <div class="crypto-image"></div>
+                    <div class="crypto-content">
+                        <h1>
+                            <%-$t('crypto_122')%>
+                        </h1>
+                        <p>
+                            <%-$t('crypto_122_1')%>
+                        </p>
+                    </div>
+                </div>
+                <div class="crypto-item c-moonbeam">
+                    <div class="crypto-image"></div>
+                    <div class="crypto-content">
+                        <h1>
+                            <%-$t('crypto_123')%>
+                        </h1>
+                        <p>
+                            <%-$t('crypto_123_1')%>
+                        </p>
+                    </div>
+                </div>
+                <div class="crypto-item c-kusama">
+                    <div class="crypto-image"></div>
+                    <div class="crypto-content">
+                        <h1>
+                            <%-$t('crypto_124')%>
+                        </h1>
+                        <p>
+                            <%-$t('crypto_124_1')%>
+                        </p>
+                    </div>
+                </div>            
+            </div>
+        </div>
+        <div class="page-content">
+            <div class="page-section split-2">
+                <div class="left-section">
+                    <h1><%-$t('crypto_28')%></h1>
+                    <div class="risk-image"></div>
+                </div>
+                <div class="right-section">
+                    <p><%-$t('crypto_30')%></p>
+                    <p><%-$t('crypto_31')%></p>
+                    <p><%-$t('crypto_32')%></p>
+                    <p><%-$t('crypto_33')%></p>
+                </div>
+            </div>
+        </div>
+        <div class="page-content highlighted-content">
+            <div class="page-section">
+                <h1><%-$t('crypto_34')%></h1>
+                <div class="accent-block"><%-$t('crypto_35')%></div>
+                <div class="flex-section">
+                    <div class="flex-content">
+                        <div class="content-head"><%-$t('crypto_36')%></div>
+                        <div class="content-inside label"><%-$t('crypto_37')%></div>
+                        <div class="content-inside value">3910.25 * 2 = USD $7820.50</div>
+                        <div class="content-inside label"><%-$t('crypto_38')%></div>
+                        <div class="content-inside value">4200.50 * 2 = USD $8401.00</div>
+                        <div class="content-inside label"><%-$t('crypto_39')%></div>
+                        <div class="content-inside value">USD $8401.00 - 7820.50 = $580.50</div>
+                    </div>
+                    <div class="flex-content">
+                        <div class="content-head"><%-$t('crypto_40')%></div>
+                        <div class="content-inside ordinary"><%-$t('crypto_41')%></div>
+                        <% if (asic) { %>
+                        <div class="content-inside description"><%-$t('crypto_42')%></div>
+                        <% } %>
+                    </div>
+                    <div class="flex-content">
+                        <div class="content-head"><%-$t('crypto_43')%></div>
+                        <div class="content-inside ordinary"><%-$t('crypto_44')%></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-content">
+            <div class="page-section">
+                <h1><%-$t('crypto_45')%></h1>
+                <div class="accent-block"><%-$t('crypto_46')%></div>
+                <article class="spreads-block icm-page-subsection-content">
+                    <div class="spreads-block__spread-item">
+                        <div class="spreads-accordion">
+                            <div class="panel-collapse collapse in">
+                                <%- include('../_partials/components/cryptocurrency-spread-table.ejs') %>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <% if (asic) { %>
+        <div class="page-content">
+            <div class="page-section">
+                <div class="profile-buttons">
+                    <a id="digitalcurrency_3" style="text-decoration:none;" class="profile-button" href="<%= localePath('trading-pricing-spreads')%>">
+                        <div class="profile-button-label"><%-$t('crypto_471')%></div>
+                        <div class="profile-button-value"><%-$t('crypto_472')%></div>
+                    </a>
+                    <a id="digitalcurrency_4" style="text-decoration:none;" class="profile-button" href="<%- getCDN() %>/uploads/AU/Cryptocurrency-CFD-Specification-Sheet.pdf" target="_blank">
+                        <div class="profile-button-label"><%-$t('crypto_481')%></div>
+                        <div class="profile-button-value"><%-$t('crypto_482')%></div>
+                    </a>
+                    <a id="digitalcurrency_5" style="text-decoration:none;" class="profile-button" href="<%= localePath('trading-accounts-raw-spread-account')%>">
+                        <div class="profile-button-label"><%-$t('crypto_491')%></div>
+                        <div class="profile-button-value"><%-$t('crypto_4921')%></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <% } %>
+        <div class="page-content global-markets-today">
+            <div class="page-section">
+                <div class="start-trading"><%-$t('crypto_50')%></div>
+                <div class="global-today"><%-$t('crypto_51')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="digitalcurrency_6" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live')%>"><%-$t('crypto_52')%></a>
+                    <a id="digitalcurrency_7" class="icm-btn demo" href="<%= localePath('open-trading-account-demo')%>"><%-$t('crypto_53')%></a>
+                </div>
+            </div>
+        </div>
+    </article>
+</div>

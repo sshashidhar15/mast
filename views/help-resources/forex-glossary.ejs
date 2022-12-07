@@ -1,0 +1,230 @@
+<% setI18nPrefix('pages.help-resources.forex-glossary') %>
+<meta name="description" content="<%-$t('meta', true)%>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/forex-glossary.css')%>">
+<%- contentFor('title')%>
+  <%-$t('title')%>
+<%- contentFor('body')%>
+    <div class="single-page page-forex-glossary">
+        <%
+        let forexGlossary = {
+            searchDB: [],
+            glossaryDB: [],
+            getGlossary: function () {
+                if (!this.glossaryDB.length) {
+                    this.mountGlossaryDB();
+                }
+                return this.glossaryDB;
+            },
+            mountGlossaryDB: function () {
+                var arr = [];
+                var i, glos, o, l;
+                var order = [];
+                for (i = 0; i <= 213; i++) {
+                    glos = {
+                        o: 0,
+                        id: 'i_' + i,
+                        ip: '#i_' + i,
+                        g: $t('g' + i),
+                        d: $t('d' + i)
+                    };
+                    l = order.length;
+                    arr.push(glos);
+                }
+                this.glossaryDB = arr;
+            }
+        }
+        forexGlossary.mountGlossaryDB();
+        %>
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('glossary_1')%></h1>
+                </header>
+            </section>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section grid-section">
+                    <div class="grid-item gi-1">
+                        <article class="trading-hours-block icm-page-subsection-content">
+                            <div class="glossary-block__search">
+                                <h1 class="glossary-block__header"><%-$t('glossary_2')%></h1>
+                                <div class="glossary-search__container">
+                                    <input v-on:input="handleSearchInput" class="glossary-input glossary-search-input" type="text" placeholder="<%-$t('glossary_3', true)%>">
+                                    <div class="glossary-result"></div>
+                                    <div class="glossary-tips">
+                                        <p><b><%-$t('glossary_4')%></b></p><br>
+                                        <p><%-$t('glossary_5')%></p>
+                                        <p><%-$t('glossary_6')%></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="glossary-section glossary-section">
+                                <% forexGlossary.getGlossary().forEach(item => { %>
+                                    <div class="glossary-block__item">
+                                        <div class="glossary-accordion">
+                                            <div class="accordion-toggle collapsed glossary-block__expand-button" data-toggle="collapse" data-parent="#accordion" data-target="<%=item.ip%>"><%=item.g%></div>
+                                            <div id="<%=item.id%>" class="panel-collapse collapse">
+                                                <div class="panel-content"><%-item.d%></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <%})%>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="grid-item gi-2">
+                        <div class="sidebar-block">
+                            <div class="sidebar-cta-card-container sidebar-top-card random-background rnd-back-1">
+                                <a id="forex_glossary_1" style="display:block; text-decoration:none;" class="header-block client-area-button" href="<%= clientAreaPath({}) %>"><%-$t('glossary_7')%></a>
+                                <div class="content-block">
+                                    <a id="forex_glossary_2" style="display:block; text-decoration:none;" class="content-item" href="<%= localePath('trading-accounts-funding') %>"><%-$t('glossary_8')%></a>
+                                    <a id="forex_glossary_3" style="display:block; text-decoration:none;" class="content-item" href="<%= localePath('trading-accounts-withdrawal') %>"><%-$t('glossary_9')%></a>
+                                    <a id="forex_glossary_4" style="display:block; text-decoration:none;" class="content-item" href="<%= localePath('help-resources-help-centre') %>"><%-$t('glossary_11')%></a>
+                                    <a id="forex_glossary_5" style="display:block; text-decoration:none;" class="content-item" href="<%= localePath('company-contact-us') %>"><%-$t('glossary_12')%></a>
+                                </div>
+                                <div class="bottom-block">
+                                    <div class="icm-button-wrapper bottom-block__cta-button">
+                                        <a id="forex_glossary_6" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('glossary_13')%></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-card contact-block">
+                                <div class="contact-header">
+                                    <div class="header-label"><%-$t('glossary_14')%></div>
+                                    <div class="header-title"><%-$t('glossary_15')%></div>
+                                </div>
+                                <div class="contact-pre-imaged chat-img">
+                                    <div><%-$t('contact_card_help')%></div>
+                                </div>
+                                <% if (!fsa && !scb && !fsc && !cima) { %>
+                                <div class="contact-phone">
+                                    <div><%-$t('contact_card_phone')%></div>
+                                </div>
+                                <% } %>
+                                <div class="contact-pre-imaged email-img">
+                                    <% if (asic) {%>
+                                        <div><%-$t('contact_card_email_asic')%></div>
+                                    <% } else { %>
+                                        <div><%-$t('contact_card_email')%></div>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </article>
+        <div class="page-content global-markets-today">
+            <div class="page-section">
+                <div class="start-trading"><%-$t('glossary_18')%></div>
+                <div class="global-today"><%-$t('glossary_19_1')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="forex_glossary_7"  class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live')%>"><%-$t('glossary_20')%></a>
+                    <a id="forex_glossary_8" class="icm-btn demo" href="<%= localePath('open-trading-account-demo')%>"><%-$t('glossary_21')%></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+<script>
+    var forexGlossary = {
+        searchDB: [],
+        searchResultByInput: '',
+        searchHelpTips: false,
+        handleSearchInput: function (e) {
+            if (this.inputTimeout) clearTimeout(this.inputTimeout);
+
+            let value = '';
+            if (e.currentTarget) {
+                value = e.currentTarget.value;
+            }
+            this.inputTimeout = setTimeout(function () {
+                let val = value;
+                if (val) {
+                    this.searchResultByInput = val;
+                    this.searchHelpTips = false;
+                    this.searchDB = this.getFiltered(val);
+                } else {
+                    this.searchResultByInput = '';
+                    this.searchHelpTips = true;
+                    this.searchDB = [];
+                }
+                this.updateSearchView();
+            }.bind(this), 500);
+        },
+        getFiltered: function (text) {
+            text = text || '~~~~~~~~~~';
+            text = text.toLowerCase();
+            var res = [];
+            var matches = text.split(' ');
+            var filtered = this.glossaryDB.filter(function (rec) {
+                var h = document.createElement('DIV');
+                h.innerHTML = rec.d;
+                var t = h.textContent;
+                var raw = (rec.g + ' ' + t).toLowerCase();
+                var contain = true;
+                for (var i in matches) {
+                    var m = matches[i];
+                    if (raw.indexOf(m) === -1) {
+                        contain = false;
+                        break;
+                    }
+                }
+                if (contain) {
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+            if (filtered && filtered.length) {
+                var len = filtered.length;
+                res = [];
+                if (len > 5) {
+                    res = filtered.slice(0, 5);
+                } else {
+                    res = filtered;
+                }
+            }
+            return res;
+        },
+        updateSearchView: function () {
+            if (!this.$container) { this.$container = $('.glossary-search__container'); }
+            if (!this.$result) { this.$result = this.$container.find('.glossary-result'); }
+            if (!this.$tips) { this.$tips = this.$container.find('.glossary-tips'); }
+
+            if (this.searchHelpTips) {
+                this.$tips.show();
+            } else {
+                this.$tips.hide();
+            }
+
+            this.$result.html('');
+            var i, item, $record;
+            if (this.searchDB.length) {
+                for (i in this.searchDB) {
+                    item = this.searchDB[i];
+                    $record = $('' +
+                        '<div class="glossary-block__item">' +
+                            '<div class="glossary-accordion">' +
+                                '<div class="accordion-toggle glossary-block__expand-button" data-toggle="expand" data-parent="#accordion" data-target="' + item.ip + '">' + item.g + '</div>' +
+                                '<div v-bind:id="item.id" class="panel-collapse collapse in">' +
+                                    '<div class="panel-content">' + item.d + '</div>' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>'
+                    );
+                    $record.appendTo(this.$result);
+                }
+            }
+        },
+        glossaryDB: <%- JSON.stringify(forexGlossary.glossaryDB) %>
+    };
+
+    $(document).ready(function () {
+        $('input.glossary-search-input').on('input', forexGlossary.handleSearchInput.bind(forexGlossary));
+    });
+</script>

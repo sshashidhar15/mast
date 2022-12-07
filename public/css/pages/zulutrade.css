@@ -1,0 +1,332 @@
+/* ICM Primary values from UX design */
+/* Width - container, element, card, */
+/* Margin */
+/* padding */
+/* Border */
+/*
+  Roboto font related weights
+   https://fonts.google.com/specimen/Roboto?selection.family=Roboto:100,300,400,500,700,900
+*/
+/* font color, background color */
+/* UI elements specific color */
+/* Card specific color */
+/* max width properties for UI Cards for different number of cards in a container */
+/* one are more cards */
+/* three are more cards */
+i[x] {
+  display: none !important; }
+
+.single-page.zulutrade .notes-description {
+  width: 100%;
+  max-width: 1184px;
+  margin: 30px auto;
+  padding: 30px 10px;
+  border-top: 1px solid #e7e8e8;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.36;
+  letter-spacing: -0.3px;
+  text-align: left;
+  color: rgba(11, 10, 20, 0.74); }
+
+.single-page.zulutrade .popup-modal-mask {
+  position: fixed;
+  z-index: 9000;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: none; }
+  .single-page.zulutrade .popup-modal-mask:target {
+    display: flex; }
+  .single-page.zulutrade .popup-modal-mask .popup-container {
+    max-width: 350px;
+    margin: auto;
+    padding: 40px;
+    background: #f5f5f5;
+    position: relative; }
+    .single-page.zulutrade .popup-modal-mask .popup-container .popup-header {
+      font-size: 48px;
+      font-weight: 100;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1;
+      letter-spacing: -1px;
+      text-align: center;
+      color: rgba(11, 10, 20, 0.8);
+      margin-top: 30px;
+      margin-bottom: 60px; }
+    .single-page.zulutrade .popup-modal-mask .popup-container .popup-closer {
+      position: absolute;
+      text-decoration: none;
+      top: -5px;
+      right: 0;
+      padding: 20px;
+      font-size: 26px;
+      color: #bbb;
+      cursor: pointer; }
+      .single-page.zulutrade .popup-modal-mask .popup-container .popup-closer:hover {
+        color: #000; }
+    .single-page.zulutrade .popup-modal-mask .popup-container .popup-button {
+      border-radius: 0 !important;
+      margin-top: 30px;
+      display: block;
+      padding: 20px;
+      background: #34E834;
+      color: #333;
+      cursor: pointer; }
+
+.single-page.zulutrade .img-devices {
+  width: 45%;
+  background: url(/assets/img/single_market_page/zulutrade-img.png) left top no-repeat transparent;
+  background-size: contain;
+  background-position: right;
+  min-height: 568px; }
+
+.single-page.zulutrade .text-text-button {
+  width: 55%;
+  padding-right: 350px;
+  padding-top: 70px;
+  text-align: center; }
+  .single-page.zulutrade .text-text-button .title-tap {
+    color: #575757;
+    font-size: 50px; }
+  .single-page.zulutrade .text-text-button p {
+    margin-top: 32px;
+    margin-bottom: 46px;
+    color: #575757; }
+  .single-page.zulutrade .text-text-button .icm-button-wrapper {
+    width: max-content;
+    display: inline-block; }
+    .single-page.zulutrade .text-text-button .icm-button-wrapper button {
+      padding: 30px 50px;
+      text-transform: uppercase;
+      font-size: 26px;
+      font-weight: 600; }
+
+.single-page.zulutrade .with-vidos {
+  padding-top: 125px !important;
+  padding-bottom: 105px !important;
+  background-image: url(/assets/img/single_market_page/zulutrade-video-bg.jpg);
+  text-align: center; }
+  .single-page.zulutrade .with-vidos .title-vidos {
+    color: white;
+    font-size: 40px;
+    margin-bottom: 69px; }
+  .single-page.zulutrade .with-vidos .footer-vidos {
+    margin-top: 78px;
+    color: white;
+    font-size: 26px; }
+  .single-page.zulutrade .with-vidos .under-footer-vidos {
+    font-size: 14px;
+    color: #7c7c7c; }
+
+.single-page.zulutrade .zulu-title {
+  font-size: 41px; }
+
+.single-page.zulutrade .zulu-text {
+  margin-top: 33px;
+  color: #97979b; }
+
+.single-page.zulutrade .green-small-box {
+  background-color: #00f57c;
+  width: 44px;
+  height: 5px;
+  margin-top: 18px; }
+
+.single-page.zulutrade .single-page.zulutrade .two .with-text.right {
+  padding-top: 74px;
+  padding-left: 50px; }
+
+.single-page.zulutrade .zulu-img-fourtune-teller {
+  background: url(/assets/img/single_market_page/zulutrade-fortune-teller.png) left top no-repeat transparent;
+  background-size: contain;
+  width: 500px;
+  height: 333px; }
+
+.single-page.zulutrade .zulu-img-blue-mask {
+  background: url(/assets/img/single_market_page/zulutrade-blue-mask.png) left top no-repeat transparent;
+  background-size: contain;
+  width: 500px;
+  height: 333px; }
+
+.single-page.zulutrade .zulu-img-guard {
+  background: url(/assets/img/single_market_page/zulutrade-guard.png) left top no-repeat transparent;
+  background-size: contain;
+  width: 500px;
+  height: 333px; }
+
+.single-page.zulutrade .two {
+  display: flex; }
+  .single-page.zulutrade .two .left,
+  .single-page.zulutrade .two .right {
+    margin-top: 40px !important;
+    margin-bottom: 40px !important;
+    width: 50%; }
+  .single-page.zulutrade .two .left {
+    margin-right: 40px; }
+    .single-page.zulutrade .two .left .with-text {
+      padding-right: 50px; }
+  .single-page.zulutrade .two .right {
+    margin-right: 40px; }
+    .single-page.zulutrade .two .right .with-text {
+      padding-left: 50px !important; }
+  .single-page.zulutrade .two .with-text {
+    padding-top: 74px; }
+
+.single-page.zulutrade .page-header {
+  background: url(/assets/img/single_market_page/zulutrade-banner.jpg) no-repeat center right;
+  padding-top: 248px !important; }
+  .single-page.zulutrade .page-header .icm-button-wrapper.page-header__primary-button
+a.icm-btn.icm-btn-primary {
+    border-radius: 2px !important;
+    padding: 25px !important;
+    font-size: 20px !important;
+    font-weight: 900 !important;
+    text-transform: uppercase; }
+  .single-page.zulutrade .page-header .page-header__description {
+    max-width: 816px !important;
+    font-size: 23px !important;
+    font-weight: 400 !important; }
+  .single-page.zulutrade .page-header .icm-button-wrapper.page-header__primary-button.top-button {
+    margin-bottom: 28px; }
+  .single-page.zulutrade .page-header .page-header__container h2 {
+    color: #34E834;
+    font-size: 48px; }
+  .single-page.zulutrade .page-header .page-header__container h1 {
+    font-size: 90px !important;
+    font-weight: 800 !important; }
+  .single-page.zulutrade .page-header .page-header__container .note-header {
+    font-size: 11px;
+    margin-bottom: 139px; }
+
+.single-page.zulutrade .why-zulu {
+  padding-top: 104px;
+  padding-bottom: 133px;
+  text-align: center;
+  background-color: #f7fafa !important;
+  position: relative; }
+  .single-page.zulutrade .why-zulu .grey-big {
+    font-size: 50px; }
+  .single-page.zulutrade .why-zulu .grey-small {
+    color: #a0a2a5;
+    font-size: 30px; }
+  .single-page.zulutrade .why-zulu .arrow {
+    width: 54px;
+    height: 54px;
+    position: absolute;
+    bottom: -26px;
+    text-align: center;
+    font-size: xx-large;
+    background-color: white;
+    left: 50%;
+    border-radius: 26px;
+    box-shadow: 0px 0px 1px lightgrey; }
+
+.single-page.zulutrade .page-first-image {
+  min-height: 400px;
+  background: url(/assets/img/single_market_page/zulutrade-img.png) left top no-repeat transparent !important;
+  background-size: contain !important; }
+
+/* .single-page.zulutrade .page-content.global-markets-today {
+  background: black; } */
+
+.single-page.zulutrade .page-header__menu-container .page-header__menu .menu-item .menu-title {
+  padding-left: 0 !important;
+  text-transform: uppercase; }
+
+.single-page.zulutrade .page-section .first-section {
+  margin-left: 0 !important;
+  margin-bottom: -125px !important; }
+
+.single-page.zulutrade .page-first-text::before {
+  display: none; }
+
+.single-page.zulutrade .page-content.global-markets-today .icm-button-wrapper a.live {
+  border-radius: 0 !important;
+  padding: 25px !important;
+  font-size: 20px !important;
+  font-weight: 900 !important;
+  text-transform: uppercase; }
+
+.single-page.zulutrade .pre-image-item {
+  padding-left: 33px;
+  position: relative; }
+  .single-page.zulutrade .pre-image-item::before {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 10px;
+    width: 14px;
+    height: 14px;
+    transform: rotate(45deg);
+    border: 1px solid #b5b5b5;
+    background: #34e834;
+    box-shadow: 0 0 2px 2px #fff inset; }
+
+@media screen and (max-width: 1040px) {
+  .single-page.zulutrade .page-section .first-section .page-first-image {
+    min-height: 300px; } }
+
+@media screen and (max-width: 1000px) {
+  .single-page.zulutrade .two {
+    flex-direction: column; }
+    .single-page.zulutrade .two .img-devices {
+      width: 100%;
+      background-size: contain;
+      background-position: center; }
+    .single-page.zulutrade .two .text-text-button {
+      width: 100%;
+      padding-right: 0; }
+    .single-page.zulutrade .two .right,
+    .single-page.zulutrade .two .left {
+      width: 100%; }
+      .single-page.zulutrade .two .right .with-text,
+      .single-page.zulutrade .two .left .with-text {
+        text-align: center;
+        padding-left: 10px !important;
+        padding-right: 10px !important; } }
+
+@media screen and (max-width: 960px) {
+  .single-page.zulutrade .page-section .first-section {
+    padding-top: 80px !important;
+    margin-bottom: -85px !important; } }
+
+@media screen and (max-width: 940px) {
+  .single-page.zulutrade .grid-section {
+    grid-template-columns: 100%; }
+    .single-page.zulutrade .grid-section .gc-1 {
+      grid-row: 1; }
+    .single-page.zulutrade .grid-section .gc-4 {
+      grid-row: 2; }
+    .single-page.zulutrade .grid-section .gc-2 {
+      grid-row: 3;
+      margin-top: 40px; }
+    .single-page.zulutrade .grid-section .gc-5 {
+      grid-row: 4; }
+    .single-page.zulutrade .grid-section .gc-3 {
+      grid-row: 5;
+      margin-top: 40px; }
+    .single-page.zulutrade .grid-section .gc-6 {
+      grid-row: 6; } }
+
+@media screen and (max-width: 870px) {
+  .single-page.zulutrade .page-section .first-section {
+    padding-top: 80px !important;
+    margin-bottom: -85px !important; }
+    .single-page.zulutrade .page-section .first-section .page-first-image {
+      min-height: 150px; } }
+
+@media screen and (max-width: 768px) {
+  .single-page.zulutrade .floated-block {
+    float: initial;
+    margin: 40px auto; } }
+
+@media screen and (max-width: 640px) {
+  .single-page.zulutrade .page-section .first-section .page-first-image {
+    min-height: 300px; } }
+
+/*# sourceMappingURL=zulutrade.css.map */

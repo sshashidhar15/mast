@@ -1,0 +1,301 @@
+/* ICM Primary values from UX design */
+/* Width - container, element, card, */
+/* Margin */
+/* padding */
+/* Border */
+/*
+  Roboto font related weights
+   https://fonts.google.com/specimen/Roboto?selection.family=Roboto:100,300,400,500,700,900
+*/
+/* font color, background color */
+/* UI elements specific color */
+/* Card specific color */
+/* max width properties for UI Cards for different number of cards in a container */
+/* one are more cards */
+/* three are more cards */
+i[x] {
+  display: none !important; }
+
+.single-page.page-advanced-trading-tools .ui-card-list {
+  padding: 16px; }
+
+.single-page.page-advanced-trading-tools .advanced-trading-tools-block {
+  margin-top: 32px; }
+
+.single-page.page-advanced-trading-tools .icm-paragraph .icm-paragraph__container {
+  padding: 16px; }
+
+.single-page.page-advanced-trading-tools .icm-paragraph .icm-paragraph__desc:last-child {
+  padding-bottom: 0; }
+
+.single-page.page-advanced-trading-tools .sidebar-cta-card-container.random-background {
+  position: relative;
+  z-index: 1;
+  width: 308px !important;
+  margin: 0 auto;
+  padding-top: 236px;
+  padding-bottom: 64px;
+  border-radius: 14px;
+  float: right;
+  margin: 0px 40px 80px 80px !important;
+  background-image: url(/assets/img/single_market_page/api-trading-facts-bg.png) !important;
+  box-shadow: 0 3px 49px 0 rgba(0, 0, 0, 0.14); }
+  .single-page.page-advanced-trading-tools .sidebar-cta-card-container.random-background::before {
+    content: '';
+    position: absolute;
+    left: 52px;
+    top: 141px;
+    width: 204px;
+    height: 52px;
+    background: transparent no-repeat center center;
+    background-size: contain;
+    background-image: url(/assets/icons/svg/ICM-logo-transparentBG.svg); }
+  .single-page.page-advanced-trading-tools .sidebar-cta-card-container.random-background.sidebar-trueecn::before {
+    background-image: url(/assets/img/true-logo.png); }
+  .single-page.page-advanced-trading-tools .sidebar-cta-card-container.random-background .bottom-block__message {
+    font-size: 28px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.29;
+    letter-spacing: -0.6px;
+    text-align: center;
+    color: #ffffff;
+    padding: 0 40px;
+    margin-bottom: 40px; }
+  .single-page.page-advanced-trading-tools .sidebar-cta-card-container.random-background .bottom-block {
+    text-align: center; }
+    .single-page.page-advanced-trading-tools .sidebar-cta-card-container.random-background .bottom-block .icm-btn.icm-btn-primary {
+      background: #34E834 !important;
+      color: rgba(31, 29, 49, 0.8) !important;
+      line-height: 1 !important;
+      padding: 14px 25px !important;
+      border-radius: 30px;
+      border: none !important;
+      width: max-content;
+      font-size: 12px !important;
+      font-weight: 900 !important;
+      text-transform: uppercase; }
+    .single-page.page-advanced-trading-tools .sidebar-cta-card-container.random-background .bottom-block b {
+      font-weight: 900; }
+
+.single-page.page-advanced-trading-tools .pre-image-item {
+  padding-left: 33px;
+  position: relative; }
+  .single-page.page-advanced-trading-tools .pre-image-item::before {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 10px;
+    width: 14px;
+    height: 14px;
+    transform: rotate(45deg);
+    border: 1px solid #b5b5b5;
+    background: #34e834;
+    box-shadow: 0 0 2px 2px #fff inset; }
+
+.single-page.page-advanced-trading-tools .note {
+  margin-top: 30px;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1;
+  letter-spacing: -0.3px;
+  text-align: left;
+  color: rgba(11, 10, 20, 0.6); }
+  .single-page.page-advanced-trading-tools .note::before {
+    content: "* "; }
+
+.single-page.page-advanced-trading-tools .page-header {
+  background: url(/assets/img/single_market_page/api-trading-banner.jpg) no-repeat center right; }
+  .single-page.page-advanced-trading-tools .page-header .icm-button-wrapper.page-header__primary-button a.icm-btn.icm-btn-primary {
+    border-radius: 2px !important;
+    padding: 25px !important;
+    font-size: 20px !important;
+    font-weight: 900 !important;
+    text-transform: uppercase; }
+
+.single-page.page-advanced-trading-tools .page-content-container {
+  background: #fff !important; }
+
+/* .single-page.page-advanced-trading-tools .page-content.global-markets-today {
+  background-image: url(/assets/img/single_market_page/api-trading-btm-bg.png); } */
+
+.single-page.page-advanced-trading-tools .page-header__menu-container .page-header__menu .menu-item .menu-title {
+  padding-left: 0 !important;
+  text-transform: uppercase; }
+
+.single-page.page-advanced-trading-tools .page-section .first-section {
+  margin-left: 0 !important;
+  padding-top: 0 !important;
+  margin-bottom: 0 !important; }
+
+.single-page.page-advanced-trading-tools .page-first-text {
+  margin-bottom: 47px;
+  font-size: 24px;
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.54;
+  letter-spacing: -0.5px;
+  text-align: left;
+  color: rgba(11, 10, 20, 0.8); }
+
+.single-page.page-advanced-trading-tools .page-first-text::before {
+  display: none; }
+
+.single-page.page-advanced-trading-tools .page-content.global-markets-today .icm-button-wrapper a.live {
+  border-radius: 0 !important;
+  padding: 25px !important;
+  font-size: 20px !important;
+  font-weight: 900 !important;
+  text-transform: uppercase; }
+
+.single-page.page-advanced-trading-tools .page-content.global-markets-today .icm-button-wrapper a.demo {
+  border-radius: 0 !important;
+  padding: 25px !important;
+  font-size: 20px !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  color: #fff !important;
+  margin-left: 9px; }
+
+.single-page.page-advanced-trading-tools .grid-section {
+  display: grid;
+  grid-template-columns: 33% 33% 33%; }
+  .single-page.page-advanced-trading-tools .grid-section .content-head {
+    margin-bottom: 0 !important; }
+  .single-page.page-advanced-trading-tools .grid-section .grid-content {
+    padding: 20px; }
+  .single-page.page-advanced-trading-tools .grid-section .content-inside {
+    font-size: 16px;
+    line-height: 1.56; }
+
+.single-page.page-advanced-trading-tools .floated-block {
+  position: relative;
+  width: 300px;
+  padding: 30px;
+  float: right;
+  background: linear-gradient(45deg, #009600, #34e834);
+  margin: 0 40px;
+  border-radius: 18px; }
+  .single-page.page-advanced-trading-tools .floated-block h1 {
+    font-size: 28px !important;
+    font-weight: normal !important;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.18 !important;
+    letter-spacing: -0.6px;
+    text-align: left;
+    color: #0b0a14; }
+  .single-page.page-advanced-trading-tools .floated-block p {
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: -0.3px;
+    text-align: left;
+    color: rgba(11, 10, 20, 0.8); }
+
+@media screen and (max-width: 1040px) {
+  .single-page.page-advanced-trading-tools .page-section .first-section .page-first-image {
+    min-height: 300px; } }
+
+@media screen and (max-width: 960px) {
+  .single-page.page-advanced-trading-tools .page-section .first-section {
+    padding-top: 80px !important; }
+  .single-page.page-advanced-trading-tools .sidebar-cta-card-container.random-background {
+    margin: 80px 40px 80px 80px !important; } }
+
+@media screen and (max-width: 940px) {
+  .single-page.page-advanced-trading-tools .grid-section {
+    grid-template-columns: 100%; }
+    .single-page.page-advanced-trading-tools .grid-section .gc-1 {
+      grid-row: 1; }
+    .single-page.page-advanced-trading-tools .grid-section .gc-4 {
+      grid-row: 2; }
+    .single-page.page-advanced-trading-tools .grid-section .gc-2 {
+      grid-row: 3;
+      margin-top: 40px; }
+    .single-page.page-advanced-trading-tools .grid-section .gc-5 {
+      grid-row: 4; }
+    .single-page.page-advanced-trading-tools .grid-section .gc-3 {
+      grid-row: 5;
+      margin-top: 40px; }
+    .single-page.page-advanced-trading-tools .grid-section .gc-6 {
+      grid-row: 6; } }
+
+@media screen and (max-width: 870px) {
+  .single-page.page-advanced-trading-tools .page-section .first-section {
+    padding-top: 80px !important; }
+    .single-page.page-advanced-trading-tools .page-section .first-section .page-first-image {
+      min-height: 150px; } }
+
+@media screen and (max-width: 768px) {
+  .single-page.page-advanced-trading-tools .sidebar-cta-card-container.random-background {
+    float: initial !important;
+    margin: -100px auto 100px !important; }
+  .single-page.page-advanced-trading-tools .floated-block {
+    float: initial !important;
+    margin: -100px auto 100px !important; } }
+
+@media screen and (max-width: 640px) {
+  .single-page.page-advanced-trading-tools .page-section .first-section .page-first-image {
+    min-height: 300px; } }
+
+.tools-card-container {
+  padding-bottom: 16px;
+  background-color: #ffffff;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px 0 #999999; }
+  .tools-card-container a, .tools-card-container a:hover {
+    text-decoration: none;
+    color: initial; }
+  .tools-card-container:hover {
+    border-radius: 2px;
+    background-color: #34E834;
+    cursor: pointer; }
+  .tools-card-container .tools-row {
+    padding: 8px 24px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 300;
+    border-bottom: none; }
+    .tools-card-container .tools-row__head {
+      font-weight: bold; }
+    .tools-card-container .tools-row__picture {
+      width: 64px;
+      height: 64px;
+      border: none;
+      display: inline-block;
+      margin: 32px 0;
+      background: url("../../assets/img/tools/01.png") center center no-repeat transparent; }
+      .tools-card-container .tools-row__picture.tools-1 {
+        background: url("../../assets/img/tools/01.png") center center no-repeat transparent; }
+      .tools-card-container .tools-row__picture.tools-2 {
+        background: url("../../assets/img/tools/02.png") center center no-repeat transparent; }
+      .tools-card-container .tools-row__picture.tools-3 {
+        background: url("../../assets/img/tools/03.png") center center no-repeat transparent; }
+      .tools-card-container .tools-row__picture.tools-4 {
+        background: url("../../assets/img/tools/04.png") center center no-repeat transparent; }
+      .tools-card-container .tools-row__picture.tools-5 {
+        background: url("../../assets/img/tools/05.png") center center no-repeat transparent; }
+      .tools-card-container .tools-row__picture.tools-6 {
+        background: url("../../assets/img/tools/06.png") center center no-repeat transparent; }
+      .tools-card-container .tools-row__picture.tools-7 {
+        background: url("../../assets/img/tools/07.png") center center no-repeat transparent; }
+      .tools-card-container .tools-row__picture.tools-8 {
+        background: url("../../assets/img/tools/08.png") center center no-repeat transparent; }
+      .tools-card-container .tools-row__picture.tools-9 {
+        background: url("../../assets/img/tools/09.png") center center no-repeat transparent; }
+      .tools-card-container .tools-row__picture.tools-10 {
+        background: url("../../assets/img/tools/10.png") center center no-repeat transparent; }
+      .tools-card-container .tools-row__picture.tools-11 {
+        background: url("../../assets/img/tools/11.png") center center no-repeat transparent; }
+      .tools-card-container .tools-row__picture.tools-12 {
+        background: url("../../assets/img/tools/12.png") center center no-repeat transparent; }
+
+/*# sourceMappingURL=mt4-advanced-trading-tools.css.map */

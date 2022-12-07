@@ -1,0 +1,62 @@
+{
+    "smart_stop_out_0": "cTrader Smart Stop Out",
+    "smart_stop_out_1": "The Smart Stop Out logic in cTrader has been designed to provide maximum protection to trader’s accounts",
+    "smart_stop_out_2": "Download cTrader",
+    "smart_stop_out_3": "cTrader Smart Stop Out",
+    "smart_stop_out_4": "The Smart Stop Out logic in cTrader has been designed to provide maximum protection to trader’s accounts. This logic will replace cTrader’s Fair Stop Out logic because it provides significant benefits for users by using a much more advanced algorithm.",
+    "smart_stop_out_5": "If Margin Level, which is shown in the balance bar falls below Smart Stop Out Level then positions will start being closed partially until Margin Level reaches above Smart Stop Out.",
+    "smart_stop_out_6": "The logic of Smart Stop Out will only close what is absolutely necessary from the largest position in order to safely restore Margin Level and protect the position itself, the position entry point and the trading account for as long as possible.",
+
+    "smart_stop_out_7": "An Example:",
+
+    "smart_stop_out_8": "If an account has the following properties:",
+
+    "smart_stop_out_9": "Balance: $500",
+    "smart_stop_out_10": "Leverage: 1:500",
+    "smart_stop_out_11": "Smart Stop Out: 50%",
+    "smart_stop_out_12": "Equity: $500",
+
+    "smart_stop_out_13": "If the account opens two positions of:",
+
+    "smart_stop_out_14": "BUY – 200,000 – USD/JPY",
+    "smart_stop_out_15": "BUY – 50,000 – USD/JPY",
+
+    "smart_stop_out_16": "Both positions have the same entry price.",
+    "smart_stop_out_17": "The account will immediately be left with a 100% margin level. Once 100% margin level is reached no more positions which require additional margin can be opened.",
+    "smart_stop_out_18": "Once the price of USD/JPY falls by 10 Pips the Margin Level will become 50% and will trigger the Smart Stop Out feature.",
+
+    "smart_stop_out_19": "Calculation:",
+
+    "smart_stop_out_20": "Pip value of 250,000 USD/JPY = ¥2,500 (÷101.33 = $24.67)",
+    "smart_stop_out_21": "10.2 [Pips] x $24.67 [Pip Value] = $251.63",
+    "smart_stop_out_22": "Equity ($500 – $251.63 [Unrealized P&L] = $248.37) ÷ $500 [Margin Used] = 0.497 (x 100 = 49.7%)",
+    "smart_stop_out_23": "Note:",
+    "smart_stop_out_24": "For simplicity's sake we will not consider commissions and spread, since the main purpose of this example is to focus on the behavior of the Smart Stop Out functionality.",
+
+    "smart_stop_out_25": "Once Smart Stop Out has been reached cTrader will need to do something to restore the accounts Margin Level to be higher than Smart Stop Out. cTrader will partially close the largest position to release only the amount of margin necessary and nothing more, with the minor exception of rounding to the nearest 1,000 units.",
+    "smart_stop_out_26": "In this case, the position of 200,000 USD/JPY will be modified to be 198,000 USD/JPY, by selling 2,000 USD/JPY.",
+    "smart_stop_out_27": "Closing 2,000 USD/JPY at a loss of 10.2 Pips will cause a loss of $2.01, despite the loss it reduces the amount of margin required to retain the position by $4.",
+    "smart_stop_out_28": "Below you will see how this event effects the account and the calculations used.",
+
+    "smart_stop_out_29": "Balance",
+    "smart_stop_out_30": "= $497.99",
+
+    "smart_stop_out_31": "$0.19736 [Pip Value of 2,000 USD/JPY] x 10.2 [Loss in Pips] = $2.01",
+    "smart_stop_out_32": "​Margin Used of 248,000 USD/JPY",
+    "smart_stop_out_33": "= $496",
+    "smart_stop_out_34": "Unrealized P&L",
+    "smart_stop_out_35": "= $249.64",
+    "smart_stop_out_36": "¥1,000 [Pip Value of 100,000 USD/JPY] x 2.48 [Volume of open positions] = ¥2,480 x 10.2 [Loss in Pips] = ¥25,296 (÷101.33[USD/JPY Rate] = $249.64)",
+    "smart_stop_out_37": "Equity",
+    "smart_stop_out_38": "= $248.35",
+    "smart_stop_out_39": "$497.99 [Balance] – $249.64 [Unrealized P&L] = 248.35",
+
+    "smart_stop_out_40": "Margin Level",
+    "smart_stop_out_41": "= 50.07%",
+    "smart_stop_out_42": "248.35 [Equity] ÷ 496 [Margin Used] = 0.507 x 100 x 50.07%",
+    "smart_stop_out_43": "Now the account’s Margin Level has been increased to 50.07% which is just enough to be above Smart Stop Out Level with minimum impact on the trading account.",
+    "smart_stop_out_44": "Start trading with",
+    "smart_stop_out_45": "a True ECN broker today",
+    "smart_stop_out_46": "Open Trading Account",
+    "smart_stop_out_47": "Try  a free demo"
+}

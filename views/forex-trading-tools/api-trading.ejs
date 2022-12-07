@@ -1,0 +1,104 @@
+<% setI18nPrefix('pages.forex-trading-tools.api-trading') %>
+<link rel="stylesheet" href="<%=md5('/css/pages/api-trading.css')%>">
+<meta name="description" content="<%- $t('meta', true) %>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+    <div class="single-page page-api-trading">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('api_trading_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('api_trading_2')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="api_trading_1" class="icm-btn icm-btn-primary" href="<%=localePath('company-contact-us') %>"><%-$t('api_trading_3')%></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'forex-trading-tools-api-trading' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="sidebar-cta-card-container sidebar-top-card random-background rnd-back-1">
+                        <div class="bottom-block">
+                            <p class="bottom-block__message"><%-$t('api_trading_4_1')%> <b>200</b> <%-$t('api_trading_4_2')%><br><b><%-$t('api_trading_4_3')%></b></p>
+                            <div class="icm-button-wrapper bottom-block__cta-button">
+                                <a id="api_trading_2"  class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('api_trading_5')%></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="first-section">
+                        <div class="page-first-text"><%-$t('api_trading_6')%></div>
+                        <p><%-$t('api_trading_7')%></p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content highlighted-content">
+                <div class="page-section">
+                    <h1><%-$t('api_trading_8')%></h1>
+                    <p><%-$t('api_trading_9')%></p>
+                    <p><%-$t('api_trading_10')%></p>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="page-section">
+                    <h1><%-$t('api_trading_11')%></h1>
+                    <p><%-$t('api_trading_12')%></p>
+                </div>
+                <div style="margin-top:76px;" class="page-section">
+                    <h1><%-$t('api_trading_13')%></h1>
+                    <p><%-$t('api_trading_14')%></p>
+                    <p><%-$t('api_trading_15')%></p>
+                    <p><%-$t('api_trading_16')%></p>
+                    <p><%-$t('api_trading_17')%></p>
+                </div>
+            </div>
+            <div class="page-content highlighted-content">
+                <div class="page-section">
+                    <h1><%-$t('api_trading_18')%></h1>
+                    <p><%-$t('api_trading_19')%></p>
+                    <p><b><%-$t('api_trading_20')%></b></p>
+                    <div class="pre-image-item"><%-$t('api_trading_21')%></div>
+                    <div class="pre-image-item"><%-$t('api_trading_22')%></div>
+                    <div class="pre-image-item"><%-$t('api_trading_23')%></div>
+                    <div class="pre-image-item"><%-$t('api_trading_24')%></div>
+                    <div class="pre-image-item"><%-$t('api_trading_25')%></div>
+                    <div class="pre-image-item"><%-$t('api_trading_26')%></div>
+                    <div class="pre-image-item"><%-$t('api_trading_27')%></div>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="page-section">
+                    <h1><%-$t('api_trading_39')%></h1>
+                    <p><%-$t('api_trading_40')%></p>
+                    <p><%-$t('api_trading_41')%></p>
+                    <p><%-$t('api_trading_42')%></p>
+                    <p><b><%-$t('api_trading_43')%></b></p>
+                    <div class="pre-image-item"><%-$t('api_trading_44')%></div>
+                    <p style="margin-top:50px;"><b><%-$t('api_trading_45')%></b></p>
+                    <div class="pre-image-item"><%-$t('api_trading_46')%></div>
+                </div>
+                <div style="margin-top:80px;" class="page-section">
+                    <h1><%-$t('api_trading_47')%></h1>
+                    <p><%-$t('api_trading_49')%></p>
+                </div>
+                <div style="margin-top:80px;" class="page-section">
+                    <h1><%-$t('api_trading_50')%></h1>
+                    <p><%-$t('api_trading_51')%></p>
+                </div>
+            </div>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('api_trading_52')%></div>
+                    <div class="global-today"><%-$t('api_trading_53')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="api_trading_3" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('api_trading_54')%></a>
+                        <a id="api_trading_4" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('api_trading_55')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

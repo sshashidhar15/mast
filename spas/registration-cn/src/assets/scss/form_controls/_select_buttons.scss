@@ -1,0 +1,90 @@
+.select_btns {
+    .select_btns_group {
+        .select_btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            line-height: 18px;
+            font-size: 12px;  
+            cursor: pointer;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            text-align: center;
+            user-select: none;
+            margin-bottom: 5px;
+            margin-right: 0;
+            background-color: transparent;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 120px;
+
+            @include screen(768px) {
+                line-height: 37px;
+                font-size: 14px;
+            }
+
+            &:last-of-type {
+                margin-right: 0;
+            }
+
+            &.selected {
+                background-color: #00c800;
+                color: black;
+                border-color: transparent;
+
+                img {
+                    &.icon-default {
+                        display: none;
+                    }
+                    &.icon-selected {
+                        display: inline;
+                    }
+                }                
+            }
+
+            img {
+                margin-right: 5px;
+                
+                &.icon-default {
+                    display: inline;
+                }
+                &.icon-selected {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &.small {
+        .select_btns_group {
+            .select_btn {
+                @include screen(768px) {
+                    width: 143px;
+                    display: inline-block;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+
+    &.small.questionnaire {
+        .select_btns_group {
+            .select_btn {
+                @include screen(768px) {
+                    width: 160px;
+                }
+            }
+        }            
+    }    
+
+    &.questionnaire {
+        .select_btns_group {
+            .select_btn {
+                border-radius: 50px;
+            }
+        }            
+    }    
+}

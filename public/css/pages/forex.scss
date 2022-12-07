@@ -1,0 +1,22 @@
+@import "../_global"; 
+
+.single-page.page-forex {
+    .page-header {
+        background: url(/assets/img/single_market_page/banner1.png) no-repeat center right;
+    }
+    .page-first-text::before {
+        background: url(/assets/img/single_market_page/icon-forex.svg) center center no-repeat transparent;
+    }
+    .risk-image {
+        background: url(/assets/img/single_market_page/forexImg.png) center center no-repeat transparent;
+        background-size: contain;
+    }
+    .market-facts-card {
+        .facts-item::before {
+            color: #34E834;
+        }
+        .action-button {
+            background: #34E834;
+        }
+    }
+}

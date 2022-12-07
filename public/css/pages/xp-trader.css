@@ -1,0 +1,1094 @@
+/*************************
+      Xp trader         
+*************************/
+.single-page.xp-trader a {
+  cursor: pointer;
+  color: #34E834;
+}
+
+.single-page.xp-trader .page-content.global-markets-today {
+  height: auto;
+  min-height: 455px;
+  background: url(/assets/img/xp-trader/xp_trader_bg.png) no-repeat center center;
+}
+
+.single-page.xp-trader .page-content.global-markets-today .icm-button-wrapper a.live {
+  border-radius: 0 !important;
+  padding: 25px !important;
+  font-size: 20px !important;
+  font-weight: 900 !important;
+  text-transform: uppercase;
+}
+
+.single-page.xp-trader .page-content.global-markets-today .icm-button-wrapper a.demo {
+  border-radius: 0 !important;
+  padding: 25px !important;
+  font-size: 20px !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  background: #000 !important;
+  color: #fff !important;
+  margin-left: 9px;
+}
+
+.single-page.xp-trader .page-header {
+  background: url(/img/xptrader/xp6.svg) no-repeat center right;
+}
+
+.single-page.xp-trader .page-header .icm-button-wrapper.page-header__primary-button
+a.icm-btn.icm-btn-primary {
+  border-radius: 2px !important;
+  padding: 25px !important;
+  font-size: 20px !important;
+  font-weight: 900 !important;
+  text-transform: uppercase;
+}
+
+.single-page.xp-trader .page-content-container {
+  background: #fff;
+}
+
+.single-page.xp-trader .page-content-container.highlighted-content {
+  background: #f4f6f4;
+}
+
+.single-page.xp-trader .page-content .text-center {
+  text-align: center;
+}
+
+.single-page.xp-trader .page-content .flex-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.single-page.xp-trader .page-content .flex-between {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.single-page.xp-trader .page-content .f-600 {
+  font-weight: 600 !important;
+}
+
+.single-page.xp-trader .page-content .text-md {
+  font-size: 23px !important;
+}
+
+.single-page.xp-trader .page-content .w-400 {
+  width: 400px !important;
+}
+
+.single-page.xp-trader .page-content .p-5px {
+  padding: 5px !important;
+}
+
+.single-page.xp-trader h1.page-header__heading--style.mt-15 {
+  margin-top: 1.5em;
+}
+
+.single-page.xp-trader .page-content .lt-15 {
+  line-height: 1.5em !important;
+}
+
+.single-page.xp-trader .page-content .toggle-content {
+  padding: 5px 10px !important;
+  display: none;
+}
+
+.single-page.xp-trader .page-content .icm-btn-block {
+  background: #34E834;
+  text-decoration: none;
+  width: 250px;
+  color: rgba(31, 29, 49, 0.8);
+  border-radius: 2px !important;
+  padding: 25px !important;
+  font-size: 20px !important;
+  font-weight: 900 !important;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.single-page.xp-trader .page-content .icm-btn-block:hover, .single-page.xp-trader .page-content .icm-btn-block :active {
+  text-decoration: none;
+  color: rgba(31, 29, 49, 0.8);
+  -webkit-transform: scale(1.05, 1.05) !important;
+  transform: scale(1.05, 1.05) !important;
+  opacity: 0.9;
+}
+
+.single-page.xp-trader .page-content .icm-btn-block .link-icm {
+  text-decoration: none;
+  color: rgba(31, 29, 49, 0.8);
+}
+
+.single-page.xp-trader .page-content .glossary-block__header {
+  font-weight: 500;
+  margin-bottom: 0;
+  width: 100%;
+  min-height: 64px;
+  color: #000;
+  padding: 10px 48px;
+}
+
+.single-page.xp-trader .page-content .glossary-block__search {
+  background: #f8f8f8;
+  margin-bottom: 32px;
+  -webkit-box-shadow: 0 1px 3px 0 #999999;
+  box-shadow: 0 1px 3px 0 #999999;
+}
+
+.single-page.xp-trader .page-content .glossary-block__search .glossary-search__container {
+  padding: 32px 48px;
+}
+
+.single-page.xp-trader .page-content .glossary-block__search .glossary-search__container .glossary-input {
+  width: 100%;
+  padding: 8px 48px;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.single-page.xp-trader .page-content .glossary-block__search .glossary-search__container .glossary-result {
+  margin-top: 32px;
+}
+
+.single-page.xp-trader .page-content .panel-content {
+  margin: 0 auto;
+  background: #fff;
+  font-size: 18px;
+  color: #000;
+  padding: 0 0 0 10px;
+}
+
+.single-page.xp-trader .page-content .panel-content a {
+  cursor: pointer;
+}
+
+.single-page.xp-trader .page-content .panel-content p {
+  margin-bottom: 16px;
+}
+
+.single-page.xp-trader .page-content .panel-content p:last-child {
+  margin-bottom: 0;
+}
+
+.single-page.xp-trader .page-content .panel-content span.server-live {
+  background: #34E834;
+  padding: 0 10px;
+  border-radius: 10px;
+}
+
+.single-page.xp-trader .page-content .panel-content span.server-demo {
+  background: #999;
+  color: #fff;
+  padding: 0 10px;
+  border-radius: 10px;
+}
+
+.single-page.xp-trader .page-content .glossary-tips {
+  line-height: 1.3;
+}
+
+.single-page.xp-trader .page-content .glossary-block__header {
+  font-weight: 400;
+}
+
+.single-page.xp-trader .page-content .glossary-block__item:not(:last-child) {
+  margin-bottom: 2px;
+}
+
+.single-page.xp-trader .page-content .glossary-block__expand-button {
+  color: #34E834;
+  background-color: #2b2b2b;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+  padding: 20px 48px;
+  position: relative;
+  cursor: pointer;
+}
+
+.single-page.xp-trader .page-content .glossary-block__expand-button.collapsed {
+  background-color: #f4f4f4;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.single-page.xp-trader .page-content .glossary-block__expand-button[data-toggle="collapse"]:after {
+  font-family: 'Glyphicons Halflings';
+  content: "\E080";
+  position: absolute;
+  color: #34E834;
+  font-size: 20px;
+  line-height: 1;
+  right: 30px;
+  top: 20px;
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+.single-page.xp-trader .page-content .glossary-block__expand-button[data-toggle="collapse"].collapsed:after {
+  color: rgba(0, 0, 0, 0.8);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.single-page.xp-trader .page-content .link-ic {
+  color: #34E834 !important;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.single-page.xp-trader .page-content .link-ic:hover, .single-page.xp-trader .page-content .link-ic:active {
+  text-decoration: none;
+}
+
+.single-page.xp-trader .page-content .link-faq {
+  color: #333;
+  text-decoration: underline;
+  font-weight: 300;
+}
+
+.single-page.xp-trader .page-content .link-faq:hover, .single-page.xp-trader .page-content .link-faq:active {
+  text-decoration: none;
+}
+
+.single-page.xp-trader .page-content .text-white {
+  color: #fff;
+}
+
+.single-page.xp-trader .page-content .mt-30 {
+  margin-top: 30px;
+}
+
+.single-page.xp-trader .page-content.p-0 {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.single-page.xp-trader .page-content.pt-0 {
+  padding-top: 0 !important;
+}
+
+.single-page.xp-trader .page-content .row.no-gutter {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.single-page.xp-trader .page-content .row.no-gutter.bg-dark {
+  background: black;
+}
+
+.single-page.xp-trader .page-content .row.no-gutter.bg-gray {
+  background: #F3F3F3;
+}
+
+.single-page.xp-trader .page-content .row.no-gutter.bg-white {
+  background: #fff;
+  color: 333;
+}
+
+.single-page.xp-trader .page-content .icon-key {
+  width: 60px;
+  height: 55px;
+  margin-bottom: 30px;
+  margin-top: -10px;
+}
+
+.single-page.xp-trader .page-content .icon-key-3 {
+  width: 45px;
+  height: 55px;
+  margin-bottom: 30px;
+  margin-top: -10px;
+}
+
+.single-page.xp-trader .page-content .icon-key-2 {
+  width: 50px;
+  height: 60px;
+  margin-bottom: 23px;
+  margin-top: -10px;
+}
+
+.single-page.xp-trader .page-content .bg-dark {
+  background: black;
+}
+
+.single-page.xp-trader .page-content .text-head {
+  color: #333;
+  font-size: 52px;
+  font-weight: 100;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  text-align: left;
+  margin-bottom: 50px;
+}
+
+.single-page.xp-trader .page-content .text-head-md {
+  color: #333;
+  font-size: 52px;
+  font-weight: 100;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  text-align: left;
+  margin-top: 60px;
+  margin-bottom: 0px;
+}
+
+.single-page.xp-trader .page-content .text-head.center {
+  text-align: center !important;
+}
+
+.single-page.xp-trader .page-content .text-content {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 37px;
+  color: #000;
+}
+
+.single-page.xp-trader .page-content .text-content.md2 {
+  border-bottom: 1px solid #cccc;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.single-page.xp-trader .page-content .text-desc {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+.single-page.xp-trader .page-content .text-desc.sm {
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.single-page.xp-trader .page-content .text-desc.sm2 {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 20px;
+}
+
+.single-page.xp-trader .page-content .text-faq {
+  font-size: 21px;
+  font-weight: 300;
+  line-height: 30px;
+  text-align: left;
+}
+
+.single-page.xp-trader .page-content .text-title {
+  color: #000;
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 2em;
+  text-align: left;
+}
+
+.single-page.xp-trader .page-content .text-title.md {
+  font-size: 18px;
+}
+
+.single-page.xp-trader .page-content .text-title.white {
+  color: #fff;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+.single-page.xp-trader .page-content .text-title.white.normal {
+  font-style: normal;
+}
+
+.single-page.xp-trader .page-content .text-title.pt-2 {
+  padding-top: 2em;
+  margin-bottom: 0 !important;
+}
+
+.single-page.xp-trader .page-content .text-bold {
+  font-weight: 600;
+}
+
+.single-page.xp-trader .page-content .text-ic {
+  color: #34E834;
+}
+
+.single-page.xp-trader .page-content .checklist-note {
+  font-size: 20px;
+  padding: 10px;
+  padding-left: 40px;
+  position: relative;
+}
+
+.single-page.xp-trader .page-content .checklist-note.sm {
+  font-size: 18px;
+  font-weight: 400;
+  padding: 0px 0px 10px 40px;
+}
+
+.single-page.xp-trader .page-content .checklist-note::before {
+  color: #34E834;
+  position: absolute;
+  top: 5px;
+  left: 0;
+  font-size: 25px;
+  content: url("../../img/xptrader/checkmark2.svg");
+}
+
+.single-page.xp-trader .page-content.account-condition {
+  height: auto;
+  min-height: 455px;
+  background: #F3F3F3;
+  text-align: left;
+}
+
+.single-page.xp-trader .page-content.faq-protrader {
+  height: auto;
+  background: #F3F3F3;
+  text-align: left;
+}
+
+.single-page.xp-trader .page-content.account-condition.not-scrolled {
+  background: none;
+}
+
+.single-page.xp-trader .page-content.account-condition .page-section {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.single-page.xp-trader .page-content.account-condition .description {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 42px;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.single-page.xp-trader .page-content.account-condition .start-trading {
+  margin-top: 50px;
+  color: #333 !important;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.single-page.xp-trader .page-content.account-condition .global-today {
+  color: #333 !important;
+  font-size: 52px;
+  font-weight: 100;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  text-align: center;
+}
+
+.single-page.xp-trader .page-content.account-condition .icm-button-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-top: 48px;
+}
+
+.single-page.xp-trader .page-content.account-condition .icm-button-wrapper a {
+  width: auto;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  outline: none;
+}
+
+.single-page.xp-trader .page-content.account-condition .icm-button-wrapper a.live {
+  color: rgba(31, 29, 49, 0.8);
+  border-radius: 30px;
+  background: #34E834;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 900;
+  padding: 12px 18px;
+}
+
+.single-page.xp-trader .page-content.account-condition .icm-button-wrapper a.demo {
+  background: none !important;
+  margin-left: 40px;
+  opacity: 0.8;
+  font-size: 12px;
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: -0.2px;
+  text-align: left;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.single-page.xp-trader .page-content.account-condition .icm-button-wrapper a.demo:hover {
+  color: #fff !important;
+  opacity: 1 !important;
+}
+
+.single-page.xp-trader .page-content.account-condition .icm-button-wrapper a a {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+.single-page.xp-trader .page-content.account-condition .icm-button-wrapper a a:hover {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+.single-page.xp-trader .page-header__menu-container .page-header__menu .menu-item .menu-title {
+  padding-left: 0 !important;
+  text-transform: uppercase;
+}
+
+.single-page.xp-trader .column {
+  float: left;
+  width: 25%;
+  padding: 20px;
+  height: auto;
+  /* Should be removed. Only for demonstration */
+}
+
+.single-page.xp-trader .column.three {
+  width: 32.3%;
+  text-align: center;
+  margin: 5px;
+  padding: 40px;
+  height: 276px;
+  background: #F3F3F3;
+}
+
+.d-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.d-flex-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.single-page.xp-trader .column.left {
+  width: 50%;
+}
+
+.single-page.xp-trader .column.left.eligible-bg {
+  background: url(/img/xptrader/xp1.png) no-repeat center center;
+  background-size: cover !important;
+  text-align: center;
+  min-height: 1490px;
+}
+
+.single-page.xp-trader .column.left.question-bg {
+  background: url(/img/xptrader/xp7.png) no-repeat center center;
+  background-size: cover !important;
+  text-align: center;
+  min-height: 750px;
+}
+
+.single-page.xp-trader .column.left.spc {
+  padding: 2em 6em 0 7em;
+}
+
+.single-page.xp-trader .b-2-gray {
+  border: 2px solid #CCCCCC;
+  border-bottom: 20px solid #34E834;
+  padding: 40px;
+  border-radius: 10px;
+  margin-bottom: 60px;
+  min-height: 900px;
+}
+
+.single-page.xp-trader .b-1-gray {
+  width: 100%;
+  border: 1px solid #CCCCCC;
+}
+
+.single-page.xp-trader .column.right {
+  width: 50%;
+  min-height: 550px;
+}
+
+.single-page.xp-trader .column.right .white {
+  color: #fff;
+}
+
+.single-page.xp-trader .column.right.spc {
+  padding: 2em 6em 0 7em;
+}
+
+.single-page.xp-trader .column.right.acc {
+  padding: 4em 6em 0 4em;
+}
+
+.single-page.xp-trader .page-content .no-border {
+  border-bottom: none !important;
+}
+
+.single-page.xp-trader .page-content .leverage-wrap-table {
+  overflow-x: auto;
+}
+
+.single-page.xp-trader .page-content .top-dsc-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 27px;
+  margin-top: 2em;
+  font-weight: 300;
+}
+
+.single-page.xp-trader .page-content .dsc-wrap {
+  width: 50%;
+  padding: 0 .5em;
+}
+
+.single-page.xp-trader .page-content .leverage-wrap-table tr {
+  padding: 16px;
+  background-color: #fefefe;
+  border-bottom: 2px solid #f2f2f2;
+}
+
+.single-page.xp-trader .page-content .mt-7 {
+  margin-top: 70px;
+}
+
+.single-page.xp-trader .page-content .mt-2 {
+  margin-top: 2em !important;
+}
+
+.single-page.xp-trader .page-content .w-full {
+  width: 100% !important;
+}
+
+.single-page.xp-trader .page-content .mb-5 {
+  margin-bottom: 5em !important;
+}
+
+.single-page.xp-trader .page-content .mb-3 {
+  margin-bottom: 3em !important;
+}
+
+.single-page.xp-trader .page-content .mb-1 {
+  margin-bottom: 1em !important;
+}
+
+.single-page.xp-trader .page-content .mt-1 {
+  margin-top: 1em !important;
+}
+
+.single-page.xp-trader .page-content .text-gray {
+  color: #666 !important;
+}
+
+.single-page.xp-trader .page-content .mt-05 {
+  margin-top: 10px !important;
+}
+
+.single-page.xp-trader .page-content .mt-0 {
+  margin-top: 0em !important;
+}
+
+.single-page.xp-trader .page-content .mt-5-1 {
+  margin-top: 5.1em !important;
+}
+
+.single-page.xp-trader .page-content .icon-align {
+  margin: 0 1em;
+}
+
+.single-page.xp-trader .page-content .icon-align-2 {
+  margin: 0 3em;
+}
+
+.single-page.xp-trader .page-content .icon-align-3 {
+  margin: 0 4em;
+}
+
+.single-page.xp-trader .page-content .text-left-align {
+  text-align: left !important;
+}
+
+.single-page.xp-trader .page-content .detail-more {
+  margin-top: 50px;
+  color: #333 !important;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.single-page.xp-trader .page-content .detail-description {
+  margin: 1em 0;
+  line-height: 42px;
+  font-size: 24px;
+  font-weight: 300;
+  text-align: left;
+}
+
+.single-page.xp-trader .page-content .table-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin-top: 1em;
+}
+
+.single-page.xp-trader .page-content .leverage-wrap-table table.leverage-table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 50%;
+  border: 1px solid transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 10px;
+  font-weight: 300;
+}
+
+.single-page.xp-trader .page-content .leverage-wrap-table th, .single-page.xp-trader .page-content .leverage-wrap-table td {
+  text-align: left;
+  padding: 8px;
+}
+
+.single-page.xp-trader .page-content .leverage-wrap-table th:last-child {
+  background: #34E834;
+  color: #fff;
+  border: solid #34E834;
+  border-width: 1px 2px 1px 2px;
+}
+
+.single-page.xp-trader .page-content .leverage-wrap-table td:last-child {
+  border-style: solid;
+  border-color: #34E834;
+  border-width: 0 2px 0 2px;
+}
+
+.single-page.xp-trader .page-content .show-mobile-only {
+  display: none !important;
+}
+
+@media screen and (min-width: 768px) {
+  .single-page.xp-trader .page-content .text-title.lg {
+    font-size: 23px;
+  }
+  .single-page.xp-trader .page-content .text-content.md {
+    font-size: 36px;
+  }
+}
+
+@media screen and (max-width: 650px) and (min-width: 200px) {
+  .single-page.xp-trader .page-content .w-400 {
+    width: 250px !important;
+  }
+}
+
+@media screen and (max-width: 700px) and (min-width: 200px) {
+  .single-page.xp-trader .page-content .leverage-wrap-table table.leverage-table {
+    width: 100%;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .single-page.xp-trader .page-content .table-wrapper {
+    display: block;
+  }
+  .single-page.xp-trader .page-content .mt-1-sm-only {
+    margin-top: 1.5em !important;
+  }
+  .single-page.xp-trader .page-content .show-mobile-only {
+    display: block !important;
+  }
+  .single-page.xp-trader .page-content .hide-mobile-only {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 900px) and (min-width: 200px) {
+  .single-page.xp-trader .page-content .p-1-sm-only {
+    padding: 1em !important;
+  }
+  .single-page.xp-trader .b-2-gray {
+    padding: 10px;
+  }
+  .single-page.xp-trader .p-0-3-sm {
+    padding: 0 30px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .single-page.xp-trader .page-header__heading--style {
+    padding: .2em !important;
+  }
+  .single-page.xp-trader .page-header__description {
+    padding: 2em !important;
+  }
+  .single-page.xp-trader .page-content .glossary-block__expand-button {
+    font-size: 16px;
+  }
+  .single-page.xp-trader .page-content .text-head {
+    font-size: 46px;
+  }
+  .single-page.xp-trader .column {
+    width: 50%;
+  }
+  .single-page.xp-trader .column.three {
+    width: 100%;
+  }
+  .single-page.xp-trader .column.left.spc {
+    padding: 7em 3em;
+  }
+  .single-page.xp-trader .column.right.spc {
+    padding: 2em 3em;
+  }
+  .single-page.xp-trader .column.acc {
+    padding: 3em 2em 0 2em !important;
+  }
+}
+
+@media screen and (max-width: 500px) and (min-width: 200px) {
+  .single-page.xp-trader .column.left {
+    width: 100%;
+    padding: 2px;
+  }
+  .single-page.xp-trader .column.right {
+    width: 100%;
+    padding: 2px;
+  }
+  .single-page.xp-trader .page-content .toggle-content {
+    margin: 0 -50px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .single-page.xp-trader .column {
+    width: 100%;
+  }
+  .single-page.xp-trader .column.three {
+    width: 100%;
+  }
+  .single-page.xp-trader .column.left {
+    width: 100%;
+  }
+  .single-page.xp-trader .column.left.spc {
+    padding: 5em 2em 5em 2em;
+  }
+  .single-page.xp-trader .column.left.eligible-bg {
+    display: none;
+  }
+  .single-page.xp-trader .column.right {
+    width: 100%;
+  }
+  .single-page.xp-trader .column.right.spc {
+    padding: 5em 3em 5em 3em;
+  }
+  .single-page.xp-trader .column.acc {
+    padding: 1em !important;
+  }
+  .single-page.xp-trader.mt-15 {
+    margin-top: 1.5em;
+  }
+}
+
+.page-content-container .xp-trader-qa {
+  margin: 0;
+}
+
+.page-content-container .most-description {
+  margin: 16px 48px;
+  text-align: center;
+}
+
+.page-content-container .xp-trader-block {
+  width: 100%;
+  color: rgba(11, 10, 20, 0.8);
+  font-size: 18px;
+  background-color: #F3F3F3;
+  padding: 50px 0  80px 0;
+}
+
+@media screen and (max-width: 700px) and (min-width: 200px) {
+  .pro-trader-table td, th {
+    font-size: 14px;
+  }
+  .page-content-container .xp-trader-block {
+    padding: 50px;
+  }
+}
+
+.page-content-container .xp-trader-block .xp-trader-content {
+  max-width: 1184px;
+  margin: 0px auto;
+  background-color: #F3F3F3;
+}
+
+.page-content-container .xp-trader-block .faq-block__expand-button {
+  border: 1px solid #34E834 !important;
+  background-color: #34E834;
+  border-radius: 30px 30px 0 0;
+  padding-right: 48px !important;
+  padding: 20px;
+  color: #000;
+}
+
+.page-content-container .xp-trader-block .faq-block__expand-button.collapsed {
+  border: 1px solid transparent !important;
+  background-color: #fff !important;
+  color: #000 !important;
+  border-radius: 30px;
+  padding: 20px;
+  margin: 5px;
+}
+
+.page-content-container .xp-trader-block .panel-content {
+  border-left: 1px solid #34E834 !important;
+  border-right: 1px solid #34E834 !important;
+  border-bottom: 1px solid #34E834 !important;
+  border-radius: 0 0 30px 30px;
+  padding: 30px;
+  line-height: 25px;
+}
+
+.page-content-container .xp-trader-block .faq-block__expand-button[data-toggle="collapse"]:after {
+  color: #fff !important;
+}
+
+.page-content-container .xp-trader-block .faq-block__expand-button[data-toggle="collapse"].collapsed:after {
+  color: #34E834 !important;
+}
+
+.faq-block__header {
+  font-weight: 600;
+}
+
+.faq-block__item:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.faq-block__expand-button {
+  background-color: #303030;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  padding: 10px 20px;
+  position: relative;
+  color: rgba(52, 232, 52, 0.8);
+}
+
+.faq-block__expand-button.collapsed {
+  background-color: #f5f5f5;
+  color: #535353;
+}
+
+.faq-block__expand-button[data-toggle="collapse"]:after {
+  font-family: 'Glyphicons Halflings';
+  content: "\E259";
+  position: absolute;
+  color: rgba(52, 232, 52, 0.8);
+  font-size: 22px;
+  line-height: 1;
+  right: 0;
+  top: 0;
+  right: 20px;
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  top: calc(50% - 12px);
+  font-weight: 100;
+}
+
+.faq-block__expand-button[data-toggle="collapse"].collapsed:after {
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  color: #535353;
+}
+
+.pro-trader-table table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  color: #000;
+}
+
+/* Zebra striping */
+.pro-trader-table tr:first-child {
+  background: #eee;
+}
+
+.pro-trader-table th {
+  background: #34E834;
+  border: 1px solid #34E834;
+  color: white;
+  font-weight: bold;
+}
+
+.pro-trader-table td, th {
+  padding: 10px;
+  border: 1px solid #cccccc3d;
+  text-align: left;
+}
+
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+  .pro-trader-table table {
+    width: 100%;
+  }
+  /* Force table to not be like tables anymore */
+  .pro-trader-table table, thead, tbody, th, td, tr {
+    display: block;
+  }
+  /* Hide table headers (but not display: none;, for accessibility) */
+  .pro-trader-table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  .pro-trader-table tr {
+    border: 1px solid #ccc;
+  }
+  .pro-trader-table td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
+  .pro-trader-table td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    /* Label the data */
+    content: attr(data-column);
+    color: #000;
+    font-weight: bold;
+  }
+}
+/*# sourceMappingURL=xp-trader.css.map */

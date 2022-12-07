@@ -1,0 +1,172 @@
+<style>
+    h1 {
+        margin-top: 2vh;
+    }
+    .searched {
+        background-color: yellow;
+    }
+    .replaced {
+        background-color: orange;
+    }
+    b {
+        margin-right: 5px;
+    }
+    .one-line {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .search-col-1 {
+        width:5%;
+        min-width:50px;
+    }
+    .search-col-2 {
+        width:25%;
+        min-width:150px;
+        word-break: break-word;
+        cursor: pointer;
+    }
+    .search-col-2.light {
+        font-weight: bold;
+    }
+    .search-col-3 {
+        width:55%;
+        word-break: break-word;
+    }
+    .search-col-4 {
+        width:15%;
+        word-break: break-word;
+    }
+    #_button_replace {
+        margin-top: 40px;
+        margin-bottom: 30px;
+    }
+    #_find, #_mode, #_replace, #_langs, #_case, #_filter_include, #_filter_exclude {
+        margin-top: 20px;
+    }
+    label {
+        min-width: 70px;
+    }
+    table.table {
+        margin-top: 20px;
+    }
+    .searched {
+        background-color: yellow;
+    }
+    #_filter_keys, #_filter_values, #_controls, #_restore_and_count {
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    #_button_restore_default_settings, #_button_replace {
+        width: 100%;
+    }
+    #_filter_include, #_filter_exclude, #_find, #_replace, #_langs, #_restore, #_counter {
+        width: 45%;
+    }
+    #_case {
+      width: 17%;
+    }
+    #_mode {
+      width: 17%;
+    }
+    li {
+      display: flex;
+    }
+    #_ul_include, #_ul_exclude {
+        margin-top: 10px;
+    }
+    #_ul_include > li > i, #_ul_include > li > p, #_ul_exclude > li > i, #_ul_exclude > li > p {
+        cursor: pointer;
+    }
+    #_ul_include > li > i, #_ul_exclude > li > i {
+        padding-top: 4px;
+        margin-right: 5px;
+    }
+    #_count {
+        font-weight: bolder;
+    }
+    .delete-filter:hover {
+        color: red;
+    }
+</style>
+<h1>Search & Replace over translations</h1>
+<br>
+<div style="min-height: 70px;">
+    <button disabled id="_loader_container" class="one-line btn btn-primary">
+        <i>Loading translations</i>
+        <i id="_loader"></i>
+        <b>🔃</b>
+    </button>
+</div>
+<div id="_restore_and_count">
+    <div id="_restore">
+        <button id="_button_restore_default_settings" class="btn btn-secondary">Restore controls to default</button>
+    </div>
+    <div id="_counter">
+        Count <span id="_count"></span>
+    </div>
+</div>
+<div id="_controls">
+    <div id="_langs">
+        <label for="_select_locale">Locale</label>
+        <select id="_select_locale" class="form-control"></select>
+    </div>
+    <div id="_case">
+        <label for="_select_case_sensitive">Case sensitive</label>
+        <select id="_select_case_sensitive" class="form-control">
+        </select>
+    </div>
+    <div id="_mode">
+        <label for="_select_filter_mode">Filter keys mode</label>
+        <select id="_select_filter_mode" class="form-control">
+        </select>
+    </div>
+</div>
+<div id="_filter_keys">
+    <div id="_filter_include">
+        <label for="_input_include">Include key filter</label>
+        <input id="_input_include" class="form-control"/>
+        <ul id="_ul_include">
+            <li style="display:none;"></li>
+        </ul>
+    </div>
+    <div id="_filter_exclude">
+        <label for="_input_exclude">Exclude key filter</label>
+        <input id="_input_exclude" class="form-control"/>
+        <ul id="_ul_exclude">
+            <li style="display:none;"></li>
+        </ul>
+    </div>
+</div>
+<div id="_filter_values">
+    <div id="_find">
+        <label for="_input_search">Search</label>
+        <input id="_input_search" class="form-control">
+    </div>
+    <div id="_replace">
+        <label for="_input_replace">Replace</label>
+        <input id="_input_replace" class="form-control">
+    </div>
+</div>
+<button disabled id="_button_replace" class="btn btn-primary">
+    Create pendings
+</button>
+<input id="_input_note" class="form-control" placeholder="Note about Jira issue / reason replace">
+<table id="_table" class="table" style="display: none;">
+  <thead>
+    <tr>
+      <th class="search-col-1">Language</th>
+      <th class="search-col-2">Key</th>
+      <th class="search-col-3">Value</th>
+      <th class="search-col-4">Links</th>
+    </tr>
+  </thead>
+  <tbody id="_results"></tbody>
+  </tbody>
+</table>
+<script src="<%=md5('/js/admin_views/search.js')%>"></script>

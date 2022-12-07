@@ -1,0 +1,462 @@
+<% setI18nPrefix('pages.company.legal-documents') %>
+<meta name="description" content="<%- $t('meta', true) %>">
+<link rel="stylesheet" href="<%=md5('/css/pages/legal-documents.css')%>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+    <div class="single-page page-legal-documents">
+        <article class="page-header">
+            <section style="padding-top:64px; padding-bottom:120px;" class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('legal_documents_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('legal_documents_2')%></div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs') %>
+        </article>
+        <article class="page-content-container">
+      <% if (cysec) { %>
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="accordion">
+                        <div class="title">
+                            <h4>IC Markets (EU) Legal Documents</h4>
+                            <span class="collapses-icon">+</span>
+                        </div>
+
+                        <ul class="collapses">
+                            <li>
+                                <a id="legal_documents_1" target="_blank" rel="noopener noreferrer" href="<%- getCDN() %>/uploads/EU/BEST+INTEREST+OF+THE+CLIENT+AND+ORDER+EXECUTION+POLICY.pdf">
+                                    ORDER EXECUTION POLICY
+                                </a>
+                            </li>
+                            <li>
+                                <a id="legal_documents_2"target="_blank" rel="noopener noreferrer" href="<%- getCDN() %>/uploads/EU/COSTS+%26+CHARGES.pdf">
+                                    COSTS AND CHARGES
+                                </a>
+                            </li>
+                            <li>
+                                <a id="legal_documents_3" target="_blank" rel="noopener noreferrer" href="<%- getCDN() %>/uploads/EU/CLIENT+CATEGORIZATION+POLICY.pdf">
+                                    CLIENT CATEGORIZATION POLICY
+                                </a>
+                            </li>
+                            <li>
+                                <a id="legal_documents_4" target="_blank" rel="noopener noreferrer" href="<%- getCDN() %>/uploads/EU/COMPLAINT+HANDLING+POLICY.pdf">
+                                    COMPLAINT HANDLING POLICY
+                                </a>
+                            </li>
+                            <li>
+                                <a id="legal_documents_5" target="_blank" rel="noopener noreferrer" href="<%- getCDN() %>/uploads/EU/CONFLICT+OF+INTEREST.pdf">
+                                    CONFLICT OF INTEREST POLICY
+                                </a>
+                            </li>
+                            <li>
+                                <a id="legal_documents_6" target="_blank" rel="noopener noreferrer" href="<%- getCDN() %>/uploads/EU/COOKIES+POLICY.pdf">
+                                    COOKIES POLICY
+                                </a>
+                            </li>
+                            <li>
+                                <a id="legal_documents_7"target="_blank" rel="noopener noreferrer" href="<%- getCDN() %>/uploads/EU/DEPOSITS+AND+WITHDRAWALS+POLICY.pdf">
+                                    DEPOSITS AND WITHDRAWALS POLICY
+                                </a>
+                            </li>
+                            <li>
+                                <a id="legal_documents_31"target="_blank" rel="noopener noreferrer" href="<%- getCDN() %>/uploads/EU/REFUND+AND+CANCELLATION+POLICY.pdf">
+                                    REFUND AND CANCELLATION POLICY
+                                </a>
+                            </li>
+                            <li>
+                                <a id="legal_documents_8" target="_blank" rel="noopener noreferrer" href="<%- getCDN() %>/uploads/EU/Disclosure+of+Information+(Pillar+3)+for+year+ending+Dec+2018+Audited.pdf">
+                                    DISCLOSURE AND MARKET DISCIPLINE REPORT 2018
+                                </a>
+                            </li>
+                            <li>
+                                <a id="legal_documents_9" target="_blank" rel="noopener noreferrer" href="<%- getCDN() %>/uploads/EU/DISCLOSURE+AND+MARKET+DISCIPLINE+REPORT_2019.pdf">
+                                    DISCLOSURE AND MARKET DISCIPLINE REPORT 2019
+                                </a>
+                            </li>
+                            <li>
+                                <a id="legal_documents_10" target="_blank" rel="noopener noreferrer" href="<%- getCDN() %>/uploads/EU/DISCLOSURE+AND+MARKET+DISCIPLINE+REPORT_2020.pdf">
+                                    DISCLOSURE AND MARKET DISCIPLINE REPORT 2020
+                                </a>
+                            </li>
+                            <li>
+                                <a id="legal_documents_11" target="_blank" rel="noopener noreferrer" href="<%- getCDN() %>/uploads/EU/DISCLOSURE+AND+MARKET+DISCIPLINE+REPORT_2021.pdf">
+                                    DISCLOSURE AND MARKET DISCIPLINE REPORT 2021
+                                </a>
+                            </li>
+                            <li>
+                                <a id="legal_documents_12" target="_blank" rel="noopener noreferrer" href="<%- getCDN() %>/uploads/EU/INVESTOR+COMPENSATION+FUND+PROTECTION+SCHEME.pdf">
+                                    INVESTOR COMPENSATION FUND PROTECTION SCHEME
+                                </a>
+                            </li>
+                            <% if (!['fr','de','it','es'].includes(locale)){ %>
+                                <%-$t('legal_documents_kid_links')%>
+                            <% } %>
+                            <% if (locale === 'fr') { %>
+                                <%-$t('legal_documents_fr_kid_links')%>
+                            <% } %>
+                            <% if (locale === 'de') { %>
+                                <%-$t('legal_documents_de_kid_links')%>
+                            <% } %>
+                            <% if (locale === 'it') { %>
+                                <%-$t('legal_documents_it_kid_links')%>
+                            <% } %>
+                            <% if (locale === 'es') { %>
+                                <%-$t('legal_documents_es_kid_links')%>
+                            <% } %>
+                            <li>
+                                <a id="legal_documents_13" target="_blank" rel="noopener noreferrer" href="<%- getCDN() %>/uploads/EU/RISK+DISCLOSURE+NOTICE.pdf">
+                                    RISK DISCLOSURE NOTICE
+                                </a>
+                            </li>
+                            <li>
+                                <a id="legal_documents_14" target="_blank" rel="noopener noreferrer" href="<%- getCDN() %>/uploads/EU/TERMS+AND+CONDITIONS+OF+BUSINESS.pdf">
+                                    TERMS AND CONDITIONS OF BUSINESS
+                                </a>
+                            </li>
+                            <li>
+                                <a id="legal_documents_15" target="_blank" rel="noopener noreferrer" href="<%- getCDN() %>/uploads/EU/PRIVACY+POLICY.pdf">
+                                    PRIVACY POLICY
+                                </a>
+                            </li>
+                            <li>
+                                <a id="legal_documents_16" target="_blank" rel="noopener noreferrer" href="<%- getCDN() %>/uploads/EU/Execution_Quality_Summary_Statement_2020.pdf">
+                                    EXECUTION QUALITY SUMMARY STATEMENT 2020
+                                </a>
+                            </li>
+                            <br>
+                            <br>
+                            <h1>RTS27</h1>
+                            <li>
+                                <a id="legal_documents_17" target="_blank" rel="noopener noreferrer" href="<%- getCDN() %>/uploads/EU/RTS27_Q2_2019.xlsx">
+                                    RTS27 EXECUTION DATA Q2 2019
+                                </a>
+                            </li>
+                            <li>
+                                <a id="legal_documents_18" target="_blank" rel="noopener noreferrer" href="<%- getCDN() %>/uploads/EU/RTS27_Q3_2019.xlsx">
+                                    RTS27 EXECUTION DATA Q3 2019
+                                </a>
+                            </li>
+                            <li>
+                                <a id="legal_documents_19" target="_blank" rel="noopener noreferrer" href="<%- getCDN() %>/uploads/EU/RTS27_Q4_2019.xlsx">
+                                    RTS27 EXECUTION DATA Q4 2019
+                                </a>
+                            </li>
+                            <li>
+                                <a id="legal_documents_20" target="_blank" rel="noopener noreferrer" href="<%- getCDN() %>/uploads/EU/RTS27_Q1_2020.xlsx">
+                                    RTS27 EXECUTION DATA Q1 2020
+                                </a>
+                            </li>
+                            <li>
+                                <a id="legal_documents_21" target="_blank" rel="noopener noreferrer" href="<%- getCDN() %>/uploads/EU/RTS27_Q2_2020.xlsx">
+                                    RTS27 EXECUTION DATA Q2 2020
+                                </a>
+                            </li>
+                            <li>
+                                <a id="legal_documents_22" target="_blank" rel="noopener noreferrer" href="<%- getCDN() %>/uploads/EU/RTS27_Q3_2020.xlsx">
+                                    RTS27 EXECUTION DATA Q3 2020
+                                </a>
+                            </li>
+                            <li>
+                                <a id="legal_documents_23" target="_blank" rel="noopener noreferrer" href="<%- getCDN() %>/uploads/EU/RTS27_Q4_2020.xlsx">
+                                    RTS27 EXECUTION DATA Q4 2020
+                                </a>
+                            </li>
+                            <li>
+                                <a id="legal_documents_24" target="_blank" rel="noopener noreferrer" href="<%- getCDN() %>/uploads/EU/RTS27_Q1_2021.xlsx">
+                                    RTS27 EXECUTION DATA Q1 2021
+                                </a>
+                            </li>
+                            <li>
+                                <a id="legal_documents_25" target="_blank" rel="noopener noreferrer" href="<%- getCDN() %>/uploads/EU/RTS27_Q2_2021.xlsx">
+                                    RTS27 EXECUTION DATA Q2 2021
+                                </a>
+                            </li>
+                            <li>
+                                <a id="legal_documents_26" target="_blank" rel="noopener noreferrer" href="<%- getCDN() %>/uploads/EU/RTS27_Q3_2021.xlsx">
+                                    RTS27 EXECUTION DATA Q3 2021
+                                </a>
+                            </li>
+                            <li>
+                                <a id="legal_documents_27" target="_blank" rel="noopener noreferrer" href="<%- getCDN() %>/uploads/EU/RTS27_Q4_2021.xlsx">
+                                    RTS27 EXECUTION DATA Q4 2021
+                                </a>
+                            </li>
+                            <br>
+                            <br>
+                            <h1>RTS28</h1>
+                            <li>
+                                <a id="legal_documents_28" target="_blank" rel="noopener noreferrer" href="<%- getCDN() %>/uploads/EU/Execution_Quality_Summary_Statement_2021.pdf">
+                                    EXECUTION QUALITY SUMMARY STATEMENT 2021
+                                </a>
+                            </li>
+                            <li>
+                                <a id="legal_documents_29" target="_blank" rel="noopener noreferrer" href="<%- getCDN() %>/uploads/EU/Top_5_Execution_Venues_Retail.csv">
+                                    Top 5 Execution Venues – Retail Clients 2021
+                                </a>
+                            </li>
+                            <li>
+                                <a id="legal_documents_30" target="_blank" rel="noopener noreferrer" href="<%- getCDN() %>/uploads/EU/Top_5_Execution_Venues_Professional.csv">
+                                    Top 5 Execution Venues – Professional Clients 2021
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        <% } else  { %>
+            <% if (!asic) { %>
+                <div class="page-content">
+            <% } else { %>
+                <div style="padding-top: 80px;">
+            <% } %>
+                <div class="page-section">
+                    <div class="double-sidebar-block">
+                        <div class="sidebar-cta-card-container sidebar-top-card random-background rnd-back-1">
+                            <div class="bottom-block">
+                                <p class="bottom-block__message"><%-$t('legal_documents_10')%><br><b><%-$t('legal_documents_11')%></b></p>
+                                <div class="icm-button-wrapper bottom-block__cta-button">
+                                    <a id="legal_documents_25" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('legal_documents_12', true)%></a>
+                                </div>
+                            </div>
+                        </div>
+                        <% if (!fca) { %>
+                            <div class="contact-card contact-block">
+                                <div class="contact-header">
+                                    <div class="header-label"><%-$t('legal_documents_13')%></div>
+                                    <div class="header-title"><%-$t('legal_documents_14')%></div>
+                                </div>
+                                <div class="contact-pre-imaged chat-img">
+                                    <div><%-$t('contact_card_help')%></div>
+                                </div>
+                                <% if (!fsa && !scb && !fsc && !cima) { %>
+                                <div class="contact-phone">
+                                    <div><%-$t('contact_card_phone')%></div>
+                                </div>
+                                <% } %>
+                                <div class="contact-pre-imaged email-img">
+                                    <% if (asic) {%>
+                                        <div><%-$t('contact_card_email_asic')%></div>
+                                    <% } else { %>
+                                        <div><%-$t('contact_card_email')%></div>
+                                    <% } %>
+                                </div>
+                            </div>
+                        <% } %>
+                    </div>
+                    <div class="first-section">
+                        <% if (asic) { %>
+                            <div class="page-first-text" style="margin-bottom:0;"><%-$t('legal_documents_40')%>
+                        <% } else { %>
+                            <% if (!fca) { %>
+                            <div class="page-first-text"><%-$t('legal_documents_40')%>
+                            <% } %>
+                        <% } %>
+                        <% if (!fsa && !scb && !fsc && !cima) { %>
+                            <br>
+                            <br>
+
+                            <div class="accordion">
+                                <div class="title">
+                                    <% if (fca) { %>
+                                        <h4>IC Markets (UK) Ltd Legal Documents</h4>
+                                    <% } else { %>
+                                        <h4>International Capital Markets Pty Ltd Legal Documents</h4>
+                                    <% } %>
+                                    <span class="collapses-icon">+</span>
+                                </div>
+
+                                <% if (fca) { %>
+                                    <ul class="collapses">
+                                        <li>
+                                            <a id="legal_documents_50"  href='<%- getCDN() %>/uploads/IC+Website+Terms+of+Use.pdf' target='_blank'>Terms and Conditions</a>
+                                        </li>
+                                        <li>
+                                            <a id="legal_documents_51"  href='<%- getCDN() %>/uploads/IC+Markets+Conflict+of+Interest+for+Web.pdf' target='_blank'>Conflicts of Interest Policy</a>
+                                        </li>
+                                        <li>
+                                            <a id="legal_documents_52" href='<%- getCDN() %>/uploads/IC+Complaints+handling+Policy.pdf' target='_blank'>Complaints Policy</a>
+                                        </li>
+                                        <li>
+                                            <a id="legal_documents_53" href='<%- getCDN() %>/uploads/IC+Risk+disclosure.pdf' target='_blank'>Risk Disclosure Notice</a>
+                                        </li>
+                                        <li>
+                                            <a id="legal_documents_54" href='<%- getCDN() %>/uploads/IC+Data+Protection+.pdf' target='_blank'>Data Protection</a>
+                                        </li>
+                                        <li>
+                                            <a id="legal_documents_55" href='<%- getCDN() %>/uploads/Best+Execution+Policy_IC+MARKETS.pdf' target='_blank'>Best Execution</a>
+                                        </li>
+                                        <li>
+                                            <a id="legal_documents_56" href='<%- getCDN() %>/uploads/IC+Markets+Privacy+Policy.pdf' target='_blank'>Privacy Policy</a>
+                                        </li>
+                                        <li>
+                                            <a id="legal_documents_57" href='<%- getCDN() %>/uploads/IC+Markets+Complaints+Notice.pdf' target='_blank'>Complaints Notice</a>
+                                        </li>
+                                    </ul>
+                                <% } else { %>
+                                    <ul class="collapses">
+                                        <li>
+                                            <a id="legal_documents_26"  href='<%- getCDN() %>/uploads/ICM-Account-Terms.pdf' target='_blank'><%-$t('legal_documents_41', true)%></a>
+                                        </li>
+                                        <li>
+                                            <a id="legal_documents_41_1"  href='<%- getCDN() %>/uploads/ICM-Account-Terms(SA).pdf' target='_blank'><%-$t('legal_documents_41_1', true)%></a>
+                                        </li>
+                                        <li>
+                                            <a id="legal_documents_27" href='<%- getCDN() %>/uploads/IC-Markets-CFD-TMD.pdf' target='_blank'><%-$t('legal_documents_41_2',true)%></a>
+                                        </li>
+                                        <li>
+                                            <a id="legal_documents_28" href='<%- getCDN() %>/uploads/Financial-Services-Guide.pdf' target='_blank'><%-$t('legal_documents_42', true)%></a>
+                                        </li>
+                                        <li>
+                                            <a id="legal_documents_29" href='<%- getCDN() %>/uploads/IC-Markets-CFD-PDS.pdf' target='_blank'><%-$t('legal_documents_43', true)%></a>
+                                        </li>
+                                        <li>
+                                            <a id="legal_documents_30" href='<%- getCDN() %>/uploads/ICMwholesaleClient.pdf' target='_blank'><%-$t('legal_documents_43_2', true)%></a>
+                                        </li>
+                                        <% if (asic) { %>
+                                        <li>
+                                            <a id="legal_documents_31" href='<%- getCDN() %>/uploads/Complaints-Management-Policy.pdf' target='_blank'>
+                                                <%-$t('legal_documents_47', true)%>
+                                            </a>
+                                        </li>
+                                        <% } %>
+                                    </ul>
+                                <% } %>
+
+
+                            </div>
+
+
+                        <% } %>
+                        <% if (scb) { %>
+                                <br>
+                                <br>
+                                <div class="accordion">
+                                    <div class="title">
+                                        <h4>IC Markets Ltd Legal Documents</h4>
+                                        <span class="collapses-icon">+</span>
+                                    </div>
+
+
+                                    <ul class="collapses">
+                                        <li>
+                                            <a id="legal_documents_32" href='<%- getCDN() %>/uploads/SCB/Terms&Conditions.pdf' target='_blank'><%-$t('legal_documents_scb_1')%></a>
+                                        </li>
+                                        <li>
+                                            <a id="legal_documents_33" href='<%- getCDN() %>/uploads/SCB/Risk_Disclosure_Notice.pdf' target='_blank'><%-$t('legal_documents_scb_2')%></a>
+                                        </li>
+                                        <li>
+                                            <a id="legal_documents_34" href='<%- getCDN() %>/uploads/SCB/Conflicts_of_Interest_Policy.pdf' target='_blank'><%-$t('legal_documents_scb_3')%></a>
+                                        </li>
+                                        <li>
+                                            <a id="legal_documents_35" href='<%- getCDN() %>/uploads/SCB/Complaint_Handling_Procedure.pdf' target='_blank'><%-$t('legal_documents_scb_4')%></a>
+                                        </li>
+                                        <li>
+                                            <a id="legal_documents_36" href='<%- getCDN() %>/uploads/SCB/Privacy_Policy.pdf' target='_blank'><%-$t('legal_documents_scb_5')%></a>
+                                        </li>
+                                        <li>
+                                            <a id="legal_documents_37" href='<%- getCDN() %>/uploads/SCB/Order_Execution_Policy.pdf' target='_blank'><%-$t('legal_documents_scb_6')%></a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                        <% } else if (fsa) { %>
+                                <br>
+                                <br>
+                                <div class="accordion">
+                                    <div class="title">
+                                        <h4>Raw Trading Ltd Legal Documents</h4>
+                                        <span class="collapses-icon">+</span>
+                                    </div>
+
+
+                                    <ul class="collapses">
+                                        <li>
+                                            <a id="legal_documents_38" href='<%- getCDN() %>/uploads/FSA/IC+Markets+Terms+%26+Condition+FSA.pdf' target='_blank'><%-$t('legal_documents_44')%></a>
+                                        </li>
+                                        <li>
+                                            <a id="legal_documents_39" href='<%- getCDN() %>/uploads/FSA/Risk_Disclosure_Notice_FSA.pdf' target='_blank'><%-$t('legal_documents_fsa_1')%></a>
+                                        </li>
+                                        <li>
+                                            <a id="legal_documents_40" href='<%- getCDN() %>/uploads/FSA/Order_Execution_Policy_FSA.pdf' target='_blank'><%-$t('legal_documents_fsa_2')%></a>
+                                        </li>
+                                        <li>
+                                            <a href="<%- getCDN() %>/uploads/ComplaintsHandlingPolicy.pdf" target='_blank'><%-$t('legal_documents_fsa_3')%></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                        <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% if (!fsa && !fca && !fsc && !cima) { %>
+                <div class="page-content highlighted-content">
+                    <div class="page-section">
+                        <h1><%-$t('legal_documents_27')%></h1>
+                        <p><%-$t('legal_documents_28')%>
+                            <a id="legal_document_dispute_resolution" href="<%= localePath( 'company-dispute-resolution') %>"><%-$t('legal_documents_29', true)%></a>.
+                        </p>
+                    </div>
+                </div>
+            <% } %>
+            <% if (!fsa && !scb && !fca && !fsc && !cima) { %>
+                <% if (!asic) { %>
+                    <div class="page-content">
+                <% } else { %>
+                    <div class="page-content" style="padding-top: 0;">
+                <% } %>
+                    <div class="page-section">
+                        <h1><%-$t('legal_documents_23')%></h1>
+                        <p><%-$t('legal_documents_24')%> <a id="legal_documents_42" href="<%= localePath('company-aml-policy') %>"><%-$t('legal_documents_25', true)%></a> <%-$t('legal_documents_26')%></p>
+                    </div>
+                </div>
+                <div class="page-content highlighted-content">
+                    <div class="page-section">
+                        <h1><%-$t('legal_documents_30')%></h1>
+                        <p><%-$t('legal_documents_31')%></p>
+                    </div>
+                </div>
+                <div class="page-content">
+                    <div class="page-section">
+                        <h1><%-$t('legal_documents_32')%></h1>
+                        <p><%-$t('legal_documents_33')%> <a id="legal_documents_43" href="<%= localePath('company-privacy-policy') %>"><%-$t('legal_documents_34', true)%></a> <%-$t('legal_documents_35')%></p>
+                    </div>
+                </div>
+            <% } %>
+            <% if (!fsa && !scb && !fca && !fsc && !cima) { %>
+            <div class="page-content highlighted-content">
+                <div class="page-section">
+                    <h1><%-$t('legal_documents_45')%></h1>
+                    <p><%-$t('legal_documents_46')%></p>
+                </div>
+            </div>
+            <% } %>
+        <% } %>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('legal_documents_36')%></div>
+                    <div class="global-today"><%-$t('legal_documents_37a')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="legal_documents_44" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('legal_documents_38', true)%></a>
+                        <a id="legal_documents_45" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('legal_documents_39', true)%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+    <script>
+        $('.title').on('click', () => {
+            if ($('.collapses').hasClass('collapses-active')) {
+                $('.collapses').removeClass('collapses-active');
+                $('.collapses-icon').text('+');
+                return;
+            }
+            $('.collapses').addClass('collapses-active');
+            $('.collapses-icon').text('-');
+        })
+    </script>

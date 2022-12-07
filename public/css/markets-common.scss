@@ -1,0 +1,120 @@
+.markets-category-detail {
+  background: $icm-bg-color;
+  border-bottom: $icm-border-standard;
+}
+
+.markets-category-detail__pricing-overview a {
+  color: $icm-hyperlink-color-green;
+}
+
+.markets-category-detail {
+  &__wrapper {
+    margin: auto;
+  }
+  .markets-category-detail__heading {
+    margin-top: $icm-margin-xl;
+    padding-left: $icm-padding-s;
+  }
+  .markets-category-detail__desc {
+    @include icm-paragraph-standard--font-style();
+    padding: $icm-padding-std $icm-padding-s 0 $icm-padding-s;
+  }
+  .markets-category-detail__account-options-mobile {
+    margin-top: $icm-margin-std;
+    .spread-card-list--style:first-child {
+      border-top: $icm-border-standard;
+    }
+    .spread-card-list--style {
+      padding: $icm-padding-s;
+      border-bottom: $icm-border-standard;
+    }
+
+  }
+  .markets-category-detail__account-options-tablet {
+    margin-top: $icm-margin-std;
+    a:focus, a:hover {
+      text-decoration: none;
+    }
+
+  }
+  .markets-category-detail__card-list {
+    max-width: $icm-container-max-width;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: $icm-padding-xl $icm-padding-s 0 $icm-padding-s;
+  }
+  .markets-category-detail__pricing-overview {
+    margin-bottom: $icm-margin-xl;
+    padding-left: $icm-padding-s;
+    margin-top: $icm-margin-std;
+  }
+
+}
+
+.spread-card--style {
+  width: 100%;
+}
+
+.spread-card--style:not(:last-child) {
+  margin-bottom: $icm-margin-std;
+}
+
+.spread-card--style:last-child {
+  margin-bottom: $icm-margin-s;
+}
+
+.contract-details {
+  margin: auto;
+  border-bottom: $icm-border-standard;
+  .contract-details__heading {
+    margin-top: $icm-margin-xl;
+    padding-left: $icm-padding-s;
+  }
+  .contract-details__desc {
+    @include icm-paragraph-standard--font-style();
+    padding: $icm-padding-std $icm-padding-s $icm-padding-xl $icm-padding-s;
+
+  }
+  .contract-details__high-light {
+    font-weight: $icm-font-weight-medium;
+    color: $icm-font-color-highlight;
+
+  }
+}
+
+/* UI card specific max-with property for each card . Tablet */
+@media screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+  .markets-category-detail__card-list {
+    .spread-card--style {
+      max-width: $icm-max-ui-card-width;
+      width: 48%;
+    }
+
+    .spread-card--style:not(:nth-child(2n)) {
+      margin-right: 16px;
+    }
+  }
+}
+
+@media screen and (min-width: $screen-sm-min) {
+  .markets-category-detail .markets-category-detail__pricing-overview {
+    margin-top: 0;
+  }
+  .markets-category-detail__card-list {
+    .spread-card--style:last-child {
+      margin-bottom: $icm-margin-xl;
+    }
+  }
+}
+
+@media screen and (min-width: $screen-md-min) {
+  .spread-card--style {
+    width: $icm-ui-element-width;
+  }
+  .markets-category-detail__card-list {
+    .spread-card--style:not(:nth-child(3n)) {
+      margin-right: 32px;
+    }
+  }
+}

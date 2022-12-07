@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="<%=md5('/css/components/metals-spread-table.css')%>">
+    <div class="markets-spread-table metals-spread-table">
+        <%
+        let metalsSpreadTable = {
+            metalsSpreadsColHeadersDesktop: ['SYMBOL', 'DESCRIPTION', 'MIN', 'AVG', 'MIN', 'AVG'],
+            metalsSpreadsData: [
+                ["XAGEUR","Silver vs Euro","0.000","0.813","1","1.813"],
+                ["XAGUSD","Silver vs United States Dollar","0.000","0.894","1","1.894"],
+                ["XAUAUD","Gold vs Aus","0.800","3.679","1","4.679"],
+                ["XAUEUR","Gold vs Euro","2.000","3.537","1","4.537"],
+                ["XAUUSD","Gold vs United States Dollar","0.000","1.083","1","2.083"],
+                ["XPDUSD","Palladium vs United States Dollar","86.000","162.735","1","163.735"],
+                ["XPTUSD","Platinum vs United States Dollar","18.200","42.300","1","43.300"]
+            ]
+        }
+        %>
+        <div class="single-design-search">
+            <div class="group min-max">* <b>MIN</b> - minimum, <b>AVG</b> - average</div>
+            <div class="group search">
+                <span>Search by Symbol</span>
+                <input class="spreads-search-box" type="search"/>
+            </div>
+            <div class="group skin">
+                <span class="skin-label">Table Skin</span>
+                <span class="skin-toggle skin-light">&nbsp;</span>
+                <span class="skin-toggle skin-dark">&nbsp;</span>
+            </div>
+        </div>
+
+        <%- include('./spread-table-component.ejs', {
+            tableSkin: 'light-skin',
+            slotMobile: ['Product', 'Raw Spread Account'],
+            slotTablet: ['Product', 'Raw Spread Account', 'Standard Account'],
+            slotDesktop: ['Product', 'Raw Spread Account', 'Standard Account'],
+            colHeadersMobile: metalsSpreadTable.metalsSpreadsColHeadersDesktop,
+            mobileData: metalsSpreadTable.metalsSpreadsData,
+            colHeadersTablet: metalsSpreadTable.metalsSpreadsColHeadersDesktop,
+            tabletData: metalsSpreadTable.metalsSpreadsData,
+            colHeadersDesktop: metalsSpreadTable.metalsSpreadsColHeadersDesktop,
+            desktopData: metalsSpreadTable.metalsSpreadsData,
+            forexTable: true
+        }); %>
+    </div>

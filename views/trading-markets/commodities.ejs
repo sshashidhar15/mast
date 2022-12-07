@@ -1,0 +1,173 @@
+<% setI18nPrefix('pages.trading-markets.commodities')%>
+<meta name="description" content="<%-$t('meta', true)%>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/commodities.css')%>">
+<%- contentFor('title')%>
+  <%-$t('title')%>
+<%- contentFor('body')%>
+    <div class="single-page page-commodities">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('commodities_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('commodities_2')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="commodities_1" class="icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('starttrading')%></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'trading-markets-commodities' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="market-facts-card">
+                        <div class="facts-header">
+                            <div class="header-label"><%-$t('commodities_4')%></div>
+                            <div class="header-title"><%-$t('commodities_5')%></div>
+                        </div>
+                        <div class="facts-items">
+                            <div class="facts-item"><%-$t('commodities_6')%></div>
+                            <div class="facts-item"><%-$t('commodities_7')%></div>
+                            <div class="facts-item"><%-$t('commodities_8')%></div>
+                            <div class="facts-item">
+                                <% if (cysec) { %>
+                                    <%-$t('commodities_92')%>
+                                <% } else { %>
+                                    <% if (isAPACcountry(countryCode)) { %>
+                                        <%-$t('commodities_9_apac')%>
+                                    <% } else { %>
+                                        <%-$t('commodities_9')%>
+                                    <% } %>
+                                <% } %>
+                            </div>
+                            <div class="facts-item"><%-$t('commodities_10')%></div>
+                            <div class="facts-item"><%-$t('commodities_11')%></div>
+                        </div>
+                        <div class="action-buttons-container">
+                            <a id="commodities_2" class="action-button icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('commodities_12')%></a>
+                        </div>
+                    </div>
+                    <div class="first-section">
+                        <div class="page-first-text">
+                            <p><%-$t('commodities_13')%></p>
+                            <p><%-$t('commodities_14')%></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content highlighted-content">
+                <div class="page-section">
+                    <h1><%-$t('commodities_15')%></h1>
+                    <p><%-$t('commodities_16')%></p>
+                    <p><%-$t('commodities_17')%></p>
+                </div>
+                <div class="page-section split-2">
+                    <div class="left-section">
+                        <h1><%-$t('commodities_18')%></h1>
+                        <p>
+                            <% if (cysec) { %>
+                                <%-$t('commodities_192')%>
+                            <% } else { %>
+                                <% if (isAPACcountry(countryCode)) { %>
+                                    <%-$t('commodities_19_apac')%>
+                                <% } else { %>
+                                    <%-$t('commodities_19')%>
+                                <% } %>
+                            <% } %>
+                        </p>
+                    </div>
+                    <div class="right-section">
+                        <h1><%-$t('commodities_20')%></h1>
+                        <p><% if (cysec) { %><%-$t('commodities_212')%><% } else { %><%-$t('commodities_21')%><% } %></p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="page-section split-2">
+                    <div class="left-section">
+                        <h1><%-$t('commodities_22')%><br><%-$t('commodities_23')%></h1>
+                        <div class="comm-image"></div>
+                    </div>
+                    <div class="right-section">
+                        <p><%-$t('commodities_24')%></p>
+                        <p><%-$t('commodities_25')%></p>
+                        <p><%-$t('commodities_26')%></p>
+                        <p><%-$t('commodities_27')%></p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content highlighted-content">
+                <div class="page-section">
+                    <h1><%-$t('commodities_28')%></h1>
+                    <div class="accent-block"><%-$t('commodities_29')%></div>
+                    <div class="flex-section">
+                        <div class="flex-content">
+                            <div class="content-head"><%-$t('commodities_30')%></div>
+                            <div class="content-inside label"><%-$t('commodities_31')%></div>
+                            <div class="content-inside value">$435.25 * 100 contracts * 4 = USD $174,100</div>
+                            <div class="content-inside label"><%-$t('commodities_32')%></div>
+                            <div class="content-inside value">$460 * 100 contracts * 4 = USD $184,000</div>
+                            <div class="content-inside label"><%-$t('commodities_33')%></div>
+                            <div class="content-inside value">USD $184,000 - $174,100 = $9,900</div>
+                        </div>
+                        <div class="flex-content">
+                            <div class="content-head"><%-$t('commodities_34')%></div>
+                            <div class="content-inside ordinary"><%-$t('commodities_35')%></div>
+                            <div class="content-inside description"><%-$t('commodities_36')%>(4 bushels per contract) at 435.25 which equals USD $174,100 (435.25 * 100 * 4).</div>
+                        </div>
+                        <div class="flex-content">
+                            <div class="content-head"><%-$t('commodities_37')%></div>
+                            <div class="content-inside ordinary"><%-$t('commodities_38')%></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="page-section">
+                    <h1><%-$t('commodities_39')%></h1>
+                    <div class="accent-block"><%-$t('commodities_40')%></div>
+                    <article class="spreads-block icm-page-subsection-content">
+                        <div class="spreads-block__spread-item">
+                            <div class="spreads-accordion">
+                                <div class="panel-collapse collapse in">
+                                    <%- include('../_partials/components/commodities-spread-table.ejs') %>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <% if (asic) { %>
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="profile-buttons">
+                        <a id="commodities_3" style="text-decoration:none;" class="profile-button" href="<%= localePath('trading-pricing-spreads')%>">
+                            <div class="profile-button-label"><%-$t('commodities_411')%></div>
+                            <div class="profile-button-value"><%-$t('commodities_412')%></div>
+                        </a>
+                        <a id="commodities_4" style="text-decoration:none;" class="profile-button" href="<%- getCDN() %>/uploads/AU/Commodity-Specification-Sheet.pdf" target="_blank">
+                            <div class="profile-button-label"><%-$t('commodities_421')%></div>
+                            <div class="profile-button-value"><%-$t('commodities_422')%></div>
+                        </a>
+                        <a id="commodities_5" style="text-decoration:none;" class="profile-button" href="<%= localePath('trading-accounts-raw-spread-account')%>">
+                            <div class="profile-button-label"><%-$t('commodities_431')%></div>
+                            <div class="profile-button-value"><%-$t('commodities_4321')%></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('commodities_44')%></div>
+                    <div class="global-today"><%-$t('commodities_45')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="commodities_6" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live')%>"><%-$t('commodities_46')%></a>
+                        <a id="commodities_7" class="icm-btn demo" href="<%= localePath('open-trading-account-demo')%>"><%-$t('commodities_47')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

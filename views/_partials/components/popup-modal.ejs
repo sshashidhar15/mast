@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="<%=md5('/css/components/popup-modal.css')%>">
+<div class="popup-modal <%= extraClass %>">
+    <% if (typeof noclose != 'undefined' && !noclose) { %>
+    	<a id="popup_module_close" class="close">&times;</a>
+    <% } %>
+	<div class="content">
+		<div class="wrap">
+			<div class="title"><%- title %></div>
+			<div class="inner"><%- content %></div>
+		</div>
+	</div>
+</div>
+<script>
+	$('.popup-modal.<%= extraClass %> .close, .popup-modal.<%= extraClass %> .continue').on('click', function () {
+		$('body').toggleClass('popup-modal-active-<%= extraClass %>', false);
+	});
+</script>

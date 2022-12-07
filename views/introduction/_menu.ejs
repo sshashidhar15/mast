@@ -1,0 +1,15 @@
+<% setI18nPrefix('menu.introduction') %>
+<div class="page-header__menu">
+<% [
+  'company-why-icmarkets',
+  // 'introduction-true-ecn',
+  'trading-pricing-spreads',
+  'introduction-forex-trading'
+].map(e => { %>
+      <% if (!fca || $t(e) != 'Why IC Markets') { %>
+      <div class="menu-item<%= typeof current !== 'undefined' && e === current ? ' current-page' : '' %>"><a id="introduction_menu_1" href="<%= localePath(e) %>" class="menu-title"><%-$t(e)%></a></div>
+      <% } %>
+    <% }) %>
+    <div class="menu-item menu-switch"><span class="menu-icon icon-switch"></span></div>
+  </div>
+<% prevI18nPrefix() %>

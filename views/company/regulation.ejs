@@ -1,0 +1,313 @@
+<% setI18nPrefix('pages.company.regulation') %>
+<meta name="description" content="<%- $t('meta', true) %>">
+<link rel="stylesheet" href="<%=md5('/css/pages/regulation.css')%>">
+<%- contentFor('title') %>
+    <%- $t('title') %>
+<%- contentFor('body') %>
+    <div class="single-page page-regulation">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('regulation_redesign_block_1')%></h1>
+                </header>
+                <div class="page-header__description">
+                    <% if (asic) { %>
+                        <%-$t('regulation_redesign_block_1_asic')%>
+                    <% } else if(cysec) { %>
+                        <%-$t('regulation_redesign_block_1_cysec')%>
+                    <% } else if(fsa) { %>
+                        <%-$t('regulation_redesign_block_1_fsa')%>
+                    <% } else if(scb) { %>
+                        <%-$t('regulation_redesign_block_1_scb')%>
+                    <% } %>
+                </div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="regulation_1" class="icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%- $t('regulation_redesign_block_12') %></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+            <%- include('./_menu.ejs', { current: 'company-regulation' }) %>
+        </article>
+        <article class="page-content-container">
+            <% if (asic || scb) { %>
+                <div class="page-content redesign asic" id="redesign-<%=regulator%>">
+                    <div class="page-section">
+                        <div class="double-sidebar-block">
+                            <div class="contact-card contact-block">
+                                <div class="contact-header">
+                                    <div class="header-label"><%-$t('regulation_14')%></div>
+                                    <div class="header-title"><%-$t('regulation_15')%></div>
+                                </div>
+                                <div class="contact-pre-imaged chat-img">
+                                    <div><%-$t('contact_card_help')%></div>
+                                </div>
+                                <% if (asic) { %>
+                                    <div class="contact-phone">
+                                        <div><%-$t('contact_card_phone')%></div>
+                                    </div>
+                                <% } %>
+                                <div class="contact-pre-imaged email-img">
+                                    <div><%-$t('contact_card_email')%></div>
+                                </div>
+                                <div class="contact-footer"></div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 p-right">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-img <%=regulator%>"></div>
+                                    <div class="card-wave"></div>
+                                    <div class="card-caption">
+                                        <% if (asic) { %>
+                                            <span><b><%-$t('regulation_redesign_block211')%></b></span><a href="javascript:void(0);" class="info"><span><%-$t('regulation_redesign_block213')%></span></a>
+                                            <p><%-$t('regulation_redesign_block212')%></p>
+                                        <% } else { %>
+                                            <span><b><%-$t('regulation_redesign_block241')%></b></span><a href="javascript:void(0);" class="info"><span><%-$t('regulation_redesign_block243')%></span></a>
+                                            <p><%-$t('regulation_redesign_block242')%></p>
+                                        <% } %>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <% if (asic) { %>
+                                        <%-$t('regulation_redesign_block_2_asic')%>
+                                    <% } else { %>
+                                        <%-$t('regulation_redesign_block_2_scb')%>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% if (asic) { %>
+                    <div style="background-color: #fff !important;" class="page-content redesign asic">
+                        <div class="page-section">
+                            <div class="col-xs-12 col-sm-12 col-lg-12 d-grid">
+                                <div>
+                                    <div class="h-54"><b><%-$t('regulation_redesign_block31_asic')%></b></div>
+                                    <p><%-$t('regulation_redesign_block32_asic')%></p>
+                                </div>
+                                <div>
+                                    <div class="h-54"><b><%-$t('regulation_redesign_block33_asic')%></b></div>
+                                    <p><%-$t('regulation_redesign_block34_asic')%></p>
+                                </div>
+                                <div>
+                                    <div class="h-54"><b><%-$t('regulation_redesign_block35_asic')%></b></div>
+                                    <p><%-$t('regulation_redesign_block36_asic')%></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
+                <div class="page-content redesign asic" style="padding: 0 !important;">
+                    <div class="page-section funds-section">
+                        <div class="funds-segregation">
+                            <div>
+                                <b class="h-54"><%-$t('regulation_redesign_block4')%></b>
+                                <p class="financial-text" style="width: 85%;">
+                                    <% if (asic) { %>
+                                        <%-$t('regulation_redesign_block41_asic')%>
+                                    <% } else { %>
+                                        <%-$t('regulation_redesign_block41_scb')%>
+                                    <% } %>
+                                </p>
+                            </div>
+                        </div>
+                        <div style="background-color: #ececec;" class="money-laundering">
+                            <div>
+                                <b class="h-54"><%-$t('regulation_redesign_block5')%></b>
+                                <p class="financial-text">
+                                    <% if (asic) { %>
+                                        <%-$t('regulation_redesign_block51_asic')%>
+                                    <% } else { %>
+                                        <%-$t('regulation_redesign_block51_scb')%>
+                                    <% } %>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+            <% if (fsa) { %>
+                <div class="page-content redesign">
+                    <div class="page-section">
+                        <div class="double-sidebar-block">
+                            <div class="contact-card contact-block">
+                                <div class="contact-header">
+                                    <div class="header-label"><%-$t('regulation_14')%></div>
+                                    <div class="header-title"><%-$t('regulation_15')%></div>
+                                </div>
+                                <div class="contact-pre-imaged chat-img">
+                                    <div><%-$t('contact_card_help')%></div>
+                                </div>
+                                <div class="separator"></div>
+                                <div class="contact-pre-imaged email-img">
+                                    <div><%-$t('contact_card_email')%></div>
+                                </div>
+                                <div class="contact-footer"></div>
+                            </div>
+                        </div>
+                        <div class="first-section">
+                            <%-$t('regulation_redesign_block1')%>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-content redesign highlighted-content">
+                    <div class="page-section">
+                        <div class="row d-flex">
+                            <div class="col-xs-12 col-sm-6 col-lg-6 d-flex p-right">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="card-img asic"></div>
+                                        <div class="card-wave"></div>
+                                        <div class="card-caption">
+                                            <span><b><%-$t('regulation_redesign_block211')%></b></span> <a href="javascript:void(0);" class="info"><span><%-$t('regulation_redesign_block213')%></span></a>
+                                            <p><%-$t('regulation_redesign_block212')%></p>
+                                        </div>
+                                    </div>
+                                    <div class="card-body"><%-$t('regulation_redesign_block214')%></div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-lg-6 d-flex p-left">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="card-img eu"></div>
+                                        <div class="card-wave"></div>
+                                        <div class="card-caption">
+                                            <span><b><%-$t('regulation_redesign_block231')%></b></span> <a href="javascript:void(0);" class="info"><span><%-$t('regulation_redesign_block233')%></span></a>
+                                            <p><%-$t('regulation_redesign_block232')%></p>
+                                        </div>
+                                    </div>
+                                    <div class="card-body"><%-$t('regulation_redesign_block234')%></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row d-flex">
+                            <div class="col-xs-12 col-sm-6 col-lg-6 d-flex p-right">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="card-img global"></div>
+                                        <div class="card-wave"></div>
+                                        <div class="card-caption">
+                                            <span><b><%-$t('regulation_redesign_block221')%></b></span> <a href="javascript:void(0);" class="info"><span><%-$t('regulation_redesign_block223')%></span></a>
+                                            <p><%-$t('regulation_redesign_block222')%></p>
+                                        </div>
+                                    </div>
+                                    <div class="card-body"><%-$t('regulation_redesign_block224')%></div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-lg-6 d-flex p-left">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="card-img scb"></div>
+                                        <div class="card-wave"></div>
+                                        <div class="card-caption">
+                                            <span><b><%-$t('regulation_redesign_block241')%></b></span> <a href="javascript:void(0);" class="info"><span><%-$t('regulation_redesign_block243')%></span></a>
+                                            <p><%-$t('regulation_redesign_block242')%></p>
+                                        </div>
+                                    </div>
+                                    <div class="card-body"><%-$t('regulation_redesign_block244')%></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-content redesign">
+                    <div class="page-section tabs-section">
+                        <ul class="nav nav-tabs">
+                            <li><a data-toggle="tab" href="#au"><%-$t('regulation_redesign_block311')%></a></li>
+                            <li><a data-toggle="tab" href="#eu"><%-$t('regulation_redesign_block331')%></a></li>
+                            <li class="active"><a data-toggle="tab" href="#global"><%-$t('regulation_redesign_block321')%></a></li>
+                            <li><a data-toggle="tab" href="#scb"><%-$t('regulation_redesign_block341')%></a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="au" class="tab-pane fade in">
+                                <%-$t('regulation_redesign_block312')%>
+                            </div>
+                            <div id="eu" class="tab-pane fade in">
+                                <%-$t('regulation_redesign_block332')%>
+                            </div>
+                            <div id="global" class="tab-pane fade in active">
+                                <%-$t('regulation_redesign_block322')%>
+                            </div>
+                            <div id="scb" class="tab-pane fade in">
+                                <%-$t('regulation_redesign_block342')%>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+            <% if (cysec) { %>
+                <div class="page-content redesign cysec">
+                    <div class="page-section">
+                        <div class="double-sidebar-block">
+                            <div class="contact-card contact-block">
+                                <div class="contact-header">
+                                    <div class="header-label"><%-$t('regulation_14')%></div>
+                                    <div class="header-title"><%-$t('regulation_15')%></div>
+                                </div>
+                                <div class="contact-pre-imaged chat-img">
+                                    <div><%-$t('contact_card_help')%></div>
+                                </div>
+                                <div class="separator"></div>
+                                <div class="contact-pre-imaged email-img">
+                                    <div><%-$t('contact_card_email')%></div>
+                                </div>
+                                <div class="contact-footer"></div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 p-right">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-img eu"></div>
+                                    <div class="card-wave"></div>
+                                    <div class="card-caption">
+                                        <span><b><%-$t('regulation_redesign_block231')%></b><a href="javascript:void(0);" class="info"><span><%-$t('regulation_redesign_block233')%></span></a></span>
+                                        <p><%-$t('regulation_redesign_block232')%></p>
+                                    </div>
+                                </div>
+                                <div class="card-body"><%-$t('regulation_redesign_block_2_cysec')%></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="background-color: #f4f6f4; padding: 0 !important;" class="page-content redesign cysec">
+                    <div class="page-section" style="min-height: 260px !important; padding: 20px 0;">
+                        <div class="col-xs-12 col-sm-12 col-lg-12 financial-section">
+                            <div><img src=".././../../assets/img/single_market_page/MiFID.png" /></div>
+                            <div>
+                                <div class="h-54">
+                                    <b><%-$t('regulation_redesign_block6_cysec')%></b>
+                                </div>
+                                <p><%-$t('regulation_redesign_block61_cysec')%></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+            <% if (!fsa) { %>
+                <div class="col-xs-12 col-sm-12 col-lg-12 license-section">
+                    <b><%-$t('regulation_redesign_block_licence')%></b>
+                    <div class="licence-text">
+                        <% if (asic) { %>
+                            <%-$t('regulation_redesign_block_licence_asic')%>
+                        <% } else if (cysec) { %>
+                            <%-$t('regulation_redesign_block_licence_cysec')%>
+                        <% } else { %>
+                            <%-$t('regulation_redesign_block_licence_scb')%>
+                        <% } %>
+                    </div>
+                </div>
+            <% } %>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('regulation_43')%></div>
+                    <div class="global-today"><%-$t('regulation_44')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="regulation_12" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('regulation_45')%></a>
+                        <a id="regulation_13" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('regulation_46')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

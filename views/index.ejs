@@ -1,0 +1,730 @@
+<% setI18nPrefix('pages.index') %>
+    <% if (countryCode !== 'cn') {%>
+        <script type="application/ld+json">
+            {
+                "@context": "http://schema.org",
+                "@type": "Organization",
+                "name": "IC Markets",
+                "url": "https://icmarkets.com/en",
+                "logo": "https://www.icmarkets.com/assets/icons/svg/ICM-logo.svg",
+                "sameAs": [
+                    "https://www.facebook.com/icmarkets",
+                    "https://twitter.com/IC_Markets",
+                    "https://www.instagram.com/icmarkets.official/",
+                    "https://www.linkedin.com/company/icmarkets",
+                    "https://www.youtube.com/channel/UCOYatppNGIaS0uEW3D6T8eg"
+                ],
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "telephone": " +61 (0)2 8014 4280",
+                    "contactType": "customer support"
+                }
+            }
+        </script>
+        <% } %>
+            <meta name="description" content="<%= $t('meta', true) %>" />
+            <meta name="keywords" content="<%= $t('keywords',true) %>" />
+            <% if(isScHost) {%>
+                <meta name="google-site-verification" content="SQvFqKjgBDDx_AGF6wjJQQfH9Xx352LuMYSyIlucvgs" />
+            <% } else if(isBsHost) { %>
+                <meta name="google-site-verification" content="XTjZwxgmYJgbKfsoxTH06qUqG92D3dwM7yMFNuskfJE" />
+            <% } else if(isRuHost) { %>
+                <meta name="google-site-verification" content="O7Cjft7uSjQ7Zm5sG09wwlxLW_pgXskk0c8KFl2a2Bs" />
+            <% } else if(isCnHost) { %>
+                <meta name="google-site-verification" content="33-kQiRqPnSICHhM6aoyuPyLUga_t1kI0M48yO2AyYM" />
+            <% } else { %>
+                <meta name="google-site-verification" content="nVIjVuQeYF5-Sw03Y_PI1oJqv3sUFo3j8Qg72FlPBqM" />
+            <% } %>
+            <% if (fsa || asic) { %>
+                <% if(!isScHost && !isBsHost && !isRuHost && !isCnHost) {%>
+                    <meta name="google-site-verification" content="Q3esR_RFHc1-0WnmffyxPONG16fPqY1nbj3um_dv7L8" />
+                <% } %>
+            <% } %>
+                    <link rel="stylesheet" href="<%=md5('/css/mask.css')%>">
+                    <link rel="stylesheet" href="<%=md5('/home/css/static-home.css')%>">
+                    <script src="https://cdn.jsdelivr.net/npm/signalr@2.3.0/jquery.signalR.min.js" charset="utf-8"></script>
+                    <script src="<%=md5('/home/js/static-home.js')%>" charset="utf-8"></script>
+                    <%- contentFor('title') %>
+                        <%- $t('title') %>
+                            <%- contentFor('body') %>
+
+                                <div class="index-page">
+                                    <!--<div class="waiting-mask"></div>-->
+                                    <article class="page-header">
+                                        <section id="icm-homepage-page-header__container" class="page-header__container icm-page-subsection-content-index-page parts-container">
+                                            <div class="page-header__part left-part">
+                                                <div id="pink-header">
+                                                    <a id="home_live_registration_1" href="<%= localePath('open-trading-account-live') %>">
+                                                        <%-$t('starttrading')%>
+                                                    </a>
+                                                </div>
+                                                <header>
+                                                    <div class="page-header__line page-header__line1">
+                                                        <%-$t('home_header_line_1')%>
+                                                    </div>
+                                                    <div class="page-header__line page-header__line2">
+                                                        <%-$t('home_header_line_2')%>
+                                                    </div>
+                                                    <% if (locale !== 'fr') {%>
+                                                        <div class="page-header__line page-header__line3"></div>
+                                                        <% } %>
+                                                </header>
+                                                <div class="page-header__buttons">
+                                                    <a id="home_live_registration_2" class="page-header__primary-button icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>">
+                                                        <%-$t('starttrading')%>
+                                                    </a>
+                                                    <div style="height:0px;" id="scroll-spy-for-pink-header"></div>
+                                                    <a id="home_demo_registration_1" class="page-header__secondary-button icm-btn" href="<%= localePath('open-trading-account-demo') %>">
+                                                        <%-$t('home_header_demo_button')%>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="page-header__part right-part quotes-container">
+                                                <div id="quotes-wrap" class="quotes-wrap">
+                                                    <div data-id="EURUSD" data-format="15" class="quote-widget widget-1 format-1-5 price-up">
+                                                        <div class="quote-widget__header">
+                                                            <div class="quote-widget__header-symbol">EURUSD</div>
+                                                            <div class="quote-widget__header-change">+0.04%</div>
+                                                        </div>
+                                                        <div class="quote-widget__content">
+                                                            <div class="quote-widget__content-bid">
+                                                                <div class="quote-widget__content-title">
+                                                                    <%-$t('home_quotes_bid')%>
+                                                                </div>
+                                                                <div class="quote-widget__content-price"><span class="price-1">1.16</span><span class="price-2">69</span><span class="price-3">2</span></div>
+                                                            </div>
+                                                            <div class="quote-widget__content-ask">
+                                                                <div class="quote-widget__content-title">
+                                                                    <%-$t('home_quotes_ask')%>
+                                                                </div>
+                                                                <div class="quote-widget__content-price"><span class="price-1">1.16</span><span class="price-2">69</span><span class="price-3">2</span></div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="quote-widget__footer">
+                                                            <div class="quote-widget__footer-spread"><span class="spread-label"><%-$t('home_quotes_spread')%></span><span class="spread-value">0.0</span></div>
+                                                            <div class="quote-widget__footer-buttons">
+                                                                <div class="f-btn buy"><a id="home_live_registration_3" href="<%= localePath('open-trading-account-live') %>">BUY</a></div>
+                                                                <div class="f-btn sell"><a id="home_live_registration_4" href="<%= localePath('open-trading-account-live') %>">SELL</a></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div data-id="AUDUSD" data-format="15" class="quote-widget widget-2 format-1-5 price-down">
+                                                        <div class="quote-widget__header">
+                                                            <div class="quote-widget__header-symbol">AUDUSD</div>
+                                                            <div class="quote-widget__header-change">+0.44%</div>
+                                                        </div>
+                                                        <div class="quote-widget__content">
+                                                            <div class="quote-widget__content-bid">
+                                                                <div class="quote-widget__content-title">
+                                                                    <%-$t('home_quotes_bid')%>
+                                                                </div>
+                                                                <div class="quote-widget__content-price"><span class="price-1">0.75</span><span class="price-2">40</span><span class="price-3">0</span></div>
+                                                            </div>
+                                                            <div class="quote-widget__content-ask">
+                                                                <div class="quote-widget__content-title">
+                                                                    <%-$t('home_quotes_ask')%>
+                                                                </div>
+                                                                <div class="quote-widget__content-price"><span class="price-1">0.75</span><span class="price-2">40</span><span class="price-3">0</span></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="quote-widget__footer">
+                                                            <div class="quote-widget__footer-spread"><span class="spread-label"><%-$t('home_quotes_spread')%></span><span class="spread-value">0.0</span></div>
+                                                            <div class="quote-widget__footer-buttons">
+                                                                <div class="f-btn buy"><a id="home_live_registration_5" href="<%= localePath('open-trading-account-live') %>">BUY</a></div>
+                                                                <div class="f-btn sell"><a id="home_live_registration_6" href="<%= localePath('open-trading-account-live') %>">SELL</a></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div data-id="GBPUSD" data-format="15" class="quote-widget widget-3 format-1-5 price-down">
+                                                        <div class="quote-widget__header">
+                                                            <div class="quote-widget__header-symbol">GBPUSD</div>
+                                                            <div class="quote-widget__header-change">+0.19%</div>
+                                                        </div>
+                                                        <div class="quote-widget__content">
+                                                            <div class="quote-widget__content-bid">
+                                                                <div class="quote-widget__content-title">
+                                                                    <%-$t('home_quotes_bid')%>
+                                                                </div>
+                                                                <div class="quote-widget__content-price"><span class="price-1">1.32</span><span class="price-2">58</span><span class="price-3">4</span></div>
+                                                            </div>
+                                                            <div class="quote-widget__content-ask">
+                                                                <div class="quote-widget__content-title">
+                                                                    <%-$t('home_quotes_ask')%>
+                                                                </div>
+                                                                <div class="quote-widget__content-price"><span class="price-1">1.32</span><span class="price-2">59</span><span class="price-3">1</span></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="quote-widget__footer">
+                                                            <div class="quote-widget__footer-spread"><span class="spread-label"><%-$t('home_quotes_spread')%></span><span class="spread-value">0.7</span></div>
+                                                            <div class="quote-widget__footer-buttons">
+                                                                <div class="f-btn buy"><a id="home_live_registration_7" href="<%= localePath('open-trading-account-live') %>">BUY</a></div>
+                                                                <div class="f-btn sell"><a id="home_live_registration_8" href="<%= localePath('open-trading-account-live') %>">SELL</a></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div data-id="XAUUSD" data-format="42" class="quote-widget widget-4 format-4-2 price-up">
+                                                        <div class="quote-widget__header">
+                                                            <div class="quote-widget__header-symbol">XAUUSD</div>
+                                                            <div class="quote-widget__header-change">+0.35%</div>
+                                                        </div>
+                                                        <div class="quote-widget__content">
+                                                            <div class="quote-widget__content-bid">
+                                                                <div class="quote-widget__content-title">
+                                                                    <%-$t('home_quotes_bid')%>
+                                                                </div>
+                                                                <div class="quote-widget__content-price"><span class="price-1">1298.</span><span class="price-2">21</span><span class="price-3"></span></div>
+                                                            </div>
+                                                            <div class="quote-widget__content-ask">
+                                                                <div class="quote-widget__content-title">
+                                                                    <%-$t('home_quotes_ask')%>
+                                                                </div>
+                                                                <div class="quote-widget__content-price"><span class="price-1">1298.</span><span class="price-2">28</span><span class="price-3"></span></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="quote-widget__footer">
+                                                            <div class="quote-widget__footer-spread"><span class="spread-label"><%-$t('home_quotes_spread')%></span><span class="spread-value">0.7</span></div>
+                                                            <div class="quote-widget__footer-buttons">
+                                                                <div class="f-btn buy"><a id="home_live_registration_9" href="<%= localePath('open-trading-account-live') %>">BUY</a></div>
+                                                                <div class="f-btn sell"><a id="home_live_registration_10" href="<%= localePath('open-trading-account-live') %>">SELL</a></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </article>
+                                    <% if (!fca) { %>
+                                        <article class="feature-summary-block">
+                                            <section class="feature-summary icm-sub-component-container">
+                                                <div class="feature-summary__item">
+                                                    <div class="feature-summary__value">
+                                                        <%-$t('home_feature_pip_value')%>
+                                                    </div>
+                                                    <div class="feature-summary__label">
+                                                        <%-$t('home_feature_pip')%>
+                                                    </div>
+                                                </div>
+                                                <div class="feature-summary__item">
+                                                    <div class="feature-summary__value">1:
+                                                        <% if (cysec || asic) { %>
+                                                            30
+                                                        <% } else if (fsa && isAPACcountry(countryCode)) { %>
+                                                            1000
+                                                        <% } else if (fsa || scb || fsc || cima) { %>
+                                                            500
+                                                        <% }%>                                                        
+                                                    </div>
+                                                    <div class="feature-summary__label">
+                                                        <%-$t('home_feature_leverage')%>
+                                                    </div>
+                                                </div>
+                                                <div class="feature-summary__item">
+                                                    <div class="feature-summary__value">
+                                                        <%-$t('home_feature_micro_value')%>
+                                                    </div>
+                                                    <div class="feature-summary__label">
+                                                        <%-$t('home_feature_micro')%>
+                                                    </div>
+                                                </div>
+                                                <div class="feature-summary__item">
+                                                    <div class="feature-summary__value">
+                                                        <%-$t('home_feature_instruments_value')%>
+                                                    </div>
+                                                    <div class="feature-summary__label">
+                                                        <%-$t('home_feature_instruments')%>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </article>
+                                        <article class="true-ecn-adv-block">
+                                            <section class="icm-page-subsection-content-index-page block-0">
+                                                <h2 class="true-ecn-adv-block__heading">
+                                                    <%-$t('thetrueecnadvantage')%>
+                                                </h2>
+                                                <p class="true-ecn-adv-block__desc">
+                                                    <%-$t('trueecnisthedifferenceyouvebe')%>
+                                                </p>
+                                            </section>
+                                        </article>
+
+                                        <article class="light-block light-1">
+                                            <section id="icm-home-subsection-block-1" class="icm-page-subsection-content-index-page block-1">
+                                                <div class="block-text">
+                                                    <div class="block-index">01.</div>
+                                                    <div class="block-normal">
+                                                        <%-$t('home_block1_normal')%>
+                                                    </div>
+                                                    <div class="block-bold">
+                                                        <%-$t('home_block1_bold')%>
+                                                    </div>
+                                                    <div class="block-list-row">
+                                                        <%-$t('home_block1_row1')%>
+                                                    </div>
+                                                    <div class="block-list-row">
+                                                        <%-$t('home_block1_row2')%>
+                                                    </div>
+                                                    <div class="block-list-row">
+                                                        <%-$t('home_block1_row3')%>
+                                                    </div>
+                                                    <% if (asic) {%>
+                                                        <div class="block-button">
+                                                            <a id="home_trading_pricing_spreads_1" href="<%= localePath('trading-pricing-spreads') %>">
+                                                                <%-$t('home_block1_button')%>
+                                                            </a>
+                                                        </div>
+                                                        <% } %>
+                                                </div>
+                                                <div class="block-image"></div>
+                                            </section>
+                                        </article>
+
+                                        <article class="light-block light-2">
+                                            <section id="icm-home-subsection-block-2" class="icm-page-subsection-content-index-page block-2">
+                                                <div class="block-image"></div>
+                                                <div class="block-text">
+                                                    <div class="block-index">02.</div>
+                                                    <% if (locale === 'vn') {%>
+                                                        <div class="block-bold">
+                                                            <%-$t('home_block2_normal')%>
+                                                        </div>
+                                                        <div class="block-normal">
+                                                            <%-$t('home_block2_bold')%>
+                                                        </div>
+                                                        <% } else { %>
+                                                            <div class="block-normal">
+                                                                <%-$t('home_block2_normal')%>
+                                                            </div>
+                                                            <div class="block-bold">
+                                                                <%-$t('home_block2_bold')%>
+                                                            </div>
+                                                            <% } %>
+                                                                <div class="block-list-row">
+                                                                    <%-$t('home_block2_row1')%>
+                                                                </div>
+                                                                <div class="block-list-row">
+                                                                    <%-$t('home_block2_row2')%>
+                                                                </div>
+                                                                <div class="block-list-row">
+                                                                    <%-$t('home_block2_row3')%>
+                                                                </div>
+                                                                <% if (cysec || fsa /*asic*/) {%>
+                                                                    <!-- WEB-1774 -->
+                                                                    <div class="block-button">
+                                                                        <a id="home_trading_pricing_spreads_2" href="<%= localePath('forex-trading-tools-virtual-private-server') %>">
+                                                                            <%-$t('home_block2_button')%>
+                                                                        </a>
+                                                                    </div>
+                                                                    <% } %>
+                                                </div>
+                                            </section>
+                                        </article>
+
+                                        <article class="dark-block">
+                                            <section id="icm-home-subsection-block-23" class="icm-page-subsection-content-index-page block-23">
+                                                <div class="block-d1">
+                                                    <%-$t('home_dark1_d1')%>
+                                                </div>
+                                                <div class="block-d2"><span><%-$t('home_dark1_d21')%></span><span class="extra-text"><%-$t('home_dark1_d22')%></span></div>
+                                                <div class="block-d3">
+                                                    <div class="extra-image"></div>
+                                                    <div class="block-d__fact">
+                                                        <div class="fact-label">
+                                                            <%-$t('home_dark1_d31')%>
+                                                        </div>
+                                                        <div class="fact-value">
+                                                            <%-$t('home_dark1_d32')%>
+                                                        </div>
+                                                    </div>
+                                                    <div class="block-d__fact">
+                                                        <div class="fact-label">
+                                                            <%-$t('home_dark1_d41')%>
+                                                        </div>
+                                                        <div class="fact-value">
+                                                            <%-$t('home_dark1_d42')%>
+                                                        </div>
+                                                    </div>
+                                                    <div class="block-d__fact">
+                                                        <div class="fact-label">
+                                                            <%-$t('home_dark1_d51')%>
+                                                        </div>
+                                                        <div class="fact-value">
+                                                            <%-$t('home_dark1_d52')%>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </article>
+
+                                        <article class="light-block light-3">
+                                            <section id="icm-home-subsection-block-3" class="icm-page-subsection-content-index-page block-3">
+                                                <div class="block-text">
+                                                    <div class="block-index">03.</div>
+                                                    <div class="block-normal">
+                                                        <%-$t('home_block3_normal')%>
+                                                    </div>
+                                                    <div class="block-bold">
+                                                        <%-$t('home_block3_bold')%>
+                                                    </div>
+                                                    <% if (!cysec) {%>
+                                                        <div class="block-list-row">
+                                                            <%-$t('home_block3_row1')%>
+                                                        </div>
+                                                        <% } %>
+                                                            <div class="block-list-row">
+                                                                <%-$t('home_block3_row2')%>
+                                                            </div>
+                                                            <% if (!cysec) {%>
+                                                                <div class="block-list-row">
+                                                                    <%-$t('home_block3_row3')%>
+                                                                </div>
+                                                                <% } %>
+                                                                    <% if (asic) {%>
+                                                                        <div class="block-button">
+                                                                            <a id="home_trading_pricing_spreads_3" href="<%= localePath('trading-pricing-spreads') %>">
+                                                                                <%-$t('home_block3_button')%>
+                                                                            </a>
+                                                                        </div>
+                                                                        <% } %>
+                                                </div>
+                                                <div class="block-image"></div>
+                                            </section>
+                                            <% if (false) {%>
+                                                <section class="icm-page-subsection-content-index-page section-carusel">
+                                                    <div class="car-title">
+                                                        <%-$t('home_car_title')%>
+                                                    </div>
+                                                    <div class="car-component">
+                                                        <div class="slide-left slide-control-common">‹</div>
+                                                        <div class="frame">
+                                                            <div class="car" ref="slider">
+                                                            </div>
+                                                        </div>
+                                                        <div class="slide-right slide-control-common">›</div>
+                                                    </div>
+                                                </section>
+                                                <% } %>
+                                        </article>
+
+                                        <article class="light-block light-4">
+                                            <section id="icm-home-subsection-block-4" class="icm-page-subsection-content-index-page block-4">
+                                                <div class="block-image"></div>
+                                                <div class="block-text">
+                                                    <div class="block-index">04.</div>
+                                                    <% if (locale === 'th') {%>
+                                                        <div class="block-normal">
+                                                            <%-$t('home_block4_normal')%><br/>ของทั้งโลก</div>
+                                                        <% } else { %>
+                                                            <div class="block-normal">
+                                                                <%-$t('home_block4_normal')%>
+                                                            </div>
+                                                            <% } %>
+                                                                <div class="block-bold">
+                                                                    <%-$t('home_block4_bold')%>
+                                                                </div>
+                                                                <div class="block-grid">
+                                                                    <div class="block-cell list-cell">
+                                                                        <div class="block-cell__1">
+                                                                            <%-$t('home_block4_cell11')%>
+                                                                        </div>
+                                                                        <div class="block-cell__2">
+                                                                            <%-$t('home_block4_cell12')%>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="block-cell list-cell">
+                                                                        <div class="block-cell__1">
+                                                                            <%-$t('home_block4_cell21')%>
+                                                                        </div>
+                                                                        <div class="block-cell__2">
+                                                                            <%-$t('home_block4_cell22')%>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="block-cell list-cell">
+                                                                        <div class="block-cell__1">
+                                                                            <%-$t('home_block4_cell31')%>
+                                                                        </div>
+                                                                        <div class="block-cell__2">
+                                                                            <%-$t('home_block4_cell32')%>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="block-cell list-cell">
+                                                                        <div class="block-cell__1">
+                                                                            <%-$t('home_block4_cell41')%>
+                                                                        </div>
+                                                                        <div class="block-cell__2">
+                                                                            <%-$t('home_block4_cell42')%>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="block-cell list-cell">
+                                                                        <div class="block-cell__1">
+                                                                            <%-$t('home_block4_cell61')%>
+                                                                        </div>
+                                                                        <div class="block-cell__2">
+                                                                            <%-$t('home_block4_cell62')%>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="block-cell list-cell">
+                                                                        <div class="block-cell__1">
+                                                                            <%-$t('home_block4_cell63')%>
+                                                                        </div>
+                                                                        <div class="block-cell__2">
+                                                                            <%-$t('home_block4_cell64')%>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <% if (asic) {%>
+                                                                    <div class="block-button">
+                                                                        <a id="home_trading_markets_range_of_markets" href="<%= localePath('trading-markets-range-of-markets') %>">
+                                                                            <%-$t('home_block4_button')%>
+                                                                        </a>
+                                                                    </div>
+                                                                    <% } %>
+                                                </div>
+                                            </section>
+                                        </article>
+                                        <% if (!cysec) { %>
+                                        <article class="dark-block">
+                                            <section id="icm-home-subsection-block-45" class="icm-page-subsection-content-index-page block-45">
+                                                <div class="block-d3">
+                                                    <div class="extra-image"></div>
+                                                    <div class="block-d__fact">
+                                                        <div class="fact-label">
+                                                            <%-$t('home_dark2_text11_a')%>
+                                                        </div>
+                                                        <div class="fact-value">
+                                                            <%-$t('home_dark2_text12_a')%>
+                                                        </div>
+                                                    </div>
+                                                    <div class="block-d__fact">
+                                                        <div class="fact-label">
+                                                            <%-$t('home_dark2_text21_a')%>
+                                                        </div>
+                                                        <div class="fact-value">
+                                                            <%-$t('home_dark2_text22_a')%>
+                                                        </div>
+                                                    </div>
+                                                    <div class="block-d__fact">
+                                                        <div class="fact-label">
+                                                            <%-$t('home_dark2_text31_a')%>
+                                                        </div>
+                                                        <div class="fact-value">
+                                                            <%-$t('home_dark2_text32_a')%>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="block-d1"><span><%-$t('home_dark2_text41')%></span><span class="extra-text"><%-$t('home_dark2_text42')%></span></div>
+                                                <div class="block-d2">
+                                                    <%-$t('home_dark2_text5')%>
+                                                </div>
+                                            </section>
+                                        </article>
+                                        <% } %>
+                                        <article class="light-block light-5">
+                                            <section id="icm-home-subsection-block-5" class="icm-page-subsection-content-index-page block-5">
+                                                <div class="block-image"></div>
+                                                <div class="block-text">
+                                                    <div class="block-index">05.</div>
+                                                    <% if (locale === 'vn') {%>
+                                                        <div class="block-bold">
+                                                            <%-$t('home_block5_bold')%>
+                                                        </div>
+                                                        <div class="block-normal">
+                                                            <%-$t('home_block5_normal')%>
+                                                        </div>
+                                                        <% } else { %>
+                                                            <div class="block-normal">
+                                                                <%-$t('home_block5_normal')%>
+                                                            </div>
+                                                            <div class="block-bold">
+                                                                <%-$t('home_block5_bold')%>
+                                                            </div>
+                                                            <% } %>
+                                                                <div class="block-grid">
+                                                                    <div class="block-cell image-cell">
+                                                                        <div class="block-cell__1 image-windows"></div>
+                                                                        <div class="block-cell__2">
+                                                                            <%-$t('home_block5_1')%>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="block-cell image-cell">
+                                                                        <div class="block-cell__1 image-mac"></div>
+                                                                        <div class="block-cell__2">
+                                                                            <%-$t('home_block5_2')%>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="block-cell image-cell">
+                                                                        <div class="block-cell__1 image-android"></div>
+                                                                        <div class="block-cell__2">
+                                                                            <%-$t('home_block5_3')%>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="block-cell image-cell">
+                                                                        <div class="block-cell__1 image-web"></div>
+                                                                        <div class="block-cell__2">
+                                                                            <%-$t('home_block5_4')%>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="block-cell image-cell">
+                                                                        <div class="block-cell__1 image-ios"></div>
+                                                                        <div class="block-cell__2">
+                                                                            <%-$t('home_block5_5')%>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="block-grid">
+                                                                    <div class="block-cell image-cell">
+                                                                        <div class="block-cell__1 image-mt5"></div>
+                                                                        <div class="block-cell__2"></div>
+                                                                    </div>
+                                                                    <div class="block-cell image-cell">
+                                                                        <div class="block-cell__1 image-mt4"></div>
+                                                                        <div class="block-cell__2"></div>
+                                                                    </div>
+                                                                    <div class="block-cell image-cell">
+                                                                        <div class="block-cell__1 image-ctrader"></div>
+                                                                        <div class="block-cell__2"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <% if (asic) {%>
+                                                                    <div class="block-button">
+                                                                        <a id="home_metatrader_5" href="<%= localePath('forex-trading-platform-metatrader-metatrader-5') %>">
+                                                                            <%-$t('home_block5_button')%>
+                                                                        </a>
+                                                                    </div>
+                                                                    <% } %>
+                                                </div>
+                                            </section>
+                                        </article>
+                                        <article class="end-block">
+                                            <section id="icm-home-subsection-block-6" class="icm-page-subsection-content-index-page block-6">
+                                                <div class="block-text">
+                                                    <div class="block-index">06.</div>
+                                                    <div class="block-normal">
+                                                        <%-$t('home_end_normal')%>
+                                                    </div>
+                                                    <div class="block-bold">
+                                                        <%-$t('home_end_bold')%>
+                                                    </div>
+                                                    <div class="block-grid-end">
+                                                        <div class="block-cell end-cell end-1">
+                                                            <%-$t('home_end_1')%>
+                                                        </div>
+                                                        <div class="block-cell end-cell end-2">
+                                                            <%-$t('home_end_2')%>
+                                                        </div>
+                                                        <div class="block-cell end-cell end-3">
+                                                            <div class="end-text">
+                                                                <%-$t('home_end_3')%>
+                                                            </div>
+                                                            <% if (!cysec) {%>
+                                                                <div class="end-imgs">
+                                                                    <div class="end-img img-master"></div>
+                                                                    <div class="end-img img-visa"></div>
+                                                                    <div class="end-img img-paypal"></div>
+                                                                    <div class="end-img img-skrill"></div>
+                                                                    <div class="end-img img-neteller"></div>
+                                                                    <% if (asic) {%>
+                                                                        <div class="end-img img-unipay"></div>
+                                                                        <div class="end-img img-bpay"></div>
+                                                                        <div class="end-img img-fasapay"></div>
+                                                                        <!--<div class="end-img img-webmoney"></div>-->
+                                                                        <% } %>
+                                                                </div>
+                                                                <% } %>
+                                                        </div>
+                                                    </div>
+                                                    <% if (asic) {%>
+                                                        <div class="block-button">
+                                                            <a id="home_trading_accounts_funding" href="<%= localePath('trading-accounts-funding') %>">
+                                                                <%-$t('home_end_button')%>
+                                                            </a>
+                                                        </div>
+                                                        <% } %>
+                                                </div>
+                                                <div class="block-image"></div>
+                                            </section>
+                                        </article>
+                                        <article class="dark-block register-container">
+                                            <section class="register-section">
+                                                <div class="block-cell__1 image-chat-bubble"></div>
+                                                <div class="register-text-container">
+                                                    <span class="register-text"><%-$t('webinar_text')%></span>
+                                                    <span class="register-text"> <%-$t('webinar_title')%></span>
+                                                </div>
+                                                <div class="block-button">
+                                                    <% if (cysec) { %>
+                                                        <a id="home_webinars_upcoming" target="_blank" href="https://www.icmarkets.eu/go/webinars/upcoming?regulator=<%= branchID %>">
+                                                    <% } else { %>
+                                                        <a id="home_webinars_upcoming_regulator" target="_blank" href="https://www.icmarkets.com/go/webinars/upcoming?regulator=<%= branchID %>">
+                                                    <% } %>
+                                                            <%-$t('webinar_button')%>
+                                                        </a>
+                                                </div>
+
+                                            </section>
+                                        </article>
+                                        <div class="page-content global-markets-today not-scrolled">
+                                            <div class="page-section">
+                                                <div class="start-trading">
+                                                    <%-$t('home_global_1')%>
+                                                </div>
+                                                <div class="global-today">
+                                                    <%-$t('home_global_2')%>
+                                                </div>
+                                                <div class="icm-button-wrapper">
+                                                    <a id="home_live_registration_11" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>">
+                                                        <%-$t('home_global_3')%>
+                                                    </a>
+                                                    <a id="home_demo_registration_1" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>">
+                                                        <%-$t('home_global_4')%>
+                                                    </a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <article class="light-block light-5">
+                                            <section class="app-section">
+                                                <div class="text-container">
+                                                    <span class="app-text"><%-$t('home_app_download_text')%></span>
+                                                </div>
+                                                <div class="iphones-container">
+                                                    <div class="block-cell__1 image-iphones"></div>
+                                                </div>
+                                                <div class="img-store">
+                                                    <% if (!cysec && !scb) { %>
+                                                        <a id="home_image_appleStore" target="_blank" class="block-cell__1 image-appleStore" href="https://apps.apple.com/au/app/ic-markets/id1552875348"></a>
+                                                        <% } %>
+                                                            <a id="home_image_googleStore" target="_blank" class="block-cell__1 image-googleStore" href="https://play.google.com/store/apps/details?id=com.icmarkets.mobileapp"></a>
+                                                </div>
+                                            </section>
+                                        </article>
+                                        <% if (fsa) { %>
+                                        <img border="0" src="https://r.turn.com/r/beacon?b2=VV-YbTAGQXII5563IkDaCAtqe-ip0SfKRrkDTKyFfKtXdADLtSAajx1Hxk3tic2Eg9ot1AdJ6Bb47_9FYanbRQ&cid=">
+                                        <% } %>
+                                    <% } %>
+                                </div>
+
+                                <!-- Adform Tracking Code BEGIN -->
+                                <script type="text/javascript">
+                                    window._adftrack = Array.isArray(window._adftrack) ? window._adftrack : (window._adftrack ? [window._adftrack] : []);
+                                    window._adftrack.push({
+                                        HttpHost: 'track.adform.net',
+                                        pm: 2514467,
+                                        divider: encodeURIComponent('|'),
+                                        pagename: encodeURIComponent('ICM_HP_Visit')
+                                    });
+                                    (function() {
+                                        var s = document.createElement('script');
+                                        s.type = 'text/javascript';
+                                        s.async = true;
+                                        s.src = 'https://s2.adform.net/banners/scripts/st/trackpoint-async.js';
+                                        var x = document.getElementsByTagName('script')[0];
+                                        x.parentNode.insertBefore(s, x);
+                                    })();
+                                </script>
+                                <noscript>
+    <p style="margin:0;padding:0;border:0;">
+        <img src="https://track.adform.net/Serving/TrackPoint/?pm=2514467&ADFPageName=ICM_HP_Visit&ADFdivider=|" width="1" height="1" alt="" />
+    </p>
+</noscript>
+                                <!-- Adform Tracking Code END -->

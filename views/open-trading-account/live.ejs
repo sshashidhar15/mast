@@ -1,0 +1,1538 @@
+<% setI18nPrefix('pages.open-trading-account.live') %>
+<meta name="description" content="<%- $t('meta', true) %>">
+
+<% if (!cn_host) { %>
+    <link rel="stylesheet" href="<%=md5('/css/mask.css')%>">
+    <link rel="stylesheet" href="<%=md5('/icm-open-account/css/font-awesome.min.css')%>">
+    <link rel="stylesheet" href="<%=md5('/icm-open-account/css/jquery.mCustomScrollbar.min.css')%>">
+    <link rel="stylesheet" href="<%=md5('/icm-open-account/css/icm-open-account-bundle.css')%>">
+    <link rel="stylesheet" href="<%=md5('/icm-open-account/css/landing-page-template-bundle.css')%>">
+    <link rel="stylesheet" href="<%=md5('/icm-open-account/css/static-live.css')%>">
+    <script src="<%=md5('/icm-open-account/js/js.cookie.min.js')%>" charset="utf-8"></script>
+    <script src="https://www.paypalobjects.com/api/checkout.js" charset="utf-8"></script>
+    <script src="https://js.braintreegateway.com/web/3.37.0/js/client.min.js" charset="utf-8"></script>
+    <script src="https://js.braintreegateway.com/web/3.37.0/js/paypal-checkout.min.js" charset="utf-8"></script>
+<% } %>
+
+<!-- Global site tag (gtag.js) - Google Ads: 783609005 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-783609005"></script>
+<script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-783609005');
+</script>
+
+<% if(cn_host) { %>
+    <%- contentFor('title') %>
+    <%- $t('title') %>
+    <%- contentFor('body') %>
+        <div class="single-page page-live">
+            <article style="padding-top:30px; padding-bottom:30px;" class="page-header">
+                <section class="page-header__container">
+                    <header>
+                        <h1 class="page-header__heading--style"><%-$t('live_1')%></h1>
+                    </header>
+                    <div class="page-header__description">
+                        <div><%-$t('live_2')%></div>
+                        <% if (asic) {%>
+                            <div><%-$t('live_3')%></div>
+                        <% } %>
+                        <div><%-$t('live_4')%></div>
+                    </div>
+                </section>
+            </article>
+            <article class="page-header__menu-container">
+                <div class="page-header__menu">
+                    <div class="menu-item current-page" ><a id="live_1" href="<%= localePath("open-trading-account-live") %>" class="menu-title"><%-$t('live_5')%></a></div>
+                    <div class="menu-item" ><a id="live_2" href="<%= localePath("open-trading-account-demo") %>" class="menu-title"><%-$t('live_6')%></a></div>
+                    <div class="menu-item" ><a id="live_3" href="<%= localePath("trading-accounts-funding") %>" class="menu-title"><%-$t('live_7')%></a></div>
+                    <div class="menu-item" ><a id="live_4" href="<%= localePath("trading-accounts-withdrawal") %>" class="menu-title"><%-$t('live_8')%></a></div>
+
+                    <div class="menu-item menu-switch"><span class="menu-icon icon-switch"></span></div>
+                </div>
+            </article>
+            <article class="page-content-container">
+                <div class="page-content do-not-cut pt-20" style="padding-bottom:120px!important;">
+                    <div id="registration-app-cn"></div>
+                </div>
+            </article>
+            <% if (fsa) { %>
+                <img border="0"
+                    src="https://r.turn.com/r/beacon?b2=Y87nDH6B-WA6essw2J42NT5jFn2XeCQt2yDdAeZ8bVlXdADLtSAajx1Hxk3tic2EAOujHk4rVWZDTS1rJY3Bog&cid=">
+            <% } %>
+        </div>
+        
+        <script>
+            /*
+            NOTE:
+            1) insert here current regulator rule about allow to register with another possible regulator
+            2) that rule should be come from ENV variable of server side
+            */
+            window['isItCySECWebSite'] = '<%=cysec%>'; // is current website CySEC (for show redirect popup if no but selected country from branch 2)
+            window['isUserFromCySECCountry'] = '<%=isCysecCountry%>'; // is current current user from CySEC country (for show popup)
+            window['serverURL'] = '<%= config.reg_service_1_url %>';
+            window['cysecWebsiteURL'] = '<%= config.cysec_website_url %>';
+            window['cysecWebsiteName'] = '<%= config.cysec_website_name %>';
+            window['cysecRegformURL'] = '<%= config.cysec_website_url %>/en/open-trading-account/live';
+            window['cysecCountriesString'] = '<%= cysecCountriesString %>';
+            window['currentBranchID'] = '<%= branchID %>';
+            window['currentLocale'] = '<%= locale %>';
+            window['countryFrom'] = '<%= countryCode %>';
+            window['forceCountryFrom'] = <% if (forceCountryFrom && userAccessFrom == "inside") { %> '<%= countryCode %>'.toUpperCase() <% } else { %> false <% } %>;
+            window['jwt'] = '<%= jwt %>';
+            window['utcTimestamp'] = '<%= utcTimestamp %>';
+            window['isSupportedCurrentBranch'] = '<%= is_supported_branch %>';
+            window['suggestedCountry'] = '<%= suggested_country %>';
+            window['request_from'] = 'WWW2 Branched live';
+            window['currentDomain'] = '<%= current_domain %>';
+            window['regType'] = 'live';
+        </script>
+
+        <% if (isFromLocal) { %>
+            <script src="<%=md5('/regspa-cn/registration-cn.js')%>" charset="utf-8"></script>
+        <% } else { %>
+            <script src="<%=md5('/regspa-cn/registration-cn.min.js')%>" charset="utf-8"></script>
+        <% } %>
+<% } %>
+
+<% if (!cn_host) { %>
+<%- contentFor('title') %>
+    <%- $t('title') %>
+<%- contentFor('body') %>
+    <% if (false/*asic*/) { %>
+        <div class="au-top">
+            <div class="au-top-content">
+                Following the ASIC Product Intervention, the trading experience offered to retail clients by International Capital Markets Pty Ltd ‘IC Markets (AU)’ has changed and includes a leverage reduction to 30:1.
+            </div>
+            <div class="au-top-buttons">
+                <div class="au-top-buttons-close">close</div>
+            </div>
+        </div>
+    <% } %>
+    <div class="single-page page-live">
+        <div class="cached-translation reg_form_inputs_invalid_date"><%-$t('reg_form_inputs_invalid_date', true)%></div>
+        <div class="cached-translation reg_form_inputs_type_email"><%-$t('reg_form_inputs_type_email', true)%></div>
+        <div class="cached-translation reg_form_inputs_phone_number"><%-$t('reg_form_inputs_phone_number', true)%></div>
+        <div class="cached-translation reg_form_inputs_use_letters"><%-$t('reg_form_inputs_use_letters', true)%></div>
+        <div class="cached-translation reg_form_email_already_used"><%-$t('reg_form_email_already_used', true)%></div>
+        <div class="cached-translation reg_form_email_already_used_first_joint"><%-$t('reg_form_email_already_used_first_joint', true)%></div>
+        <div class="cached-translation reg_form_address_not_selected"><%-$t('reg_form_address_not_selected', true)%></div>
+        <div class="cached-translation reg_form_live_step3_next"><%-$t('reg_form_live_step3_next', true)%></div>
+        <div class="cached-translation reg_form_live_joint_personal_details"><%-$t('reg_form_live_joint_personal_details', true)%></div>
+        <div class="cached-translation reg_form_live_joint_account_configuration"><%-$t('reg_form_live_joint_account_configuration', true)%></div>
+        <div class="cached-translation reg_form_live_joint_questions"><%-$t('reg_form_live_joint_questions', true)%></div>
+        <div class="cached-translation reg_form_live_joint_declaration"><%-$t('reg_form_live_joint_declaration', true)%></div>
+        <div class="cached-translation reg_form_eu_clients_acknowledgment_branch1"><%-$t('reg_form_eu_clients_acknowledgment_branch_1', true)%></div>
+        <div class="cached-translation reg_form_eu_clients_acknowledgment_branch3"><%-$t('reg_form_eu_clients_acknowledgment_branch_3', true)%></div>
+        <div class="cached-translation reg_form_eu_clients_acknowledgment_branch4"><%-$t('reg_form_eu_clients_acknowledgment_branch_4', true)%></div>
+        <div class="cached-translation reg_form_branch_asic"><%-$t('reg_form_branch_asic', true)%></div>
+        <div class="cached-translation reg_form_branch_cysec"><%-$t('reg_form_branch_cysec', true)%></div>
+        <div class="cached-translation reg_form_branch_fsa"><%-$t('reg_form_branch_fsa', true)%></div>
+        <div class="cached-translation reg_form_branch_scb"><%-$t('reg_form_branch_scb', true)%></div>
+        <div class="cached-translation reg_form_branch_asic_description"><%-$t('reg_form_branch_asic_description', true)%></div>
+        <div class="cached-translation reg_form_branch_cysec_description"><%-$t('reg_form_branch_cysec_description', true)%></div>
+        <div class="cached-translation reg_form_branch_fsa_description"><%-$t('reg_form_branch_fsa_description', true)%></div>
+        <div class="cached-translation reg_form_branch_scb_description"><%-$t('reg_form_branch_scb_description', true)%></div>
+        <div class="waiting-mask"></div>
+        <article style="padding-top:120px; padding-bottom:120px;" class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('live_1')%></h1>
+                </header>
+                <div class="page-header__description">
+                    <div><%-$t('live_2')%></div>
+                    <% if (asic) {%>
+                        <div><%-$t('live_3')%></div>
+                    <% } %>
+                    <!-- <div><%-$t('live_4')%></div> -->
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+            <div class="page-header__menu">
+                <div class="menu-item current-page" ><a id="live_1" href="<%= localePath("open-trading-account-live") %>" class="menu-title"><%-$t('live_5')%></a></div>
+                <div class="menu-item" ><a id="live_2" href="<%= localePath("open-trading-account-demo") %>" class="menu-title"><%-$t('live_6')%></a></div>
+                <div class="menu-item" ><a id="live_3" href="<%= localePath("trading-accounts-funding") %>" class="menu-title"><%-$t('live_7')%></a></div>
+                <div class="menu-item" ><a id="live_4" href="<%= localePath("trading-accounts-withdrawal") %>" class="menu-title"><%-$t('live_8')%></a></div>
+                <div class="menu-item menu-switch"><span class="menu-icon icon-switch"></span></div>
+            </div>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content do-not-cut pt-20" style="padding-bottom:120px!important;">
+            <%- include('../_partials/components/maintenance-warning.ejs') %>
+                <div class="page-section landing-page register-content-wrapper">
+                    <h1 class="header-title"><%-$t('reg_form_live_page_title')%></h1>
+                    <div class="steps_container wp-icm-open-account live">
+                        <div class="process_line" data-n="0">
+                            <div class="step_line">
+                                <div class="step_icon">0</div>
+                            </div>
+                        </div>
+                        <div class="process_line" data-n="1">
+                            <div class="step_line">
+                                <div class="step_icon">1<div data-edit="1" class="modify-step"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil-alt" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg></div></div>
+                            </div>
+                        </div>
+                        <div class="process_line" data-n="2">
+                            <div class="step_line">
+                                <div class="step_icon">2<div data-edit="2" class="modify-step"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil-alt" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg></div></div>
+                            </div>
+                        </div>
+                        <div class="process_line" data-n="3">
+                            <div class="step_line">
+                                <div class="step_icon">3<div data-edit="3" class="modify-step"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil-alt" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg></div></div>
+                            </div>
+                        </div>
+                        <div class="process_line"  id='process_line_step4_phone' data-n="4">
+                            <div class="step_line">
+                                <div class="step_icon">4<div data-edit="4" class="modify-step"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil-alt" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg></div></div>
+                            </div>
+                        </div>
+                        <div class="process_line" data-n="5">
+                            <div class="step_line">
+                                <div class="step_icon">5<div data-edit="5" class="modify-step"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil-alt" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg></div></div>
+                            </div>
+                        </div>
+                        <!-- <div class="process_line" data-n="6">
+                            <div class="step_line">
+                                <div class="step_icon">6<div data-edit="6" class="modify-step"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil-alt" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg></div></div>
+                            </div>
+                        </div> -->
+                        <div class="process_line" data-n="6">
+                            <div class="step_line">
+                                <div class="step_icon"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wp-icm-open-account live">
+                        <a id="live_5" class="personal-area-url" href="<%= clientAreaPath() %>" style="display:none; opacity:0;">&nbsp;</a>
+                        <div class="main_register_wrap">
+                            <div class="register_wrap">
+                                <div class="reg_header">
+                                    <div class="reg_login"><span data-ml="reg_form_live_header_already"><%-$t('reg_form_live_header_already')%></span> <a id="live_6" class="link-to-personal-area" href=""><span data-ml="reg_form_live_header_sign_in"><%-$t('reg_form_live_header_sign_in')%></span></a></div>
+                                    <div class="rl reg_lang">
+                                        <div class="rl reg-lang-name"></div>
+                                    </div>
+                                </div>
+                                <div class="register_process_wrap">
+                                    <div class="reg_logo">
+                                        <img src="/icm-open-account/icons/Logo.svg" alt="">
+                                        <p data-ml="reg_form_live_header_logo"><%-$t('reg_form_live_header_logo')%></p>
+                                    </div>
+                                    <div class="reg_process">
+                                        <div class="process_line" data-n="0">
+                                            <div class="step_line"></div>
+                                        </div>
+                                        <div class="process_line" data-n="1">
+                                            <div class="step_line">
+                                                <div class="step_icon">1<div data-edit="1" class="modify-step"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil-alt" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg></div></div>
+                                            </div>
+                                            <div class="process_line_text" data-ml="reg_form_live_line_personal">
+                                                <%-$t('reg_form_live_line_personal')%>
+                                            </div>
+                                        </div>
+                                        <div class="process_line" data-n="2">
+                                            <div class="step_line">
+                                                <div class="step_icon">2<div data-edit="2" class="modify-step"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil-alt" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg></div></div>
+                                            </div>
+                                            <div class="process_line_text" data-ml="reg_form_live_line_yourself">
+                                                <%-$t('reg_form_live_line_yourself')%>
+                                            </div>
+                                        </div>
+                                        <div class="process_line" data-n="3">
+                                            <div class="step_line">
+                                                <div class="step_icon">3<div data-edit="3" class="modify-step"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil-alt" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg></div></div>
+                                            </div>
+                                            <div class="process_line_text" data-ml="reg_form_live_line_account">
+                                                <%-$t('reg_form_live_line_account')%>
+                                            </div>
+                                        </div>
+                                        <div class="process_line" id='process_line_step4' data-n="4">
+                                            <div class="step_line">
+                                                <div class="step_icon">4<div data-edit="4" class="modify-step"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil-alt" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg></div></div>
+                                            </div>
+                                            <div class="process_line_text" data-ml="reg_form_live_line_questions">
+                                                <%-$t('reg_form_live_line_questions')%>
+                                            </div>
+                                        </div>
+                                        <div class="process_line" data-n="5">
+                                            <div class="step_line">
+                                                <div class="step_icon">5<div data-edit="5" class="modify-step"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pencil-alt" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg></div></div>
+                                            </div>
+                                            <div class="process_line_text" data-ml="reg_form_live_line_questionnaire">
+                                                <%-$t('reg_form_live_line_questionnaire')%>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="process_line" data-n="5">
+                                            <div class="step_line">
+                                                <div class="step_icon">X</div>
+                                            </div>
+                                            <div class="process_line_text" data-ml="reg_form_live_line_fund_start">
+                                                <%-$t('reg_form_live_line_fund_start')%>
+                                            </div>
+                                        </div> -->
+                                        <div class="process_line" data-n="6">
+                                            <div class="step_line"></div>
+                                        </div>
+                                    </div>
+                                    <div class="reg_timer">
+                                        <span data-ml="reg_form_live_line_estimated"><%-$t('reg_form_live_line_estimated')%>:</span><br /><b data-ml="reg_form_live_line_time"><%-$t('reg_form_live_line_time')%></b>
+                                    </div>
+                                </div>
+                                <div class="register_form_wrap ">
+                                    <div class="containers-wrap">
+
+                                        <div class="wrapper-md">
+                                            <div id="container_paypal"><div id="paypal-button"></div></div>
+                                        </div>
+                                    </div>
+                                    <form action="" data-parsley-focus="none" autocomplete="off">
+                                        <div style="display:none;">
+                                            <input autocomplete="off" type="hidden" name="tracking_info">
+                                        </div>
+                                        <div style="display:none;">
+                                            <input autocomplete="off" type="hidden" name="registered_from_domain" value="<%= current_domain %>">
+                                        </div>
+                                        <div style="display:none;">
+                                            <input autocomplete="off" type="text" name="language" value="<%= locale %>">
+                                        </div>
+                                        <div id="container_header_and_paypal">
+                                            <input autocomplete="off" type="hidden" id="paypal_nonce" value="0" name="paypal_nonce" style="display:none;" />
+                                            <input autocomplete="off" type="hidden" id="paypal_payer_id" value="0" name="paypal_payer_id" style="display:none;" />
+                                            <input autocomplete="off" type="hidden" id="paypal_account_country" value="0" name="paypal_account_country" style="display:none;" />
+                                            <input autocomplete="off" type="hidden" id="paypal_billing_country" value="0" name="paypal_billing_country" style="display:none;" />
+                                            <input autocomplete="off" type="hidden" id="paypal_email" value="0" name="paypal_email" style="display:none;" />
+                                            <input autocomplete="off" type="hidden" id="paypal_first_name" value="0" name="paypal_first_name" style="display:none;" />
+                                            <input autocomplete="off" type="hidden" id="paypal_last_name" value="0" name="paypal_last_name" style="display:none;" />
+                                        </div>
+                                        <div class="register_form register_wrapper_step1 form-step-1" id="step_1" data-n="1">
+                                            <h1 class="reg_title" data-ml="reg_form_live_step1_title"><%-$t('reg_form_live_step1_title')%></h1>
+                                            <div class="input_group input">
+                                                <div class="searchDropdown el_wrap searched">
+                                                    <label for="country" class="field-label" style="margin-top: -20px;"><%-$t('reg_form_country_of_residence')%></label>
+                                                    <div id="reg_form_live_account_countries" class="input-select-country">
+                                                        <!-- <span class="select-icon">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#c1c1c1">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                                              </svg>
+                                                        </span> -->
+                                                        <input autocomplete="off" type="text" id="countries" name="country" class="field-input rounded_el cs-dn select-input" placeholder="<%-$t('reg_form_country_of_residence_placeholder', true)%>" data-parsley-dropdown>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="input_group hint-go-eu" style="display:none;"><%-$t('reg_form_h_goto_eu_live')%></div>
+                                            <div class="input_group hint-go-eu-au" style="display:none;">
+                                                <u>Notice:</u> You may wish to consider our <a id="live_7" class="a-go-eu" href='<%- getEU() %>/en/open-trading-account/live'>European</a> entity
+                                                <div class="notice-au">
+                                                    Following ASIC's Product Intervention, the leverage offered to retail clients by IC Markets (AU ) is up to 30:1
+                                                </div>
+                                            </div>
+                                            <div class="input_group hint-go-au" style="display:none;"><%-$t('reg_form_h_goto_au_live')%></div>
+                                            <div class="input_group hint-cn-name" id="hint-cn-name" style="display:none;">
+                                                <div style="margin-bottom: 5px;"><%-$t('reg_form_h_cn_name')%></div>
+                                                <div class="input_group checkbox_wrap">
+                                                    <input autocomplete="off" type="checkbox" class="checkbox" name="cn_name" id="cn_name" data-parsley-excluded="true">
+                                                    <label for="cn_name"><%-$t('reg_form_c_cn_name')%></label>
+                                                </div>
+                                            </div>
+                                            <div class="input_group input branch-select" style="display:none; opacity:0; z-index:-9; pointer-events:none;">
+                                                <div class="searchDropdown el_wrap notSearched">
+                                                    <input autocomplete="off" type="text" id="branch_id" name="branch_id" class="field-input rounded_el select-input" data-ml="reg_form_regulator" placeholder="<%-$t('reg_form_regulator', true)%>">
+                                                    <ul class="options_list" id="branchesList"></ul>
+                                                </div>
+                                            </div>
+                                            <div class="input_group input input-select-state" style="display:none;">
+                                                <!-- <span class="select-icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#c1c1c1">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                                    </svg>
+                                                </span> -->
+                                                <div class="searchDropdown el_wrap notSearched">
+                                                    <label for="states" class="field-label" style="margin-top: -20px;"><%-$t('reg_form_state_province')%></label>
+                                                    <input autocomplete="off" type="text" id="states" name="states" class="field-input rounded_el" placeholder="<%-$t('reg_form_state_province_placeholder', true)%>" data-field-name="states" data-parsley-excluded="true">
+                                                </div>
+                                            </div>
+                                            <div class="input_group hint-canada-state" style="display:none;"><%-$t('reg_form_h_canada_states')%></div>
+                                            <% if(countryCode === 'vn' || locale === 'vn') {%>
+                                                <div class="input_group input">
+                                                    <div class="field el_wrap ab_fix1">
+                                                        <label for="first_name" class="field-label" data-ml="reg_form_live_step1_first_as_sur_mid_vn"><%-$t('reg_form_live_step1_first_as_sur_mid_vn')%></label>
+                                                        <input autocomplete="off" type="text" id="first_name" name="first_name" class="field-input" data-parsley-pattern="[A-Za-z \-]+" data-parsley-maxlength="150" >
+                                                    </div>
+                                                </div>
+                                                <div class="input_group input">
+                                                    <div class="field el_wrap">
+                                                        <label for="last_name" class="field-label" data-ml="reg_form_live_step1_last_as_first_vn"><%-$t('reg_form_live_step1_last_as_first_vn')%></label>
+                                                        <input autocomplete="off" type="text" id="last_name" name="last_name" class="field-input"  data-parsley-pattern="[A-Za-z \-]+" data-parsley-maxlength="150" >
+                                                    </div>
+                                                </div>
+                                            <%} else {%>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="input_group input">
+                                                            <div class="field el_wrap ab_fix1  ">
+                                                                <label for="first_name" class="field-label" data-ml="reg_form_live_step1_first"><%-$t('reg_form_live_step1_first')%></label>
+                                                                <input autocomplete="off"   type="text" id="first_name" name="first_name" class="field-input input-material" data-parsley-pattern="[A-Za-z \-]+" data-parsley-maxlength="150" >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="input_group input">
+                                                            <div class="field el_wrap">
+                                                                <label for="last_name" class="field-label" data-ml="reg_form_live_step1_last"><%-$t('reg_form_live_step1_last')%></label>
+                                                                <input autocomplete="off"   type="text" id="last_name" name="last_name" class="field-input"  data-parsley-pattern="[A-Za-z \-]+" data-parsley-maxlength="150" >
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                            <%}%>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                            <div class="input_group input">
+                                                <div class="field el_wrap">
+                                                    <label for="email" class="field-label" data-ml="reg_form_live_step1_email"><%-$t('reg_form_live_step1_email')%></label>
+                                                    <input autocomplete="off"   type="email" id="email" name="email" class="field-input" data-parsley-type="email" data-parsley-email data-parsley-maxlength="250">
+                                                </div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            <div class="input_group input">
+                                                <div id="phone_container" class="field el_wrap">
+                                                    <label for="phone" class="field-label" data-ml="reg_form_live_step1_phone"><%-$t('reg_form_live_step1_phone')%></label>
+                                                    <input autocomplete="off" type="tel" id="phone" name="phone" class="field-input" data-parsley-pattern="([0-9]|[\-()+])+" data-parsley-maxlength="50" data-parsley-phoneprefix>
+                                                </div>
+                                            </div>
+                                            <div class="invitation-guid" style="display: none;">
+                                                <div>
+                                                    <input autocomplete="off" type="text" id="invitation_guid" name="invitation_guid">
+                                                </div>
+                                            </div>
+                                            <div class="info" style="display: none;">
+                                                <div>
+                                                    <input autocomplete="off" type="text" id="info" name="info">
+                                                </div>
+                                            </div>
+                                            <div class="el_wrap next_btn">
+                                                <button type="button" id="reg_form_live_step1_next" class="btn icm-btn-primary start-trading-button" data-ml="reg_form_live_step1_next"><%-$t('reg_form_live_step1_next')%></button>
+                                                <div class="input_group info-wrap footer-info" style="margin-top: 20px;">
+                                                    <!-- <div class="el_wrap">
+                                                        <% if (asic) { %>
+                                                            <p><b>International Capital Markets Pty Ltd</b> is located at Level 4, 50 Carrington Street Sydney, NSW 2000 and is licensed and regulated by the Australian Securities and Investments Commission.</p>
+                                                        <% } %>
+                                                        <% if (cysec) { %>
+                                                            <p><b>IC Markets (EU) Ltd</b> is located at 141 Omonoias Avenue, The Maritime Centre, Block B, 1st floor, 3045 Limassol, Cyprus and is licensed and regulated by the Cyprus Securities and Exchange Commission.</p>
+                                                        <% } %>
+                                                        <% /* %>
+                                                        <% if (fsa) { %>
+                                                            <p>Raw Trading Ltd, trading as <b>IC Markets Global</b>, is located at Eden Plaza, Office 209, Eden Island, Mahe, Seychelles and is licensed and regulated by the Financial Services Authority of Seychelles.</p>
+                                                        <% } %>
+                                                        <% */ %>
+                                                        <% if (scb) { %>
+                                                            <p><b>IC Markets Ltd</b> is located at Western Business Centre, Unit 3B Upper Floor, Western Road, New Providence, Nassau, The Bahamas and is licensed and regulated by the Securities Commission of The Bahamas.</p>
+                                                        <% } %>
+                                                    </div> -->
+                                                </div>
+                                                <span class="encrypt" data-ml="reg_form_live_step1_encrypted"><%-$t('reg_form_live_step1_encrypted')%></span>
+                                            </div>
+                                            <%#// WEB-1490 Show new-disclaimer for all on SC website %>
+                                            <% if (false/*fsa*/) { %>
+                                                <div class="new-disclaimer" style="display:block; font-size:12px; text-align:left; padding:5em 2em 2em; color:#cecece;"><%-$t('reg_form_live_step1_new_disclaimer')%></div>
+                                            <% } %>
+                                        </div>
+                                        <div class="register_form form-step-2" id="step_2" data-n="2">
+                                            <h1 class="reg_title" data-ml="reg_form_live_step2_title"><%-$t('reg_form_live_step2_title')%></h1>
+                                            <div class="input_group">
+                                                <div class="input_group_title" data-ml="reg_form_live_step2_account_type"><%-$t('reg_form_live_step2_account_type')%></div>
+                                                <div class="input_group_items select_btns_group single_select sel3item acctype">
+                                                    <div id="reg_form_live_account_type_individual" class="select_btn rounded_el" data-id="reg_type" data-value="individual">
+                                                        <img class="button-gray" src="/icm-open-account/icons/Individual.svg" alt="">
+                                                        <img class="button-white" src="/icm-open-account/icons/Individual_white.svg" alt="">
+                                                        <span data-ml="reg_form_live_step2_individual"><%-$t('reg_form_live_step2_individual')%></span>
+                                                    </div>
+                                                    <div id="reg_form_live_account_type_joint" class="select_btn rounded_el" data-id="reg_type" data-value="joint">
+                                                        <img class="button-gray" src="/icm-open-account/icons/Joint.svg" alt="">
+                                                        <img class="button-white" src="/icm-open-account/icons/Joint_white.svg" alt="">
+                                                        <span data-ml="reg_form_live_step2_joint"><%-$t('reg_form_live_step2_joint')%></span>
+                                                    </div>
+                                                    <div id="reg_form_live_account_type_corporate" class="select_btn rounded_el" data-id="reg_type" data-value="corporate">
+                                                        <img class="button-gray" src="/icm-open-account/icons/Corporate.svg" alt="" style="top:1px">
+                                                        <img class="button-white" src="/icm-open-account/icons/Corporate_white.svg" alt="" style="top:1px">
+                                                        <span data-ml="reg_form_live_step2_corporate"><%-$t('reg_form_live_step2_corporate')%></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="input_group checkbox_wrap islamic_check" style="text-align:left;">
+                                                <input autocomplete="off" type="checkbox" class="checkbox" name="islamic" id="islamic">
+                                                <label for="islamic" data-ml="reg_form_live_step2_islamic_a"><%-$t('reg_form_live_step2_islamic_a')%></label>
+                                            </div>
+                                            <div class="acctype_fields fields_individual">
+                                                <div class="input_group item3 birthdate">
+                                                    <div class="input_group_title" data-ml="reg_form_live_step2_date_birth"><%-$t('reg_form_live_step2_date_birth')%></div>
+                                                    <div data-dt-group data-dt-min-years="18" class="input_group_items">
+                                                        <div class="field el_wrap" style="margin-left: 0 !important;">
+                                                            <label for="birth_day" class="field-label" data-ml="reg_form_live_step2_day_birth"><%-$t('reg_form_live_step2_day_birth')%></label>
+                                                            <input autocomplete="off" placeholder="Day" data-parsley-dt data-dt-part="D" type="text" id="birth_day" name="birth_day" class="field-input" data-field-name="birth_day" data-parsley-max="31" minlength="1" maxlength="2">
+                                                        </div>
+                                                        <div class="searchDropdown el_wrap notSearched choose-month">
+                                                            <label for="birth_month" class="field-label" data-ml="reg_form_live_step2_year_birth">Month</label>
+                                                            <div class="input-select-country">
+                                                                <!-- <span class="select-icon">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#c1c1c1">
+                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                                                      </svg>
+                                                                </span> -->
+                                                                <input autocomplete="off" data-parsley-dt data-dt-part="M" type="text" id="birth_month" name="birth_month" class="field-input rounded_el" data-ml="reg_form_live_step2_month_birth" placeholder="<%-$t('reg_form_live_step2_month_birth', true)%>" data-field-name="birth_month">
+                                                                <ul class="options_list">
+                                                                    <li id="reg_form_live_month1" data-ml="reg_form_live_month1" data-id="0"><%-$t('reg_form_live_month1')%></li>
+                                                                    <li id="reg_form_live_month2" data-ml="reg_form_live_month2" data-id="1"><%-$t('reg_form_live_month2')%></li>
+                                                                    <li id="reg_form_live_month3" data-ml="reg_form_live_month3" data-id="2"><%-$t('reg_form_live_month3')%></li>
+                                                                    <li id="reg_form_live_month4" data-ml="reg_form_live_month4" data-id="3"><%-$t('reg_form_live_month4')%></li>
+                                                                    <li id="reg_form_live_month5" data-ml="reg_form_live_month5" data-id="4"><%-$t('reg_form_live_month5')%></li>
+                                                                    <li id="reg_form_live_month6" data-ml="reg_form_live_month6" data-id="5"><%-$t('reg_form_live_month6')%></li>
+                                                                    <li id="reg_form_live_month7" data-ml="reg_form_live_month7" data-id="6"><%-$t('reg_form_live_month7')%></li>
+                                                                    <li id="reg_form_live_month8" data-ml="reg_form_live_month8" data-id="7"><%-$t('reg_form_live_month8')%></li>
+                                                                    <li id="reg_form_live_month9" data-ml="reg_form_live_month9" data-id="8"><%-$t('reg_form_live_month9')%></li>
+                                                                    <li id="reg_form_live_month10" data-ml="reg_form_live_month10" data-id="9"><%-$t('reg_form_live_month10')%></li>
+                                                                    <li id="reg_form_live_month11" data-ml="reg_form_live_month11" data-id="10"><%-$t('reg_form_live_month11')%></li>
+                                                                    <li id="reg_form_live_month12" data-ml="reg_form_live_month12" data-id="11"><%-$t('reg_form_live_month12')%></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <% if (asic) { %>
+                                                            <div class="field el_wrap birth_year-wrap">
+                                                                <label for="birth_year" class="field-label" data-ml="reg_form_live_step2_year_birth"><%-$t('reg_form_live_step2_year_birth')%></label>
+                                                                <input autocomplete="off" placeholder="Year"  data-parsley-dt data-dt-part="Y" type="text" id="birth_year" name="birth_year" class="field-input" data-field-name="birth_year" data-parsley-range="[1941, 2003]" minlength="4" maxlength="4">
+                                                            </div>
+                                                        <% } %>
+                                                        <% if (!asic) { %>
+                                                            <div class="field el_wrap birth_year-wrap">
+                                                                <label for="birth_year" class="field-label" data-ml="reg_form_live_step2_year_birth"><%-$t('reg_form_live_step2_year_birth')%></label>
+                                                                <input autocomplete="off" placeholder="Year" data-parsley-dt data-dt-part="Y" type="text" id="birth_year" name="birth_year" class="field-input" data-field-name="birth_year" data-parsley-range="[1900, 2003]" minlength="4" maxlength="4">
+                                                            </div>
+                                                        <% } %>
+                                                    </div>
+                                                </div>
+                                                <div class="el_wrap" style="z-index: 1; position: relative; margin-bottom:0px; text-align: right;">
+                                                    <button type="button" class="address-selector change-to-manual" style="padding: 0; border: none; background: none;">
+                                                        <img src="/icm-open-account/icons/Magnifying_glass.svg" alt="" height="14px"> <%-$t('reg_form_live_step2_switch_to_manual')%>
+                                                    </button>
+                                                    <button type="button" class="address-selector change-to-auto" style="padding: 0; border: none; background: none; color: #989898; display:none;">
+                                                        <img src="/icm-open-account/icons/Magnifying_glass.svg" alt="" height="14px"> <%-$t('reg_form_live_step2_switch_to_auto')%>
+                                                    </button>
+                                                </div>
+                                                <div class="input_group" id="selectAddressWrapperBox" style="display:block">
+                                                    <div class="field el_wrap ab_fix1" id="selectAddressWrapper">
+                                                        <label for="selectAddressInput" class="field-label" data-ml="reg_form_live_step2_address"><%-$t('reg_form_live_step2_address')%></label>
+                                                        <input autocomplete="off" type="text" id="selectAddressInput" name="selectAddressInput" class="field-input" data-parsley-pattern="[^\x00-\x7F]+|[A-Za-z0-9# \\\/\-\,\.()]+" data-parsley-maxlength="355">
+                                                        <ul id="selectAddressDropdown"></ul>
+                                                    </div>
+                                                </div>
+                                                <div class="additional_address_fields row address-row" id="additional_address_fields" style="display:none">
+                                                </div>
+                                                <div class="input_group" style="display:none">
+                                                    <div class="field el_wrap ">
+                                                        <label for="address" class="field-label" data-ml="reg_form_live_step2_address"><%-$t('reg_form_live_step2_address')%></label>
+                                                        <input autocomplete="off" type="text" id="address" name="address" class="field-input" data-parsley-pattern="[A-Za-z0-9 \\\/\-\,\.()]+" data-parsley-maxlength="355">
+                                                    </div>
+                                                </div>
+                                                <div class="row address-row">
+                                                    <div class="col-md-4">
+                                                        <div class="input_group" style="display:none">
+                                                            <div class="field el_wrap">
+                                                                <label for="city" class="field-label" data-ml="reg_form_live_step2_city"><%-$t('reg_form_live_step2_city')%></label>
+                                                                <input autocomplete="off" type="text" id="city" name="city" class="field-input" data-parsley-pattern="[A-Za-z0-9 \-]+" data-parsley-maxlength="150">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="input_group" style="display:none">
+                                                            <div class="field el_wrap ab_fix1">
+                                                                <label for="state" class="field-label" data-ml="reg_form_live_step2_state"><%-$t('reg_form_live_step2_state')%></label>
+                                                                <input autocomplete="off" type="text" id="state" name="state" class="field-input" data-parsley-pattern="[A-Za-z0-9 \-]+" data-parsley-maxlength="200">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="input_group" style="display:none">
+                                                            <div class="field el_wrap">
+                                                                <label for="zip_code" class="field-label" data-ml="reg_form_live_step2_zip"><%-$t('reg_form_live_step2_zip')%></label>
+                                                                <input autocomplete="off" type="text" id="zip_code" name="zip_code" class="field-input" data-parsley-pattern="[A-Za-z0-9 \-]+" data-parsley-maxlength="50">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="identity-wrap" id="identity-wrap" style="margin-bottom: 50px; display: none;">
+                                                    <div class="searchDropdown el_wrap notSearched choose-identity">
+                                                        <label for="reg_form_live_identity_type" class="field-label" style="margin-top: -36px;"><%-$t('reg_form_live_identity_type_title')%> <span>(<%-$t('reg_form_live_identity_type_title_optional')%>)</span></label>
+                                                        <div id="reg_form_live_identity_type">
+                                                            <input autocomplete="off" type="text" name="identitytype" class="field-input rounded_el select-input" placeholder="<%-$t('reg_form_live_identity_type_placeholder')%>" required="false" data-parsley-identitytype data-parsley-excluded="true">
+                                                        </div>
+                                                        <ul class="options_list identityType">
+                                                        </ul>
+                                                    </div>
+                                                    <div class="input_group input nationalId" style="display: none; margin-top: 23px;">
+                                                        <div class="field el_wrap">
+                                                            <label for="nationalId" class="field-label" >National ID Number</label>
+                                                            <input autocomplete="off" type="text" id="nationalId" name="nationalId"  class="field-input " required=false data-field-name="nationalId" data-parsley-pattern="^([A-Za-z0-9\-\ \xD6\xF6\xC4\xE4\xFC\xDC\xDF\xC7\xE7\''\u4e00-\u9fa5]{1,100})$" data-parsley-trigger="keyup change"
+                                                            data-parsley-excluded="true">
+                                                        </div>
+                                                    </div>
+                                                    <div class="input_group input driverLicence" style="display: none; margin-top: 23px; margin-bottom: 0px !important;">
+                                                        <div class="field el_wrap">
+                                                            <label for="driverLicence" class="field-label" >Driver License Number</label>
+                                                            <input autocomplete="off" type="text" id="driverLicence" name="driverLicence"  class="field-input " required=false data-field-name="driverLicence"
+                                                            data-parsley-excluded="true">
+                                                        </div>
+                                                    </div>
+                                                    <div class="input_group input driverLicenceState" style="display: none;">
+                                                        <div class="searchDropdown el_wrap notSearched choose-driverlicencestate">
+                                                            <input autocomplete="off" type="text" name="driverLicenceState" id="driverLicenceState" class="field-input rounded_el select-input" placeholder="Driver License State" required="false" data-parsley-driverlicencestate data-parsley-excluded="true">
+                                                            <ul class="options_list driverLicenceState">
+                                                                <li data-id="ACT">ACT</li>
+                                                                <li data-id="NSW">NSW</li>
+                                                                <li data-id="NT">NT</li>
+                                                                <li data-id="QLD">QLD</li>
+                                                                <li data-id="SA">SA</li>
+                                                                <li data-id="TAS">TAS</li>
+                                                                <li data-id="VIC">VIC</li>
+                                                                <li data-id="WA">WA</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="input_group input driverLicenceCardNumber" style="display: none; margin-top: 23px; margin-bottom: 0px !important;">
+                                                        <div class="field el_wrap">
+                                                            <label for="driverLicenceCardNumber" class="field-label" >Driver License Card Number</label>
+                                                            <input autocomplete="off" type="text" id="driverLicenceCardNumber" name="driverLicenceCardNumber"  class="field-input " required=false data-field-name="driverLicenceCardNumber"
+                                                            data-parsley-excluded="true">
+                                                            <span>Driver license card number is a unique number on your license card different with your license number</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="input_group input driverLicenceExpiryDate" style="display: none; margin-top: 23px; margin-bottom: 0px !important;">
+                                                        <div class="field el_wrap">
+                                                            <label for="driverLicenceExpiryDate" class="field-label" >Driver License Expiry Date (DD/MM/YYYY)</label>
+                                                            <input autocomplete="off" type="text" id="driverLicenceExpiryDate" name="driverLicenceExpiryDate"  class="field-input id-expiry-date" required=false data-field-name="driverLicenceExpiryDate"
+                                                            data-parsley-excluded="true">
+                                                        </div>
+                                                    </div>
+                                                    <div class="input_group input passport" style="margin-top: 23px;display: none;">
+                                                        <div class="field el_wrap">
+                                                            <label for="passport" class="field-label" >Passport Number</label>
+                                                            <input autocomplete="off" type="text" id="passport" name="passport"  class="field-input " required=false data-field-name="passport"
+                                                            data-parsley-excluded="true">
+                                                        </div>
+                                                    </div>
+                                                    <div class="input_group input passportExpiryDate" style="display: none; margin-top: 23px; margin-bottom: 0px !important;">
+                                                        <div class="field el_wrap">
+                                                            <label for="passportExpiryDate" class="field-label" >Passport Expiry Date (DD/MM/YYYY)</label>
+                                                            <input autocomplete="off" type="text" id="passportExpiryDate" name="passportExpiryDate"  class="field-input id-expiry-date" required=false data-field-name="passportExpiryDate"
+                                                            data-parsley-excluded="true">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="qq-wrap input_group">
+                                                    <div class="field el_wrap">
+                                                        <label for="qq_id" class="field-label" data-ml="reg_form_live_step2_qq_id"><%-$t('reg_form_live_step2_qq_id')%></label>
+                                                        <input autocomplete="off" type="text" id="qq_id" name="qq_id" class="field-input" data-parsley-pattern="[0-9]+" minlength="1" maxlength="12">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="acctype_fields fields_joint">
+                                                joint
+                                            </div>
+                                            <div class="acctype_fields fields_corporate">
+                                                <div class="section_title">
+                                                    <h3 data-ml="reg_form_live_step2_signatory_title"><%-$t('reg_form_live_step2_signatory_title')%></h3>
+                                                </div>
+
+                                                <% if(countryCode === 'vn' || locale === 'vn') {%>
+                                                    <div class="input_group input">
+                                                        <div class="field el_wrap ab_fix1">
+                                                            <label for="first_name2" class="field-label" data-ml="reg_form_live_step2_signatory_first_as_sur_mid_vn"><%-$t('reg_form_live_step2_signatory_first_as_sur_mid_vn')%></label>
+                                                            <input autocomplete="off" type="text" id="first_name2" name="first_name2" class="field-input" data-parsley-pattern="[A-Za-z \-]+" >
+                                                        </div>
+                                                    </div>
+                                                    <div class="input_group input">
+                                                        <div class="field el_wrap ab_fix1">
+                                                            <label for="last_name2" class="field-label" data-ml="reg_form_live_step2_signatory_last_as_first_vn"><%-$t('reg_form_live_step2_signatory_last_as_first_vn')%></label>
+                                                            <input autocomplete="off" type="text" id="last_name2" name="last_name2" class="field-input"  data-parsley-pattern="[A-Za-z \-]+">
+                                                        </div>
+                                                    </div>
+                                                <%} else {%>
+                                                    <div class="input_group input">
+                                                        <div class="field el_wrap ab_fix1">
+                                                            <label for="first_name2" class="field-label" data-ml="reg_form_live_step2_signatory_first"><%-$t('reg_form_live_step2_signatory_first')%></label>
+                                                            <input autocomplete="off" type="text" id="first_name2" name="first_name2" class="field-input" data-parsley-pattern="[A-Za-z \-]+" >
+                                                        </div>
+                                                    </div>
+                                                    <div class="input_group input">
+                                                        <div class="field el_wrap ab_fix1">
+                                                            <label for="last_name2" class="field-label" data-ml="reg_form_live_step2_signatory_last"><%-$t('reg_form_live_step2_signatory_last')%></label>
+                                                            <input autocomplete="off" type="text" id="last_name2" name="last_name2" class="field-input"  data-parsley-pattern="[A-Za-z \-]+">
+                                                        </div>
+                                                    </div>
+                                                <%}%>
+                                                <div class="input_group">
+                                                    <div class="field el_wrap">
+                                                        <label for="city2" class="field-label" data-ml="reg_form_live_step2_city"><%-$t('reg_form_live_step2_city')%></label>
+                                                        <input autocomplete="off" type="text" id="city2" name="city2" class="field-input" data-parsley-pattern="[A-Za-z \-]+">
+                                                    </div>
+                                                </div>
+                                                <div class="input_group input">
+                                                    <div class="field el_wrap">
+                                                        <label for="email2" class="field-label" data-ml="reg_form_live_step2_signatory_email"><%-$t('reg_form_live_step2_signatory_email')%></label>
+                                                        <input autocomplete="off" type="email" id="email2" name="email2" class="field-input" data-parsley-email data-parsley-type="email">
+                                                    </div>
+                                                </div>
+                                                <div class="input_group input" style="margin-top: 40px;">
+                                                    <div class="searchDropdown el_wrap searched" style="z-index: 3;">
+                                                        <label for="countries2" class="field-label" style="margin-top: -20px;"><%-$t('reg_form_country_of_signatory')%></label>
+                                                        <input autocomplete="off" type="text" id="countries2" name="country2" class="field-input rounded_el cs-dn" placeholder="<%-$t('reg_form_country_of_signatory_placeholder', true)%>" data-parsley-dropdown>
+                                                    </div>
+                                                </div>
+                                                <div class="input_group input input-select-state" style="display:none;">
+                                                    <div class="searchDropdown el_wrap notSearched">
+                                                        <label for="states2" class="field-label" style="margin-top: -20px;"><%-$t('reg_form_state_province')%></label>
+                                                        <input autocomplete="off" type="text" id="states2" name="states2" class="field-input rounded_el" placeholder="<%-$t('reg_form_state_province_placeholder', true)%>" data-field-name="states2">
+                                                    </div>
+                                                </div>
+                                                <div class="input_group hint-canada-state" style="display:none;"><%-$t('reg_form_h_canada_states')%></div>
+                                                <div class="input_group input">
+                                                    <div class="field el_wrap ab_fix1">
+                                                        <label for="phone2" class="field-label" data-ml="reg_form_live_step2_signatory_phone"><%-$t('reg_form_live_step2_signatory_phone')%></label>
+                                                        <input autocomplete="off" type="tel" id="phone2" name="phone2" class="field-input" data-parsley-pattern="([0-9]|[\-()+])+">
+                                                    </div>
+                                                </div>
+                                                <div class="qq-wrap input_group">
+                                                    <div class="field el_wrap">
+                                                        <label for="qq_id_corporate" class="field-label" data-ml="reg_form_live_step2_qq_id"><%-$t('reg_form_live_step2_qq_id')%></label>
+                                                        <input autocomplete="off" type="text" id="qq_id_corporate" name="qq_id_corporate" class="field-input" data-parsley-pattern="[0-9]+" minlength="1" maxlength="12">
+                                                    </div>
+                                                </div>
+                                                <div class="input_group item3 birthdate">
+                                                    <div class="input_group_title" data-ml="reg_form_live_step2_signatory_date_birth"><%-$t('reg_form_live_step2_signatory_date_birth')%></div>
+                                                    <div data-dt-group data-dt-min-years="18" class="input_group_items">
+                                                        <div class="field el_wrap ab_fix1">
+                                                            <label class="field-label" ><%-$t('reg_form_live_step2_signatory_day_birth')%></label>
+                                                            <input autocomplete="off" placeholder="Day" data-parsley-dt data-dt-part="D" type="text" id="signatory_birth_day" name="signatory_birth_day" class="field-input" data-field-name="birth_day" data-parsley-max="31" minlength="1" maxlength="2">
+                                                        </div>
+                                                        <div class="searchDropdown el_wrap notSearched choose-month">
+                                                            <label for="signatory_birth_month" class="field-label" >Month</label>
+                                                            <input autocomplete="off" data-parsley-dt data-dt-part="M" type="text" id="signatory_birth_month" name="signatory_birth_month" class="field-input rounded_el" data-field-name="birth_month" data-ml="reg_form_live_step2_signatory_month_birth" placeholder="<%-$t('reg_form_live_step2_signatory_month_birth', true)%>">
+                                                            <ul class="options_list">
+                                                                <li data-ml="reg_form_live_month1" data-id="0"><%-$t('reg_form_live_month1')%></li>
+                                                                <li data-ml="reg_form_live_month2" data-id="1"><%-$t('reg_form_live_month2')%></li>
+                                                                <li data-ml="reg_form_live_month3" data-id="2"><%-$t('reg_form_live_month3')%></li>
+                                                                <li data-ml="reg_form_live_month4" data-id="3"><%-$t('reg_form_live_month4')%></li>
+                                                                <li data-ml="reg_form_live_month5" data-id="4"><%-$t('reg_form_live_month5')%></li>
+                                                                <li data-ml="reg_form_live_month6" data-id="5"><%-$t('reg_form_live_month6')%></li>
+                                                                <li data-ml="reg_form_live_month7" data-id="6"><%-$t('reg_form_live_month7')%></li>
+                                                                <li data-ml="reg_form_live_month8" data-id="7"><%-$t('reg_form_live_month8')%></li>
+                                                                <li data-ml="reg_form_live_month9" data-id="8"><%-$t('reg_form_live_month9')%></li>
+                                                                <li data-ml="reg_form_live_month10" data-id="9"><%-$t('reg_form_live_month10')%></li>
+                                                                <li data-ml="reg_form_live_month11" data-id="10"><%-$t('reg_form_live_month11')%></li>
+                                                                <li data-ml="reg_form_live_month12" data-id="11"><%-$t('reg_form_live_month12')%></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="field el_wrap ab_fix1">
+                                                            <label for="signatory_birth_year" class="field-label" data-ml="reg_form_live_step2_signatory_year_birth"><%-$t('reg_form_live_step2_signatory_year_birth')%></label>
+                                                            <input autocomplete="off" placeholder="Year" data-parsley-dt data-dt-part="Y" type="text" id="signatory_birth_year" name="signatory_birth_year" class="field-input" data-field-name="birth_year" data-parsley-range="[1900, 2002]" minlength="4" maxlength="4">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="section_title">
+                                                    <h3 data-ml="reg_form_live_step2_company_info"><%-$t('reg_form_live_step2_company_info')%></h3>
+                                                </div>
+                                                <div class="input_group input">
+                                                    <div class="field el_wrap ab_fix2">
+                                                        <label for="company_name" class="field-label" data-ml="reg_form_live_step2_company_name"><%-$t('reg_form_live_step2_company_name')%></label>
+                                                        <input autocomplete="off" type="text" id="company_name" name="company_name" class="field-input" data-parsley-minlength="1" data-parsley-maxlength="255" >
+                                                    </div>
+                                                </div>
+                                                <div class="input_group input">
+                                                    <div class="field el_wrap ab_fix2">
+                                                        <label for="legal_entity_id" class="field-label" data-ml="reg_form_live_step2_legal_entity_id"><%-$t('reg_form_live_step2_legal_entity_id')%></label>
+                                                        <input autocomplete="off" type="text" id="legal_entity_id" name="legal_entity_id" class="field-input" data-parsley-minlength="20" data-parsley-maxlength="20" >
+                                                    </div>
+                                                </div>
+                                                <div class="input_group input">
+                                                    <div class="field el_wrap ab_fix2">
+                                                        <label for="place_incorporation" class="field-label" data-ml="reg_form_live_step2_company_place"><%-$t('reg_form_live_step2_company_place')%></label>
+                                                        <input autocomplete="off" type="text" id="place_incorporation" name="place_incorporation" class="field-input" data-parsley-pattern="[A-Za-z \-\,\.]+" data-parsley-maxlength="255">
+                                                    </div>
+                                                </div>
+                                                <div class="input_group item3 birthdate">
+                                                    <div class="input_group_title" data-ml="reg_form_live_step2_company_date"><%-$t('reg_form_live_step2_company_date')%></div>
+                                                    <div data-dt-group class="input_group_items">
+                                                        <div class="field el_wrap ab_fix2">
+                                                            <label for="incorporation_birth_day" class="field-label" data-ml="reg_form_live_step2_company_day"><%-$t('reg_form_live_step2_company_day')%></label>
+                                                            <input autocomplete="off" placeholder="Day" data-parsley-dt data-dt-part="D" type="text" id="incorporation_birth_day" name="incorporation_birth_day" class="field-input" data-parsley-max="31" minlength="1" maxlength="2">
+                                                        </div>
+                                                        <div class="searchDropdown el_wrap notSearched choose-month">
+                                                            <label for="incorporation_birth_month" class="field-label" >Month</label>
+                                                            <input autocomplete="off" data-parsley-dt data-dt-part="M" type="text" id="incorporation_birth_month" name="incorporation_birth_month" class="field-input rounded_el" data-ml="reg_form_live_step2_company_month" placeholder="<%-$t('reg_form_live_step2_company_month', true)%>">
+                                                            <ul class="options_list">
+                                                                <li data-ml="reg_form_live_month1" data-id="0"><%-$t('reg_form_live_month1')%></li>
+                                                                <li data-ml="reg_form_live_month2" data-id="1"><%-$t('reg_form_live_month2')%></li>
+                                                                <li data-ml="reg_form_live_month3" data-id="2"><%-$t('reg_form_live_month3')%></li>
+                                                                <li data-ml="reg_form_live_month4" data-id="3"><%-$t('reg_form_live_month4')%></li>
+                                                                <li data-ml="reg_form_live_month5" data-id="4"><%-$t('reg_form_live_month5')%></li>
+                                                                <li data-ml="reg_form_live_month6" data-id="5"><%-$t('reg_form_live_month6')%></li>
+                                                                <li data-ml="reg_form_live_month7" data-id="6"><%-$t('reg_form_live_month7')%></li>
+                                                                <li data-ml="reg_form_live_month8" data-id="7"><%-$t('reg_form_live_month8')%></li>
+                                                                <li data-ml="reg_form_live_month9" data-id="8"><%-$t('reg_form_live_month9')%></li>
+                                                                <li data-ml="reg_form_live_month10" data-id="9"><%-$t('reg_form_live_month10')%></li>
+                                                                <li data-ml="reg_form_live_month11" data-id="10"><%-$t('reg_form_live_month11')%></li>
+                                                                <li data-ml="reg_form_live_month12" data-id="11"><%-$t('reg_form_live_month12')%></li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="field el_wrap ab_fix2">
+                                                            <label for="incorporation_birth_year" class="field-label" data-ml="reg_form_live_step2_company_year"><%-$t('reg_form_live_step2_company_year')%></label>
+                                                            <input autocomplete="off" placeholder="Year" data-parsley-dt data-dt-part="Y" type="text" id="incorporation_birth_year" name="incorporation_birth_year" class="field-input" data-parsley-range="[1900, 2021]" minlength="4" maxlength="4">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="input_group">
+                                                    <div class="field el_wrap ab_fix1">
+                                                        <label for="fax" class="field-label" data-ml="reg_form_live_step2_company_fax"><%-$t('reg_form_live_step2_company_fax')%></label>
+                                                        <input autocomplete="off" type="text" id="fax" name="fax" class="field-input" data-parsley-pattern="([0-9]|[\-()+])+" data-parsley-maxlength="50">
+                                                    </div>
+                                                </div>
+                                                <div class="section_title">
+                                                    <h3 data-ml="reg_form_live_step2_company_address"><%-$t('reg_form_live_step2_company_address')%></h3>
+                                                </div>
+                                                <div class="registered_address_fields">
+                                                    <div class="input_group">
+                                                        <div class="field el_wrap ab_fix2">
+                                                            <label for="registered_street" class="field-label" data-ml="reg_form_live_step2_company_street"><%-$t('reg_form_live_step2_company_street')%></label>
+                                                            <input autocomplete="off" type="text" id="registered_street" name="registered_street" class="field-input" data-field-name="street" data-parsley-pattern="[A-Za-z0-9 \-]+">
+                                                        </div>
+                                                    </div>
+                                                    <div class="input_group">
+                                                        <div class="field el_wrap ab_fix1">
+                                                            <label for="registered_street_number" class="field-label" data-ml="reg_form_live_step2_company_street_number"><%-$t('reg_form_live_step2_company_street_number')%></label>
+                                                            <input autocomplete="off" type="text" id="registered_street_number" name="registered_street_number" class="field-input" data-field-name="street_number" data-parsley-pattern="[A-Za-z0-9 \-]+">
+                                                        </div>
+                                                    </div>
+                                                    <div class="input_group">
+                                                        <div class="field el_wrap">
+                                                            <label for="registered_city" class="field-label" data-ml="reg_form_live_step2_company_city"><%-$t('reg_form_live_step2_company_city')%></label>
+                                                            <input autocomplete="off" type="text" id="registered_city" name="registered_city" class="field-input" data-field-name="city" data-parsley-pattern="[A-Za-z \-]+">
+                                                        </div>
+                                                    </div>
+                                                    <div class="input_group">
+                                                        <div class="field el_wrap ab_fix1">
+                                                            <label for="registered_state" class="field-label" data-ml="reg_form_live_step2_company_state"><%-$t('reg_form_live_step2_company_state')%></label>
+                                                            <input autocomplete="off" type="text" id="registered_state" name="registered_state" class="field-input" data-field-name="state" data-parsley-pattern="[A-Za-z \-]+">
+                                                        </div>
+                                                    </div>
+                                                    <div class="input_group">
+                                                        <div class="field el_wrap">
+                                                            <label for="registered_zip_code" class="field-label" data-ml="reg_form_live_step2_company_zip"><%-$t('reg_form_live_step2_company_zip')%></label>
+                                                            <input autocomplete="off" type="text" id="registered_zip_code" name="registered_zip_code" class="field-input" data-field-name="zip_code" data-parsley-pattern="[A-Za-z0-9 \-]+">
+                                                        </div>
+                                                    </div>
+                                                    <div class="input_group input">
+                                                        <div class="searchDropdown el_wrap searched">
+                                                            <label for="registered_countries" class="field-label" style="margin-top: -20px;"><%-$t('reg_form_country_of_registration')%></label>
+                                                            <input autocomplete="off" type="text" id="registered_countries" name="registered_country" class="field-input rounded_el cs-dn" placeholder="<%-$t('reg_form_country_of_registration_placeholder', true)%>" data-field-name="country" data-parsley-dropdown>
+                                                        </div>
+                                                    </div>
+                                                    <div class="input_group input input-select-state" style="display:none;">
+                                                        <div class="searchDropdown el_wrap notSearched">
+                                                            <label for="registered_states" class="field-label" style="margin-top: -20px;"><%-$t('reg_form_state_province')%></label>
+                                                            <input autocomplete="off" type="text" id="registered_states" name="registered_states" class="field-input rounded_el" placeholder="<%-$t('reg_form_state_province_placeholder', true)%>" data-field-name="registered_states">
+                                                        </div>
+                                                    </div>
+                                                    <div class="input_group hint-canada-state" style="display:none;"><%-$t('reg_form_h_canada_states')%></div>
+                                                </div>
+                                                <div class="section_title">
+                                                    <h3 data-ml="reg_form_live_step2_business_address"><%-$t('reg_form_live_step2_business_address')%></h3>
+                                                </div>
+                                                <div class="business_address_fields">
+                                                    <div class="input_group checkbox_wrap busaddr_check">
+                                                        <input autocomplete="off" type="checkbox" class="checkbox" name="busaddr" id="busaddr">
+                                                        <label for="busaddr" data-ml="reg_form_live_step2_business_address_same"><%-$t('reg_form_live_step2_business_address_same')%></label>
+                                                    </div>
+                                                    <div class="input_group busaddr_field">
+                                                        <div class="field el_wrap ab_fix2">
+                                                            <label for="business_street" class="field-label" data-ml="reg_form_live_step2_business_street"><%-$t('reg_form_live_step2_business_street')%></label>
+                                                            <input autocomplete="off" type="text" id="business_street" name="business_street" class="field-input" data-field-name="street" data-parsley-pattern="[A-Za-z0-9 \-]+">
+                                                        </div>
+                                                    </div>
+                                                    <div class="input_group busaddr_field">
+                                                        <div class="field el_wrap ">
+                                                            <label for="business_street_number" class="field-label" data-ml="reg_form_live_step2_business_street_number"><%-$t('reg_form_live_step2_business_street_number')%></label>
+                                                            <input autocomplete="off" type="text" id="business_street_number" name="business_street_number" class="field-input" data-field-name="street_number" data-parsley-pattern="[A-Za-z0-9 \-]+">
+                                                        </div>
+                                                    </div>
+                                                    <div class="input_group busaddr_field">
+                                                        <div class="field el_wrap ab_fix2">
+                                                            <label for="business_city" class="field-label" data-ml="reg_form_live_step2_business_city"><%-$t('reg_form_live_step2_business_city')%></label>
+                                                            <input autocomplete="off" type="text" id="business_city" name="business_city" class="field-input" data-field-name="city" data-parsley-pattern="[A-Za-z \-]+">
+                                                        </div>
+                                                    </div>
+                                                    <div class="input_group busaddr_field">
+                                                        <div class="field el_wrap ab_fix1">
+                                                            <label for="business_state" class="field-label" data-ml="reg_form_live_step2_business_state"><%-$t('reg_form_live_step2_business_state')%></label>
+                                                            <input autocomplete="off" type="text" id="business_state" name="business_state" class="field-input" data-field-name="state" data-parsley-pattern="[A-Za-z \-]+">
+                                                        </div>
+                                                    </div>
+                                                    <div class="input_group busaddr_field">
+                                                        <div class="field el_wrap ab_fix2">
+                                                            <label for="business_zip_code" class="field-label" data-ml="reg_form_live_step2_business_zip"><%-$t('reg_form_live_step2_business_zip')%></label>
+                                                            <input autocomplete="off" type="text" id="business_zip_code" name="business_zip_code" class="field-input" data-field-name="zip_code" data-parsley-pattern="[A-Za-z0-9 \-]+">
+                                                        </div>
+                                                    </div>
+                                                    <div class="input_group busaddr_field input">
+                                                        <div class="searchDropdown el_wrap searched">
+                                                            <label for="business_country" class="field-label" style="margin-top: -20px;"><%-$t('reg_form_country_of_business')%></label>
+                                                            <input autocomplete="off" type="text" id="business_countries" name="business_country" class="field-input rounded_el cs-dn" placeholder="<%-$t('reg_form_country_of_business_placeholder', true)%>" data-field-name="business_country" data-parsley-dropdown>
+                                                        </div>
+                                                    </div>
+                                                    <div class="input_group busaddr_field input input-select-state" style="display:none;">
+                                                        <div class="searchDropdown el_wrap notSearched">
+                                                            <label for="business_states" class="field-label" style="margin-top: -20px;"><%-$t('reg_form_state_province')%></label>
+                                                            <input autocomplete="off" type="text" id="business_states" name="business_states" class="field-input rounded_el" placeholder="<%-$t('reg_form_state_province_placeholder', true)%>" data-field-name="business_states">
+                                                        </div>
+                                                    </div>
+                                                    <div class="input_group busaddr_field hint-canada-state" style="display:none;"><%-$t('reg_form_h_canada_states')%></div>
+                                                </div>
+                                            </div>
+
+                                            <% if (!fca) { %>
+                                            <div class="input_group input nationality" <%- (!cysec ? 'style="display:none;"' : '') %>>
+                                                <div class="searchDropdown el_wrap searched">
+                                                    <label for="nationality" class="field-label" style="margin-top: -20px;"><%-$t('reg_form_nationality')%></label>
+                                                    <input autocomplete="off" type="text" id="nationality" name="nationality" class="field-input rounded_el cs-dn" placeholder="<%-$t('reg_form_nationality_placeholder', true)%>" data-field-name="nationality" data-parsley-dropdown>
+                                                </div>
+                                            </div>
+                                            <% } %>
+
+                                            <div class="trulioo_fields" id="trulioo_fields" style="display:none;" >
+
+                                            </div>
+
+                                            <!-- <% if (!asic) { %>
+                                                <div class="input_group input nationalityId">
+                                                    <div class="field el_wrap">
+                                                        <label for="nationalityId" class="field-label" ><%-$t('reg_form_nationalityId')%></label>
+                                                        <input autocomplete="off" type="text" id="nationalityId" name="nationalityId" class="field-input " placeholder="<%-$t('reg_form_nationalityId_placeholder', true)%>" data-field-name="countryId">
+                                                    </div>
+                                                </div>
+                                            <% } %> -->
+                                            <% if (cysec) { %>
+                                                <div class="input_group input signatory_tin">
+                                                    <div class="field el_wrap">
+                                                        <label for="signatory_tin" class="field-label" ><%-$t('reg_form_signatory_tin')%></label>
+                                                        <input autocomplete="off" type="text" id="signatory_tin" name="signatory_tin" class="field-input "   data-field-name="signatory_tin" >
+                                                    </div>
+                                                </div>
+                                            <% } %>
+
+
+                                                <div class="input_group checkbox_wrap reffer_check"  >
+                                                    <input autocomplete="off" type="checkbox" class="checkbox" name="reffer" id="reffer">
+                                                    <label for="reffer" data-ml="reg_form_live_step2_reffer"><%-$t('reg_form_live_step2_reffer')%></label>
+                                                </div>
+                                                <div class="input_group reffer_id" >
+                                                    <div class="field el_wrap ab_fix1">
+                                                        <label for="reffer_id" class="field-label" data-ml="reg_form_live_step2_reffer_id"><%-$t('reg_form_live_step2_reffer_id')%></label>
+                                                        <input autocomplete="off" type="text" id="reffer_id" name="reffer_id" class="field-input" data-parsley-type="digits">
+                                                    </div>
+                                                </div>
+
+                                            <div class="el_wrap next_btn">
+                                                <button type="button" id="reg_form_live_step2_back_btn" data-to="1" class="btn step-back">BACK</button>
+                                                <button type="button" id="reg_form_live_step2_next_btn" class="btn icm-btn-primary start-trading-button" data-ml="reg_form_live_step2_next"><%-$t('reg_form_live_step2_next')%></button>
+                                                <span class="encrypt" data-ml="reg_form_live_step2_encrypted"><%-$t('reg_form_live_step2_encrypted')%></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="register_form form-step-3" id="step_3" data-n="3">
+                                            <h1 class="reg_title" data-ml="reg_form_live_step3_title"><%-$t('reg_form_live_step3_title')%></h1>
+                                            <div class="input_group item2">
+                                                <div class="input_group_title" data-ml="reg_form_live_step3_platform"><%-$t('reg_form_live_step3_platform')%></div>
+                                                <div class="mt4-shares-on-mt5-only"><%-$t('reg_form_live_step3_shares_on_mt5', true)%></div>
+                                                <div class="input_group_items select_btns_group single_select sel2item trade-platforms">
+                                                    <div class="trade-platform-button select_btn rounded_el metatrader" data-id="trading_platform" data-value="metatrader">
+                                                        <img src="/icm-open-account/icons/Metatrader.png" alt="">
+                                                    </div>
+                                                    <div class="trade-platform-button select_btn rounded_el ctrader" data-id="trading_platform" data-value="ctrader">
+                                                        <img src="/icm-open-account/icons/cTrader.png" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="input_group item2">
+                                                <div class="input_group_title" data-ml="reg_form_live_step3_account_type"><%-$t('reg_form_live_step3_account_type')%></div>
+                                                <div class="input_group_items select_btns_group single_select sel2item account-types">
+                                                    <div class="account-type-button select_btn rounded_el acctype_standart" data-id="account_type" data-value="standart" data-ml="reg_form_live_step3_account_standard"><%-$t('reg_form_live_step3_account_standard')%></div>
+                                                    <div class="account-type-button select_btn rounded_el acctype_ecn" data-id="account_type" data-value="trueecn" data-ml="reg_form_live_step3_account_ecn"><%-$t('reg_form_live_step3_account_ecn')%></div>
+                                                </div>
+                                            </div>
+                                            <div class="input_group account-based-currency-group">
+
+                                                <div class="input_group_title" data-ml="reg_form_live_step3_account_base_currency"><%-$t('reg_form_live_step3_account_base_currency')%></div>
+                                                <div class="input-select-country"  >
+                                                    <!-- <span class="select-icon" data-parsley-id="435">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#c1c1c1" data-parsley-id="437">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" data-parsley-id="439"></path>
+                                                          </svg>
+                                                    </span> -->
+                                                <div class="searchDropdown el_wrap notSearched">
+                                                    <input autocomplete="off" type="text" id="currency" name="currency" class="field-input rounded_el" data-ml="reg_form_live_step3_currency" placeholder="<%-$t('reg_form_live_step3_currency', true)%>">
+                                                    <ul class="options_list" id="currenciesList"></ul>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <div class="input_group checkbox_wrap" style="display:none!important;">
+                                                <input autocomplete="off" type="checkbox" class="checkbox" name="news_subscription" id="newsletter">
+                                                <label for="newsletter" data-ml="reg_form_live_step3_newsletter"><%-$t('reg_form_live_step3_newsletter')%></label>
+                                            </div>
+                                            <div class="el_wrap next_btn">
+                                                <button type="button" id="reg_form_live_step3_back_btn" data-to="2" class="btn step-back">BACK</button>
+                                                <button type="button" id="reg_form_live_step3_next_btn" class="btn icm-btn-primary start-trading-button" data-ml="reg_form_live_step3_next"><%-$t('reg_form_live_step3_next')%></button>
+                                                <span class="encrypt" data-ml="reg_form_live_step3_encrypted"><%-$t('reg_form_live_step3_encrypted')%></span>
+                                            </div>
+                                        </div>
+                                        <div class="register_form question-ans" id="step_4" data-n="4">
+                                            <div class="el_wrap next_btn">
+                                                <button type="button" id="reg_form_live_step4_back_btn" data-to="3" class="btn step-back">BACK</button>
+                                                <button type="button" id="reg_form_live_step4_next_btn" class="btn icm-btn-primary start-trading-button" data-ml="reg_form_live_step3_next"><%-$t('reg_form_live_step3_next')%></button>
+                                                <span class="encrypt" data-ml="reg_form_live_step3_encrypted"><%-$t('reg_form_live_step3_encrypted')%></span>
+                                            </div>
+                                        </div>
+                                        <div class="register_form declaration" id="step_5" data-n="5">
+                                            <!--<h1 class="reg_title" data-ml="reg_form_live_step4_title"><%-$t('reg_form_live_step4_title')%></h1>-->
+                                            <% if (cysec) { %>
+                                            <div class="input_group" id="trading_exp">
+                                                <div class="input_group_title security_q_wrap">
+                                                    <h1 data-ml="reg_form_live_step4_question_title" class="h1step4">Select your Trading Experience</h1>
+                                                </div>
+                                                <!--<div class="input_group_title" data-ml="reg_form_live_step4_experience"><%-$t('reg_form_live_step4_experience')%></div>-->
+                                                <div class="input_group_items select_btns_group single_select sel3item trading_exp">
+                                                    <div id="reg_form_live_experience_beginner" class="select_btn rounded_el" data-id="experience" data-value="beginner" data-ml="reg_form_live_step5_experience_beginner">
+                                                        <%-$t('reg_form_live_step4_experience_beginner')%>
+                                                    </div>
+                                                    <div id="reg_form_live_experience_intermediate" class="select_btn rounded_el" data-id="experience" data-value="intermediate" data-ml="reg_form_live_step5_experience_intermediate">
+                                                        <%-$t('reg_form_live_step4_experience_intermediate')%>
+                                                    </div>
+                                                    <div id="reg_form_live_experience_advanced" class="select_btn rounded_el" data-id="experience" data-value="advanced" data-ml="reg_form_live_step5_experience_advanced">
+                                                        <%-$t('reg_form_live_step4_experience_advanced')%>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <% } %>
+                                            <div id="australian_test_container" class="australian_test_wrap"></div>
+                                            <div class="input_group security_q_wrap">
+                                                <div class="input_group_title">
+                                                    <h1 data-ml="reg_form_live_step5_question_title"><%-$t('reg_form_live_step4_question_title')%></h1>
+                                                    <p data-ml="reg_form_live_step5_question_answer"><%-$t('reg_form_live_step4_question_answer')%></p>
+                                                </div>
+                                                <div class="searchDropdown el_wrap notSearched">
+                                                    <div class="input-select-country">
+                                                        <!-- <span class="select-icon">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#c1c1c1">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                                              </svg>
+                                                        </span> -->
+                                                        <input autocomplete="off" type="text" id="security_question" name="security_question" class="field-input rounded_el" data-ml="reg_form_live_step5_question" placeholder="<%-$t('reg_form_live_step4_question', true)%>">
+                                                        <ul class="options_list">
+                                                            <li data-ml="reg_form_live_step5_question1" data-id="What is your mother's maiden name?"><%-$t('reg_form_live_step4_question1')%></li>
+                                                            <li data-ml="reg_form_live_step5_question2" data-id="What was your first pet's name?"><%-$t('reg_form_live_step4_question2')%></li>
+                                                            <li data-ml="reg_form_live_step5_question3" data-id="What street did you grow up on?"><%-$t('reg_form_live_step4_question3')%></li>
+                                                            <li data-ml="reg_form_live_step5_question4" data-id="What is your favourite colour?"><%-$t('reg_form_live_step4_question4')%></li>
+                                                            <li data-ml="reg_form_live_step5_question5" data-id="What is your favourite actor, musician, or artist?"><%-$t('reg_form_live_step4_question5')%></li>
+                                                        </ul>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="input_group security_a_wrap">
+                                                <div class="field el_wrap ab_fix2">
+                                                    <label for="security_answer" class="field-label" data-ml="reg_form_live_step4_answer"><%-$t('reg_form_live_step4_answer')%></label>
+                                                    <input autocomplete="off" type="text" id="security_answer" name="security_answer" class="field-input" data-parsley-pattern="[A-Za-z0-9 \-\,\.]+">
+                                                </div>
+                                            </div>
+
+                                            <div class="input_group declaration_wrap">
+                                                <div class="input_group_title"><h1 data-ml="reg_form_live_step4_declaration"><%-$t('reg_form_live_step4_declaration')%></h1></div>
+
+                                                <div class="input_group islamic_declaration_wrap" style="height:auto; display:none; text-align:left !important;">
+                                                    <input autocomplete="off" type="checkbox" class="checkbox" name="islamic_declaration_accepted" id="islamic_declaration">
+                                                    <label for="islamic_declaration"><%-$t('reg_form_live_step4_islamic_declaration')%></label>
+                                                </div>
+
+                                                <% if (asic) { %>
+                                                    <%-$t('reg_form_final_declaration_brxy_1')%>
+                                                    <div id="verification_and_compensation" style="display:none; border: 1px solid #999; box-shadow: 10px 10px 20px #999; top: calc(50% - 400px); height: 800px;" class="reg_modal_block">
+                                                        <div class="reg_modal_inner" style="padding: 20px;">
+                                                        <div class="reg_modal_close_btn"></div>
+                                                        <div class="reg_modal_content" style="height: 700px; overflow-y: auto; margin: 20px; padding: 20px;">
+                                                            <div class="reg_modal_text" style="text-align: justify; font-size: 14px; border: none; padding: 0; margin: 0;">
+                                                                <h1 style="color: #00C800;" data-ml="reg_form_live_step4_declaration10"><%-$t('reg_form_live_step4_declaration10')%></h1>
+                                                                <br><br>
+                                                                <div data-ml="reg_form_live_step4_declaration11"><%-$t('reg_form_live_step4_declaration11')%></div>
+                                                                <br><br>
+                                                                <b data-ml="reg_form_live_step4_declaration12"><%-$t('reg_form_live_step4_declaration12')%></b>
+                                                                <br><br>
+                                                                <div data-ml="reg_form_live_step4_declaration13"><%-$t('reg_form_live_step4_declaration13')%></div>
+                                                                <br>
+                                                                <div data-ml="reg_form_live_step4_declaration14"><%-$t('reg_form_live_step4_declaration14')%></div>
+                                                                <ul style="list-style: disc inside; margin: 22px; text-indent: -20px;">
+                                                                        <li data-ml="reg_form_live_step4_declaration15"><%-$t('reg_form_live_step4_declaration15')%></li>
+                                                                        <li data-ml="reg_form_live_step4_declaration16"><%-$t('reg_form_live_step4_declaration16')%></li>
+                                                                        <li data-ml="reg_form_live_step4_declaration17"><%-$t('reg_form_live_step4_declaration17')%></li>
+                                                                </ul>
+                                                                <br>
+                                                                <div data-ml="reg_form_live_step4_declaration18"><%-$t('reg_form_live_step4_declaration18')%></div>
+                                                                <br><br>
+                                                                <b data-ml="reg_form_live_step4_declaration19"><%-$t('reg_form_live_step4_declaration19')%></b>
+                                                                <br><br>
+                                                                <div data-ml="reg_form_live_step4_declaration20"><%-$t('reg_form_live_step4_declaration20')%></div>
+                                                                <ul style="list-style: disc inside; margin: 22px; text-indent: -20px;">
+                                                                        <li data-ml="reg_form_live_step4_declaration21"><%-$t('reg_form_live_step4_declaration21')%></li>
+                                                                        <li data-ml="reg_form_live_step4_declaration22"><%-$t('reg_form_live_step4_declaration22')%></li>
+                                                                </ul>
+                                                                <br>
+                                                                <div data-ml="reg_form_live_step4_declaration23"><%-$t('reg_form_live_step4_declaration23')%></div>
+                                                                <br>
+                                                                <b data-ml="reg_form_live_step4_declaration24"><%-$t('reg_form_live_step4_declaration24')%></b>
+                                                                <br><br>
+                                                                <div data-ml="reg_form_live_step4_declaration25"><%-$t('reg_form_live_step4_declaration25')%></div>
+                                                                <ul style="list-style: disc inside; margin: 22px; text-indent: -20px;">
+                                                                        <li data-ml="reg_form_live_step4_declaration26"><%-$t('reg_form_live_step4_declaration26')%></li>
+                                                                        <li data-ml="reg_form_live_step4_declaration27"><%-$t('reg_form_live_step4_declaration27')%></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                <% } %>
+
+                                                <% if (cysec) { %>
+                                                    <%-$t('reg_form_final_declaration_brxy_2')%>
+                                                <% } %>
+
+                                                <% if (fsa) { %>
+                                                    <div class="declaration-scrolling-container">
+                                                        <%-$t('reg_form_final_declaration_brxy_3')%>
+                                                    </div>
+                                                <% } %>
+
+                                                <% if (scb) { %>
+                                                    <div class="declaration-scrolling-container">
+                                                        <%-$t('reg_form_final_declaration_brxy_4')%>
+                                                    </div>
+                                                <% } %>
+                                            </div>
+                                            <div class="input_group checkbox_wrap i_agree_wrap" style="line-height: 1.2;">
+                                                <input autocomplete="off" type="checkbox" class="checkbox" name="i_agree_with_all_of_above" id="i_agree_with_all_of_above">
+                                                <label for="i_agree_with_all_of_above"><b>I have read and agree with all of the above and wish to proceed with an account application.</b></label>
+                                            </div>
+                                            <div class="input_group help_wrap" style="line-height: 1.2;">
+                                                <%-$t('reg_form_final_declaration_help')%>
+                                            </div>
+                                            <div class="el_wrap next_btn">
+                                             <button type="button" id="reg_form_live_step5_back_btn" data-to="4" class="btn step-back">BACK</button>
+                                                <button type="submit" id="reg_form_live_step5_back_submit_btn" class="btn icm-btn-primary start-trading-button final-submit" data-ml="reg_form_live_step4_accept">
+                                                    SUBMIT
+                                                    <!-- Adform Tracking Code BEGIN -->
+                                                    <noscript>
+                                                        <p style="margin:0;padding:0;border:0;display: none;">
+                                                            <img src="https://track.adform.net/Serving/TrackPoint/?pm=2514467&ADFPageName=ICM_Live_Subscription&ADFdivider=|" width="1" height="1" alt="" />
+                                                        </p>
+                                                    </noscript>
+                                                    <!-- Adform Tracking Code END -->
+                                                </button>
+                                                <span class="encrypt" data-ml="reg_form_live_step4_encrypted"><%-$t('reg_form_live_step4_encrypted')%></span>
+                                            </div>
+                                        </div>
+                                        <div class="register_form process_animation" id="step_6" data-n="6">
+                                            <div>
+                                                <div class="reg_loader">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reg_overlay"></div>
+                        <div class="reg_modal_continue">
+                            <div class="reg_modal_inner">
+                                <div class="reg_modal_close_btn"></div>
+                                <div class="reg_modal_content">
+                                    <div class="reg_modal_text" data-ml="reg_form_live_already_started"><%-$t('reg_form_live_already_started')%></div>
+                                    <div class="reg_modal_icon"></div>
+                                </div>
+                                <div class="el_wrap reg_modal_btns">
+                                    <button type="button" id="resume_app" class="btn icm-btn-primary start-trading-button" data-ml="reg_form_live_resume"><%-$t('reg_form_live_resume')%></button>
+                                    <div class="empty-space"></div>
+                                    <button type="button" id="new_app" class="btn start-trading-button" data-ml="reg_form_live_start_new"><%-$t('reg_form_live_start_new')%></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reg_modal_test">
+                            <div class="reg_modal_inner">
+                                <div class="reg_modal_close_btn"></div>
+                                <div class="reg_modal_content">
+                                    <div class="reg_modal_text" data-ml="reg_form_live_low_scored"><%-$t('reg_form_live_low_scored')%></div>
+                                </div>
+                                <div class="el_wrap reg_modal_btns">
+                                    <button type="button" id="test_again" class="btn icm-btn-primary start-trading-button" data-ml="reg_form_live_test_again"><%-$t('reg_form_live_test_again')%></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reg_modal_block">
+                            <div class="reg_modal_inner">
+                                <div class="reg_modal_content">
+                                    <div class="reg_modal_text" data-ml="reg_form_live_try_later"><%-$t('reg_form_live_try_later')%></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reg_modal_finish">
+                            <div class="reg_modal_inner">
+                                <div class="reg_modal_close_btn"></div>
+                                <div class="reg_modal_content">
+                                    <div class="reg_modal_text" data-ml="reg_form_live_congratulations"><%-$t('reg_form_live_congratulations')%></div>
+                                    <br /><br />
+                                    <div class="reg_modal_explain" data-ml="reg_form_live_explain1"><%-$t('reg_form_live_explain1')%></div>
+                                    <br />
+                                    <div class="reg_modal_explain" data-ml="reg_form_live_explain2"><%-$t('reg_form_live_explain2')%></div>
+                                    <div class="reg_modal_explain" data-ml="reg_form_live_explain3"><%-$t('reg_form_live_explain3')%></div>
+                                    <br />
+                                    <div class="reg_modal_explain" data-ml="reg_form_live_explain4"><%-$t('reg_form_live_explain4')%></div>
+                                </div>
+                                <div class="el_wrap reg_modal_btns">
+                                    <button type="button" id="finish_client_area" class="btn icm-btn-primary start-trading-button"><a id="live_8" class="link-to-personal-area" href="" data-ml="reg_form_live_sign_into_ca"><%-$t('reg_form_live_sign_into_ca')%></a></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reg_modal_fail">
+                            <div class="reg_modal_inner">
+                                <div class="reg_modal_close_btn"></div>
+                                <div class="reg_modal_content">
+                                    <div class="reg_modal_text" data-ml="reg_form_live_failed"><%-$t('reg_form_live_failed')%></div>
+                                    <br />
+                                    <div class="reg_modal_explain" data-ml="reg_form_live_server_error"><%-$t('reg_form_live_server_error')%></div>
+                                </div>
+                                <div class="el_wrap reg_modal_btns">
+                                    <button type="button" id="fail_try_again" class="btn icm-btn-primary start-trading-button" data-ml="reg_form_live_try_again"><%-$t('reg_form_live_try_again')%></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reg_modal_unsupported_country">
+                            <div class="reg_modal_inner">
+                                <div class="reg_modal_close_btn"></div>
+                                <div class="reg_modal_content">
+                                    <div style="width: auto;" class="reg_modal_text">
+                                        <p data-ml="reg_form_live_unsupported_us_explain">
+                                            <%-$t('reg_form_live_unsupported_us_explain')%>
+                                        </p>
+                                    </div>
+                                    <div style="display: none;" class="reg_modal_explain unsupported_country">&nbsp;</div>
+                                </div>
+                                <div class="el_wrap reg_modal_btns">
+                                    <button type="button" class="btn icm-btn-primary start-trading-button unsupported_ok" data-ml="reg_form_live_unsupported_ok"><%-$t('reg_form_live_unsupported_ok')%></button>
+                                    <div class="empty-space"></div>
+                                    <button type="button" class="btn start-trading-button unsupported_cancel" data-ml="reg_form_live_unsupported_cancel"><%-$t('reg_form_live_unsupported_cancel')%></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reg_modal_disallowed_country">
+                            <div class="reg_modal_inner">
+                                <div class="reg_modal_close_btn"></div>
+                                <div class="reg_modal_content">
+                                    <div class="reg_modal_text"><span data-ml="reg_form_live_disallowed_explain2"><%-$t('reg_form_live_disallowed_explain2')%></span><br /><span class="reg_modal_explain disallowed_country"></span></div>
+                                </div>
+                                <div class="el_wrap reg_modal_btns">
+                                    <button style="flex: 1;" type="button" class="btn icm-btn-primary start-trading-button disallowed_ok" data-ml="reg_form_live_disallowed_ok"><%-$t('reg_form_live_disallowed_ok')%></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </article>
+        <article class="page-content-container" style="display:none!important;">
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('live_9')%></div>
+                    <div class="global-today"><%-$t('live_10')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="live_9" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('live_11')%></a>
+                        <a id="live_10" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('live_12')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <% if (fsa) { %>
+            <img border="0"
+                src="https://r.turn.com/r/beacon?b2=Y87nDH6B-WA6essw2J42NT5jFn2XeCQt2yDdAeZ8bVlXdADLtSAajx1Hxk3tic2EAOujHk4rVWZDTS1rJY3Bog&cid=">
+        <% } %>
+	</div>
+
+    <%- include('../_partials/regulator-popups.ejs') %>
+
+    <%- include('../_partials/components/popup-modal.ejs', { extraClass:
+        'warning-only centered vertical', noclose: true, title: 'Important Information', content: `
+            <p>
+                Sorry, our <span class="current-branch-name"></span> licensed entity can't accept residents of <span class="selected-country-name"></span>.
+            </p>
+            <div class="popup-modal-buttons">
+                <div class="popup-modal-button accept-button accent"><b>CLOSE</b></div>
+            </div>
+    ` }); %>
+
+    <%- include('../_partials/components/popup-modal.ejs', { extraClass:
+        'expected-redirect-only centered vertical', noclose: true, title: 'Important Information', content: `
+        <p>
+            Sorry, our <span class="current-branch-name"></span> licensed entity can't accept residents of <span class="selected-country-name"></span>. Instead, we're redirecting you to our <span class="redirect-to-branch-name"></span> licensed entity where you can choose to continue your application.
+        </p>
+        <div class="popup-modal-buttons">
+            <div class="popup-modal-button accept-button accent"><b>CONTINUE</b></div>
+        </div>
+    ` }); %>
+
+    <%- include('../_partials/components/popup-modal.ejs', { extraClass:
+        'visit-group centered vertical', noclose: true, title: 'Important Information', content: `
+        <p>
+            Sorry, our <span class="current-branch-name"></span> licensed entity can't accept residents from <span class="selected-country-name"></span>. You can visit our IC Markets Group page and choose from other licensed entities more suitable for you.
+        </p>
+        <div class="popup-modal-buttons">
+            <div class="popup-modal-button accept-button accent"><b>Go to IC MARKETS GROUP</b></div>
+        </div>
+    ` }); %>
+
+    <%- include('../_partials/components/popup-modal.ejs', { extraClass:
+        'goto-default centered vertical', noclose: true, title: 'Important Information', content: `
+        <p>
+            Based on your selected country of residence, you may wish to establish your account with <span class="redirect-default-branch-name"></span>. Would you like to register with <span class="redirect-default-branch-name"></span>?
+        </p>
+        <div class="popup-modal-buttons">
+            <div class="popup-modal-button goback-button"><b>NO</b></div>
+            <div class="popup-modal-button accept-button accent"><b>YES</b></div>
+        </div>
+    ` }); %>
+
+    <% if (asic) { %>
+        <%- include('../_partials/components/popup-modal.ejs', { extraClass:
+            'eu-proceed-to-com centered vertical', noclose: true, title: 'Regarding your application', content: `
+            <p>
+                This website is operated by International Capital Markets Pty Ltd, an entity authorized and regulated by the Australian Securities and Investments Commission.
+            </p>
+            <p>
+                Based on your selected country of residence, you might want to visit the website of IC Markets (EU) Ltd at <a id="live_12" href='https://www.icmarkets.eu'>www.icmarkets.eu</a>.
+            </p>
+            <p>
+                By clicking CONTINUE to the below, you agree to open an account at IC Markets (EU) Ltd.
+            </p>
+            <div class="popup-modal-buttons">
+                <div class="popup-modal-button accept-button">DISREGARD</div>
+                <div class="popup-modal-button goback-button accent">CONTINUE</div>
+            </div>
+        ` }); %>
+    <% } %>
+    <% if (fsa) { %>
+        <%- include('../_partials/components/popup-modal.ejs', { extraClass:
+            'eu-proceed-to-com centered vertical', noclose: true, title: 'Regarding your application', content: `
+            <p>
+                This website is operated by IC Markets Global, an entity authorized and regulated by the Financial Services Authority of Seychelles.
+            </p>
+            <p>
+                Based on your selected country of residence, you might want to visit the website of IC Markets (EU) Ltd at <a id="live_14" href='https://www.icmarkets.eu'>www.icmarkets.eu</a>.
+            </p>
+            <p>
+                By clicking CONTINUE to the below, you agree to open an account at IC Markets (EU) Ltd.
+            </p>
+            <div class="popup-modal-buttons">
+                <div class="popup-modal-button accept-button">DISREGARD</div>
+                <div class="popup-modal-button goback-button accent">CONTINUE</div>
+            </div>
+        ` }); %>
+    <% } %>
+    <% if (scb) { %>
+        <%- include('../_partials/components/popup-modal.ejs', { extraClass:
+            'eu-proceed-to-com centered vertical', noclose: true, title: 'Regarding your application', content: `
+            <p>
+                This website is operated by IC Markets Ltd, an entity authorized and regulated by the Securities Commission of The Bahamas.
+            </p>
+            <p>
+                Based on your selected country of residence, you might want to visit the website of IC Markets (EU) Ltd at <a id="live_16" href='https://www.icmarkets.eu'>www.icmarkets.eu</a>.
+            </p>
+            <p>
+                By clicking CONTINUE to the below, you agree to open an account at IC Markets (EU) Ltd.
+            </p>
+            <div class="popup-modal-buttons">
+                <div class="popup-modal-button accept-button">DISREGARD</div>
+                <div class="popup-modal-button goback-button accent">CONTINUE</div>
+            </div>
+        ` }); %>
+    <% } %>
+
+    <% if (false/*bs_host && countryCode == 'au'*/) { %>
+        <%- include('../_partials/components/popup-modal.ejs', { extraClass:
+            'au-continue-with-bs centered', noclose: true, title: 'Important information', content: `
+            <p>
+                Dear Visitor,
+            </p>
+            <p>
+                Based on your selected country, you may want to consider creating an account with International Capital Markets Pty Ltd (IC Markets AU). Our Australian regulated entity.
+            </p>
+            <p>
+                Would you like to open an account with International Capital Markets Pty Ltd (Australia)?
+            </p>
+            <div class="popup-modal-buttons">
+                <div class="popup-modal-button accept-button">NO</div>
+                <div class="popup-modal-button goback-button">YES</div>
+            </div>
+        ` }); %>
+    <% } %>
+    <script>
+        /*
+        NOTE:
+        1) insert here current regulator rule about allow to register with another possible regulator
+        2) that rule should be come from ENV variable of server side
+        */
+        window['isItCySECWebSite'] = '<%=cysec%>'; // is current website CySEC (for show redirect popup if no but selected country from branch 2)
+        window['isUserFromCySECCountry'] = '<%=isCysecCountry%>'; // is current current user from CySEC country (for show popup)
+        window['serverURL'] = '<%= config.reg_service_1_url %>';
+        window['cysecWebsiteURL'] = '<%= config.cysec_website_url %>';
+        window['cysecWebsiteName'] = '<%= config.cysec_website_name %>';
+        window['cysecRegformURL'] = '<%= config.cysec_website_url %>/en/open-trading-account/live';
+        window['cysecCountriesString'] = '<%= cysecCountriesString %>';
+        window['currentBranchID'] = '<%= branchID %>';
+        window['currentLocale'] = '<%= locale %>';
+        window['countryFrom'] = '<%= countryCode %>';
+        window['accessCountry'] = window.location.hostname.indexOf('localhost') !== -1 ? '<%= countryCode %>' : '';
+        window['forceCountryFrom'] = <% if (forceCountryFrom && userAccessFrom == "inside") { %> '<%= countryCode %>'.toUpperCase() <% } else { %> false <% } %>;
+        window['jwt'] = '<%= jwt %>';
+        window['utcTimestamp'] = '<%= utcTimestamp %>';
+        window['isSupportedCurrentBranch'] = '<%= is_supported_branch %>';
+        window['suggestedCountry'] = '<%= suggested_country %>';
+        function showPopupModalIfNeeded (countryCodeInLowerCase) {
+            if (!window['isItCySECWebSite']) {
+                switch (countryCodeInLowerCase /*ICMCountry*/) {
+                    // case 'lv':
+                    //     $('body').toggleClass('popup-modal-active-lv', true);
+                    //     break;
+                    // case 'be':
+                    //     $('body').toggleClass('popup-modal-active-be', true);
+                    //     break;
+                    default:
+                        // $('.hint-go-eu').toggle(window['cysecCountriesString'].indexOf(countryCodeInLowerCase) !== -1);
+                }
+            }
+        }
+    </script>
+    <script src="<%=md5('/icm-open-account/js/jquery.mCustomScrollbar.min.js')%>" charset="utf-8"></script>
+    <script src="<%=md5('/icm-open-account/js/parsley.min.js')%>" charset="utf-8"></script>
+    <script>
+        function localizeParsleyMessages() {
+            Parsley.addMessages('<%=locale%>', {
+                defaultMessage: '<%-$t("reg_form_inputs_default")%>',
+                type: {
+                    email:      $('.reg_form_inputs_type_email').html(),
+                    url:        '<%-$t("reg_form_inputs_type_url")%>',
+                    number:     '<%-$t("reg_form_inputs_type_number")%>',
+                    integer:    '<%-$t("reg_form_inputs_type_integer")%>',
+                    digits:     '<%-$t("reg_form_inputs_type_digits")%>',
+                    alphanum:   '<%-$t("reg_form_inputs_type_alphanum")%>'
+                },
+                notblank:       '<%-$t("reg_form_inputs_notblank")%>',
+                required:       '<%-$t("reg_form_inputs_required")%>',
+                pattern:        '<%-$t("reg_form_inputs_pattern")%>',
+                min:            '<%-$t("reg_form_inputs_min")%>',
+                max:            '<%-$t("reg_form_inputs_max")%>',
+                range:          '<%-$t("reg_form_inputs_range")%>',
+                minlength:      '<%-$t("reg_form_inputs_minlength")%>',
+                maxlength:      '<%-$t("reg_form_inputs_maxlength")%>',
+                length:         '<%-$t("reg_form_inputs_length")%>',
+                mincheck:       '<%-$t("reg_form_inputs_mincheck")%>',
+                maxcheck:       '<%-$t("reg_form_inputs_maxcheck")%>',
+                check:          '<%-$t("reg_form_inputs_check")%>',
+                equalto:        '<%-$t("reg_form_inputs_equalto")%>'
+            });
+            //updateCustomValidators();
+            Parsley.setLocale('<%=locale%>');
+            Parsley.addValidator('mustBeChinese', {
+                validateString: function(value) {
+                    return value.match(/^[\u4e00-\u9fa5]+$/) !== null;
+                },
+                messages: {
+                    en: 'Please fill your name in Chinese',
+                    cn: '姓名请输入中文',
+                }
+            });
+            Parsley.addValidator('mustBeFutureDate', {
+                validateString: function(value) {
+                    const yesterday = new Date();
+                    const date = value.split('/');
+                    yesterday.setDate(yesterday.getDate() - 1);
+                    const expiryDate = new Date(+date[2], date[1] - 1, +date[0])
+                    console.log('yesterday', yesterday)
+                    console.log('expiryDate', expiryDate)
+                    return expiryDate > yesterday;
+                },
+                messages: {
+                    en: 'This value should be greater than or equal to the current date',
+                    cn: '到期日应该为一个大于或等于今天的日期',
+                }
+            });
+            // re-localize all showed messages
+            $('.wp-icm-open-account.live *').each(function() {
+                $(this).parsley().validate();
+            });
+            // re-localize all dropdown inputs
+            //$('.wp-icm-open-account.live .searchDropdown input').each(function() {
+            //    var mlVal = $(this).attr('data-mlkey');
+            //    if (mlVal) {
+            //        $(this).val(mlVal);
+            //    }
+            //    $(this).parsley().validate();
+            //});
+        }
+        var $au_top_close_button = $('.au-top-buttons-close');
+        $au_top_close_button.on('click', function () {
+            $('.au-top').hide();
+        });
+    </script>
+    <script src="<%=md5('/icm-open-account/js/Hz2Py-min.js')%>" charset="utf-8"></script>
+    <script src="<%=md5('/icm-open-account/js/live.js')%>" charset="utf-8"></script>
+<% } %>
+
+<!-- Adform Tracking Code BEGIN -->
+<script type="text/javascript">
+    window._adftrack = Array.isArray(window._adftrack) ? window._adftrack : (window._adftrack ? [window._adftrack] : []);
+    window._adftrack.push({
+        HttpHost: 'track.adform.net',
+        pm: 2514467,
+        divider: encodeURIComponent('|'),
+        pagename: encodeURIComponent('ICM_Live_LP')
+    });
+    (function () { var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'https://s2.adform.net/banners/scripts/st/trackpoint-async.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x); })();
+</script>
+<noscript>
+    <p style="margin:0;padding:0;border:0;">
+        <img src="https://track.adform.net/Serving/TrackPoint/?pm=2514467&ADFPageName=ICM_Live_LP&ADFdivider=|" width="1" height="1" alt="" />
+    </p>
+</noscript>
+<!-- Adform Tracking Code END -->
+
+<!-- Adform Tracking Code BEGIN -->
+<script type="text/javascript">
+    window._adftrack = Array.isArray(window._adftrack) ? window._adftrack : (window._adftrack ? [window._adftrack] : []);
+    window._adftrack.push({
+        HttpHost: 'track.adform.net',
+        pm: 2514467,
+        divider: encodeURIComponent('|'),
+        pagename: encodeURIComponent('ICM_Live_Subscription')
+    });
+    (function () { var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'https://s2.adform.net/banners/scripts/st/trackpoint-async.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x); })();
+</script>
+<!-- Adform Tracking Code END -->

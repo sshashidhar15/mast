@@ -1,0 +1,233 @@
+<% setI18nPrefix('pages.forex-trading-platform-ctrader.copy-trading') %>
+<meta name="description" content="<%- $t('meta', true) %>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/ctrader-copy-trading.css')%>">
+<%- contentFor('title') %>
+    <%- $t('title') %>
+<%- contentFor('body') %>
+    <div class="single-page ctrader-copy-trading">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading"><%-$t('ctrader_copy_trading_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('ctrader_copy_trading_2')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="ctrader_windows_1" class="icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('ctrader_copy_trading_3')%></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'forex-trading-platform-ctrader-ctrader-copy-trading' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="title center"><%-$t('ctrader_copy_trading_4')%></div>
+                        </div>
+                    </div>
+                    <div class="row mt20">
+                        <div class="col-xs-12 col-md-5">
+                            <div class="ctrader-logo mt10"></div>
+                            <div class="ctrader-copy-trading-minimal mt10"></div>
+                        </div>
+                        <div class="col-xs-12 col-md-7 ctrader-features mt50">
+                            <div class="col-xs-12 col-sm-4">
+                                <ul class="tick">
+                                    <li><span></span><%-$t('ctrader_copy_trading_5')%>​</li>
+                                    <li><span></span><%-$t('ctrader_copy_trading_6')%></li>
+                                    <li><span></span><%-$t('ctrader_copy_trading_7')%>​</li>
+                                    <li><span></span><%-$t('ctrader_copy_trading_8')%></li>
+                                </ul>
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <ul class="tick">
+                                    <li><span></span><%-$t('ctrader_copy_trading_9')%></li>
+                                    <li><span></span><%-$t('ctrader_copy_trading_10')%>​</li>
+                                    <li><span></span><%-$t('ctrader_copy_trading_11')%>​</li>
+                                </ul>
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <ul class="tick">
+                                    <li><span></span><%-$t('ctrader_copy_trading_12')%>​​</li>
+                                    <li><span></span><%-$t('ctrader_copy_trading_13')%></li>
+                                    <li><span></span><%-$t('ctrader_copy_trading_14')%></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content highlighted-content">
+                <div class="page-section">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-5 mt100">
+                            <div class="title"><%-$t('ctrader_copy_trading_15')%></div>
+                            <div class="subtitle mt20"><%-$t('ctrader_copy_trading_16')%></div>
+                        </div>
+                        <div class="col-xs-12 col-md-7">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="card mt30">
+                                        <div class="icon equity"></div>
+                                        <div class="title mt20"><%-$t('ctrader_copy_trading_17')%></div>
+                                        <div class="text mt10"><%-$t('ctrader_copy_trading_18')%></div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="card">
+                                        <div class="icon transaction"></div>
+                                        <div class="title mt20"><%-$t('ctrader_copy_trading_19')%></div>
+                                        <div class="text mt10"><%-$t('ctrader_copy_trading_20')%></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="card mt30">
+                                        <div class="icon analytics"></div>
+                                        <div class="title mt20"><%-$t('ctrader_copy_trading_21')%></div>
+                                        <div class="text mt10"><%-$t('ctrader_copy_trading_22')%></div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="card">
+                                        <div class="icon tools"></div>
+                                        <div class="title mt20"><%-$t('ctrader_copy_trading_23')%></div>
+                                        <div class="text mt10"><%-$t('ctrader_copy_trading_24')%></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="title center"><%-$t('ctrader_copy_trading_25')%></div>
+                        </div>
+                    </div>
+                    <div class="row mt30">
+                        <div class="col-xs-12 col-md-6">
+                            <div class="button left grey"><span class="icon setup"></span> <%-$t('ctrader_copy_trading_26')%></div>
+                            <div class="col-xs-12 col-sm-6 mt10">
+                                <div class="subtitle mt10 ml20"><b><%-$t('ctrader_copy_trading_27')%></b></div>
+                                <ol class="mt10">
+                                    <li><span class="counter"></span><div class="button-sm light-grey"><%-$t('ctrader_copy_trading_28')%></div></li>
+                                    <li><span class="counter"></span><div class="button-sm light-grey"><%-$t('ctrader_copy_trading_29')%></div></li>
+                                    <li><span class="counter"></span><div class="button-sm light-grey"><%-$t('ctrader_copy_trading_30')%></div></li>
+                                </ol>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 mt10 ml_20">
+                                <div class="subtitle mt10 ml20"><b><%-$t('ctrader_copy_trading_31')%></b></div>
+                                <ol class="mt10">
+                                    <li><span class="counter"></span><div class="button-sm light-grey"><%-$t('ctrader_copy_trading_32')%></div></li>
+                                    <li><span class="counter"></span><div class="button-sm light-grey"><%-$t('ctrader_copy_trading_33')%></div></li>
+                                    <li><span class="counter"></span><div class="button-sm light-grey"><%-$t('ctrader_copy_trading_34')%></div></li>
+                                    <li><span class="counter"></span><div class="button-sm light-grey"><%-$t('ctrader_copy_trading_35')%></div></li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <div class="button right green"><span class="icon outcomes"></span> <%-$t('ctrader_copy_trading_36')%></div>
+                            <div class="col-xs-12 col-md-offset-6 col-md-6 mt10">
+                                <div class="subtitle mt10 ml_20"><b><%-$t('ctrader_copy_trading_37')%></b></div>
+                                <ul class="tick-sm mt10">
+                                    <li><span></span><%-$t('ctrader_copy_trading_38')%>​</li>
+                                    <li><span></span><%-$t('ctrader_copy_trading_39')%></li>
+                                </ul>
+                                <div class="subtitle mt10 ml_20"><b><%-$t('ctrader_copy_trading_40')%></b></div>
+                                <ul class="tick-sm mt10">
+                                    <li><span></span><%-$t('ctrader_copy_trading_41')%>​</li>
+                                    <li><span></span><%-$t('ctrader_copy_trading_42')%></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt50">
+                        <div class="col-xs-12">
+                            <div class="process"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content highlighted-content">
+                <div class="page-section">
+                    <div class="row">
+                        <div class="col-xs-12 center">
+                            <div class="title"><%-$t('ctrader_copy_trading_43')%></div>
+                        </div>
+                    </div>
+                    <div class="row mt30">
+                        <div class="col-xs-12">
+                            <div class="breadcrumb"><b><%-$t('ctrader_copy_trading_44')%></b></div>
+                        </div>
+                    </div>
+                    <div class="row mt30">
+                        <div class="col-xs-12 col-sm-4">
+                            <div class="card">
+                                <div class="icon strategy"></div>
+                                <div class="title mt20"><%-$t('ctrader_copy_trading_45')%></div>
+                                <div class="text mt10"><%-$t('ctrader_copy_trading_46')%></div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4">
+                            <div class="card">
+                                <div class="icon control"></div>
+                                <div class="title mt20"><%-$t('ctrader_copy_trading_47')%></div>
+                                <div class="text mt10"><%-$t('ctrader_copy_trading_48')%></div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4">
+                            <div class="card">
+                                <div class="icon risk"></div>
+                                <div class="title mt20"><%-$t('ctrader_copy_trading_49')%></div>
+                                <div class="text mt10"><%-$t('ctrader_copy_trading_50')%></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt30">
+                        <div class="col-xs-12">
+                            <div class="breadcrumb"><b><%-$t('ctrader_copy_trading_51')%></b></div>
+                        </div>
+                    </div>
+                    <div class="row mt30">
+                        <div class="col-xs-12 col-sm-4">
+                            <div class="card">
+                                <div class="icon investment"></div>
+                                <div class="title mt20"><%-$t('ctrader_copy_trading_52')%></div>
+                                <div class="text mt10"><%-$t('ctrader_copy_trading_53')%></div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4">
+                            <div class="card">
+                                <div class="icon fee"></div>
+                                <div class="title mt20"><%-$t('ctrader_copy_trading_54')%></div>
+                                <div class="text mt10"><%-$t('ctrader_copy_trading_55')%></div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4">
+                            <div class="card">
+                                <div class="icon promotion"></div>
+                                <div class="title mt20"><%-$t('ctrader_copy_trading_56')%></div>
+                                <div class="text mt10"><%-$t('ctrader_copy_trading_57')%></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('ctrader_copy_trading_58')%></div>
+                    <div class="global-today"><%-$t('ctrader_copy_trading_59')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="ctrader_windows_5" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('ctrader_copy_trading_60')%></a>
+                        <a id="ctrader_windows_6" class="icm-btn demo icm-btn-primary" href="<%= localePath('open-trading-account-demo') %>"><%-$t('ctrader_copy_trading_61')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

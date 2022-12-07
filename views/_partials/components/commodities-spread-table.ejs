@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="<%=md5('/css/components/commodities-spread-table.css')%>">
+    <div class="markets-spread-table commodities-spread-table">
+        <%
+        let commoditiesSpreadTable = {
+            commoditiesSpreadsColHeadersDesktop: ['SYMBOL', 'DESCRIPTION', 'MIN', 'AVG'],
+            commoditiesSpreadsData: [
+                ["BRENT","Brent Crude Oil Futures","0.020","0.028"],
+                ["Cocoa","Cocoa futures","3.000","4.608"],
+                ["Coffee","Coffee Futures","0.300","0.300"],
+                ["Corn","Corn Futures","0.680","0.680"],
+                ["Cotton","Cotton Futures","0.150","0.150"],
+                ["OJ","Orange Juice Futures","1.120","1.120"],
+                ["Soybean","Soybean Futures","1.350","1.350"],
+                ["Sugar","Sugar Futures","0.030","0.033"],
+                ["Wheat","Wheat Futures","0.750","0.750"],
+                ["WTI","West Texas Intermediate - Crude Oil Futures","0.020","0.027"],
+                ["XBRUSD","Brent Crude Oil Spot vs United States Dollar","0.030","0.034"],
+                ["XNGUSD","Natural Gas Spot vs United States Dollar","0.002","0.004"],
+                ["XTIUSD","WTI Crude Oil Spot vs United States Dollar","0.030","0.034"]
+            ]
+        }
+        %>
+        <div class="single-design-search">
+            <div class="group min-max">* <b>MIN</b> - minimum, <b>AVG</b> - average</div>
+            <div class="group search">
+                <span>Search by Symbol</span>
+                <input class="spreads-search-box" type="search"/>
+            </div>
+            <div class="group skin">
+                <span class="skin-label">Table Skin</span>
+                <span class="skin-toggle skin-light">&nbsp;</span>
+                <span class="skin-toggle skin-dark">&nbsp;</span>
+            </div>
+        </div>
+
+        <%- include('./spread-table-component.ejs', {
+            tableSkin: 'light-skin',
+            slotMobile: ['Product', 'All Accounts'],
+            slotTablet: ['Product', 'All Accounts'],
+            slotDesktop: ['Product', 'All Accounts'],
+            colHeadersMobile: commoditiesSpreadTable.commoditiesSpreadsColHeadersDesktop,
+            mobileData: commoditiesSpreadTable.commoditiesSpreadsData,
+            colHeadersTablet: commoditiesSpreadTable.commoditiesSpreadsColHeadersDesktop,
+            tabletData: commoditiesSpreadTable.commoditiesSpreadsData,
+            colHeadersDesktop: commoditiesSpreadTable.commoditiesSpreadsColHeadersDesktop,
+            desktopData: commoditiesSpreadTable.commoditiesSpreadsData,
+            allTables: true
+        }); %>
+
+    </div>

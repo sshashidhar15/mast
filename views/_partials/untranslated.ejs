@@ -1,0 +1,24 @@
+<div id="untranslated" class="untranslated-keys"  style="background:#fff; color:#000;">
+    <a id="untranslated"></a>
+    <h1 style="text-align: center;">Dynamically Generated keys ("Current" column is editable)</h1>
+    <div>
+        <table border="1" style="width:100%;">
+            <thead style="background:#999; color:#fff;">
+                <tr>
+                    <th>Key</th>
+                    <th>English</th>
+                    <th>Current</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% untranslated_keys.forEach(key => { %>
+                    <tr>
+                        <td><%=key%></td>
+                        <td><%-$t(key, true, true)%></td>
+                        <td class="ut-key"><%-$t(key)%></td>
+                    </tr>
+                <%})%>
+            </tbody>
+        </table>
+    </div>
+</div>

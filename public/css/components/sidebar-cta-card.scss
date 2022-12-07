@@ -1,0 +1,43 @@
+@import '../_global';
+
+.sidebar-cta-card-container {
+    display: none;
+    max-width: $icm-max-ui-card-width;
+    padding: 236px $icm-padding-m $icm-padding-xl $icm-padding-m;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+
+    &.random-background {
+        background-size: cover !important;
+        background: url('../../assets/img/banners/banner_1.png') 0 0 no-repeat transparent;
+        &.rnd-back-1 {
+            background-image: url('../../assets/img/banners/banner_1.png');
+        }
+        &.rnd-back-2 {
+            background-image: url('../../assets/img/banners/banner_2.png');
+        }
+        &.rnd-back-3 {
+            background-image: url('../../assets/img/banners/banner_3.png');
+        }
+    }
+
+    .bottom-block {
+        background-color: transparent !important;
+        &__message {
+            font-size: $font-size-h3;
+            font-weight: $icm-font-weight-light;
+            line-height: 1.2;
+            color: #ffffff;
+        }
+        &__cta-button {
+            width: 240px;
+            margin: auto;
+            margin-top: $icm-margin-std;
+        }
+        .icm-btn.icm-btn-primary {
+            background: transparent !important;
+            color: #fff;
+            border-radius: 5px;
+            border: solid 1px #34E834;
+        }
+    }
+}

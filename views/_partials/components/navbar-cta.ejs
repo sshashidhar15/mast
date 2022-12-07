@@ -1,0 +1,15 @@
+
+<div class="navbar-cta-block">
+    <% if (!fca) { %> <h1 class="navbar-cta-block__heading"><%-navbarCTA%></h1> <% } %>
+    <div class="navbar-cta-block__primary-button">
+        <a id="navbar_cta_live_registration" href="<%= localePath('open-trading-account-live') %>">
+            <button class="icm-btn icm-btn-primary"><%-$t('starttrading')%></button>
+        </a>
+    </div>
+    <div class="navbar-cta-block__secondary-button">
+        <a id="navbar_demo_registration" href="<%= localePath('open-trading-account-demo') %>">
+            <button class="icm-btn icm-btn-demo"><%-$t('ortryfreedemo')%></button>
+        </a>
+    </div>
+
+</div>

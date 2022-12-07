@@ -1,0 +1,141 @@
+/* ICM Primary values from UX design */
+/* Width - container, element, card, */
+/* Margin */
+/* padding */
+/* Border */
+/*
+  Roboto font related weights
+   https://fonts.google.com/specimen/Roboto?selection.family=Roboto:100,300,400,500,700,900
+*/
+/* font color, background color */
+/* UI elements specific color */
+/* Card specific color */
+/* max width properties for UI Cards for different number of cards in a container */
+/* one are more cards */
+/* three are more cards */
+.small-flex-wrap {
+  max-width: 766.5px; }
+
+.padding-top-xs {
+  padding-top: 8px; }
+
+.form-container {
+  background-color: #ffffff; }
+
+.form-heading {
+  font-size: 30px;
+  line-height: 1.2;
+  margin-bottom: 32px; }
+
+.form-desc {
+  font-size: 16px;
+  font-weight: 300;
+  color: #000000;
+  margin-bottom: 32px; }
+
+.allfields-required {
+  font-size: 14px;
+  color: rgba(11, 10, 20, 0.6); }
+
+.form-block {
+  position: relative; }
+  .form-block__input-elements {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; }
+    .form-block__input-elements input, .form-block__input-elements select {
+      min-width: 349px; }
+  .form-block__submit-button-block .buttons-container {
+    display: flex;
+    justify-content: flex-start; }
+    .form-block__submit-button-block .buttons-container .clear {
+      margin-left: 11px;
+      background-color: rgba(0, 0, 0, 0.2);
+      padding-left: 27px;
+      padding-right: 28px;
+      padding-top: 14px;
+      padding-bottom: 14px; }
+    .form-block__submit-button-block .buttons-container .submit {
+      padding-left: 29px;
+      padding-right: 29px;
+      padding-top: 14px;
+      padding-bottom: 14px; }
+  .form-block input.invalid {
+    border: 1px solid red; }
+  .form-block.invalid .submit {
+    pointer-events: none;
+    opacity: 0.4; }
+
+.input-ele-block {
+  margin-top: 25px;
+  margin-bottom: 25px; }
+  .input-ele-block__input-ele {
+    display: block; }
+  .input-ele-block__input {
+    font-size: 16px;
+    font-weight: 500;
+    color: #000000;
+    line-height: 1.2;
+    padding: 12px 16px;
+    width: 256px;
+    height: 46px;
+    background-color: #e9e9e9;
+    border: solid 1px #dfdfdf;
+    text-transform: uppercase; }
+  .input-ele-block.checkbox-container {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    max-width: 349px; }
+    .input-ele-block.checkbox-container label {
+      font-size: 14px;
+      font-weight: 500;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1;
+      letter-spacing: -0.5px;
+      text-align: left;
+      text-transform: uppercase;
+      color: rgba(11, 10, 20, 0.6);
+      padding-top: 18px; }
+    .input-ele-block.checkbox-container input {
+      width: 46px !important;
+      min-width: 0;
+      margin: 0 !important; }
+
+.textarea-block {
+  padding-left: 0;
+  padding-right: 0; }
+  .textarea-block .textarea_input {
+    width: 100%;
+    height: 148px;
+    background-color: #e9e9e9;
+    border: solid 1px #dfdfdf;
+    resize: none; }
+
+.form-sended-info {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(52, 167, 0, 0.2);
+  height: 100%; }
+  .form-sended-info > div {
+    padding: 56px;
+    text-align: center;
+    color: #fff;
+    background: #34e834;
+    width: max-content;
+    margin: 0 auto;
+    top: calc(50% - 80px);
+    position: relative; }
+
+.big-flex-wrap {
+  max-width: 1184px; }
+
+@media screen and (max-width: 1210px) {
+  .big-flex-wrap {
+    max-width: 766.5px; } }
+
+/*# sourceMappingURL=contact-us-form-white-label-partnerships.css.map */

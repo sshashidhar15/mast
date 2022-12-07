@@ -1,0 +1,391 @@
+/* ICM Primary values from UX design */
+/* Width - container, element, card, */
+/* Margin */
+/* padding */
+/* Border */
+/*
+  Roboto font related weights
+   https://fonts.google.com/specimen/Roboto?selection.family=Roboto:100,300,400,500,700,900
+*/
+/* font color, background color */
+/* UI elements specific color */
+/* Card specific color */
+/* max width properties for UI Cards for different number of cards in a container */
+/* one are more cards */
+/* three are more cards */
+.single-page.page-account-overview .overview-background {
+  background: url(/assets/img/single_market_page/overview-cards-bg.png) no-repeat center center;
+  background-size: cover; }
+
+.single-page.page-account-overview .overview-cards-container {
+  display: grid;
+  grid-template-columns: 33% 34% 33%; }
+
+.single-page.page-account-overview .overview-card {
+  width: 308px;
+  height: 592px;
+  border-radius: 18px;
+  background-color: #fbfafa;
+  box-shadow: 0px 3px 49px 0 rgba(0, 0, 0, 0.14);
+  margin: 17px auto;
+  position: relative;
+  overflow: hidden;
+  text-align: center; }
+  .single-page.page-account-overview .overview-card .overview-card-popular {
+    display: none;
+    position: absolute;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: -0.2px;
+    color: rgba(0, 0, 0, 0.6);
+    background: #34E834;
+    text-align: center;
+    padding: 8px 80px;
+    top: 24px;
+    right: -68px;
+    line-height: 1;
+    transform: rotate(45deg); }
+  .single-page.page-account-overview .overview-card .overview-card-header-1 {
+    padding-top: 34px;
+    font-size: 20px;
+    line-height: 1.75;
+    letter-spacing: -0.4px;
+    color: rgba(255, 255, 255, 0.6); }
+  .single-page.page-account-overview .overview-card .overview-card-header-2 {
+    font-size: 38px;
+    font-weight: 100;
+    line-height: 0.92;
+    letter-spacing: -0.8px;
+    color: #ffffff; }
+  .single-page.page-account-overview .overview-card .overview-card-header-3 {
+    font-size: 16px;
+    line-height: 2.19;
+    letter-spacing: -0.3px;
+    color: rgba(255, 255, 255, 0.6);
+    padding-bottom: 24px; }
+  .single-page.page-account-overview .overview-card .overview-card-header {
+    background: #999; }
+    .single-page.page-account-overview .overview-card .overview-card-header.rows-2 .overview-card-header-1 {
+      padding-top: 50px; }
+    .single-page.page-account-overview .overview-card .overview-card-header.rows-2 .overview-card-header-2 {
+      padding-bottom: 38px; }
+  .single-page.page-account-overview .overview-card .overview-card-section {
+    display: flex;
+    justify-content: space-between;
+    margin: 24px;
+    border-bottom: 1px solid #d4d2d2;
+    padding-bottom: 24px; }
+    .single-page.page-account-overview .overview-card .overview-card-section .overview-card-section-label {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.44;
+      letter-spacing: -0.3px;
+      color: rgba(11, 10, 20, 0.6);
+      text-align: left; }
+      .single-page.page-account-overview .overview-card .overview-card-section .overview-card-section-label span {
+        font-size: 12px; }
+    .single-page.page-account-overview .overview-card .overview-card-section .overview-card-section-value {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.44;
+      letter-spacing: -0.3px;
+      color: #0b0a14; }
+      .single-page.page-account-overview .overview-card .overview-card-section .overview-card-section-value.bigger {
+        font-size: 54px;
+        font-weight: 300;
+        line-height: 0.8;
+        letter-spacing: -1.1px;
+        color: #0b0a14; }
+  .single-page.page-account-overview .overview-card .overview-card-button-live {
+    padding: 14px 40px;
+    background: #777;
+    display: inline-block;
+    width: auto;
+    line-height: 1;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: -0.2px;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 18px; }
+  .single-page.page-account-overview .overview-card .overview-card-button-demo {
+    padding: 14px 40px;
+    display: block;
+    line-height: 1;
+    margin-top: 21px;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: -0.2px;
+    color: rgba(31, 29, 49, 0.8);
+    text-transform: uppercase;
+    cursor: pointer; }
+    .single-page.page-account-overview .overview-card .overview-card-button-demo:hover {
+      text-decoration: underline; }
+  .single-page.page-account-overview .overview-card.o-card-popular {
+    height: 644px;
+    margin-top: -6px; }
+    .single-page.page-account-overview .overview-card.o-card-popular .overview-card-popular {
+      display: block; }
+    .single-page.page-account-overview .overview-card.o-card-popular .overview-card-header {
+      background: #111; }
+      .single-page.page-account-overview .overview-card.o-card-popular .overview-card-header.rows-2 .overview-card-header-1 {
+        padding-top: 77px; }
+      .single-page.page-account-overview .overview-card.o-card-popular .overview-card-header.rows-2 .overview-card-header-2 {
+        padding-bottom: 68px; }
+    .single-page.page-account-overview .overview-card.o-card-popular .overview-card-button-live {
+      background: #34E834;
+      color: rgba(0, 0, 0, 0.8); }
+
+.single-page.page-account-overview .page-content.global-markets-today {
+  height: auto;
+  min-height: 455px;
+  /* background: url(/assets/img/single_market_page/btm_cta_bg.png) no-repeat center center;  */
+}
+  .single-page.page-account-overview .page-content.global-markets-today .icm-button-wrapper a.live {
+    border-radius: 0 !important;
+    padding: 25px !important;
+    font-size: 20px !important;
+    font-weight: 900 !important;
+    text-transform: uppercase; }
+  .single-page.page-account-overview .page-content.global-markets-today .icm-button-wrapper a.demo {
+    border-radius: 0 !important;
+    padding: 25px !important;
+    font-size: 20px !important;
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+    color: #fff !important;
+    margin-left: 9px; }
+
+.single-page.page-account-overview .page-header {
+  background: url(/assets/img/single_market_page/overview_header_bg.jpg) no-repeat center right; }
+  .single-page.page-account-overview .page-header .icm-button-wrapper.page-header__primary-button a.icm-btn.icm-btn-primary {
+    padding: 25px !important;
+    border-radius: 2px !important;
+    font-size: 20px !important;
+    font-weight: 900 !important; }
+
+.single-page.page-account-overview .first-section {
+  margin-left: 0 !important; }
+
+.single-page.page-account-overview .comm-image {
+  background: url(/assets/img/single_market_page/commimg.png) center center no-repeat transparent; }
+
+.single-page.page-account-overview .menu-item .menu-title {
+  text-transform: uppercase; }
+
+.overview-page .icm-no-padding-top {
+  padding-top: 0px !important; }
+
+.overview-page h3 {
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  margin-bottom: 16px !important; }
+
+.overview-page .glyphicons-chevron-right::after {
+  margin-left: 4px;
+  font-family: 'Glyphicons Halflings';
+  font-size: 14px !important;
+  content: "\E080";
+  color: #000000; }
+
+.overview-page .icm-overview-table-wrap {
+  margin-bottom: 0px;
+  margin-top: 64px; }
+
+.overview-page .glyphicons-yes::before {
+  content: "\E013";
+  font-family: 'Glyphicons Halflings';
+  font-size: 20px !important;
+  color: #34E834; }
+
+.overview-page .glyphicons-no::before {
+  content: "\E014";
+  font-family: 'Glyphicons Halflings';
+  font-size: 20px !important;
+  color: #f6533d; }
+
+.overview-page .icm-overview-table {
+  width: 100%;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.3px;
+  color: rgba(0, 0, 0, 0.9);
+  border: 1px solid transparent; }
+  .overview-page .icm-overview-table td, .overview-page .icm-overview-table th {
+    text-align: center;
+    border: 1px solid #ccc; }
+    .overview-page .icm-overview-table td.c-1, .overview-page .icm-overview-table th.c-1 {
+      text-align: left; }
+    .overview-page .icm-overview-table td > div, .overview-page .icm-overview-table th > div {
+      padding: 8px; }
+  .overview-page .icm-overview-table .column-header {
+    position: relative;
+    overflow: hidden; }
+  .overview-page .icm-overview-table .overview-card-popular {
+    position: absolute;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: -0.2px;
+    color: rgba(0, 0, 0, 0.6);
+    background: #34E834;
+    text-align: center;
+    padding: 8px 80px;
+    top: 24px;
+    right: -68px;
+    line-height: 1;
+    transform: rotate(45deg); }
+  .overview-page .icm-overview-table th {
+    border-color: transparent !important;
+    border-bottom-color: #ccc !important;
+    position: relative;
+    padding: 0;
+    width: 24%; }
+    .overview-page .icm-overview-table th .column-header {
+      padding: 25px;
+      background: #d8d8d8;
+      margin: 0 10px; }
+    .overview-page .icm-overview-table th.c-1 .column-header {
+      background: transparent; }
+  .overview-page .icm-overview-table th.hovered > div {
+    position: relative;
+    background: #131313;
+    left: -1px;
+    top: 0px;
+    right: -1px;
+    bottom: 0;
+    color: #fff; }
+  .overview-page .icm-overview-table th.c-1, .overview-page .icm-overview-table th.c-5 {
+    color: transparent; }
+  .overview-page .icm-overview-table col.col-1 {
+    width: 25%; }
+  .overview-page .icm-overview-table col.col-5 {
+    width: 3%; }
+  .overview-page .icm-overview-table col.hovered {
+    border: 1px solid #ccc; }
+  .overview-page .icm-overview-table .c-x td {
+    visibility: hidden; }
+  .overview-page .icm-overview-table .c-x td.hovered {
+    visibility: visible; }
+  .overview-page .icm-overview-table .btn.live {
+    margin: 24px auto 8px auto;
+    display: block;
+    width: max-content;
+    padding: 14px 40px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.2px;
+    color: rgba(0, 0, 0, 0.8); }
+  .overview-page .icm-overview-table .btn.demo {
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 1;
+    text-transform: uppercase;
+    color: rgba(31, 29, 49, 0.8); }
+  .overview-page .icm-overview-table .btn.demo:hover {
+    text-decoration: underline; }
+  .overview-page .icm-overview-table .header-1 {
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: -0.3px;
+    color: rgba(0, 0, 0, 0.6); }
+  .overview-page .icm-overview-table .header-2 {
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.35;
+    letter-spacing: -0.5px;
+    color: #000000; }
+  .overview-page .icm-overview-table th.hovered .column-header {
+    padding-top: 25px;
+    margin: 0; }
+  .overview-page .icm-overview-table th.hovered .column-header.popular::after {
+    content: 'Popular';
+    background: #7df765;
+    color: #000;
+    padding: 5px 8px;
+    border-radius: 4px;
+    position: absolute;
+    right: 10px;
+    top: 10px; }
+  .overview-page .icm-overview-table th.hovered .header-1 {
+    color: rgba(255, 255, 255, 0.8); }
+  .overview-page .icm-overview-table th.hovered .header-2 {
+    color: #fff; }
+  .overview-page .icm-overview-table td {
+    background: #fff; }
+  .overview-page .icm-overview-table td.c-1 {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+    color: #000000; }
+  .overview-page .icm-overview-table td.hovered {
+    background: #f8f8f8; }
+
+.mobile-switch-wrap {
+  display: none; }
+
+@media screen and (max-width: 670px) {
+  .mobile-switch-wrap {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 48px; }
+  .msw {
+    display: block !important;
+    padding: 8px;
+    border-bottom: 4px solid transparent; }
+  .msw.hovered {
+    border-bottom: 4px solid #000; }
+  .c-2:not(.hovered):not(.msw),
+  .c-3:not(.hovered):not(.msw),
+  .c-4:not(.hovered):not(.msw) {
+    max-width: 0px !important;
+    width: 0px !important;
+    border: none !important;
+    overflow: hidden;
+    pointer-events: none; }
+    .c-2:not(.hovered):not(.msw) .column-header,
+    .c-3:not(.hovered):not(.msw) .column-header,
+    .c-4:not(.hovered):not(.msw) .column-header {
+      display: none; }
+  th.hovered, td.hovered {
+    position: relative;
+    width: 70%; } }
+
+@media screen and (max-width: 1024px) {
+  .single-page.page-account-overview .overview-cards-container {
+    grid-template-columns: 50% 50%; }
+  .single-page.page-account-overview .overview-card.o-card-2 {
+    grid-row: 1;
+    grid-column: 1; }
+  .single-page.page-account-overview .overview-card.o-card-1 {
+    grid-row: 1;
+    grid-column: 2; }
+  .single-page.page-account-overview .overview-card.o-card-3 {
+    grid-row: 2;
+    grid-column: 1/3; } }
+
+@media screen and (max-width: 720px) {
+  .single-page.page-account-overview .overview-cards-container {
+    grid-template-columns: 100%; }
+  .single-page.page-account-overview .overview-card.o-card-2 {
+    grid-row: 1;
+    grid-column: 1; }
+  .single-page.page-account-overview .overview-card.o-card-1 {
+    grid-row: 2;
+    grid-column: 1; }
+  .single-page.page-account-overview .overview-card.o-card-3 {
+    grid-row: 3;
+    grid-column: 1; } }
+
+html.eu-host-1 .single-page.page-account-overview .overview-card {
+  height: 612px; }
+  html.eu-host-1 .single-page.page-account-overview .overview-card.o-card-popular {
+    height: 662px; }
+
+/*# sourceMappingURL=overview.css.map */

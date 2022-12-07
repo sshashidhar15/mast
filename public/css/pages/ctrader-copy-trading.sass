@@ -1,0 +1,342 @@
+@import '../global';
+
+.ctrader-copy-trading
+    .page-header
+        background-image: url(/assets/img/single_market_page/ctrader-copy-trading-banner.png)
+        background-repeat: no-repeat
+        background-position: right
+        background-size: contain !important
+        background-color: #000000;
+        .page-header__heading
+            font-size: 42px
+            font-weight: 700
+        .page-header__description
+            font-size: 16px !important
+        #ctrader_windows_1
+                    border-radius: 2px !important
+                    padding: 25px !important
+                    font-size: 20px !important
+                    font-weight: 900 !important
+                    text-transform: uppercase
+    .page-content-container .page-content .page-section
+        .left
+            float: left
+        .right
+            float: right
+        .mt10
+            margin-top: 10px
+        .mt20
+            margin-top: 20px
+        .mt30
+            margin-top: 30px
+        .mt40
+            margin-top: 40px
+        .mt50
+            margin-top: 50px
+        .mt100
+            margin-top: 100px
+        .ml20
+            margin-left: 20px
+        .ml_20
+            margin-left: -20px
+        ul li
+            display: flex
+            list-style-type: none
+            span
+                display: inline-flex
+                margin-right: 10px
+            span::before
+                font-family: 'Glyphicons Halflings'
+                content: "\e013"
+                width: 20px
+                height: 20px
+                background: #34E834
+                font-size: 10px
+                padding-left: 5px
+                border-radius: 50%
+        ul.tick
+            padding-left: 0
+            li
+                font-size: 14px
+                font-weight: 500
+                line-height: 18px
+                min-height: 50px
+                margin-bottom: 20px
+        ul.tick-sm
+            padding-left: 0px
+            margin-left: -20px
+            li
+                font-size: 12px
+                line-height: 18px
+                margin-bottom: 10px
+        ol
+            counter-reset: li
+            padding-left: 0px
+            margin-left: -32px
+        ol li
+            display: flex
+            justify-content: center
+            align-items: center
+            list-style-type: none
+            font-size: 11px
+            line-height: 18px
+            min-height: 35px
+            margin-bottom: 10px
+            span
+                display: inline-flex
+                margin-right: 10px
+            span::before
+                position: absolute
+                top: -10px
+                left: 10px
+                content: ""
+                width: 0px
+                height: 100%
+                border-left: 1px solid #ECECEC
+                z-index: 100
+            span::after
+                counter-increment: li
+                content: counter(li)
+                width: 20px
+                height: 20px
+                background: #34E834
+                font-size: 11px
+                font-weight: 500
+                padding-top: 1px
+                padding-left: 6px
+                border-radius: 50%
+                z-index: 101
+        .title
+            font-size: 32px
+            line-height: 42px
+            span
+                color: #34E834
+        .subtitle
+            font-size: 16px
+            line-height: 22px
+        .breadcrumb
+            position: relative
+            border-bottom: 1px solid #cccccc
+            b::after
+                position: absolute
+                content: ""
+                width: 100px
+                height: 2px
+                left: 0px
+                bottom: -1px
+                border-bottom: 2px solid #34E834
+        .center
+            text-align: center
+        .ctrader-logo
+            background-image: url(/assets/img/single_market_page/ctrader-copy-trading-ctrader-logo.png)
+            background-repeat: no-repeat
+            background-size: contain
+            width: 100%
+            height: 30px
+        .ctrader-copy-trading-minimal
+            background: url(/assets/img/single_market_page/ctrader-copy-trading-ctrader-copy-trading-minimal.png)
+            background-repeat: no-repeat
+            background-size: contain
+            width: 100%
+            height: 365px
+        .card
+            background-color: #ffffff
+            border: 1px solid rgba(0, 0, 0, 0.15)
+            border-radius: 10px
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15)
+            padding: 25px
+            min-height: 225px
+            .icon
+                background-repeat: no-repeat !important
+                background-size: contain !important
+                width: 40px
+                height: 40px
+            .equity
+                background: url(/assets/img/single_market_page/ctrader-copy-trading-icon-equity.png)
+            .transaction
+                background: url(/assets/img/single_market_page/ctrader-copy-trading-icon-transaction.png)
+            .analytics
+                background: url(/assets/img/single_market_page/ctrader-copy-trading-icon-analytics.png)
+            .tools
+                background: url(/assets/img/single_market_page/ctrader-copy-trading-icon-tools.png)
+            .strategy
+                background: url(/assets/img/single_market_page/ctrader-copy-trading-icon-strategy.png)
+            .control
+                background: url(/assets/img/single_market_page/ctrader-copy-trading-icon-control.png)
+            .risk
+                background: url(/assets/img/single_market_page/ctrader-copy-trading-icon-risk.png)
+            .investment
+                background: url(/assets/img/single_market_page/ctrader-copy-trading-icon-investment.png)
+            .fee
+                background: url(/assets/img/single_market_page/ctrader-copy-trading-icon-fee.png)
+            .promotion
+                background: url(/assets/img/single_market_page/ctrader-copy-trading-icon-promotion.png)
+            .title
+                font-size: 16px
+                font-weight: bold
+                line-height: 22px
+            .text
+                font-size: 14px
+                line-height: 20px
+        .card:hover
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.30)
+        .button
+            display: flex
+            justify-content: center
+            align-items: center
+            width: 300px
+            font-size: 14px
+            font-weight: bold
+            padding: 15px
+            .icon
+                background-repeat: no-repeat !important
+                background-size: contain !important
+                width: 35px
+                height: 35px
+                margin-right: 15px
+            .setup
+                background: url(/assets/img/single_market_page/ctrader-copy-trading-icon-setup.png)
+            .outcomes
+                background: url(/assets/img/single_market_page/ctrader-copy-trading-icon-outcomes.png)
+        .button.left::after
+            position: absolute
+            content: '\21E2'
+            font-size: 65px
+            color: #A0A0A0
+            right: -35px
+        .grey
+            background-color: #464646
+            color: #ffffff
+        .light-grey
+            background-color: #F2F2F2
+            color: #000000
+        .green
+            background-color: #34E834
+            color: #000000
+        .button-sm
+            display: flex
+            justify-content: left
+            align-items: center
+            width: 225px
+            font-size: 12px
+            padding: 10px
+        .process
+            background: url(/assets/img/single_market_page/ctrader-copy-trading-ctrader-process.png)
+            background-repeat: no-repeat
+            background-size: contain
+            background-position: center
+            width: 100%
+            height: 365px
+    .global-markets-today
+        .icm-button-wrapper
+            a.icm-btn.icm-btn-primary
+                border-radius: 0px !important
+                padding: 25px !important;
+                font-size: 20px !important
+                text-transform: none !important
+            #ctrader_windows_6
+                border-radius: 0 !important;
+                padding: 25px !important;
+                font-size: 20px !important;
+                font-weight: 900 !important;
+                text-transform: uppercase !important;
+                background: #000 !important;
+                color: #fff !important;
+                margin-left: 9px;
+    .page-header__menu-container 
+        padding: 15px 0 !important
+    #platform_ctrader_menu_1 
+        text-transform : uppercase !important
+@media screen and (min-width: 641px) and (max-width: 1024px)
+    .ctrader-copy-trading
+        .page-content-container .page-content .page-section
+            .left
+                float: unset
+            .right
+                float: unset
+            .mt10
+                margin-top: 10px
+            .mt20
+                margin-top: 20px
+            .mt30
+                margin-top: 0px
+            .mt40
+                margin-top: 0px
+            .mt50
+                margin-top: 50px
+            .mt100
+                margin-top: 0px
+            .ml20
+                margin-left: 0px
+            .ml_20
+                margin-left: 0px
+        ul.tick li
+            min-height: 25px !important
+            margin-bottom: 10px !important
+        ol li
+            span::before   
+                display: none 
+        .title
+            text-align: center
+        .subtitle
+            text-align: center
+        .ctrader-logo
+            background-position: center
+        .ctrader-copy-trading-minimal
+            background-position: center !important
+        .card
+            margin-top: 30px !important
+            margin-bottom: 15px !important
+            .icon
+                margin: auto
+        .button
+            width: 100% !important
+            margin-top: 30px !important
+            margin-bottom: 15px !important
+        .button.left::after
+            display: none
+
+@media screen and (max-width: 640px)
+    .ctrader-copy-trading
+        .page-content-container .page-content .page-section
+            .left
+                float: unset
+            .right
+                float: unset
+            .mt10
+                margin-top: 10px
+            .mt20
+                margin-top: 20px
+            .mt30
+                margin-top: 0px
+            .mt40
+                margin-top: 0px
+            .mt50
+                margin-top: 0px
+            .mt100
+                margin-top: 0px
+            .ml20
+                margin-left: 0px
+            .ml_20
+                margin-left: 0px
+        ul.tick li
+            min-height: 25px !important
+            margin-bottom: 10px !important
+        ol li
+            span::before   
+                display: none 
+        .title
+            text-align: center
+        .subtitle
+            text-align: center
+        .card
+            margin-top: 30px !important
+            margin-bottom: 15px !important
+            .icon
+                margin: auto
+        .button
+            width: 100% !important
+            margin-top: 30px !important
+            margin-bottom: 15px !important
+        .button.left::after
+            display: none

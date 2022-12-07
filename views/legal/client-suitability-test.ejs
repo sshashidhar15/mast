@@ -1,0 +1,17 @@
+<% setI18nPrefix('pages.legal.client-suitability-test') %>
+<meta name="description" content="<%- $t('meta', true) %>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+    <div class="trading-hours-page">
+        <div class="generic-layout2-container">
+            <article class="generic-layout-col-1">
+                <div class="generic-layout2-col1-item">
+                    <slot name="slot-paragraph-list"></slot>
+                    <p class="generic-layout2-col1-item__paragraph"> <%- $t('theclientsuitabilitytestisdesi') %></p>
+                    <slot></slot>
+                </div>
+            </article>
+            <%- include('../_partials/sidebar-blocks.ejs') %>
+        </div>
+    </div>

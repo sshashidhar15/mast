@@ -1,0 +1,101 @@
+<% setI18nPrefix('pages.company.dispute-resolution') %>
+<meta name="description" content="<%- $t('meta', true) %>">
+<link rel="stylesheet" href="<%=md5('/css/pages/dispute-resolution.css')%>">
+<%- contentFor('title') %>
+<%- $t('title') %>
+<%- contentFor('body') %>
+<div class="single-page page-dispute-resolution">
+    <article class="page-header">
+        <section style="padding-top:64px; padding-bottom:120px;" class="page-header__container">
+            <header>
+                <h1 class="page-header__heading--style"><%-$t('disputeresolutionprocess')%></h1>
+            </header>
+        </section>
+    </article>
+    <article class="page-content-container">
+        <div class="page-content">
+            <div class="page-section">
+                <div class="double-sidebar-block">
+                    <div class="contact-card contact-block">
+                        <div class="contact-header">
+                            <div class="header-label"><%-$t('contact_card_title')%></div>
+                            <div class="header-title"><%-$t('contact_card_description')%></div>
+                        </div>
+                        <div class="contact-pre-imaged chat-img">
+                            <div><%-$t('contact_card_help')%></div>
+                        </div>
+                        <% if (!fsa && !scb && !fsc && !cima) { %>
+                        <div class="contact-phone">
+                            <div><%-$t('contact_card_phone')%></div>
+                        </div>
+                        <% } %>
+                        <div class="contact-pre-imaged email-img">
+                            <% if (asic) {%>
+                            <div><%-$t('contact_card_email_asic')%></div>
+                            <% } else { %>
+                            <div><%-$t('contact_card_email')%></div>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <div class="first-section">
+                    <h1 class="padding-bottom-std"><%- $t('makingacomplaint') %></h1>
+                    <div slot="slot-paragraph-list">
+                        <p><%-$t('shouldyouwishtomakeacomplaintw')%></p>
+                        <p><%-$t('firstlygatherallsupportingdoc')%></p>
+                        <p><%-$t('nextcontactyouraccountmanager')%></p>
+                        <p><%-$t('ifyourcomplaintcannotberesolve')%></p>
+                        <% if (!fsa && !scb && !fsc && !cima) { %>
+                            <p><%-$t('youmaycontactourcompliancedepa')%></p>
+                            <address class="padding-bottom-std">
+                                <div>Compliance</div>
+                                <div>International Capital Markets Pty Ltd</div>
+                                <div>Level 4/50 Carrington Street</div>
+                                <div>Sydney NSW 2000</div>
+                            </address>
+                        <% } %>
+                        <% if (!asic) { %>
+                            <p><%-$t('youmaycontactourcompliancedepa_seychells')%></p>
+                            <address class="padding-bottom-std">
+                                <div>Compliance Department</div>
+                                <div>Raw Trading Ltd</div>
+                                <div>Eden Plaza, Office 209,</div>
+                                <div>Eden Island, Mahe, Seychelles</div>
+                            </address>
+                            <p><%-$t('weaimtoresolvemostmatterswithi')%></p>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-content highlighted-content">
+            <div class="page-section">
+                <h1 class="padding-bottom-std"><%- $t('disputeresolution') %></h1>
+                <p><%-$t('weexpectthatouraccountmanagers')%></p>
+                <% if (!fsa && !scb && !fsc && !cima) { %>
+                    <p><%-$t('dispute-resolution_0')%></p>
+                    <h1><%-$t('dispute-resolution_3')%></h1>
+                    <address class="padding-bottom-std">
+                        <div>Australian Financial Complaints Authority</div>
+                        <div>GPO Box 3</div>
+                        <div>Melbourne Vic 3000.</div>
+                        <div>Phone: 1800 931 678</div>
+                        <div>Website: <a id="dispute_resolution_afca" href="https://www.afca.org.au" target="_blank">www.afca.org.au</a></div>
+                    </address>
+                <% } %>
+                <% if (fsa) { %>
+                    <p><%-$t('dispute-resolution_4')%></p>
+                    <p><u><%-$t('dispute-resolution_2')%></u></p>
+                    <address class="padding-bottom-std">
+                        <div>Financial Services Authority (FSA) Seychelles</div>
+                        <div>PO Boz 991</div>
+                        <div>Bois de Rose Avenue</div>
+                        <div>Roche Chairman Victoria Mahe Republic of Seychelles</div>
+                        <div>(+248) 438 08 00  </div>
+                        <div>(+248) 438 08 88</div>
+                    </address>
+                <% } %>
+            </div>
+        </div>
+    </article>
+</div>

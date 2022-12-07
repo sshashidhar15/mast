@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+const nodemon = require("nodemon");
+const questions = require("../utils/questions");
+
+questions(answers => {
+    process.env.COUNTRY_CODE = answers.country_code;
+    process.env.IS_COM_HOST = answers.custom_domain === "icmarkets.com/en";
+    process.env.IS_EU_HOST = answers.custom_domain === "icmarkets.eu";
+    process.env.IS_SC_HOST = answers.custom_domain === "icmarkets.sc";
+    process.env.IS_BS_HOST = answers.custom_domain === "icmarkets.bs";
+    process.env.IS_ZH_HOST = answers.custom_domain === "icmarkets-zhi.com";
+
+    nodemon({
+        verbose: true,
+        script: "bin/www",
+        stdout: true,
+        ignore: ["public/*", "test/*"]
+    });
+});

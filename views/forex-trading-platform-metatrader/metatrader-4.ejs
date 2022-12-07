@@ -1,0 +1,152 @@
+<% setI18nPrefix('pages.forex-trading-platform-metatrader.metatrader-4') %>
+<meta name="description" content="<%- $t('meta', true) %>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/metatrader-4.css')%>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+    <div class="single-page page-meta-trader-4">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('mt4_page_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('mt4_page_2')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="metatrader4_1" class="icm-btn icm-btn-primary" href="<%= clientAreaPath() %>" target="_blank"><%- $t('mt4_page_3') %></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'forex-trading-platform-metatrader-metatrader-4' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="market-facts-card">
+                        <div class="facts-header">
+                            <div class="header-label"><%-$t('mt4_page_4')%></div>
+                            <div class="header-title"><%-$t('mt4_page_5')%></div>
+                        </div>
+                        <div class="facts-items">
+                            <div class="facts-item"><%-$t('mt4_page_6')%></div>
+                            <div class="facts-item">
+                                <% if (cysec) { %>
+                                    <%-$t('mt4_page_46')%>
+                                <% } else { %>
+                                    <% if (isAPACcountry(countryCode)) { %>
+                                        <%-$t('mt4_page_7_apac')%>
+                                    <% } else { %>
+                                        <%-$t('mt4_page_7')%>
+                                    <% } %>
+                                <% } %>
+                            </div>
+                            <div class="facts-item"><%-$t('mt4_page_8')%></div>
+                            <div class="facts-item"><%-$t('mt4_page_9')%></div>
+                            <div class="facts-item"><%-$t('mt4_page_10')%></div>
+                            <div class="facts-item"><%-$t('mt4_page_11')%></div>
+                        </div>
+                        <div class="action-buttons-container">
+                            <a id="metatrader4_2" class="action-button icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('mt4_page_12')%></a>
+                        </div>
+                    </div>
+                    <div class="first-section">
+                        <div class="page-first-image"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content highlighted-content">
+                <div class="page-section">
+                    <p><%-$t('mt4_page_13')%></p>
+                    <p><%-$t('mt4_page_14')%></p>
+                    <p><%-$t('mt4_page_15')%></p>
+                </div>
+            </div>
+            <div class="page-content">
+                <div style="position:relative;" class="page-section">
+                    <div class="floated-block">
+                        <h1><%-$t('mt4_page_16')%></h1>
+                        <p><%-$t('mt4_page_17')%></p>
+                    </div>
+                    <h1 style="font-weight:900;"><%-$t('mt4_page_18')%></h1>
+                    <h1><%-$t('mt4_page_19')%></h1>
+                    <p><%-$t('mt4_page_20')%></p>
+                    <p><%-$t('mt4_page_21')%></p>
+                    <h1><%-$t('mt4_page_22')%></h1>
+                    <p><%-$t('mt4_page_23')%></p>
+                    <p><%-$t('mt4_page_24')%></p>
+                </div>
+                <div class="page-section split-2">
+                    <div class="left-section">
+                        <h1><%-$t('mt4_page_25')%></h1>
+                        <p><%-$t('mt4_page_26')%></p>
+                        <p><%-$t('mt4_page_27')%></p>
+                    </div>
+                    <div class="right-section">
+                        <h1><%-$t('mt4_page_28')%></h1>
+                        <p><%-$t('mt4_page_29')%></p>
+                        <p><%-$t('mt4_page_30')%></p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content highlighted-content">
+                <div class="page-section split-2">
+                    <div class="left-section">
+                        <h1><%-$t('mt4_page_31')%></h1>
+                        <p><% if (cysec) { %><%-$t('mt4_page_45')%><% } else { %><%-$t('mt4_page_32')%><% } %></p>
+                    </div>
+                    <div class="right-section">
+                        <h1><%-$t('mt4_page_33')%></h1>
+                        <p><%-$t('mt4_page_34')%></p>
+                    </div>
+                </div>
+            </div>
+            <% if (asic) { %>
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="grid-section">
+                        <div class="grid-content gc-1">
+                            <div class="content-head"><%-$t('mt4_page_35')%></div>
+                        </div>
+                        <div class="grid-content gc-2">
+                            <div class="content-head">
+                                <% if (isAPACcountry(countryCode)) { %>
+                                    <%-$t('mt4_page_36_apac')%>
+                                <% } else { %>
+                                    <%-$t('mt4_page_36')%>
+                                <% } %>                                
+                            </div>
+                        </div>
+                        <div class="grid-content gc-3">
+                            <div class="content-head"><%-$t('mt4_page_37')%></div>
+                        </div>
+                        <div class="grid-content gc-4">
+                            <div class="content-inside"><%-$t('mt4_page_38')%></div>
+                        </div>
+                        <div class="grid-content gc-5">
+                            <div class="content-inside">
+                                <% if (isAPACcountry(countryCode)) { %>
+                                    <%-$t('mt4_page_39_apac')%>
+                                <% } else { %>
+                                    <%-$t('mt4_page_39')%>
+                                <% } %>
+                            </div>
+                        </div>
+                        <div class="grid-content gc-6">
+                            <div class="content-inside"><%-$t('mt4_page_40')%></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('mt4_page_41')%></div>
+                    <div class="global-today"><%-$t('mt4_page_42')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="metatrader4_3" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('mt4_page_43')%></a>
+                        <a id="metatrader4_4" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('mt4_page_44')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

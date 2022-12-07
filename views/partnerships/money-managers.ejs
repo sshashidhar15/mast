@@ -1,0 +1,102 @@
+<% setI18nPrefix('pages.partnerships.money-managers') %>
+<meta name="description" content="<%- $t('meta', true) %>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/money-managers.css')%>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+    <div class="single-page money-managers">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('money_managers_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('money_managers_2')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="money_managers_1" class="icm-btn icm-btn-primary scroll-to-form"><%- $t('money_managers_3') %></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'partnerships-money-managers' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="double-sidebar-block">
+                        <div class="sidebar-cta-card-container sidebar-top-card random-background rnd-back-1">
+                            <div class="bottom-block">
+                                <p class="bottom-block__message"><%-$t('money_managers_8')%><br><b><%-$t('money_managers_9')%></b></p>
+                                <div class="icm-button-wrapper bottom-block__cta-button">
+                                    <a id="money_managers_2"class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('money_managers_12')%></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-card contact-block">
+                            <div class="contact-header">
+                                <div class="header-label"><%-$t('money_managers_13')%></div>
+                                <div class="header-title"><%-$t('money_managers_14')%></div>
+                            </div>
+                            <div class="contact-pre-imaged chat-img">
+                                <div><%-$t('contact_card_help')%></div>
+                            </div>
+                            <% if (!fsa && !scb && !fsc && !cima) { %>
+                            <div class="contact-phone">
+                                <div><%-$t('contact_card_phone')%></div>
+                            </div>
+                            <% } %>
+                            <div class="contact-pre-imaged email-img">
+                                <% if (asic) {%>
+                                    <div><%-$t('contact_card_email_asic')%></div>
+                                <% } else { %>
+                                    <div><%-$t('contact_card_email')%></div>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="first-section">
+                        <div class="page-first-text"><%-$t('money_managers_4')%></div>
+                        <h1><%-$t('money_managers_5')%></h1>
+                        <div class="pre-image-item"><%-$t('money_managers_6')%></div>
+                        <div class="pre-image-item"><%-$t('money_managers_7')%></div>
+                        <div class="pre-image-item"><%-$t('money_managers_10')%></div>
+                        <div class="pre-image-item"><%-$t('money_managers_11')%></div>
+                        <div class="pre-image-item"><%-$t('money_managers_18')%></div>
+                        <div class="pre-image-item"><%-$t('money_managers_1888')%></div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content highlighted-content">
+                <div class="page-section">
+                    <h1><%-$t('money_managers_19')%></h1>
+                    <div class="pre-image-item"><%-$t('money_managers_20')%></div>
+                    <div class="pre-image-item"><%-$t('money_managers_2011')%></div>
+                    <div class="pre-image-item"><%-$t('money_managers_2012')%></div>
+                    <div class="pre-image-item"><%-$t('money_managers_2013')%></div>
+                    <div class="pre-image-item"><%-$t('money_managers_2014')%></div>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="page-section">
+                    <h1><%-$t('money_managers_201')%></h1>
+                    <p><%-$t('money_managers_202')%></p>
+                    <h1><%-$t('money_managers_203')%></h1>
+                    <p><%-$t('money_managers_204')%></p>
+                    <p><%-$t('money_managers_25')%></p>
+                    <div class="icm-form-block-container">
+                        <%- include('../_partials/components/contact-us-form-white-label-partnerships.ejs') %>
+                        <% setI18nPrefix('pages.partnerships.money-managers') %>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('money_managers_21')%></div>
+                    <div class="global-today"><%-$t('money_managers_22')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="money_managers_3" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('money_managers_23')%></a>
+                        <a id="money_managers_4" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('money_managers_24')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

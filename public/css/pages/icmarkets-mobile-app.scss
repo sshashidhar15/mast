@@ -1,0 +1,541 @@
+@import "../_global";
+
+.single-page.page-icmarkets-mobile-app {
+    background-color: #f3f3f3 !important;
+    a:hover , a:focus {
+        transform: scale(1.0,1.1);
+    }
+    .highlight-text {
+        color: #34E834;
+        white-space: nowrap;
+    }
+    .intro-block {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    background: url(./../../assets/img/mobile_trading_app/intro-background.png) bottom no-repeat;
+    height: 800px;
+    background-size: cover;
+        .intro-section {
+            display: grid;
+            align-content: center;
+            row-gap: 42px;
+            width: 665px;
+            text-align: left;
+            padding-left: 140px;
+            height: 600px;
+        }
+        .intro-heading-1 {
+            width: 86%;
+            font-size: 44px;
+            font-weight: 600;
+        }
+    }
+    .gray-block {
+        min-height: 450px;
+        background-color: #f3f3f3;
+        color: #000;
+        display: grid;
+        grid-template-columns: 40% 20% 40%;
+        font-size: 14px;
+        .icons {
+            padding-bottom: 3%;
+            img {
+                width: 7%;
+            }
+        }
+        .features {
+            display: grid;
+            align-content: center;
+            font-size: 15px;
+        }
+        .right {
+            text-align: right;
+        }
+        .left {
+            text-align: left;
+        }
+        .support-contact-img-section {
+            padding-right: 0;
+            width: 80%;
+        }
+        .support-contact-section {
+            width: 63%;
+        }
+    }
+    .grid2-2 {
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+    .light-block {
+        min-height: 440px;
+        height: 550px;
+        color: #000;
+        background-color: #fff;
+        font-size: 16px;
+        .support-contact-section {
+            width: 80%;
+            margin-left: 17%;
+        }
+        .traders-block {
+            display: flex;
+            width: 50%;
+            height: 220px;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-left: 25%;
+        }
+        .trader-icon {
+            height: 75px;
+        }
+        .download-options {
+            display: flex;
+            justify-content: space-between;
+            width: 106%;
+        }
+        .currency-name {
+            height: 30px;
+            width: 52px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            border: 1px solid #f3f3f3;
+            border-radius: 7%;
+            font-size: 12px;
+            font-weight: 500;
+            box-shadow: 1px 1px 0 3px #f3f3f3;
+        }
+        .currency-options {
+            display: flex;
+            flex-flow: row wrap;
+            height: 46px;
+            justify-content: space-between;
+            width: 340px;
+        }
+    }
+.support-contact-section {
+    text-align: left;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-content: center;
+}
+.section-header {
+            font-size: 40px;
+    font-weight: 600;
+    margin: 16px 0;
+}
+.section-text {
+font-size: 20px;
+}
+.upload-section {
+    grid-template-columns: 50% 46%;
+    height: 556px;
+}
+.support-contact-img-section {
+    padding-top: 32px;
+    padding-right: 80%;
+}
+
+.h-150 {
+    height: 150px;
+}
+.icons {
+    padding-bottom: 3%;
+}
+
+.traders-block {
+    display: flex;
+    width: 50%;
+    height: 220px;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-left: 25%;
+}
+.trader-icon {
+    height: 75px;
+}
+.download-options {
+    display: flex;
+    justify-content: space-between;
+    width: 106%;
+}
+.dark-block {
+   min-height: 450px;
+    padding-top: 5%;
+    font-size: 15px;
+    background: #1c1a2b url(./../../assets/img/mobile_trading_app/world-map.png) bottom no-repeat;
+    .mobile-app-download {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20%;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+}
+.app-download-section {
+    display: grid;
+    gap: 20px;
+        .highlight-text {
+        color: #34e834;
+        white-space: break-spaces;
+    }
+}
+    .markets-description {
+        height: 36px;
+    }
+}
+.payment-image {
+    height: 85%;
+    padding-left: 60%;
+}
+.traders {
+    height: 440px !important;
+}
+
+@media screen and (max-width: 1286px) {
+    .intro-block {
+        grid-template-columns: 55% 45%;
+        min-height: 460px;
+        height: 600px;
+        .intro-section {
+            min-width: 600px;
+            padding-left: 70px;
+        }
+        .app-login-image {
+            width: 98%;
+        }
+    }
+    .gray-block {
+        grid-template-columns: 35% 30% 35%;
+        .icons img {
+            width: 12%;
+        }
+        .support-contact-img-section {
+            width: 88%;
+        }
+    }
+    .grid2-2 {
+        grid-template-columns: 50% 50%;
+    }
+    .light-block { 
+        min-height: 370px;
+        .traders-block {
+            width: 94%;
+            margin-left: 0;
+        }
+    }
+    .dark-block {
+        .mobile-app-download {
+        grid-template-columns: 21% 25% 25% 20%;
+        height: 640px;
+    }
+    }
+    .mobile-app-image1 {
+        width: 85%;
+    }
+    .mobile-app-image2 {
+        width: 103%;
+    }
+    .traders {
+        height: 380px !important;
+    }
+}
+
+@media screen and (max-width:780px) {
+    .signin-image {
+        display: none;
+    }
+    .h-150 {
+        height: 110px;
+    }
+    .grid2-2 {
+        grid-template-columns: 100%;
+    }
+    .metatrader-playstore {
+        width: 80%;
+    }
+    .ios-text {
+        height: 64px;
+    }
+    .play-store {
+        width: 32%;
+    }
+    .section-header {
+        font-size: 30px;
+    }
+    .payment-image {
+        padding: 0;
+    }
+    .payment-block {
+        height: 870px !important;
+        .section-text {
+            height: 90px !important;
+        }
+    }
+    .upload-block {
+        height: 635px;
+    }
+    .section-text {
+        font-size: 18px;
+    }
+    .intro-block {
+        height: 900px;
+        grid-template-columns: 100%;
+        .intro-section {
+            width: 100%;
+            height: 365px;
+            text-align: center;
+            padding: 0;
+        }
+        .intro-heading-1 {
+            font-size: 35px;
+            width: 100%;
+        }
+        .intro-heading-2 {
+            width: 88%;
+            padding-left: 12%;
+        }
+        .intro-image {
+            position: relative;
+            bottom: 11%;
+            left: 4%;
+        }
+        .app-login-image {
+            width: 70%;
+        }
+    }
+    .gray-block {
+        grid-template-columns: 100%;
+        .features {
+            text-align: left;
+            padding-left: 16%;
+        }
+        .icons img {
+            width: 8%;
+        }
+        .support-contact-section {
+            grid-column: 1;
+            grid-row: 1;
+            width: 75%;
+            padding-top: 4%;
+            img {
+                height: 80%;
+            }
+        }
+        .support-contact-img-section {
+            width: 100%;
+        }
+    }
+    .dark-block {
+        .mobile-app-download {
+            height: 450px;
+        }
+        .markets-description {
+            height: 56px;
+            width: 82%;
+            padding-left: 18%;
+        }
+    }
+    .light-block {
+        grid-template-columns: 100%;
+        grid-gap: 40px;
+        height: 650px;
+        .traders-block, .download-options {
+            width: 100%;
+        }
+        .support-contact-section {
+            margin-left: 5%;
+            margin-top: 4%;
+        }
+    }
+    .support-contact-img-section {
+        width: 100%;
+        padding: 0;
+         img {
+            height: 75%;
+         }
+    }
+}
+
+@media screen and (max-width:430px) {
+    .play-store {
+        width: 35%;
+    }
+    .traders {
+        height: 401px !important;
+    }
+    .section-header {
+        font-size: 26px;
+    }
+    .icmobile-app-download {
+        display: flex;
+        text-align: left;
+        padding-right: 30px;
+        margin-right: 0 !important;
+        padding-left: 2%;
+    }
+    .intro-block {
+        height: 700px;
+        .intro-section {
+            height: 375px;
+            row-gap: 25px;
+        }
+        .intro-heading-1 {
+            width: 70%;
+		    padding: 0 5%;
+            font-size: 26px;
+        }
+        .intro-heading-2 {
+            width: 70%;
+		    padding: 0 5%;
+            font-size: 16px;
+        }
+        .app-login-image {
+            width: 90%;
+        }
+    }
+    .light-block {
+        height: 610px;
+        .currency-options {
+            padding-top: 7%;
+        }
+        .traders-block {
+            display: grid;
+            height: 70%;
+        }
+        .trader-icon {
+            height: 55px;
+        }
+    }
+    .gray-block {
+        .features {
+            padding-left: 8%;
+            font-size: 15px;
+        }
+        .support-contact-section {
+            width: 95%;
+            padding-left: 5%;
+        }
+        .support-contact-img-section {
+            width: 100%;
+            padding-left: 7%;
+        }
+    }
+    .support-contact-img-section {
+        img {
+            height: 65%;
+        }
+    }
+    .markets-heading {
+        min-height: 98px !important;
+    }
+    .dark-block {
+        .markets-heading {
+            min-height: 135px !important;
+        }
+        .markets-description {
+            height: 86px;
+            width: 93%;
+            padding-left: 3%;
+        }
+        .mobile-app-download {
+            grid-template-columns: 100%;
+            height: 370px;
+        }
+        .app-download-section {
+            gap: 10px;
+            .metatrader-playstore {
+                width: 45%;
+            }
+        }
+    }
+    .mobile-app-image {
+        display: none;
+    }
+}
+@media screen and (max-width:396px) {
+    .intro-block {
+        .intro-heading-1, .intro-heading-2 {
+            width: 65%;
+        }
+        .play-store {
+            width: 80%;
+        }
+        #header-appstore {
+		    margin-right: 16px !important;
+	    }
+    }
+}
+}
+.locale-ar {
+    .left {
+        text-align: right !important;
+    }
+    .right {
+        text-align: left !important;
+    }
+    .payment-image {
+        padding-left: 35% !important;
+    }
+    .support-contact-img-section {
+        padding-right: 15% !important;
+    }
+    .intro-block {
+        direction: ltr;
+    }
+    .intro-section {
+        direction: rtl !important;
+    }
+    .light-block {
+        .traders-block {
+            margin-right: 25% !important;
+            margin-left: 0% !important;
+        }
+    }
+    @media screen and (max-width:1286px) {
+        .support-contact-img-section {
+            padding-right: 0% !important;
+        }
+        .light-block {
+            .traders-block {
+                margin-right: 3% !important;
+            }
+        }
+        .payment-image {
+            padding-left: 0 !important;
+        }
+    }
+    @media screen and (max-width:780px) {
+        .right, .left {
+            text-align: left !important;
+        }
+        .light-block {
+            .traders-block {
+                margin-right: 0% !important;
+            }
+        }
+        .intro-image {
+            left: 0 !important;
+        }
+    }
+    @media screen and (max-width:430px){
+        .intro-heading-1 {
+            width: 100% !important;
+        }
+        .intro-heading-2 {
+            width: 100% !important;
+        }
+        .icmobile-app-download {
+            padding-right: 0 !important;
+        }
+        .intro-section {
+            min-width: 390px !important;
+        }
+        .intro-image {
+            left: 1% !important;
+        }
+        #header-appstore {
+            margin-right: 26px !important;
+            margin-left: 11px !important;
+        }
+    }
+}

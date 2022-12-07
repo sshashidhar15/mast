@@ -1,0 +1,89 @@
+<% setI18nPrefix('pages.forex-trading-platform-ctrader.smart-stop-out') %>
+<meta name="description" content="<%- $t('meta', true) %>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/smart-stop-out.css')%>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+    <div class="single-page smart-stop-out">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('smart_stop_out_0')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('smart_stop_out_1')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="smart_stop_out_1" class="icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%- $t('smart_stop_out_2') %></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <h1><%-$t('smart_stop_out_3')%></h1>
+                    <p><%-$t('smart_stop_out_4')%></p>
+                    <p><%-$t('smart_stop_out_5')%></p>
+                    <p><%-$t('smart_stop_out_6')%></p>
+                    <b><%-$t('smart_stop_out_7')%></b>
+                    <br>
+                    <br>
+                    <p><%-$t('smart_stop_out_8')%></p>
+                    <div class="pre-image-item"><%-$t('smart_stop_out_9')%></div>
+                    <div class="pre-image-item">
+                        <% if (isAPACcountry(countryCode)) { %>
+                        <%-$t('smart_stop_out_10_apac')%>
+                        <% } else { %>
+                        <%-$t('smart_stop_out_10')%>
+                        <% } %>
+                    </div>
+                    <div class="pre-image-item"><%-$t('smart_stop_out_11')%></div>
+                    <div class="pre-image-item"><%-$t('smart_stop_out_12')%></div>
+                    <br>
+                    <p><%-$t('smart_stop_out_13')%></p>
+                    <div class="pre-image-item"><%-$t('smart_stop_out_14')%></div>
+                    <div class="pre-image-item"><%-$t('smart_stop_out_15')%></div>
+                    <br>
+                    <p><%-$t('smart_stop_out_16')%></p>
+                    <p><%-$t('smart_stop_out_17')%></p>
+                    <p><%-$t('smart_stop_out_18')%></p>
+                    <b><%-$t('smart_stop_out_19')%></b>
+                    <br>
+                    <br>
+                    <div class="pre-image-item"><%-$t('smart_stop_out_20')%></div>
+                    <div class="pre-image-item"><%-$t('smart_stop_out_21')%></div>
+                    <div class="pre-image-item"><%-$t('smart_stop_out_22')%></div>
+                    <br>
+                    <p>* <b><%-$t('smart_stop_out_23')%></b> <%-$t('smart_stop_out_24')%></p>
+                    <p><%-$t('smart_stop_out_25')%></p>
+                    <p><%-$t('smart_stop_out_26')%></p>
+                    <p><%-$t('smart_stop_out_27')%></p>
+                    <p><%-$t('smart_stop_out_28')%></p>
+                    <p><b><%-$t('smart_stop_out_29')%></b> <%-$t('smart_stop_out_30')%></p>
+                    <div class="pre-image-item"><%-$t('smart_stop_out_31')%></div>
+                    <br>
+                    <p><b><%-$t('smart_stop_out_32')%></b> <%-$t('smart_stop_out_33')%></p>
+                    <p><b><%-$t('smart_stop_out_34')%></b> <%-$t('smart_stop_out_35')%></p>
+                    <div class="pre-image-item"><%-$t('smart_stop_out_36')%></div>
+                    <br>
+                    <p><b><%-$t('smart_stop_out_37')%></b> <%-$t('smart_stop_out_38')%></p>
+                    <div class="pre-image-item"><%-$t('smart_stop_out_39')%></div>
+                    <br>
+                    <p><b><%-$t('smart_stop_out_40')%></b> <%-$t('smart_stop_out_41')%></p>
+                    <div class="pre-image-item"><%-$t('smart_stop_out_42')%></div>
+                    <br>
+                    <p><%-$t('smart_stop_out_43')%></p>
+                </div>
+            </div>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('smart_stop_out_44')%></div>
+                    <div class="global-today"><%-$t('smart_stop_out_45')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="smart_stop_out_2" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('smart_stop_out_46')%></a>
+                        <a id="smart_stop_out_3" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('smart_stop_out_47')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

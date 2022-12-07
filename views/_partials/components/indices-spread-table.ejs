@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="<%=md5('/css/components/indices-spread-table.css')%>">
+    <div class="markets-spread-table indices-spread-table">
+        <%
+        let indicesSpreadTable = {
+            indicesSpreadsColHeadersDesktop: ['SYMBOL', 'DESCRIPTION', 'MIN', 'AVG'],
+            indicesSpreadsData: [
+                ["AUS200","Australia S&P ASX 200 Index","0.000","1.220"],
+                ["DE40","Germany 40 Index","0.500","1.338"],
+                ["F40","France 40 Index","0.000","0.749"],
+                ["JP225","Japan 225 Index","6.000","8.858"],
+                ["STOXX50","EU Stocks 50 Index","0.200","1.760"],
+                ["UK100","UK 100 Index","1.000","2.133"],
+                ["US30","US Wall Street 30 Index","1.000","1.411"],
+                ["US500","US SPX 500 Index","0.200","0.492"],
+                ["USTEC","US Tech 100 Index","1.000","1.807"],
+                ["CA60","Canada 60 Index","0.600","0.600"],
+                ["CHINA50","FTSE China A50 Index","3.290","6.953"],
+                ["CHINAH","Hong Kong China H-shares Index","0.000","2.083"],
+                ["ES35","Spain 35 Index","4.200","4.426"],
+                ["HK50","Hong Kong 50 Index","7.000","8.169"],
+                ["IT40","Italy 40 Index","9.000","9.000"],
+                ["MidDE50","Germany Mid 50 Index","7.500","27.864"],
+                ["NETH25","Netherlands 25 Index","0.190","0.190"],
+                ["NOR25","Norway 25 Index","0.680","0.680"],
+                ["SA40","South Africa 40 Index","7.500","15.444"],
+                ["SE30","Sweden 30","0.380","0.380"],
+                ["SWI20","Switzerland 20 Index","3.000","3.500"],
+                ["TecDE30","Germany Tech 30 Index","2.300","3.172"],
+                ["US2000","US Small Cap 2000 Index","0.140","0.480"]
+            ]
+        }
+        %>
+        <div class="single-design-search">
+            <div class="group min-max">* <b>MIN</b> - minimum, <b>AVG</b> - average</div>
+            <div class="group search">
+                <span>Search by Symbol</span>
+                <input class="spreads-search-box" type="search"/>
+            </div>
+            <div class="group skin">
+                <span class="skin-label">Table Skin</span>
+                <span class="skin-toggle skin-light">&nbsp;</span>
+                <span class="skin-toggle skin-dark">&nbsp;</span>
+            </div>
+        </div>
+
+        <%- include('./spread-table-component.ejs', {
+            tableSkin: 'light-skin',
+            slotMobile: ['Product', 'All Accounts'],
+            slotTablet: ['Product', 'All Accounts'],
+            slotDesktop: ['Product', 'All Accounts'],
+            colHeadersMobile: indicesSpreadTable.indicesSpreadsColHeadersDesktop,
+            mobileData: indicesSpreadTable.indicesSpreadsData,
+            colHeadersTablet: indicesSpreadTable.indicesSpreadsColHeadersDesktop,
+            tabletData: indicesSpreadTable.indicesSpreadsData,
+            colHeadersDesktop: indicesSpreadTable.indicesSpreadsColHeadersDesktop,
+            desktopData: indicesSpreadTable.indicesSpreadsData,
+            allTables: true
+        }); %>
+    </div>

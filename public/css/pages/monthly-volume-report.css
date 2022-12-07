@@ -1,0 +1,187 @@
+/* ICM Primary values from UX design */
+/* Width - container, element, card, */
+/* Margin */
+/* padding */
+/* Border */
+/*
+  Roboto font related weights
+   https://fonts.google.com/specimen/Roboto?selection.family=Roboto:100,300,400,500,700,900
+*/
+/* font color, background color */
+/* UI elements specific color */
+/* Card specific color */
+/* max width properties for UI Cards for different number of cards in a container */
+/* one are more cards */
+/* three are more cards */
+.single-page.page-monthly-volume-report .page-content-container {
+  background: #fff !important; }
+  .single-page.page-monthly-volume-report .page-content-container .page-content.highlighted-content {
+    background: #3a3941 !important; }
+    .single-page.page-monthly-volume-report .page-content-container .page-content.highlighted-content h1 {
+      color: rgba(244, 247, 245, 0.8);
+      text-align: center;
+      margin-bottom: 0; }
+
+.single-page.page-monthly-volume-report .page-header {
+  padding: 80px 0 !important;
+  background: url(/assets/img/monthly_volume/page-banner.png) no-repeat center right; }
+  .single-page.page-monthly-volume-report .page-header .icm-button-wrapper.page-header__primary-button a.icm-btn.icm-btn-primary {
+    border-radius: 2px !important;
+    padding: 25px !important;
+    font-size: 20px !important;
+    font-weight: 900 !important;
+    text-transform: uppercase; }
+  .single-page.page-monthly-volume-report .page-header .page-header__description {
+    font-size: 30px !important;
+    font-weight: 500 !important;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.47 !important;
+    letter-spacing: -0.6px;
+    text-align: center;
+    color: #34E834; }
+
+.single-page.page-monthly-volume-report .inverse-menu-color:not(.current-page) {
+  color: #fff !important; }
+
+.single-page.page-monthly-volume-report .inverse-menu-color:not(.current-page):hover {
+  color: #34E834 !important; }
+
+.single-page.page-monthly-volume-report .page-content.global-markets-today {
+  background-image: url(/assets/img/monthly_volume/page-btm-bg.png); }
+
+.single-page.page-monthly-volume-report .page-header__menu-container .page-header__menu .menu-item .menu-title {
+  padding-left: 0 !important;
+  text-transform: uppercase; }
+
+.single-page.page-monthly-volume-report .page-content.global-markets-today .icm-button-wrapper a.live {
+  border-radius: 0 !important;
+  padding: 25px !important;
+  font-size: 20px !important;
+  font-weight: 900 !important;
+  text-transform: uppercase; }
+
+.single-page.page-monthly-volume-report .page-content.global-markets-today .icm-button-wrapper a.demo {
+  border-radius: 0 !important;
+  padding: 25px !important;
+  font-size: 20px !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  background: #000 !important;
+  color: #fff !important;
+  margin-left: 9px; }
+
+.single-page.page-monthly-volume-report .flex-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0 !important;
+  margin-bottom: 40px !important; }
+  .single-page.page-monthly-volume-report .flex-section .f-1 {
+    padding: 20px 30px; }
+    .single-page.page-monthly-volume-report .flex-section .f-1 h1 {
+      margin-bottom: 0 !important;
+      font-size: 42px;
+      font-weight: 100;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1;
+      letter-spacing: -0.8px;
+      color: #0b0a14; }
+    .single-page.page-monthly-volume-report .flex-section .f-1 div {
+      margin-top: 6px;
+      font-size: 18px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1;
+      letter-spacing: -0.4px;
+      color: rgba(11, 10, 20, 0.8); }
+  .single-page.page-monthly-volume-report .flex-section .f-2 {
+    padding: 20px 30px;
+    background: #36363e;
+    border-radius: 2px;
+    box-shadow: 0px 3px 18px 0 rgba(0, 0, 0, 0.14); }
+    .single-page.page-monthly-volume-report .flex-section .f-2 h1 {
+      margin-bottom: 0 !important;
+      font-size: 42px;
+      font-weight: 100;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1;
+      letter-spacing: -0.8px;
+      color: #34E834; }
+    .single-page.page-monthly-volume-report .flex-section .f-2 div {
+      margin-bottom: 6px;
+      font-size: 18px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1;
+      letter-spacing: -0.4px;
+      text-align: center;
+      color: rgba(244, 247, 245, 0.8); }
+
+.single-page.page-monthly-volume-report .grid-section {
+  display: grid;
+  grid-template-columns: 33% 33% 33%; }
+  .single-page.page-monthly-volume-report .grid-section .grid-item {
+    position: relative;
+    padding: 0 20px 0 80px;
+    margin-top: 80px !important; }
+    .single-page.page-monthly-volume-report .grid-section .grid-item h1 {
+      margin-bottom: 30px !important;
+      font-size: 20px !important;
+      font-weight: bold !important;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1;
+      letter-spacing: -0.4px;
+      text-align: left !important;
+      color: #f4f7f5;
+      text-transform: uppercase; }
+    .single-page.page-monthly-volume-report .grid-section .grid-item p {
+      font-size: 15px !important;
+      font-weight: normal !important;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.53;
+      letter-spacing: -0.3px;
+      text-align: left;
+      color: rgba(244, 247, 245, 0.6); }
+    .single-page.page-monthly-volume-report .grid-section .grid-item.pre-img::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 70px;
+      height: 70px;
+      background-repeat: no-repeat;
+      background-position: left top; }
+    .single-page.page-monthly-volume-report .grid-section .grid-item.pre-img.gi-1::before {
+      background-image: url(/assets/img/monthly_volume/page-lower-spreads-icon.png); }
+    .single-page.page-monthly-volume-report .grid-section .grid-item.pre-img.gi-2::before {
+      background-image: url(/assets/img/monthly_volume/page-faster-execution-icon.png); }
+    .single-page.page-monthly-volume-report .grid-section .grid-item.pre-img.gi-3::before {
+      background-image: url(/assets/img/monthly_volume/page-trust-icon.png); }
+
+@media screen and (max-width: 940px) {
+  .single-page.page-monthly-volume-report .grid-section {
+    grid-template-columns: 100%; } }
+
+@media screen and (max-width: 768px) {
+  .single-page.page-monthly-volume-report .flex-section {
+    flex-direction: column; }
+    .single-page.page-monthly-volume-report .flex-section > div {
+      margin: auto; }
+      .single-page.page-monthly-volume-report .flex-section > div.f-2 {
+        margin-top: 30px; } }
+
+@media screen and (max-width: 600px) {
+  .single-page.page-monthly-volume-report .grid-section .grid-item.pre-img::before {
+    left: calc(50% - 20px) !important; }
+  .single-page.page-monthly-volume-report .grid-section .grid-item {
+    padding: 80px 0 0 0 !important; }
+    .single-page.page-monthly-volume-report .grid-section .grid-item h1 {
+      text-align: center !important; } }
+
+/*# sourceMappingURL=monthly-volume-report.css.map */

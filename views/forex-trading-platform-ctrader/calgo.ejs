@@ -1,0 +1,71 @@
+<% setI18nPrefix('pages.forex-trading-platform-ctrader.ctrader-algo') %>
+<meta name="description" content="<%- $t('meta', true) %>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/calgo.css')%>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+    <div class="single-page calgo">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('calgo_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('calgo_2')%></div>
+
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="calgo_1" class="icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-demo') %>"><%- $t('calgo_3') %></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'forex-trading-platform-ctrader-calgo' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="market-facts-card">
+                        <div class="facts-header">
+                            <div class="header-label"><%-$t('calgo_9')%></div>
+                            <div class="header-title"><%-$t('calgo_10')%></div>
+                        </div>
+                        <div class="facts-items">
+                            <div class="facts-item"><%-$t('calgo_11')%></div>
+                            <div class="facts-item"><%-$t('calgo_12')%></div>
+                            <div class="facts-item"><%-$t('calgo_13')%></div>
+                            <div class="facts-item"><%-$t('calgo_14')%></div>
+                            <div class="facts-item"><%-$t('calgo_15')%></div>
+                            <div class="facts-item"><%-$t('calgo_16')%></div>
+                        </div>
+                        <div class="action-buttons-container">
+                            <a id="calgo_2" class="action-button icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('calgo_17')%></a>
+                        </div>
+                    </div>
+                    <div class="first-section">
+                        <p><%-$t('calgo_18')%></p>
+                        <p><%-$t('calgo_19')%><a id="calgo_3" href="https://ctrader.com/algos" target="_blank">here</a>. <%-$t('calgo_20')%><a href="<%= clientAreaPath() %>" target="_blank"><%-$t('calgo_21')%></a> <%-$t('calgo_22')%></p>
+                        <a id="calgo_4" href="https://icmarkets.ctrader.com/ctrader-icmarkets-setup.exe" target="_blank"><div class="page-download-img"></div></a>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content under-image highlighted-content">
+                <div class="page-section">
+                    <h1><%-$t('calgo_23')%></h1>
+                    <p><%-$t('calgo_24')%></p>
+                    <div class="market-facts-card green-card">
+                        <h1><%-$t('calgo_25')%></h1>
+                        <p><%-$t('calgo_26')%></p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('calgo_27')%></div>
+                    <div class="global-today"><%-$t('calgo_28')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="calgo_5"class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('calgo_29')%></a>
+                        <a id="calgo_6"class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('calgo_30')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

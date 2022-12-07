@@ -1,0 +1,519 @@
+<% setI18nPrefix('components.support') %>
+<style>
+    .live-support {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.93);
+        z-index: -1;
+        transform: scale(1.3);
+        opacity: 0;
+        transition: all 0.5s cubic-bezier(0.68, 0.0, 0.265, 1.55);
+        overflow: auto;
+    }
+    body.live-support-active .live-support {
+        z-index: 99999;
+        opacity: 1;
+        transform: scale(1);
+        transition: all 0.5s ease;
+    }
+
+    body .index-page,
+    body .single-page {
+        transition: all 0.33s ease-in-out;
+    }
+
+    body.live-support-active .index-page,
+    body.live-support-active .single-page {
+        transform: scale(0.96);
+        transition: all 0.33s ease-in-out;
+    }
+    .support-close {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        font-size: 40px;
+        background: #444;
+        border-radius: 50px;
+        margin: 20px;
+        color: #000;
+        transition: all 0.33s ease-in-out;
+        cursor: default;
+    }
+    .support-close:hover {
+        color: red;
+        background: #000;
+        box-shadow: 0 0 0 3px red inset;
+        transition: all 0.33s ease-in-out;
+    }
+    .support-content {
+        position: relative;
+        margin: 100px auto;
+        max-width: 1440px;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+    }
+    .support-content h1 {
+        font-size: 48px;
+        line-height: 60px;
+        font-weight: 200;
+    }
+    .support-search {
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+    .support-search input {
+        width: 60%;
+        padding: 7px 20px;
+        font-weight: 300;
+        border-radius: 50px;
+        font-style: italic;
+        border: 0;
+        color: #000;
+        outline: none;
+    }
+    .support-search .btn {
+        line-height: 1;
+        margin-left: 10px;
+        padding: 14px 18px !important;
+    }
+    .support-sections {
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+    }
+    .support-section {
+        cursor: default;
+        margin: 30px 15px;
+        position: relative;
+        text-decoration: none !important;
+    }
+    .support-section:hover .support-section-image {
+        transform: scale(1.2);
+        transition: all 0.33s ease;
+    }
+    .support-section:hover .support-section-title {
+        color: #34e834;
+        text-decoration: none !important;
+        transition: all 0.33s ease;
+    }
+    .support-pic {
+        width: 150px;
+        height: 150px;
+        display: inline-block;
+        overflow: hidden;
+        border: 3px solid #fff;
+        border-radius: 150px;
+        position: relative;
+    }
+    .support-section-image {
+        width: 150px;
+        height: 150px;
+        transform: scale(1);
+        display: block;
+        background-size: auto 100% !important;
+        transition: all 0.33s ease;
+    }
+    .support-section-image.pic-1 {
+        background: url(/assets/img/single_market_page/overview_header_bg.jpg) no-repeat center right;
+    }
+    .support-section-image.pic-2 {
+        background: url(/assets/img/single_market_page/account_funding_bg.jpg) no-repeat center right;
+    }
+    .support-section-image.pic-3 {
+        background: url(/assets/img/single_market_page/trading-conditions-banner.jpg) no-repeat center right;
+    }
+    .support-section-image.pic-4 {
+        background: url(/assets/img/single_market_page/mt5-banner.jpg) no-repeat center right;
+    }
+    .support-section-image.pic-5 {
+        background: url(/assets/img/single_market_page/help-centre-banner.jpg) no-repeat center right;
+    }
+    .support-section-title {
+        margin-top: 15px;
+        text-decoration: none !important;
+        transition: all 0.33s ease;
+    }
+    .support-section-list {
+        margin-top: 30px;
+    }
+    .support-section-list a {
+        cursor: pointer;
+        display: block;
+        text-align: left;
+        color: #999;
+        line-height: 1.2;
+    }
+    .support-section-list a:hover {
+        color: inherit;
+    }
+    .support-section-list a::after {
+        content: "";
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 1px;
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #222;
+        margin: 10px 0;
+    }
+    @media (max-width: 960px) {
+        .support-search input {
+            width: 100%;
+        }
+        .support-search .btn {
+            display: block;
+            width: max-content !important;
+            margin: auto;
+            margin-top: 15px;
+        }
+        .support-sections {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .support-section-list {
+            display: none;
+        }
+    }
+    .support-waves {
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        border: 1px solid #34e834;
+        left: 0;
+        right: 0;
+        top: 0;
+        margin: auto;
+        border-radius: 200px;
+        cursor: pointer;
+    }
+    .support-waves {
+        animation-name: waves;
+        animation-duration: 3.5s;
+        animation-timing-function: ease-in;
+        animation-iteration-count: infinite;
+        animation-direction: normal;
+        animation-delay: 0s;
+        animation-play-state: running;
+        animation-fill-mode: forwards;
+        -webkit-animation-name: waves;
+        -webkit-animation-duration: 3.5s;
+        -webkit-animation-timing-function: ease-in;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-direction: normal;
+        -webkit-animation-delay: 0s;
+        -webkit-animation-play-state: running;
+        -webkit-animation-fill-mode: forwards;
+        -moz-animation-name: waves;
+        -moz-animation-duration: 3.5s;
+        -moz-animation-timing-function: ease-in;
+        -moz-animation-iteration-count: infinite;
+        -moz-animation-direction: normal;
+        -moz-animation-delay: 0s;
+        -moz-animation-play-state: running;
+        -moz-animation-fill-mode: forwards
+    }
+
+    @-webkit-keyframes waves {
+        0% {
+            -webkit-transform: none;
+            transform: none;
+            border-width: 16px;
+            opacity: 0;
+            width: 150px;
+            height: 150px;
+            left: 0;
+            top: 0
+        }
+
+        10% {
+            opacity: .5;
+            border-width: 8px;
+            width: 170px;
+            height: 170px;
+            left: -10px;
+            top: -10px
+        }
+
+        30% {
+            opacity: 0;
+            border-width: 1px;
+            width: 200px;
+            height: 200px;
+            left: -25px;
+            top: -25px
+        }
+
+        31% {
+            opacity: 0;
+            border-width: 2px;
+            width: 150px;
+            height: 150px;
+            left: 0;
+            top: 0
+        }
+
+        32% {
+            opacity: .5;
+            border-width: 6px;
+            width: 150px;
+            height: 150px;
+            left: 0;
+            top: 0
+        }
+
+        50% {
+            opacity: 0;
+            border-width: 16px;
+            width: 180px;
+            height: 180px;
+            left: -15px;
+            top: -15px
+        }
+
+        100% {
+            opacity: 0;
+            border-width: 16px;
+            width: 200px;
+            height: 200px;
+            left: -25px;
+            top: -25px
+        }
+    }
+
+    @keyframes waves {
+        0% {
+            -webkit-transform: none;
+            transform: none;
+            border-width: 16px;
+            opacity: 0;
+            width: 150px;
+            height: 150px;
+            left: 0;
+            top: 0
+        }
+
+        10% {
+            opacity: .5;
+            border-width: 8px;
+            width: 170px;
+            height: 170px;
+            left: -10px;
+            top: -10px
+        }
+
+        30% {
+            opacity: 0;
+            border-width: 1px;
+            width: 200px;
+            height: 200px;
+            left: -25px;
+            top: -25px
+        }
+
+        31% {
+            opacity: 0;
+            border-width: 2px;
+            width: 150px;
+            height: 150px;
+            left: 0;
+            top: 0
+        }
+
+        32% {
+            opacity: .5;
+            border-width: 6px;
+            width: 150px;
+            height: 150px;
+            left: 0;
+            top: 0
+        }
+
+        50% {
+            opacity: 0;
+            border-width: 16px;
+            width: 180px;
+            height: 180px;
+            left: -15px;
+            top: -15px
+        }
+
+        100% {
+            opacity: 0;
+            border-width: 16px;
+            width: 200px;
+            height: 200px;
+            left: -25px;
+            top: -25px
+        }
+    }
+
+    -moz-@keyframes waves {
+        0% {
+            -webkit-transform: none;
+            transform: none;
+            border-width: 16px;
+            opacity: 0;
+            width: 150px;
+            height: 150px;
+            left: 0;
+            top: 0
+        }
+
+        10% {
+            opacity: .5;
+            border-width: 8px;
+            width: 170px;
+            height: 170px;
+            left: -10px;
+            top: -10px
+        }
+
+        30% {
+            opacity: 0;
+            border-width: 1px;
+            width: 200px;
+            height: 200px;
+            left: -25px;
+            top: -25px
+        }
+
+        31% {
+            opacity: 0;
+            border-width: 2px;
+            width: 150px;
+            height: 150px;
+            left: 0;
+            top: 0
+        }
+
+        32% {
+            opacity: .5;
+            border-width: 6px;
+            width: 150px;
+            height: 150px;
+            left: 0;
+            top: 0
+        }
+
+        50% {
+            opacity: 0;
+            border-width: 16px;
+            width: 180px;
+            height: 180px;
+            left: -15px;
+            top: -15px
+        }
+
+        100% {
+            opacity: 0;
+            border-width: 16px;
+            width: 200px;
+            height: 200px;
+            left: -25px;
+            top: -25px
+        }
+    }
+
+
+
+</style>
+<div class="live-support">
+    <div class="support-close">&times;</div>
+    <div class="support-content">
+        <h1><%-$t('components_support_1')%></h1>
+        <div class="support-search">
+            <a id="hid" href="<%= localePath('help-resources-help-centre') %>" style="display:none; width:0; height:0; opacity:0;"></a>
+            <input class="search" placeholder="<%=$t('components_support_2', true)%>" />
+            <span class="btn icm-btn-secondary"><%-$t('components_support_3')%></span>
+        </div>
+        <div class="support-sections">
+            <div class="support-section">
+                <div class="support-pic">
+                    <a id="support_help_centre_1" href="<%= localePath('help-resources-help-centre') %>?search=<%= encodeURIComponent($t('components_support_account', true)) %>" class="support-section-image pic-1"></a>
+                </div>
+                <div class="support-section-title"><%-$t('components_support_4')%></div>
+                <div class="support-section-list">
+                    <a id="support_help_center_2" href="<%= localePath('help-resources-help-centre') %>?search=<%= encodeURIComponent($t('components_support_5'), true) %>"><%-$t('components_support_5')%></a>
+                    <a id="support_help_center_3"href="<%= localePath('help-resources-help-centre') %>?search=<%= encodeURIComponent($t('components_support_6'), true) %>"><%-$t('components_support_6')%></a>
+                    <a id="support_help_center_4"href="<%= localePath('help-resources-help-centre') %>?search=<%= encodeURIComponent($t('components_support_7'), true) %>"><%-$t('components_support_7')%></a>
+                    <a id="support_help_center_5"href="<%= localePath('help-resources-help-centre') %>?search=<%= encodeURIComponent($t('components_support_account', true)) %>"><%-$t('components_support_more')%></a>
+                </div>
+            </div>
+            <div class="support-section">
+                <div class="support-pic">
+                    <a id="support_help_center_6" href="<%= localePath('help-resources-help-centre') %>?search=<%= encodeURIComponent($t('components_support_deposit', true)) %>" class="support-section-image pic-2"></a>
+                </div>
+                <div class="support-section-title"><%-$t('components_support_8')%></div>
+                <div class="support-section-list">
+                    <a id="support_help_center_7" href="<%= localePath('help-resources-help-centre') %>?search=<%= encodeURIComponent($t('components_support_9', true)) %>"><%-$t('components_support_9')%></a>
+                    <a id="support_help_center_8" href="<%= localePath('help-resources-help-centre') %>?search=<%= encodeURIComponent($t('components_support_10', true)) %>"><%-$t('components_support_10')%></a>
+                    <a id="support_help_center_9" href="<%= localePath('help-resources-help-centre') %>?search=<%= encodeURIComponent($t('components_support_11', true)) %>"><%-$t('components_support_11')%></a>
+                    <a id="support_help_center_10" href="<%= localePath('help-resources-help-centre') %>?search=<%= encodeURIComponent($t('components_support_deposit', true)) %>"><%-$t('components_support_more')%></a>
+                </div>
+            </div>
+            <div class="support-section">
+                <div class="support-pic">
+                    <a id="support_help_center_11" href="<%= localePath('help-resources-help-centre') %>?search=<%= encodeURIComponent($t('components_support_conditions', true)) %>" class="support-section-image pic-3"></a>
+                </div>
+                <div class="support-section-title"><%-$t('components_support_12')%></div>
+                <div class="support-section-list">
+                    <a id="support_help_center_12" href="<%= localePath('help-resources-help-centre') %>?search=<%= encodeURIComponent($t('components_support_13', true)) %>"><%-$t('components_support_13')%></a>
+                    <a id="support_help_center_13" href="<%= localePath('help-resources-help-centre') %>?search=<%= encodeURIComponent($t('components_support_14', true)) %>"><%-$t('components_support_14')%></a>
+                    <a id="support_help_center_14" href="<%= localePath('help-resources-help-centre') %>?search=<%= encodeURIComponent($t('components_support_15', true)) %>"><%-$t('components_support_15')%></a>
+                    <a id="support_help_center_15" href="<%= localePath('help-resources-help-centre') %>?search=<%= encodeURIComponent($t('components_support_conditions', true)) %>"><%-$t('components_support_more')%></a>
+                </div>
+            </div>
+            <div class="support-section">
+                <div class="support-pic">
+                    <a id="support_help_center_16" href="<%= localePath('help-resources-help-centre') %>?search=<%= encodeURIComponent($t('components_support_platform', true)) %>" class="support-section-image pic-4"></a>
+                </div>
+                <div class="support-section-title"><%-$t('components_support_16')%></div>
+                <div class="support-section-list">
+                    <a id="support_help_center_17" href="<%= localePath('help-resources-help-centre') %>?search=<%= encodeURIComponent($t('components_support_17', true)) %>"><%-$t('components_support_17')%></a>
+                    <a id="support_help_center_18" href="<%= localePath('help-resources-help-centre') %>?search=<%= encodeURIComponent($t('components_support_18', true)) %>"><%-$t('components_support_18')%></a>
+                    <a id="support_help_center_19" href="<%= localePath('help-resources-help-centre') %>?search=<%= encodeURIComponent($t('components_support_19', true)) %>"><%-$t('components_support_19')%></a>
+                    <a id="support_help_center_20" href="<%= localePath('help-resources-help-centre') %>?search=<%= encodeURIComponent($t('components_support_platform', true)) %>"><%-$t('components_support_more')%></a>
+                </div>
+            </div>
+            <a id="support_help_center_21" href="javascript:openLiveChat()" class="support-section" style="cursor:pointer; color: inherit;">
+                <div class="support-waves"></div>
+                <div class="support-pic">
+                    <div class="support-section-image pic-5"></div>
+                </div>
+                <div class="support-section-title"><%-$t('components_support_20')%></div>
+            </a>
+        </div>
+    </div>
+</div>
+<script>
+    setTimeout(function () {
+        $('.support-close').on('click', function () {
+            $('body').toggleClass('live-support-active', false);
+        });
+        $('.support-search input').on('keydown touchstart', function (e) {
+            if (e.which == 13) {
+                e.preventDefault();
+                showSearchResults();
+            }
+        });
+        $('.support-search .btn').on('click', function (e) {
+            e.preventDefault();
+            showSearchResults();
+        });
+        function showSearchResults () {
+            var $input = $('.support-search input');
+            var value = $input.val();
+            if ($input.length && value) {
+                window.location = $('a#hid').attr('href') + "?search=" + value;
+            }
+        }
+    }, 2000);
+</script>

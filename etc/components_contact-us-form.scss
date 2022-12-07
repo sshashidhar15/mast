@@ -1,0 +1,165 @@
+@import '../_global';
+
+.padding-top-xs {
+    padding-top: $icm-padding-xs;
+}
+
+.contact-us-form-container {
+    &.form-container {
+        background-color: $icm-bg-color-white;
+        padding-left: $icm-margin-s;
+        padding-right: $icm-margin-s;
+        padding-bottom: $icm-margin-s;
+    }
+
+    .form-header-block {
+        padding: $icm-padding-std $icm-padding-s $icm-padding-s $icm-padding-s;
+    }
+
+    .form-heading {
+        font-size: $font-size-h3;
+        line-height: 1.2;
+        margin-bottom: $icm-margin-std;
+    }
+
+    .form-desc {
+        font-size: $font-size-xs;
+        font-weight: $icm-font-weight-light;
+        color: $icm-font-color-black;
+        margin-bottom: $icm-margin-std;
+    }
+
+    .allfields-required {
+        font-size: $font-size-xs;
+        font-weight: $icm-font-weight-medium;
+        color: $icm-font-color-black;
+    }
+
+    .form-block {
+        position: relative;
+
+        &__input-elements {
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: $icm-margin-s;
+            margin-right: $icm-margin-s;
+            justify-content: space-between;
+        }
+        &__submit-button-block {
+            width: 256px;
+            padding: $icm-margin-std 0;
+            margin: auto;
+
+            .buttons-container {
+                display: flex;
+                justify-content: space-around;
+
+                .clear {
+                    height: 44px;
+                    margin-top: 32px;
+                    margin-right: 16px;
+                    border-radius: 5px;
+                    border: 0;
+                    padding: 0 16px;
+                }
+            }
+        }
+        .submit {
+            width: 256px;
+            height: 44px;
+            border-radius: 4px;
+            background-color: #34e834;
+            border: none;
+
+            margin-top: $icm-margin-std;
+            font-size: $font-size-base;
+            font-weight: $icm-font-weight-medium;
+            text-align: center;
+            color: $icm-font-color-white;
+        }
+        input.invalid {
+            border: 1px solid red;
+        }
+
+        &.invalid {
+            .submit {
+                pointer-events: none;
+                opacity: 0.4;
+            }
+        }
+    }
+
+    .input-ele-block {
+        margin-top: $icm-margin-s;
+        margin-bottom: $icm-margin-xs;
+        &__label, &__input-ele {
+            display: block;
+        }
+
+        &__label {
+            font-size: $font-size-xs;
+            font-weight: normal;
+            color: $icm-font-color-grey-4;
+            margin-bottom: 4px;
+        }
+        &__input {
+            font-size: $font-size-xs;
+            font-weight: $icm-font-weight-medium;
+            color: $icm-font-color-black;
+            line-height: 1.2;
+            padding: 12px $icm-padding-s;
+            width: 256px;
+            height: 46px;
+            border-radius: 4px;
+            background-color: #f9f8f6;
+            border: solid 1px #999999;
+        }
+
+        &.checkbox-container {
+            display: flex;
+            margin-top: 38px;
+            position: relative;
+
+            label {
+                max-width: 60%;
+            }
+
+            input {
+                width: 46px!important;
+                right: 0;
+                position: absolute;
+            }
+        }
+    }
+
+    .textarea-block {
+        padding-left: $icm-padding-s;
+        padding-right: $icm-padding-s;
+        .textarea_input {
+            width: 100%;
+            height: 132px;
+            resize: none;
+        }
+    }
+
+    .form-sended-info {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(52,167,0,0.2);
+        height: 100%;
+
+        > div {
+            padding: 56px;
+            text-align: center;
+            color: #fff;
+            background: #34e834;
+            width: max-content;
+            margin: 0 auto;
+            top: calc(50% - 80px);
+            position: relative;
+        }
+    }
+}

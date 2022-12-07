@@ -1,0 +1,105 @@
+<% setI18nPrefix('pages.trading-pricing.swap-rates')%>
+<meta name="description" content="<%-$t('meta', true)%>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/swap-rates.css')%>">
+<%- contentFor('title')%>
+  <%-$t('title')%>
+<%- contentFor('body')%>
+    <div class="single-page page-swap-rates">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('swap_rates_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('swap_rates_2')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="swap_rates_1" class="icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('swap_rates_3')%></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'trading-pricing-swap-rates' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="contact-card floated-block">
+                        <% if (!fca) { %>
+                        <div class="contact-header">
+                            <div class="header-label"><%-$t('swap_rates_4')%></div>
+                            <div class="header-title"><%-$t('swap_rates_5')%></div>
+                        </div>
+                        <div class="contact-pre-imaged chat-img">
+                            <div><%-$t('contact_card_help')%></div>
+                        </div>
+                        <% } %>
+                        <% if (fsa || scb || fsc || cima) { %>
+                            <div class="contact-pre-imaged email-img">
+                                <div><a id="swap_rates_2" href="mailto:enquiries@icmarkets.com"><%-$t('swap_rates_8')%></a></div>
+                            </div>
+                        <% } else { %>
+                            <% if (!fca) { %>
+                            <div class="contact-phone">
+                                <div><%-$t('swap_rates_7')%></div>
+                            </div>
+                            <% } %>
+                            <div class="contact-pre-imaged email-img">
+                                <% if (asic) { %>
+                                    <div><a id="swap_rates_3" href="mailto:support@icmarkets.com.au"><%-$t('swap_rates_8')%></a></div>
+                                <% } else if (cysec) { %>
+                                    <div><a id="swap_rates_3" href="mailto:support@icmarkets.eu"><%-$t('swap_rates_8')%></a></div>
+                                <% } else { %>
+                                    <div><a id="swap_rates_4" href="mailto:support@icmarkets.com"><%-$t('swap_rates_8')%></a></div>
+                                <% } %>
+                            </div>
+                        <% } %>
+                    </div>
+                    <div class="top-img">
+                        <h1><%-$t('swap_rates_9')%></h1>
+                        <p><%-$t('swap_rates_10')%></p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content highlighted-content">
+                <div class="page-section">
+                    <h1><%-$t('swap_rates_11')%></h1>
+                </div>
+                <div class="page-section split-2">
+                    <div class="left-section">
+                        <p class="pre-i"><%-$t('swap_rates_11_1')%></p>
+                        <p class="pre-i"><%-$t('swap_rates_11_2')%></p>
+                        <p class="pre-i"><%-$t('swap_rates_11_3')%></p>
+                    </div>
+                    <div class="right-section">
+                        <p class="pre-i"><%-$t('swap_rates_12_1')%>.</p>
+                        <p class="pre-i"><%-$t('swap_rates_12_2')%></p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="page-section">
+                    <h1><%-$t('swap_rates_13')%></h1>
+                    <p><%-$t('swap_rates_19')%></p>
+                    <p><%-$t('swap_rates_14_2')%></p>
+                    <!-- <% if (cysec || fca) { %> -->
+                        <!-- <p><%-$t('swap_rates_19')%></p> -->
+                        <!-- WEB-2445  -->
+                    <!-- <% } else if (countryCode === 'cn' || locale === 'cn') { %>
+                        <p><%-$t('swap_rates_14_13')%></p>
+                    <% } else { %>
+                        <p><%-$t('swap_rates_14_11')%> <a id="swap_rates_6" href="<%- getWebsiteURL() %>/blog/metatrader-4-swaps/" target="_blank"><%-$t('swap_rates_14_12')%></a> <%-$t('swap_rates_14_13')%></p>
+                    <% } %> -->
+
+                </div>
+            </div>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('swap_rates_15')%></div>
+                    <div class="global-today"><%-$t('swap_rates_16')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                      <a id="swap_rates_7" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live')%>"><%-$t('swap_rates_17')%></a>
+                      <a id="swap_rates_8" class="icm-btn demo" href="<%= localePath('open-trading-account-demo')%>"><%-$t('swap_rates_18')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

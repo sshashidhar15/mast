@@ -1,0 +1,185 @@
+<%
+    let sanctionedAU = `
+        Afghanistan,Guinea Bissau,Botswana,Guinea Conakry,Sierra Leone,Lebanon,Burma (Myanmar),Iran,Syria,North Korea,Iraq,Togo,Lesotho,Yemen,Cote d'Ivoire (Ivory Coast),Liberia,Cuba,Libya,Zimbabwe,Democratic Republic of Congo,Mali,Senegal,Angola,Gambia,Former Liberian Regime of Charles Taylor,Antigua and Barbuda
+    `;
+    let sanctionedSC = `
+        Afghanistan,Bolivia,Guinea Bissau,Botswana,Guinea Conakry,Sierra Leone,Lebanon,Burma (Myanmar),Iran,Syria,North Korea,Iraq,Togo,Cambodia,Lesotho,Yemen,Cote d'Ivoire (Ivory Coast),Liberia,Zimbabwe,Cuba,Libya,Tanzania,Democratic Republic of Congo,Mali,Senegal,Angola,Niger,Former Liberian Regime of Charles Taylor,Gambia,Namibia,Antigua and Barbuda,Kyrgyzstan
+    `;
+    let sanctionedList = sanctionedSC;
+    if (asic) sanctionedList = sanctionedSC;
+%>
+
+<link rel="stylesheet" href="<%=md5('/css/pages/aml-policy.css')%>">
+<% setI18nPrefix('pages.company.aml-policy') %>
+<meta name="description" content="<%- $t('meta', true) %>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+<div class="single-page page-aml-policy">
+    <div id="birth" class="common-info-alert">
+        <div class="info-alert-content">
+            <div class="info-alert-title"><%- $t('aml_info_1') %></div>
+            <div class="info-alert-text">
+                <p><%- $t('aml_info_2') %></p>
+                <p><%- $t('aml_info_3') %></p>
+            </div>
+        </div>
+    </div>
+    <div id="pobox" class="common-info-alert">
+        <div class="info-alert-content">
+            <div class="info-alert-title"><%- $t('aml_info_4') %></div>
+            <div class="info-alert-text">
+                <p><%- $t('aml_info_5') %></p>
+                <p><%- $t('aml_info_6') %></p>
+                <ul>
+                    <li><%- $t('aml_info_7') %></li>
+                    <li><%- $t('aml_info_8') %></li>
+                    <li><%- $t('aml_info_9') %></li>
+                    <li><%- $t('aml_info_10') %></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <article class="page-header">
+        <section style="padding-top:64px; padding-bottom:120px;" class="page-header__container">
+            <header>
+                <h1 class="page-header__heading--style">Anti-Money Laundering Policy</h1>
+            </header>
+        </section>
+    </article>
+    <article class="page-content-container">
+        <div class="page-content">
+            <div class="page-section">
+                <div class="double-sidebar-block">
+                    <div class="contact-card contact-block">
+                        <div class="contact-header">
+                            <div class="header-label"><%-$t('contact_card_title')%></div>
+                            <div class="header-title"><%-$t('contact_card_description')%></div>
+                        </div>
+                        <div class="contact-pre-imaged chat-img">
+                            <div><%-$t('contact_card_help')%></div>
+                        </div>
+                        <% if (!fsa && !scb && !fsc && !cima) { %>
+                        <div class="contact-phone">
+                            <div><%-$t('contact_card_phone')%></div>
+                        </div>
+                        <% } %>
+                        <div class="contact-pre-imaged email-img">
+                            <% if (asic) {%>
+                            <div><%-$t('contact_card_email_asic')%></div>
+                            <% } else { %>
+                            <div><%-$t('contact_card_email')%></div>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <div class="first-section">
+                    <h1 class="padding-bottom-std"><%-$t('accountopeningdocumentrequirem')%></h1>
+                    <p> <%-$t('inaccordancewiththeaustraliana')%></p>
+                    <p class="highlighted"> <%-$t('wearerequiredtocollectaminimum')%></p>
+                    <h2 class="padding-bottom-std"> <%-$t('photoid(primary)=70pointsperdo')%></h2>
+                    <div><%-$t('thefollowingareacceptableforms')%></div>
+                    <ul>
+                        <li><%-$t('avalidpassport')%></li>
+                        <li><%-$t('avalidgovernmentidsuchasadriv')%></li>
+                        <li><%-$t('avalidnationalidentitycard')%></li>
+                    </ul>
+                    <p><b><i><%-$t('photoidmustshowfullnameanddate')%></i></b></p>
+                    <h2 class="padding-bottom-std"><%-$t('proofofresidence(secondary)=30')%></h2>
+                    <p><%-$t('thefollowingareacceptableformsofproofofresidence')%></p>
+                    <ul>
+                        <li><%-$t('autilitybillphonegaselectri')%></li>
+                        <li><%-$t('bankorcreditcardstatement')%></li>
+                        <li><%-$t('government-issuedtaxdocument')%></li>
+                        <% if (!asic) { %>
+                            <li><%-$t('birthcertificate')%><span data-id="birth" class="explain-info">?</span></li>
+                            <li><%-$t('certificateofcitizenship')%></li>
+                        <% } %>
+                    </ul>
+                    <p><b><i><%-$t('allproofofresidencesmustbecurr')%></i></b><span data-id="pobox" class="explain-info">?</span></p>
+                    <h2 class="padding-bottom-std"><%-$t('total100points')%></h2>
+                    <% if (asic) { %>
+                        <p><%-$t('ifyoudonthaveanyofthose')%></p>
+                        <li><%-$t('birthcertificate')%><span data-id="birth" class="explain-info">?</span></li>
+                        <li><%-$t('certificateofcitizenship')%></li>
+                        <br/>
+                    <% } %>
+                    <p><%-$t('wemustbeabletounderstandthelan')%></p>
+                </div>
+            </div>
+        </div>
+        <% if (!asic) { %>
+            <div class="page-content highlighted-content">
+                <div class="page-section">
+                    <h1 class="padding-bottom-std"><%-$t('aml_corporate_title')%></h1>
+                    <%-$t('aml_corporate_content')%>
+                </div>
+            </div>
+        <% } %>
+        <div class="page-content">
+            <div class="page-section">
+                <h1 class="padding-bottom-std"><%-$t('fundswithdrawalprocedures')%></h1>
+                <p><%-$t('thewithdrawalprocessaticmarket')%></p>
+                <ul>
+                    <li><%-$t('icmarketscustomersmustcomplete')%></li>
+                    <li><%-$t('allwithdrawalformsaresubmitted')%></li>
+                    <li><%-$t('icmarketsaccountsdepartmentrev')%></li>
+                    <li><%-$t('withdrawalrequestsapprovedarep')%></li>
+                    <li><%-$t('intheeventthatawithdrawalisfla')%></li>
+                    <li><%-$t('icmarketsmanagementwillworkwit')%></li>
+                </ul>
+            </div>
+        </div>
+        <div class="page-content highlighted-content">
+            <div class="page-section">
+                <h1 class="padding-bottom-std"><%-$t('amlpolicydetails')%></h1>
+                <p><%-$t('thewithdrawalprocessaticmarket')%></p>
+                <ul>
+                    <li><%-$t('icmarketsmonitorsfundingfromva')%></li>
+                    <li><%-$t('icmarketsperformsitsactionsont')%></li>
+                    <li><%-$t('icmarketsneitheracceptscashdep')%></li>
+                    <li><%-$t('icmarketsdoesnotacceptthirdpa')%></li>
+                    <li><%-$t('icmarketsmatcheseachdeposittot')%></li>
+                    <li><%-$t('icmarketsreservestherighttoref')%></li>
+                </ul>
+            </div>
+        </div>
+        <div class="page-content">
+            <div class="page-section">
+                <h1 class="padding-bottom-std"><%-$t('accountopeningprocedures')%></h1>
+                <p><%-$t('priortoopeninganaccounticmark')%></p>
+            </div>
+        </div>
+        <% if (!asic) { %>
+            <div class="page-content highlighted-content">
+                <div class="page-section">
+                    <h1 class="padding-bottom-std"><%-$t('sanctionedcountries')%></h1>
+                    <p><%-$t('whilewewelcomeclientsfromallov')%></p>
+                    <div class="grid-container">
+                        <% sanctionedList.split(',').sort().forEach(c => { %>
+                            <div class="grid-item">
+                                <%- c %>
+                            </div>
+                        <% }) %>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+    </article>
+</div>
+<script>
+    $(document).ready(function() {
+        var $aml = $('div.page-aml-policy');
+        $aml.off('click');
+        $aml.on('click', 'span.explain-info', function (e) {
+            var id = $(this).attr('data-id');
+            var $alert = $aml.find('div#' + id);
+            if (id && $alert.length) {
+                $alert.fadeIn();
+            }
+        });
+        $aml.on('click', 'div.common-info-alert', function (e) {
+            $(this).fadeOut();
+        });
+    });
+</script>

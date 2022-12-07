@@ -1,0 +1,216 @@
+<% setI18nPrefix('components.forms') %>
+<link rel="stylesheet" href="<%=md5('/css/components/contact-us-form.css')%>">
+<%- include('./maintenance-warning.ejs') %>
+    <div class="form-container contact-us-form-container">
+        <div class="form-header-block">
+            <h1 class="form-heading"><%-$t('formHeading')%></h1>
+            <p class="form-desc"><%-$t('formDesc')%></p>
+            <div class="allfields-required"> <%-$t('allfieldsarerequired')%></div>
+        </div>
+
+        <form class="form-block invalid">
+            <div class="">
+                    <div class="input-ele-block">
+                        <label class="input-ele-block__label" for="firstname"><%-$t('firstname')%></label>
+                        <input class="input-ele-block__input" id="firstname" type="text" data-model="firstNameVal" name="firstname" minlength="3" maxlength="50" required>
+                    </div>
+                    <div class="input-ele-block">
+                        <label class="input-ele-block__label" for="lastname"><%-$t('lastname')%></label>
+                        <input class="input-ele-block__input" id="lastname" type="text" data-model="lastNameVal" name="lastname" minlength="3" maxlength="50" required>
+                    </div>
+                    <div class="input-ele-block">
+                        <label class="input-ele-block__label" for="emailaddress"><%-$t('emailaddress')%></label>
+                        <input class="input-ele-block__input" id="emailaddress" data-model="emailIdVal" type="email" name="emailaddress" required>
+                    </div>
+                    <div class="input-ele-block">
+                        <label class="input-ele-block__label " for="phone"><%-$t('phone')%></label>
+                        <input class="input-ele-block__input" id="phone" type="text" required data-model="phoneNumberVal" name="phone" pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$" title="Please enter a valid phone or mobile number"/>
+                    </div>
+                    <div class="input-ele-block checkbox-container">
+                        <input class="input-ele-block__input" id="havetradingaccount" type="checkbox" checked="checked" data-model="havetradingaccountVal" name="havetradingaccount" minlength="3" maxlength="50">
+                        <label class="input-ele-block__label" for="havetradingaccount"><%-$t('havelivetradingaccount')%></label>
+                    </div>
+                    <div class="input-ele-block checkbox-related">
+                        <label class="input-ele-block__label" for="tradingaccount"><%-$t('tradingaccountnumber')%></label>
+                        <input class="input-ele-block__input" id="tradingaccount" type="text" data-model="tradingaccountVal" name="havetradingaccount" minlength="5" maxlength="20">
+                    </div>
+                    <div class="input-ele-block">
+                        <label class="input-ele-block__label" for="department"><%-$t('department')%></label>
+                        <select class="input-ele-block__input" id="department" name="Department" data-component="dropdown" required>
+                            <option value="Sales"><%-$t('departmentsales')%></option>
+                            <option selected value="Support"><%-$t('departmentsupport')%></option>
+                            <option value="Accounts"><%-$t('departmentaccount')%></option>
+                            <option value="Compliance"><%-$t('departmentcompilance')%></option>
+                            <% if(typeof isCySEC != 'undefined' && isCySEC !== true) {%>
+                            <option value="Marketing"><%-$t('departmentmarketing')%></option>
+                            <option value="IB / Partners"><%-$t('departmentibpartners')%></option>
+                            <%}%>
+                        </select>
+
+                    </div>
+                    <div class="input-ele-block">
+                        <label class="input-ele-block__label" for="subject"><%-$t('subject')%></label>
+                        <% if(typeof subjectVal != 'undefined') {%>
+                            <input class="input-ele-block__input" id="subject" type="text" value="<%=subjectVal%>" disabled name="Subject" required/>
+                        <%} else {%>
+                            <input class="input-ele-block__input" id="subject" type="text" data-model="subjectInput" name="Subject" required/>
+                        <%}%>
+                    </div>
+            </div>
+            <div class="input-ele-block textarea-block ">
+                <label class="input-ele-block__label" for="message"><%-$t('message')%></label>
+                <textarea class="input-ele-block__input textarea_input" id="message" data-model="messageVal" name="message" required></textarea>
+                <div class="g-recaptcha" data-sitekey="6Ld3T-MgAAAAAOgmICY4XxW6J6huYyHFMT7Y4i62" style="display: flex;justify-content: center;"></div>
+            </div>
+
+            <div class="form-block__submit-button-block">                
+                <div class="buttons-container">
+                    <!-- <button class="clear"><%-$t('clearform')%></button> -->
+                    <button class="submit"><%-$t('submitform')%></button>
+                </div>
+                <div class="lds-ring" style="display: none;"><div></div><div></div><div></div><div></div></div>
+            </div>
+            <div class="form-sended-info" style="display:none;"><div><%- $t('form_sended_info') %></div></div>
+            <div class="form-failed-info" style="display:none;"><div><%- $t('form_failed_info') %></div></div>
+        </form>
+    </div>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<script>
+var contactFormApp = {
+    subjectVal: '<%- subjectVal %>',
+    havetradingaccountVal: false,
+    tradingaccountVal: "",
+    firstNameVal: "",
+    lastNameVal: "",
+    emailIdVal: "",
+    subjectInput: "",
+    phoneNumberVal: "",
+    departmentVal: "Support",
+    formSended: false,
+    messageVal: "",
+    $form: $('.contact-us-form-container form.form-block'),
+
+    mounted: function () {
+        $('.form-block').on('change keyup touchend', 'input, select, textarea', this.validateField.bind(this));
+        $('.form-block .form-block__submit-button-block .submit').on('click touchend', this.handleFormSubmit.bind(this))
+        $('.form-block .form-block__submit-button-block .clear').on('click touchend', this.handleFormClear.bind(this))
+        $('.form-block #havetradingaccount').on('change', this.handleHaveTradingAccount.bind(this))
+    },
+
+    handleHaveTradingAccount: function (e) {
+        var $el = $(e.target);
+        var checked = $el[0].checked;
+        if (checked) {
+            $('.form-block .checkbox-related').fadeIn()
+        } else {
+            $('.form-block .checkbox-related').fadeOut()
+        }
+    },
+
+    validateField: function (e) {
+        // console.log(e);
+        var $el = $(e.target);
+        var field = $el.attr('data-model');
+        if ($el.is(':checkbox')) {
+            this[field] = $el[0].checked;
+        } else {
+            this[field] = $el.val()
+        }
+        $el.toggleClass('invalid', !$el[0].checkValidity());
+        var $form = $el.closest('form');
+        var valid = true;
+        $form.find('[required]').each(function () {
+            if ($(this).is('.invalid') || !$(this).val().length) {
+                valid = false;
+            }
+        });
+        $form.toggleClass('invalid', !valid);
+    },
+
+    handleFormSubmit: function (e) {
+        e.preventDefault();
+
+        var form = document.querySelector('.form-block');
+        var valid = form.checkValidity();
+        if (form && valid) {
+            var data = {
+                HaveTradingAccount: $('.form-block #havetradingaccount').is(':checked') ? 'yes' : 'no',
+                TradingAccount: this.tradingaccountVal,
+                FirstName: this.firstNameVal,
+                LastName: this.lastNameVal,
+                Email: this.emailIdVal,
+                Phone1: this.phoneNumberVal,
+                Department: $('.form-block #department').val(),
+                Subject: this.subjectVal || this.subjectInput,
+                Message: this.messageVal,
+                submitIntroBroker: "Submit",
+                gRecaptchaResponse: $('#g-recaptcha-response').val()
+
+            };
+            this.onContactFormSubmit(data);
+        } else {
+            // console.log("ERROR: Form validation failed");
+        }
+    },
+    handleFormClear: function (e) {
+        this.$form.find('input, textarea').val('');
+        $('select#department').val('Support')
+        $('input#subject').val(this.subjectVal)
+        this.$form.toggleClass('invalid', true);
+    },
+    onContactFormSubmit: function (formInput) {
+        let self = this;
+
+        let getSignTokenDemo = function () {
+            var $def = $.Deferred();
+            $.get('<%= config.reg_service_1_url %>~get~sign~token~?nocache=' + Date.now()).done(function (token) {
+                $def.resolve(token);
+            }).fail(function () {
+                $def.resolve(null);
+            });
+            return $def.promise();
+        };
+
+        getSignTokenDemo().then(function(token) {
+            $('.lds-ring').show();
+            $('.form-block__submit-button-block button.submit').attr('disabled', true);
+
+            formInput.sign = token;
+            $.ajax({
+                type: 'POST',
+                url: '<%= config.reg_service_1_url %>',
+                dataType: "json",
+                data: formInput
+            }).done(function(data) {
+                $('.lds-ring').hide();
+                $('.form-block__submit-button-block button.submit').attr('disabled', false);
+
+                console.log("Form send result: ", data.result);
+                if (data.result === 'success') {
+                    $('.form-sended-info').fadeIn(800);
+                    setTimeout(function () {
+                        $('.form-sended-info').fadeOut(500);
+                    }, 3000);
+                    self.handleFormClear()
+                } else {
+                    $('.form-failed-info').fadeIn(800);
+                    setTimeout(function () {
+                        $('.form-failed-info').fadeOut(500);
+                    }, 3000);                        
+                }
+            }).fail(function(error) {
+                $('.lds-ring').hide();
+                $('.form-block__submit-button-block button.submit').attr('disabled', false);
+
+                console.log("Form send Result: Error", error);
+            });
+        });
+    }
+
+}
+
+$(document).ready(contactFormApp.mounted.bind(contactFormApp))
+
+</script>

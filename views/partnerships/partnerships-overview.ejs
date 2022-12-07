@@ -1,0 +1,96 @@
+<% setI18nPrefix('pages.partnerships.index') %>
+<meta name="description" content="<%- $t('meta', true) %>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/partnerships-overview.css')%>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+    <div class="single-page partnerships-overview">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('partnership_0')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('partnership_1')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="partnerships_overview_1" class="icm-btn icm-btn-primary" href="<%= localePath('partnerships-introducing-broker') %>"><%- $t('partnership_2') %></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'partnerships-partnerships-overview' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="card">
+                        <div class="img partner-1"></div>
+                        <div class="info">
+                            <h1><%-$t('partnership_9')%></h1>
+                            <p><%-$t('partnership_10')%></p>
+                            <div class="button-container">
+                                <a id="partnerships_overview_2" class="icm-btn icm-btn-primary" href="<%= localePath('partnerships-introducing-broker') %>"><%-$t('partnership_8')%></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-section">
+                    <div class="card">
+                        <div class="img partner-2"></div>
+                        <div class="info">
+                            <h1><%-$t('partnership_12')%></h1>
+                            <p><%-$t('partnership_13')%></p>
+                            <div class="button-container">
+                                <a id="partnerships_overview_3" class="icm-btn icm-btn-primary" href="<%= localePath('partnerships-money-managers') %>"><%-$t('partnership_8')%></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-section">
+                    <div class="card">
+                        <div class="img partner-3"></div>
+                        <div class="info">
+                            <h1><%-$t('partnership_15')%></h1>
+                            <p><%-$t('partnership_16')%></p>
+                            <div class="button-container">
+                                <a id="partnerships_overview_4" class="icm-btn icm-btn-primary" href="<%= localePath('partnerships-white-label-partnerships') %>"><%-$t('partnership_8')%></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-section">
+                    <div class="card">
+                        <div class="img partner-4"></div>
+                        <div class="info">
+                            <h1><%-$t('partnership_18')%></h1>
+                            <p><%-$t('partnership_19')%></p>
+                            <div class="button-container">
+                                <a id="partnerships_overview_5" class="icm-btn icm-btn-primary" href="<%= localePath('partnerships-affiliate-program') %>"><%-$t('partnership_8')%></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-section">
+                    <div class="card">
+                        <div class="img partner-5"></div>
+                        <div class="info">
+                            <h1><%-$t('partnership_21')%></h1>
+                            <p><%-$t('partnership_22')%></p>
+                            <div class="button-container">
+                                <a id="partnerships_overview_6" class="icm-btn icm-btn-primary" href="<%= localePath('partnerships-regional-partnerships') %>"><%-$t('partnership_8')%></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('partnership_45')%></div>
+                    <div class="global-today"><%-$t('partnership_46')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="partnerships_overview_7" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('partnership_47')%></a>
+                        <a id="partnerships_overview_8" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('partnership_48')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

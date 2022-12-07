@@ -1,0 +1,298 @@
+<% setI18nPrefix('pages.trading-markets.range-of-markets')%>
+<meta name="description" content="<%-$t('meta', true)%>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/range-of-markets.css')%>">
+<%- contentFor('title')%>
+  <%-$t('title')%>
+<%- contentFor('body')%>
+    <%
+    let rangeOfMarkets = {
+        sectionsContent: [
+            {
+                id: 'forex',
+                title: $t('section_forex_title'),
+                text: $t('section_forex_text'),
+                accent: '',
+                card: {
+                    name: $t('card_forex_header'),
+                    heading: $t('card_forex_facts'),
+                    list: [
+                        $t('card_forex_1'),
+                        $t('card_forex_2'),
+                        isAPACcountry(countryCode) ? $t('card_forex_3_apac') : $t('card_forex_3'),
+                        $t('card_forex_4')
+                    ],
+                    button: $t('card_forex_button'),
+                    buttonLink: 'trading-markets-forex'
+                }
+            },
+            {
+                id: 'indices',
+                title: $t('section_indices_title'),
+                text: $t('section_indices_text'),
+                accent: 'c-accent-1',
+                card: {
+                    name: $t('card_indices_header'),
+                    heading: $t('card_indices_facts'),
+                    list: [
+                        $t('card_indices_1'),
+                        $t('card_indices_2'),
+                        $t('card_indices_3'),
+                        $t('card_indices_4')
+                    ],
+                    button: $t('card_indices_button'),
+                    buttonLink: 'trading-markets-indices'
+                }
+            },
+            {
+                id: 'commodities',
+                title: $t('section_commodities_title'),
+                text: $t('section_commodities_text'),
+                accent: 'c-accent-2',
+                card: {
+                    name: $t('card_commodities_header'),
+                    heading: $t('card_commodities_facts'),
+                    list: [
+                        $t('card_commodities_1'),
+                        $t('card_commodities_2'),
+                        $t('card_commodities_3'),
+                        isAPACcountry(countryCode) ? $t('card_commodities_4_apac') : $t('card_commodities_4')
+                    ],
+                    button: $t('card_commodities_button'),
+                    buttonLink: 'trading-markets-commodities'
+                }
+            },
+            {
+                id: 'stocks',
+                title: $t('section_stocks_title'),
+                text: $t('section_stocks_text'),
+                card: {
+                    name: $t('card_stocks_header'),
+                    heading: $t('card_stocks_facts'),
+                    list: [
+                        $t('card_stocks_1'),
+                        $t('card_stocks_4'),
+                        $t('card_stocks_3')
+                    ],
+                    button: $t('card_stocks_button'),
+                    buttonLink: 'trading-markets-stocks'
+                }
+            },
+            {
+                id: 'bonds',
+                title: $t('section_bonds_title'),
+                text: $t('section_bonds_text'),
+                accent: 'c-accent-1',
+                card: {
+                    name: $t('card_bonds_header'),
+                    heading: $t('card_bonds_facts'),
+                    list: [
+                        $t('card_bonds_1'),
+                        $t('card_bonds_2'),
+                        $t('card_bonds_3'),
+                        $t('card_bonds_4')
+                    ],
+                    button: $t('card_bonds_button'),
+                    buttonLink: 'trading-markets-bonds'
+                }
+            },
+            {
+                id: 'cryptocurrency',
+                title: $t('section_cryptocurrencies_title'),
+                text: $t('section_cryptocurrencies_text'),
+                accent: 'c-accent-2',
+                card: {
+                    name: $t('card_cryptocurrencies_header'),
+                    heading: $t('card_cryptocurrencies_facts'),
+                    list: [
+                        $t('card_cryptocurrencies_4'),
+                        $t('card_cryptocurrencies_1'),
+                        $t('card_cryptocurrencies_2'),
+                        $t('card_cryptocurrencies_3')
+                    ],
+                    button: $t('card_cryptocurrencies_button'),
+                    buttonLink: 'trading-markets-digitalcurrency'
+                }
+            },
+            {
+                id: 'futures',
+                title: $t('section_futures_title'),
+                text: $t('section_futures_text'),
+                card: {
+                    name: $t('card_futures_header'),
+                    heading: $t('card_futures_facts'),
+                    list: [
+                        $t('card_futures_1'),
+                        $t('card_futures_2'),
+                        $t('card_futures_3'),
+                        $t('card_futures_4')
+                    ],
+                    button: $t('card_futures_button'),
+                    buttonLink: 'trading-markets-futures'
+                }
+            }
+        ],
+        profileButtonHREF: function (section, id) {
+            if (id === 1) {
+                return { href: localePath('trading-pricing-spreads'), target: '_self' };
+            } else if (id === 2) {
+                switch (section) {
+                    case 'forex':
+                        if (fsa) {
+                            if (isAPACcountry(countryCode)) {
+                                return { href: getCDN() + `/uploads/FSA/Forex-Product-Specificiation-Sheet-1000.pdf`, target: '_blank' };
+                            } else {
+                                return { href: getCDN() + `/uploads/FSA/Forex-Product-Specificiation-Sheet.pdf`, target: '_blank' };
+                            }
+                        } else if (asic) {
+                            return { href: getCDN() + `/uploads/AU/Foreign-Exchange-Product-Specificiation-Sheet.pdf`, target: '_blank' };
+                        } else if (scb) {
+                            return { href: getCDN() + `/uploads/SCB/Foreign-Exchange-Product-Specificiation-Sheet.pdf`, target: '_blank' };
+                        } else {
+                            return { href: getCDN() + `/uploads/Foreign-Exchange-Product-Specificiation-Sheet.pdf`, target: '_blank' };
+                        }
+                    case 'indices':
+                        if (fsa) {
+                            return { href: getCDN() + `/uploads/FSA/Indices-Product-Specification-Sheet.pdf`, target: '_blank' };
+                        } else if (asic) {
+                            return { href: getCDN() + `/uploads/AU/Indices-Product-Specification-Sheet.pdf`, target: '_blank' };
+                        } else if (scb) {
+                            return { href: getCDN() + `/uploads/SCB/Indices-Product-Specification-Sheet-20141.pdf`, target: '_blank' };
+                        } else {
+                            return { href: getCDN() + `/uploads/Indices-Product-Specification-Sheet-20141.pdf`, target: '_blank' };
+                        }
+                    case 'commodities':
+                        if (fsa) {
+                            if (isAPACcountry(countryCode)) {
+                                return { href: getCDN() + `/uploads/FSA/Commodity-Specification-Sheet-1000.pdf`, target: '_blank' };
+                            } else {
+                                return { href: getCDN() + `/uploads/FSA/Commodity-Specification-Sheet.pdf`, target: '_blank' };
+                            }
+                        } else if (asic) {
+                            return { href: getCDN() + `/uploads/AU/Commodity-Specification-Sheet.pdf`, target: '_blank' };
+                        } else if (scb) {
+                            return { href: getCDN() + `/uploads/SCB/Commodity-Specification-Sheet.pdf`, target: '_blank' };
+                        } else {
+                            return { href: getCDN() + `/uploads/Commodity-Specification-Sheet.pdf`, target: '_blank' };
+                        }
+                    case 'bonds':
+                        if (fsa) {
+                            return { href: getCDN() + `/uploads/FSA/Bond-Futures-Product-Specification-Sheet.pdf`, target: '_blank' };
+                        } else if (asic) {
+                            return { href: getCDN() + `/uploads/AU/Bond-Futures-Specification-Sheet.pdf`, target: '_blank' }
+                        } else if (scb) {
+                            return { href: getCDN() + `/uploads/SCB/Bond-futures-specification-sheet.pdf`, target: '_blank' };
+                        } else {
+                            return { href: getCDN() + `/uploads/Bond-futures-specification-sheet.pdf`, target: '_blank' };
+                        }
+                    case 'stocks':
+                        if (fsa) {
+                            return { href: getCDN() + `/uploads/FSA/Stocks-Product-Specification-Sheet.pdf`, target: '_blank' };
+                        } else if (asic) {
+                            return { href: getCDN() + `/uploads/AU/Stocks-Specification-Sheet.pdf`, target: '_blank' }
+                        } else if (scb) {
+                            return { href: getCDN() + `/uploads/SCB/Stocks-specification-Sheet.pdf`, target: '_blank' };
+                        } else {
+                            return { href: getCDN() + `/uploads/Stocks-specification-Sheet.pdf`, target: '_blank' };
+                        }
+                    case 'cryptocurrency':
+                        if (fsa) {
+                            return { href: getCDN() + `/uploads/FSA/Cryptocurrency-CFD-Product-Specification-Sheet.pdf`, target: '_blank' };
+                        } else if (asic) {
+                            return { href: getCDN() + `/uploads/AU/Cryptocurrency-CFD-Product-Specification-Sheet.pdf`, target: '_blank' };
+                        } else if (scb) {
+                            return { href: getCDN() + `/uploads/SCB/Cryptocurrency-Specification-Sheet.pdf`, target: '_blank' };
+                        } else {
+                            return { href: getCDN() + `/uploads/Cryptocurrency-Specification-Sheet.pdf`, target: '_blank' };
+                        }
+                    case 'futures':
+                        if (fsa) {
+                            return { href: getCDN() + `/uploads/FSA/Futures-Product-Specification-Sheet.pdf`, target: '_blank' };
+                        } else if (asic) {
+                            return { href: getCDN() + `/uploads/AU/Futures-Product-Specification-Sheet.pdf`, target: '_blank' };
+                        } else if (scb) {
+                            return { href: getCDN() + `/uploads/SCB/Futures-Product-Specification-Sheet.pdf`, target: '_blank' };
+                        } else {
+                            return { href: getCDN() + `/uploads/Futures-Product-Specification-Sheet.pdf`, target: '_blank' };
+                        }
+                    default:
+                        return { href: localePath('trading-markets-' + section), target: '_self' };
+                }
+            } else if (id === 3) {
+                return { href: localePath('trading-accounts-raw-spread-account'), target: '_self' };
+            }
+        }
+    }
+    %>
+    <div class="single-page range-of-markets-page">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('rom_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('rom_2')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a  id="range_of_markets_1" class="icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('starttrading')%></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+            <%- include('./_menu.ejs', { current: 'trading-markets-range-of-markets' }) %>
+        </article>
+        <article class="page-content-container">
+            <% rangeOfMarkets.sectionsContent.forEach((s, i) => { %>
+                <% if (!(fca && (s.id == 'cryptocurrency' || s.id == 'stocks')) && !(cysec && s.id == 'cryptocurrency')) { %>
+                <div class="page-content <%= s.id %> <%= s.accent %>"> <!--To avoid cryptocurrency & stocks in FCA, To avoid cryptocurrency in CYSEC-->
+                    <div class="page-section">
+                        <div class="first-section">
+                            <div class="page-first-text">
+                                <h1><%- s.title %></h1>
+                                <p><%- s.text %></p>
+                            </div>
+                        </div>
+                        <div class="profile-buttons">
+                            <% data=rangeOfMarkets.profileButtonHREF(s.id, 1) %>
+                            <a id="<%-$t('rom_42').toLowerCase()%>-<%= s.id %>" style="text-decoration:none;" class="profile-button" href="<%= data.href %>" target="<%= data.target %>">
+                                <div class="profile-button-label"><%-$t('rom_41')%></div>
+                                <div class="profile-button-value"><%-$t('rom_42')%></div>
+                            </a>
+                            <% data=rangeOfMarkets.profileButtonHREF(s.id, 2) %>
+                            <a id="<%-$t('rom_52').toLowerCase()%>-<%= s.id %>" style="text-decoration:none;" class="profile-button" href="<%= data.href %>" target="<%= data.target %>">
+                                <div class="profile-button-label"><%-$t('rom_51')%></div>
+                                <div class="profile-button-value"><%-$t('rom_52')%></div>
+                            </a>
+                            <% data=rangeOfMarkets.profileButtonHREF(s.id, 3) %>
+                            <a id="<%-$t('rom_621').toLowerCase()%>-<%= s.id %>" style="text-decoration:none;" class="profile-button" href="<%= data.href %>" target="<%= data.target %>">
+                                <div class="profile-button-label"><%-$t('rom_61')%></div>
+                                <div class="profile-button-value"><%-$t('rom_621')%></div>
+                            </a>
+                        </div>
+                        <div class="market-facts-card <%= s.id %>">
+                            <div class="facts-header">
+                                <div class="header-label"><%- s.card.name %></div>
+                                <div class="header-title"><%- s.card.heading %></div>
+                            </div>
+                            <div class="facts-items">
+                                <% s.card.list.forEach((item, i) =>{ %>
+                                    <div class="facts-item"><%- item %></div>
+                                <%})%>
+                            </div>
+                            <div class="action-buttons-container">
+                                <a id="markets_details_btn_<%= s.id %>" class="action-button icm-btn icm-btn-primary" href="<%= localePath(s.card.buttonLink) %>"><%- s.card.button %></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+            <%})%>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('rom_7')%></div>
+                    <div class="global-today"><%-$t('rom_8')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="range_of_markets_14" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live')%>"><%-$t('rom_9')%></a>
+                        <a id="range_of_markets_15" class="icm-btn demo" href="<%= localePath('open-trading-account-demo')%>"><%-$t('rom_10')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

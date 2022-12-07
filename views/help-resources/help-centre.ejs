@@ -1,0 +1,627 @@
+<% setI18nPrefix('pages.help-resources.help-center') %>
+<link rel="stylesheet" href="<%=md5('/css/pages/help-centre.css')%>">
+<meta name="description" content="<%- $t('meta', true) %>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+
+    <div class="single-page page-help-centre">
+<%
+        var helpCentre = {
+            searchDB: [],
+            faqDB: [],
+            getFaqDB: function () {
+                if (!this.faqDB.length) {
+                    this.mountFaqDB();
+                }
+                return this.faqDB;
+            },
+            mountFaqDB: function () {
+                this.faqDB = [];
+                var i, faq, o, l;
+                var order = [];
+
+                if (cysec)
+                    for (i = 0; i <= 7; i++) {
+                        if (i === 4) continue;
+                        faq = {
+                            o: 0,
+                            id: 'i_' + i,
+                            ip: '#i_' + i,
+                            q: $t('cy_q' + i),
+                            a: $t('cy_a' + i)
+                        };
+                        l = order.length;
+                        this.faqDB.push(faq);
+                    }
+                else
+                    for (i = 0; i <= 228; i++) {
+                        if (i === 18) continue;
+                        faq = {
+                            o: 0,
+                            id: 'i_' + i,
+                            ip: '#i_' + i,
+                            q: $t('q' + i),
+                            a: $t('a' + i)
+                        };
+                        l = order.length;
+                        this.faqDB.push(faq);
+                    }
+            },
+            getSectionFAQs: function (section) {
+                if (!this.faqDB.length) {
+                    this.mountFaqDB();
+                }
+                if (!cysec) {
+                    switch (section) {
+                        case 1:
+                            return this.faqDB.slice(0, 4);
+                            break;
+                        case 2:
+                            return this.faqDB.slice(4, 27);
+                            break;
+                        case 3:
+                            return this.faqDB.slice(27, 38);
+                            break;
+                        case 4:
+                            return this.faqDB.slice(38, 46);
+                            break;
+                        case 5:
+                            return this.faqDB.slice(46, 75);
+                            break;
+                        case 6:
+                            return this.faqDB.slice(75, 80);
+                            break;
+                        case 7:
+                            return this.faqDB.slice(80, 100);
+                            break;
+                        case 8:
+                            return this.faqDB.slice(100, 131);
+                            break;
+                        case 9:
+                            return this.faqDB.slice(131, 167);
+                            break;
+                        case 10:
+                            return this.faqDB.slice(167, 210);
+                            break;
+                        case 11:
+                            return this.faqDB.slice(210, 224);
+                            break;
+                        case 12:
+                            return this.faqDB.slice(224, 229);
+                            break;
+                    }
+                }
+                return this.faqDB;
+            },
+
+        }
+        helpCentre.mountFaqDB();
+        %>
+        <article style="<% if (asic) { %>display:none; <% } %>padding:140px 0" class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('help_centre_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('help_centre_2')%></div>
+            </section>
+        </article>
+        <article <% if (asic) { %>style="padding-top:30px;"<% } %> class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'help-resources-help-centre' }) %>
+        </article>
+
+        <style>
+            .page-help-centre .most-top-qa {
+                margin: 0 48px;
+            }
+            .page-help-centre .most-description {
+                margin: 16px 48px;
+                text-align: center;
+            }
+            .page-help-centre .most-block {
+                margin-bottom: 48px;
+            }
+            .page-help-centre .most-block .faq-block__expand-button {
+                border: 1px solid #009600 !important;
+                background-color: #009600;
+                border-radius: 30px 30px 0 0;
+                padding-right: 48px !important;
+                color: #fff;
+            }
+            .page-help-centre .most-block .faq-block__expand-button.collapsed {
+                border: 1px solid transparent !important;
+                background-color: #fff !important;
+                color: #009600 !important;
+                border-radius: 30px;
+                box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.3);
+            }
+            .page-help-centre .most-block .panel-content {
+                border-left: 1px solid #009600 !important;
+                border-right: 1px solid #009600 !important;
+                border-bottom: 1px solid #009600 !important;
+                border-radius: 0 0 30px 30px;
+                line-height: 25px;
+            }
+            .page-help-centre .most-block .faq-block__expand-button[data-toggle="collapse"]:after {
+                color: #fff !important;
+            }
+            .page-help-centre .most-block .faq-block__expand-button[data-toggle="collapse"].collapsed:after {
+                color: #009600 !important;
+            }
+
+
+            .launcher-button-container {
+                position: fixed;
+                right: 0;
+                bottom: 0;
+                width: 122px;
+                height: 122px;
+                display: none;
+                z-index: 9999996;
+            }
+            .launcher-button-container.show {
+                display: block;
+            }
+            .launcher-button-wrapper {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                height: 60px;
+                width: 60px;
+                margin: auto;
+            }
+            .launcher-button {
+                display: block;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                border: 1px solid transparent;
+                background: #08ba2f center center no-repeat;
+                background-size: 50%;
+                background-image: url(/img/zen_desk_chat/launcher-cloud.png);
+                left: -1px;
+                position: relative;
+                box-shadow: 0 0 30px rgba(116,116,116,.33);
+                animation: launcher-button-init .7s cubic-bezier(.62,.28,.23,.99),launcher-button infinite 6s 2s;
+                transition: background-color .4s;
+            }
+            .launcher-button .rings {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                opacity: .6;
+                z-index: -1;
+                display: block;
+            }
+            .launcher-button .rings .ring {
+                border: 1px solid #ff4242;
+                border-radius: 50%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                opacity: 0;
+                animation: launcher-button-pulsate infinite 3s;
+            }
+            .launcher-button .rings .ring:nth-child(1) {
+                animation-delay: .1s;
+            }
+            .launcher-button .rings .ring:nth-child(2) {
+                animation-delay: .25s;
+            }
+            .launcher-button .rings .ring:nth-child(3) {
+                animation-delay: .4s;
+            }
+            @keyframes launcher-button-init{
+                0%{
+                    transform:scale(0);
+                    opacity:0
+                }
+                30%{
+                    transform:scale(.5) rotate(-180deg);
+                    opacity:0
+                }
+                to{
+                    transform:scale(1) rotate(0);
+                    opacity:1
+                }
+            }
+            @keyframes launcher-button{
+                0%{
+                    transform:rotate(0)
+                }
+                5%{
+                    transform:rotate(359deg)
+                }
+                to{
+                    transform:rotate(360deg)
+                }
+            }
+            @keyframes launcher-button-pulsate{
+                60%{
+                    transform:scale(1,1);
+                    opacity:0
+                }
+                70%{
+                    transform:scale(1,1);
+                    opacity:1
+                }
+                100%{
+                    transform:scale(1.7,1.7);
+                    opacity:0
+                }
+            }
+
+        </style>
+
+        <style id="zendeskCustomStyle">
+            ul button button::before {
+                content: "\A";
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                border: 1px solid grey;
+                background: transparent;
+                display: inline-block;
+                margin-right: 7px;
+            }
+            ul button button {
+                background: transparent;
+                border: none;
+            }
+            span[class^="greetingMessage"] {
+                font-size: 12px;
+            }
+        </style>
+
+        <article class="page-content-container">
+            <div style="padding:0;" class="page-content">
+                <div class="page-section" style="padding-bottom:40px;">
+                    <div class="faq-block">
+                        <div style="padding:40px 0;" class="faq-block__search">
+                            <h1 style="text-align:center;" class="faq-block__header"><%-$t('m_01')%></h1>
+                            <div class="most-description">
+                                <p><%-$t('m_02')%></p>
+                            </div>
+                            <div class="most-block">
+                                <% ['01', '02', '03', '04', '05', '06'].forEach(i => { %>
+                                    <div class="most-top-qa faq-block__item" key="most-q-<%=i%>">
+                                        <div class="faq-accordion">
+                                            <div class="accordion-toggle collapsed faq-block__expand-button" data-toggle="collapse" data-parent="#accordion" data-target="#most-q-<%=i%>"><%-$t('m_q_' + i)%></div>
+                                            <div id="most-q-<%=i%>" class="panel-collapse collapse">
+                                                <div class="panel-content"><%-$t('m_a_' + i)%></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <%})%>
+                            </div>
+                            <div class="faq-search__container">
+                                <input class="faq-input faq-search-input" type="text" placeholder="<%-$t('faq_input_placeholder', true)%>">
+                                <div class="faq-result"></div>
+                                <div class="faq-tips">
+                                    <p>
+                                        <b><%-$t('faq_tips_title')%></b><br>
+                                        <%-$t('faq_tips_1')%><br>
+                                        <%-$t('faq_tips_2')%>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <% faq_sections.forEach((_, i) => {const [section_name_key, ids] = _; %>
+                            <% if ($t(section_name_key) != 'Delete') { %>
+                                <div class="faq-section">
+                                    <h1><%- $t(section_name_key) %></h1>
+                                    <% ids.forEach(id => { %>
+                                        <% if ($t([cysec ? 'cy_' : '', id].join('q')) != 'Delete') { %>
+                                            <div class="faq-block__item" key="<%='i_' + id%>">
+                                                <div class="faq-accordion">
+                                                    <div class="accordion-toggle collapsed faq-block__expand-button" data-toggle="collapse" data-parent="#accordion" data-target="<%='#i_' + id %>">
+                                                        <%- $t([cysec ? 'cy_' : '', id].join('q')) %></div>
+                                                    <div id="<%='i_' + id%>" class="panel-collapse collapse">
+                                                        <div class="panel-content">
+                                                            <% if (id === 6 && isAPACcountry(countryCode)) { %>
+                                                                <%- $t(['', id + '_apac'].join('a')) %>
+                                                            <% } else { %>
+                                                                <%- $t([cysec ? 'cy_' : '', id].join('a')) %>
+                                                            <% } %>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <% } %>
+                                    <%})%>
+                                </div>
+                            <% } %>
+                        <% }) %>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <article class="page-content-container solid-h-container">
+            <div class="page-content">
+                <div class="page-section ui-card-list grid-section">
+                    <a id="help_centre_1" class="h-card h-1" href="javascript:openLiveChat()">
+                        <span class="h-img"></span>
+                        <span class="h-title"><%-$t('card_help_center_text-1')%></span>
+                    </a>
+                    <div class="h-space s-1"></div>
+                    <% if (fsa || scb || fsc || cima) { %>
+                        <a id="help_centre_2" class="h-card h-2" href="mailto:enquiries@icmarkets.com" target="_self">
+                    <% } else if (asic) { %>
+                        <a id="help_centre_3" class="h-card h-2" href="mailto:support@icmarkets.com.au" target="_self">
+                    <% } else if (cysec) { %>
+                        <a id="help_centre_4" class="h-card h-2" href="mailto:support@icmarkets.eu" target="_self">
+                    <% } %>
+                        <span class="h-img"></span>
+                        <span class="h-title"><%-$t('card_help_center_text-2')%></span>
+                    </a>
+                    <div class="h-space s-2"></div>
+                    <a id="help_centre_5"  class="h-card h-3 show-callback-form-button" target="_self">
+                        <span class="h-img"></span>
+                        <span class="h-title"><%-$t('card_help_center_text-3')%></span>
+                    </a>
+                </div>
+            </div>
+        </article>
+
+        <article style="display:none;" class="page-content-container callback-form-container" v-if="subjectVal">
+            <div class="page-content">
+                <div class="page-section">
+                    <%- include('../_partials/components/contact-us-form', {
+                    formHeading: $t('help_centre_6'),
+                    formDesc: $t('help_centre_7'),
+                    departmentVal: 'Support',
+                    isCySEC: cysec,
+                    subjectVal: 'CALL BACK REQUEST'
+                    }); %>
+
+                    <% setI18nPrefix('pages.help-resources.help-center') %>
+                </div>
+            </div>
+        </article>
+
+        <article class="page-content-container">
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('help_centre_8')%></div>
+                    <div class="global-today"><%-$t('help_centre_9a')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="help_centre_6" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live')%>"><%-$t('help_centre_10')%></a>
+                        <a id="help_centre_7" class="icm-btn demo" href="<%= localePath('open-trading-account-demo')%>"><%-$t('help_centre_11')%></a>
+                    </div>
+                    <div data-t="help_centre_faq_1" style="display:none; opacity:0; visibility:hidden;"><%-$t('help_centre_faq_1', true)%></div>
+                    <div data-t="help_centre_faq_2" style="display:none; opacity:0; visibility:hidden;"><%-$t('help_centre_faq_2', true)%></div>
+                    <div data-t="help_centre_faq_3" style="display:none; opacity:0; visibility:hidden;"><%-$t('help_centre_faq_3', true)%></div>
+                </div>
+            </div>
+        </article>
+    </div>
+
+<style>
+      .faq-reaction {
+          display: flex;
+          margin-top: 30px;
+          justify-content: flex-end;
+          font-style: italic;
+          font-size: 12px;
+          line-height: 1.5;
+      }
+      .faq-reaction-text {
+          padding-top: 18px;
+          margin-right: 10px;
+      }
+      .faq-reaction-btn {
+          display: inline-block;
+          margin-left: 20px;
+          opacity: 0.3;
+          width: 30px;
+          height: 30px;
+          cursor: pointer;
+          transition: all 0.33s ease;
+      }
+      .faq-reaction-btn.faq-reaction-happy:hover, .faq-reaction-btn.faq-reaction-angry:hover {
+          opacity: 0.7;
+          transition: all 0.33s ease;
+      }
+      .faq-reaction-happy {
+          background-image: url('data:image/svg+xml;utf8,<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="thumbs-up" class="svg-inline--fa fa-thumbs-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="green" d="M104 224H24c-13.255 0-24 10.745-24 24v240c0 13.255 10.745 24 24 24h80c13.255 0 24-10.745 24-24V248c0-13.255-10.745-24-24-24zM64 472c-13.255 0-24-10.745-24-24s10.745-24 24-24 24 10.745 24 24-10.745 24-24 24zM384 81.452c0 42.416-25.97 66.208-33.277 94.548h101.723c33.397 0 59.397 27.746 59.553 58.098.084 17.938-7.546 37.249-19.439 49.197l-.11.11c9.836 23.337 8.237 56.037-9.308 79.469 8.681 25.895-.069 57.704-16.382 74.757 4.298 17.598 2.244 32.575-6.148 44.632C440.202 511.587 389.616 512 346.839 512l-2.845-.001c-48.287-.017-87.806-17.598-119.56-31.725-15.957-7.099-36.821-15.887-52.651-16.178-6.54-.12-11.783-5.457-11.783-11.998v-213.77c0-3.2 1.282-6.271 3.558-8.521 39.614-39.144 56.648-80.587 89.117-113.111 14.804-14.832 20.188-37.236 25.393-58.902C282.515 39.293 291.817 0 312 0c24 0 72 8 72 81.452z"></path></svg>');
+      }
+      .faq-reaction-angry {
+          background-image: url('data:image/svg+xml;utf8,<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="thumbs-down" class="svg-inline--fa fa-thumbs-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="red" d="M0 56v240c0 13.255 10.745 24 24 24h80c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H24C10.745 32 0 42.745 0 56zm40 200c0-13.255 10.745-24 24-24s24 10.745 24 24-10.745 24-24 24-24-10.745-24-24zm272 256c-20.183 0-29.485-39.293-33.931-57.795-5.206-21.666-10.589-44.07-25.393-58.902-32.469-32.524-49.503-73.967-89.117-113.111a11.98 11.98 0 0 1-3.558-8.521V59.901c0-6.541 5.243-11.878 11.783-11.998 15.831-.29 36.694-9.079 52.651-16.178C256.189 17.598 295.709.017 343.995 0h2.844c42.777 0 93.363.413 113.774 29.737 8.392 12.057 10.446 27.034 6.148 44.632 16.312 17.053 25.063 48.863 16.382 74.757 17.544 23.432 19.143 56.132 9.308 79.469l.11.11c11.893 11.949 19.523 31.259 19.439 49.197-.156 30.352-26.157 58.098-59.553 58.098H350.723C358.03 364.34 384 388.132 384 430.548 384 504 336 512 312 512z"></path></svg>');
+      }
+</style>
+
+<script>
+    var helpCentre = {
+        searchDB: [],
+        searchResultByInput: '',
+        searchHelpTips: false,
+        handleSearchInput: function (e) {
+            if (this.inputTimeout) clearTimeout(this.inputTimeout);
+
+            let value = '';
+            if (e.currentTarget) {
+                value = e.currentTarget.value;
+            }
+            if (e.length && !e.currentTarget) {
+                value = e.val();
+            }
+            this.inputTimeout = setTimeout(function () {
+                let val = value;
+                if (val) {
+                    this.searchResultByInput = val;
+                    this.searchHelpTips = false;
+                    this.searchDB = this.getFiltered(val);
+                } else {
+                    this.searchResultByInput = '';
+                    this.searchHelpTips = true;
+                    this.searchDB = [];
+                }
+                this.updateSearchView();
+            }.bind(this), 500);
+        },
+        getFiltered: function (text) {
+            text = text || '~~~~~~~~~~';
+            text = text.toLowerCase();
+            var res = [];
+            var matches = text.split(' ');
+            var filtered = this.faqDB.filter(function (rec) {
+                var h = document.createElement('DIV');
+                h.innerHTML = rec.a;
+                var t = h.textContent;
+                var raw = (rec.q + ' ' + t).toLowerCase();
+                var contain = true;
+                for (var i in matches) {
+                    var m = matches[i];
+                    if (raw.indexOf(m) === -1) {
+                        contain = false;
+                        break;
+                    }
+                }
+                if (contain) {
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+            if (filtered && filtered.length) {
+                var len = filtered.length;
+                res = [];
+                if (len > 5) {
+                    res = filtered.slice(0, 5);
+                } else {
+                    res = filtered;
+                }
+            }
+            return res;
+        },
+        updateSearchView: function () {
+            if (!this.$container) { this.$container = $('.faq-search__container'); }
+            if (!this.$result) { this.$result = this.$container.find('.faq-result'); }
+            if (!this.$tips) { this.$tips = this.$container.find('.faq-tips'); }
+
+            if (this.searchHelpTips) {
+                this.$tips.show();
+            } else {
+                this.$tips.hide();
+            }
+
+                  this.$result.html('');
+            var text1 = $('div[data-t="help_centre_faq_1"]').html();
+            var text2 = $('div[data-t="help_centre_faq_2"]').html();
+            var text3 = $('div[data-t="help_centre_faq_3"]').html();
+            var i, item, $record;
+            if (this.searchDB.length) {
+                for (i in this.searchDB) {
+                    item = this.searchDB[i];
+                    $record = $('' +
+                        '<div class="faq-block__item" key="' + item.id + '">' +
+                            '<div class="faq-accordion">' +
+                                '<div class="faq-block__expand-button">' + item.q + '</div>' +
+                                '<div class="panel-collapse collapse in">' +
+                                    '<div class="panel-content">' +
+                                        '<div>' + item.a + '</div>' +
+                                        '<div class="faq-reaction">' +
+                                            '<div class="faq-reaction-text">' + text1 + '</div>' +
+                                            '<div><span class="faq-reaction-btn faq-reaction-happy"></span>&nbsp;<span>' + text2 + '</span></div>' +
+                                            '<div><a id="help_centre_8"  href="javascript:openLiveChat()" class="faq-reaction-btn faq-reaction-angry"></a>&nbsp;<span>' + text3 + '</span></div>' +
+                                        '</div>' +
+                                    '</div>' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>'
+                    );
+                    $record.appendTo(this.$result);
+                }
+                // store "search" and "foundAnswersIds"
+                        var search = $('.faq-input.faq-search-input').val();
+                        var foundAnswersIds = this.searchDB.map(function (a) {return a.id;});
+                        saveFaqSearch(search, foundAnswersIds);
+            }
+        },
+        faqDB: <%- JSON.stringify(helpCentre.faqDB) %>
+    };
+
+    var regServiceURL = '<%= config.reg_service_1_url %>';
+        function getSignToken () {
+            var $def = $.Deferred();
+            $.get(regServiceURL + '~get~sign~token~?nocache=' + Date.now()).done(function (token) {
+                $def.resolve(token);
+            }).fail(function () {
+                $def.resolve(null);
+            });
+            return $def.promise();
+        }
+        function saveFaqSearch (search, foundAnswersIds) {
+            if (!search) return;
+            foundAnswersIds = foundAnswersIds ? foundAnswersIds : [];
+            getSignToken().then(function(token) {
+                $.ajax({
+                    dataType: "json",
+                    url: regServiceURL + "?saveFaqSearch&search=" + encodeURIComponent(search) + "&found_answers_ids=" + encodeURIComponent(JSON.stringify(foundAnswersIds)) + "&sign=" + token,
+                    success: function (data) {
+                        console.log('saveFaqSearch: success', data);
+                    },
+                    fail: function (err) {
+                        console.error('saveFaqSearch: fail', err);
+                    }
+                });
+            });
+        }
+        function saveFaqReaction (search, answer_id, reaction) {
+            if (!search || !answer_id || !reaction) return;
+            getSignToken().then(function(token) {
+                $.ajax({
+                    dataType: "json",
+                    url: regServiceURL + "?saveFaqReaction&search=" + encodeURIComponent(search) + "&answer_id=" + answer_id + "&reaction=" + reaction + "&sign=" + token,
+                    success: function (data) {
+                        console.log('saveFaqReaction: success', data);
+                    },
+                    fail: function (err) {
+                        console.error('saveFaqReaction: fail', err);
+                    }
+                });
+            });
+        }
+
+    $(document).ready(function () {
+        $('input.faq-search-input').on('input', helpCentre.handleSearchInput.bind(helpCentre));
+        $('.show-callback-form-button').on('click', function () {
+            if ($('.callback-form-container').is(':visible')) {
+                $('.callback-form-container').hide();
+            } else {
+                $('.callback-form-container').show();
+            }
+        });
+    $('.page-help-centre').on('click', '.faq-reaction-happy', function () {
+            // store user positive reaction
+            var search = $('.faq-input.faq-search-input').val();
+            var answer_id = $(this).closest('.faq-block__item').attr('key');
+            var reaction = 1;
+            saveFaqReaction(search, answer_id, reaction);
+            $(this).closest('.faq-reaction').fadeOut();
+        });
+        $('.page-help-centre').on('click', '.faq-reaction-angry', function () {
+            // store user negative reaction
+            var search = $('.faq-input.faq-search-input').val();
+            var answer_id = $(this).closest('.faq-block__item').attr('key');
+            var reaction = 0;
+            saveFaqReaction(search, answer_id, reaction);
+            $(this).closest('.faq-reaction').fadeOut();
+        });
+        <% if (typeof urlQuery != 'undefined') { %>
+            var q = '<%- JSON.stringify(urlQuery) %>';
+            var searchQuery = JSON.parse(q);
+            if (searchQuery && searchQuery.search) {
+                $('input.faq-search-input').val(decodeURIComponent(searchQuery.search));
+                helpCentre.handleSearchInput($('input.faq-search-input'));
+                $('.faq-block').closest('.page-content-container')[0].scrollIntoView();
+            }
+        <% } %>
+    });
+    window['jwt'] = '<%= jwt %>';
+</script>

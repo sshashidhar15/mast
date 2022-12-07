@@ -1,0 +1,24 @@
+<% setI18nPrefix('menu.forex-trading-tools') %>
+<div class="page-header__menu">
+<% 
+  let menuItems = [];
+  if (!asic) {
+    menuItems = [
+      //"forex-trading-tools-api-trading",
+      "forex-trading-tools-virtual-private-server",
+      "forex-trading-tools-trading-servers",
+      "forex-trading-tools-mt4-advanced-trading-tools"
+    ]
+  } else {
+    menuItems = [
+      //"forex-trading-tools-virtual-private-server",
+      "forex-trading-tools-trading-servers",
+      "forex-trading-tools-mt4-advanced-trading-tools"
+    ] 
+  }
+  menuItems.map(e => { %>
+      <div class="menu-item<%= typeof current !== 'undefined' && e === current ? ' current-page' : '' %>"><a id="forex_trading_tools_1" href="<%= localePath(e) %>" class="menu-title"><%-$t(e)%></a></div>
+    <% }) %>
+    <div class="menu-item menu-switch"><span class="menu-icon icon-switch"></span></div>
+  </div>
+<% prevI18nPrefix() %>

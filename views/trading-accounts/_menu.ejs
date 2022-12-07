@@ -1,0 +1,28 @@
+<% setI18nPrefix('menu.trading-accounts') %>
+<div class="page-header__menu">
+<%
+(cysec
+  ?
+    [
+      'trading-accounts-overview',
+      // 'trading-accounts-professional-clients',
+      'trading-accounts-funding',
+      'trading-accounts-withdrawal'
+    ]
+  : [
+      'trading-accounts-overview',
+      'trading-accounts-ctrader-raw',
+      'trading-accounts-raw-spread-account',
+      'trading-accounts-standard-account',
+      'trading-accounts-islamic-account',
+      'trading-accounts-funding',
+      'trading-accounts-withdrawal'
+    ]
+).map(e => { %>
+      <% if (!fca || $t(e) != 'cTRADER Raw' && $t(e) != 'Raw Spread Account' && $t(e) != 'Standard' && $t(e) != 'Islamic') { %>
+      <div class="menu-item<%= typeof current !== 'undefined' && e === current ? ' current-page' : '' %>"><a id="trading_accounts_menu_1" href="<%= localePath(e) %>" class="menu-title"><%-$t(e)%></a></div>
+      <% } %>
+    <% }) %>
+    <div class="menu-item menu-switch"><span class="menu-icon icon-switch"></span></div>
+  </div>
+<% prevI18nPrefix() %>

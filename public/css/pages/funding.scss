@@ -1,0 +1,110 @@
+@import '../_global';
+
+.currency_map {
+    background-color: #F6F6F6;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 50px;
+    margin-right: 50px;
+
+    .currency_badge {
+        background-color: #EDEDED;
+        border-radius: 32px;
+        line-height: 1;
+        padding: 10px 20px;
+        margin: 10px;
+        a {
+            font-size: 12px;
+            color: rgba(11, 10, 20, 0.8);
+            text-decoration: none;
+        }
+    }
+
+    .currency_badge.active {
+        background-color: #CCCCCC;
+    }
+}
+.funding-cards-grid {
+    display: inline-grid;
+    grid-template-columns: 340px 340px 340px;
+    grid-gap: 30px;
+}
+
+@media screen and (max-width: 768px) {
+    .currency_map {
+        display: block;
+        background-color: transparent;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .funding-cards-grid {
+        grid-template-columns: 340px;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1140px) {
+    .currency_map {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .funding-cards-grid {
+        grid-template-columns: 340px 340px;
+    }
+}
+
+.single-page.funding {
+    .page-section {
+        text-align: center !important;
+        h1, p {
+            text-align: left !important;
+        }
+    }
+    .page-content {
+        &.global-markets-today {
+            height: auto;
+            min-height: 455px;
+            background-image: url(/assets/img/single_market_page/account_funding_btm_cta_bg.png) !important;
+
+            .icm-button-wrapper {
+                a.live {
+                    padding: 25px !important;
+                    border-radius: 0 !important;
+                    font-size: 20px !important;
+                    font-weight: 900 !important;
+                }
+                a.demo {
+                    padding: 25px !important;
+                    border-radius: 0 !important;
+                    font-size: 20px !important;
+                    font-weight: 900 !important;
+                    background-color: #000 !important;
+                    color: #fff !important;
+                    margin-left: 9px;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+    .page-header {
+        background: url(/assets/img/single_market_page/account_funding_bg.jpg) no-repeat center right;
+        .icm-button-wrapper.page-header__primary-button a.icm-btn.icm-btn-primary {
+                padding: 25px !important;
+                border-radius: 2px !important;
+                font-size: 20px !important;
+                font-weight: 900 !important;
+        }
+    }
+    .menu-item .menu-title {
+        text-transform: uppercase;
+    }
+    .ui-card-list {
+        padding: 16px;
+    }
+    .icm-paragraph__container {
+        border-bottom: $icm-border-standard;
+    }
+    .first-section {
+        padding-top: 80px;
+    }
+
+}

@@ -1,0 +1,441 @@
+<% setI18nPrefix('components.top') %>
+<style>
+.single-top {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    max-width: 1184px;
+    padding-right: 24px;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: #000;
+    z-index: 9999 !important;
+}
+.single-top.affix {
+    top: 0;
+    position: relative;
+    z-index: 9998 !important;
+}
+.single-top a {
+    text-decoration: none !important;
+}
+.top-item {
+    font-size: 13px;
+    padding: .3em;
+    border-radius: 0;
+    border: none;
+    white-space: nowrap;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 400;
+    border-bottom: 3px solid transparent;
+    padding-top: 9px;
+ }
+
+.top-item.accent {
+    border: 1px solid #34E834;
+    color: #34E834;
+}
+
+.top-item:hover {
+    text-decoration: none !important;
+    border: none;
+    color: #34E834;
+    transition: all 0.3s;
+    border-bottom: 3px solid #34E834;
+}
+.single-top.affix {
+    animation-name: show-top;
+    animation-duration: .5s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-delay: 0;
+    animation-play-state: running;
+    animation-fill-mode: forwards;
+    -webkit-animation-name: show-top;
+    -webkit-animation-duration: .5s;
+    -webkit-animation-timing-function: ease;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-direction: normal;
+    -webkit-animation-delay: 0;
+    -webkit-animation-play-state: running;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-name: show-top;
+    -moz-animation-duration: .5s;
+    -moz-animation-timing-function: ease;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-direction: normal;
+    -moz-animation-delay: 0;
+    -moz-animation-play-state: running;
+    -moz-animation-fill-mode: forwards
+}
+
+@keyframes show-top {
+    0% {
+        top: -100px
+    }
+
+    100% {
+        top: 0
+    }
+}
+
+@-webkit-keyframes show-top {
+    0% {
+        top: -100px
+    }
+
+    100% {
+        top: 0
+    }
+}
+
+@-moz-keyframes show-top {
+    0% {
+        top: -100px
+    }
+
+    100% {
+        top: 0
+    }
+}
+
+.header-top {
+    position: absolute;
+    display: flex;
+    z-index: 99991;
+    margin: 0 auto;
+    font-size: 13px;
+    padding: .3em 1em;
+    top: -33px;
+    left: 0;
+}
+
+html.locale-ar .header-top {
+    left: initial;
+    right: 0;
+}
+
+.header-top {
+    cursor: default;
+}
+.header-top a {
+    color: #34e834;
+    padding-bottom: 5px;
+    text-decoration: none;
+    pointer-events: none;
+}
+.header-top a.to-go {
+    color: #ccc;
+    font-weight: 700;
+    pointer-events: all;
+    cursor: pointer;
+}
+.header-top a:hover {
+    text-decoration: none !important;
+    border: none;
+    color: #34E834;
+    transition: all 0.3s;
+    border-bottom: 3px solid #34E834;
+}
+
+.header-top .group-separator {
+    width: 1px;
+    margin: 0 10px;
+    color: #888;
+}
+
+.top-separator {
+    color: #888;
+}
+
+.group-top a:hover {
+    color: #34e834;
+    text-decoration: none;
+}
+
+
+@media (max-width: 959px) {
+    .header-top {
+        top: 18px;
+        left: 8px;
+    }
+
+    .mt-1-md{
+        margin-top: 35px;
+    }
+}
+
+@media screen and (min-device-width: 320px) and (max-device-width: 959px) {
+    .mt-1-xs{
+        margin-top: 0;
+    }
+}
+@media screen and (min-device-width: 100px) and (max-device-width: 319px) {
+    .mt-1-xs{
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 1200px) {
+    .single-top {
+        padding-left: 200px;
+    }
+    html.locale-ar .single-top {
+        padding-left: 20px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .pl-11{
+        padding-left: 1.1em !important;
+    }
+}
+@media (min-width: 1440px) {
+    .header-top {
+        left: calc((100vw - 1184px) / 2);
+    }
+    html.locale-ar .header-top {
+        right: calc((100vw - 1184px) / 2);
+        left: initial;
+    }
+}
+@media (max-width: 1440px) and (min-width: 1190px) {
+    .header-top {
+        left: calc((100vw - 1184px) / 2);
+    }
+    html.locale-ar .header-top {
+        right: calc((100vw - 1184px) / 2);
+        left: initial;
+    }
+}
+
+.most-top {
+    z-index: 99992;
+    position: relative;
+    color: #fff;
+    font-size: 15px;
+    background: #555;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.most-top-risk {
+    z-index: 99992;
+    position: relative;
+    color: #fff;
+    font-size: 15px;
+    width: 100%;
+    top: 5px;
+    left: 0;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #DDE0E0;
+    color: #000;
+    border: 2px solid #FF1B1C;
+    margin: 5px 0;
+}
+@media screen and (max-width: 600px) {
+    .most-top-risk {
+        font-size: 12px;
+        padding: 0;
+        line-height: 1.1;
+        font-weight: 300;
+    }
+}
+.most-top.user-accepted-unsupported-branch {
+    display: none !important;
+}
+.most-top-content {
+    padding: 5px;
+    font-size: 16px;
+}
+@media (max-width: 1200px) {
+    .most-top-content {
+        font-size: 14px;
+    }
+}
+.most-top-button {
+    border-radius: 3px;
+    padding: 8px;
+    margin: 2px;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+}
+.most-top-button.yes {
+    background: #f65144;
+    color: #fff;
+}
+.most-top-button.yes:hover {
+    background: #34E834;
+    color: #000;
+}
+.most-top-button.no:hover {
+    background: #000;
+    color: #fff;
+}
+body.top-banner .single-top.affix {
+    animation-name: show-top-with-banner;
+    -webkit-animation-name: show-top-with-banner;
+    -moz-animation-name: show-top-with-banner;
+}
+@keyframes show-top-with-banner {
+    0% { top: -100px; }
+    100% { top: 0; }
+}
+@-webkit-keyframes show-top-with-banner {
+    0% { top: -100px; }
+    100% { top: 0; }
+}
+@-moz-keyframes show-top-with-banner {
+    0% { top: -100px; }
+    100% { top: 0; }
+}</style>
+<% if (!fsa && !asic && !user_accepted_unsupported_branch && !!is_available_some_branch && (['au'].includes(countryCode))) { %>
+<div class="most-top">
+    <div class="most-top-content">
+        <%-$t('components_most_top_1_4')%>
+    </div>
+    <div class="most-top-buttons">
+        <div class="most-top-button yes">
+            <%-$t('components_most_top_2')%>
+        </div>
+        <div class="most-top-button no">
+            <%-$t('components_most_top_3')%>
+        </div>
+    </div>
+</div>
+<% } %>
+<% if (!fsa && !cysec && !user_accepted_unsupported_branch && !!is_available_some_branch && cysecCountriesString.includes(countryCode)) { %>
+<div class="most-top">
+    <div class="most-top-content">
+        <%-$t('components_most_top_1_4')%>
+    </div>
+    <div class="most-top-buttons">
+        <div class="most-top-button yes">
+            <%-$t('components_most_top_2')%>
+        </div>
+        <div class="most-top-button no">
+            <%-$t('components_most_top_3')%>
+        </div>
+    </div>
+</div>
+<% } %>
+<% if (fsa && !user_accepted_unsupported_branch && !!is_available_some_branch && suggested_branch != '3') { %>
+    <div class="most-top">
+        <div class="most-top-content">
+            <%-$t('components_most_top_1_4')%>
+        </div>
+        <div class="most-top-buttons">
+            <div class="most-top-button yes">
+                <%-$t('components_most_top_2')%>
+            </div>
+            <div class="most-top-button no">
+                <%-$t('components_most_top_3')%>
+            </div>
+        </div>
+    </div>
+    <% } %>
+<% if (fca || cysec) { %>
+    <div class="most-top-risk">
+        <div class="most-top-content">
+            <%-$t('cysec_risk')%>
+        </div>
+    </div>
+<% } %>
+<% if (!fca) { %>
+<div class="single-top affix-top pl-11">
+    <% if (countryCode == 'cn' || locale === 'cn') { %>
+        <a id="top_cn_webtrader" class="icm-btn icm-btn-primary" target="_blank" href="https://webtrader-sc.icmarkets-zhv.com/"><%-$t('components_top_2')%></a>
+    <% } else if (asic || scb ) { %>
+        <a id="top_webtrader" href="https://webtrader.icmarkets.com/" target="_blank" class="top-item"><%-$t('components_top_2')%></a>
+    <% } else if (cysec || countryCode === 'it') { %>
+        <a id="top_eu_webtrader" href="https://webtrader.icmarkets.eu/" target="_blank" class="top-item"><%-$t('components_top_2')%></a>
+    <% } else { %>
+        <a id="top_sc_webtrader" href="https://webtrader-sc.icmarkets.com/" target="_blank" class="top-item"><%-$t('components_top_2')%></a>
+    <% } %>
+    <div class="top-item top-separator">|</div>
+    <a id="top_live_registration" href="<%= localePath('open-trading-account-live') %>" class="top-item"><%-$t('components_top_3')%></a>
+    <div class="top-item top-separator">|</div>
+    <a id="top_demo_registration" href="<%= localePath('open-trading-account-demo') %>" class="top-item"><%-$t('components_top_4')%></a>
+    <% if (asic/* || cysec*/) { %>
+        <div class="top-item top-separator">|</div>
+        <a id="top_xp_trader" href="/<%- prefix_by_regulator %>/xp-trader" class="top-item"><%-$t('components_top_6')%></a>
+    <% } %>
+    <div class="top-item top-separator">|</div>
+    <a id="top_contact_us" href="<%= localePath('company-contact-us') %>" class="top-item"><%-$t('components_top_5')%></a>
+    <div class="language-select language-select--style ">
+        <%- include('lang-selector.ejs') %>
+    </div>
+</div>
+<% } %>
+<% if ((!fsa && !asic && !user_accepted_unsupported_branch && !!is_available_some_branch && ['au'].includes(countryCode))
+|| (!fsa && !cysec && !user_accepted_unsupported_branch && !!is_available_some_branch && cysecCountriesString.includes(countryCode)) || (fsa && !user_accepted_unsupported_branch && !!is_available_some_branch && suggested_branch != '3')) { %>
+<script>
+    setTimeout(function () {
+        $(document).ready(function() {
+            $('a[data-action="support"]').on('click', function () {
+                $('body').toggleClass('live-support-active', true);
+            });
+
+            var $most_top_container = $('.most-top');
+            var mostTopCookieName = 'user_accepted_unsupported_branch';
+            var mostTopAlreadySetCookie = Cookies.get(mostTopCookieName);
+            $most_top_container.toggleClass('user-accepted-unsupported-branch', mostTopAlreadySetCookie === ICMBranchID);
+
+            var $most_top_disregard_button = $('.most-top .most-top-button.no');
+            $most_top_disregard_button.on('click', function () {
+                Cookies.set(mostTopCookieName, "<%= branchID %>", { expires: 365 });
+                $most_top_container.toggleClass('user-accepted-unsupported-branch', true);
+                $('body.top-banner').toggleClass('top-banner', false);
+            });
+            var $most_top_change_button = $('.most-top .most-top-button.yes');
+            $most_top_change_button.on('click', function () {
+                var suggestedBranch = "<%= suggested_branch %>";
+                let protocol = window.location.protocol
+                let host = window.location.host
+                if (!host.includes('localhost') && !host.includes('icmarkets.com')) {
+                    /*
+                    if (suggestedBranch === '2') {
+                        host = 'icmarkets.eu'
+                    } else {
+                    }
+                    */
+                    host = 'icmarkets.com'
+                }
+                let prefix = ''
+                switch (suggestedBranch) {
+                    case '1':
+                        prefix = '/au/en'
+                        break;
+                    case '2': {
+                        host = 'icmarkets.eu'
+                        prefix = '/en'
+                        break;
+                    }
+                    case '3':
+                        prefix = '/global/en'
+                        break;
+                    case '4':
+                        prefix = '/intl/en'
+                        break;
+                }
+                window.location = protocol + '//' + host + prefix;
+            });
+        });
+    }, 2000);
+</script>
+<% } %>

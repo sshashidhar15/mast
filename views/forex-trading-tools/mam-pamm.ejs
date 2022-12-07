@@ -1,0 +1,116 @@
+<% setI18nPrefix('pages.forex-trading-tools.mam-pamm') %>
+<link rel="stylesheet" href="<%=md5('/css/pages/mam-pamm.css')%>">
+<meta name="description" content="<%- $t('meta', true) %>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+
+    <div class="single-page page-mam-pamm">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('mam_pamm_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('mam_pamm_2')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="mam_pamm_1" class="icm-btn icm-btn-primary" href="<%=localePath('company-contact-us') %>"><%-$t('mam_pamm_3')%></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'forex-trading-tools-mam-pamm' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content do-not-cut">
+                <div style="margin-bottom:-300px;" class="page-section">
+                    <div class="market-facts-card">
+                        <div class="facts-header">
+                            <div class="header-label"><%-$t('mam_pamm_4')%></div>
+                            <div class="header-title"><%-$t('mam_pamm_5')%></div>
+                        </div>
+                        <div class="facts-items">
+                            <div class="facts-item"><%-$t('mam_pamm_6')%></div>
+                            <div class="facts-item"><%-$t('mam_pamm_7')%></div>
+                            <div class="facts-item"><%-$t('mam_pamm_8')%></div>
+                            <div class="facts-item">
+                                <% if (isAPACcountry(countryCode)) { %>
+                                    <%-$t('mam_pamm_9_apac')%>
+                                <% } else { %>
+                                    <%-$t('mam_pamm_9')%>
+                                <% } %>                                
+                            </div>
+                            <div class="facts-item"><%-$t('mam_pamm_10')%></div>
+                            <div class="facts-item"><%-$t('mam_pamm_11')%></div>
+                        </div>
+                        <div class="action-buttons-container">
+                            <a id="mam_pamm_2" class="action-button icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('mam_pamm_12')%></a>
+                        </div>
+                    </div>
+                    <div class="first-section">
+                        <div class="page-first-text"><%-$t('mam_pamm_13')%></div>
+                        <p><%-$t('mam_pamm_14')%></p>
+                        <!-- <p><%-$t('mam_pamm_15')%></p>
+                        <div style="width:773px; height:434px; position:relative;" class="video-container">
+                            <iframe style="width:100%; height:100%; position:absolute; left:0; top:0;" width="100%" height="100%" src="https://www.youtube.com/embed/qmnrZzyH8VI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="page-content highlighted-content">
+                <div style="margin-top:210px;" class="page-section">
+                    <p><%-$t('mam_pamm_16')%></p>
+                    <p><%-$t('mam_pamm_17')%></p>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="page-section">
+                    <h1><%-$t('mam_pamm_18')%></h1>
+                    <div class="pre-image-item"><%-$t('mam_pamm_19')%></div>
+                    <div class="pre-image-item"><%-$t('mam_pamm_20')%></div>
+                </div>
+                <div style="margin-top:80px;" class="page-section">
+                    <h1><%-$t('mam_pamm_21')%></h1>
+                    <div class="pre-image-item"><%-$t('mam_pamm_22')%></div>
+                    <div class="pre-image-item"><%-$t('mam_pamm_23')%></div>
+                    <div class="pre-image-item"><%-$t('mam_pamm_24')%></div>
+                    <div class="pre-image-item"><%-$t('mam_pamm_25')%></div>
+                    <div class="pre-image-item"><%-$t('mam_pamm_26')%></div>
+                    <div class="pre-image-item"><%-$t('mam_pamm_27')%></div>
+                    <div class="pre-image-item"><%-$t('mam_pamm_28')%></div>
+                    <div class="pre-image-item"><%-$t('mam_pamm_29')%></div>
+                    <div class="pre-image-item"><%-$t('mam_pamm_30')%></div>
+                    <div class="pre-image-item"><%-$t('mam_pamm_31')%></div>
+                    <div class="pre-image-item"><%-$t('mam_pamm_32')%></div>
+                    <div class="pre-image-item"><%-$t('mam_pamm_33')%></div>
+                    <div class="pre-image-item"><%-$t('mam_pamm_34')%></div>
+                    <div class="pre-image-item"><%-$t('mam_pamm_35')%></div>
+                </div>
+                <div style="margin-top:80px;" class="page-section">
+                    <h1><%-$t('mam_pamm_36')%></h1>
+                    <div class="pre-image-item"><%-$t('mam_pamm_37')%></div>
+                    <div class="pre-image-item"><%-$t('mam_pamm_38')%></div>
+                    <div class="pre-image-item"><%-$t('mam_pamm_39')%></div>
+                </div>
+                <div style="margin-top:80px;" class="page-section">
+                    <h1><%-$t('mam_pamm_40')%></h1>
+                    <div class="pre-image-item"><%-$t('mam_pamm_41')%></div>
+                    <div class="pre-image-item"><%-$t('mam_pamm_42')%></div>
+                    <div class="pre-image-item"><%-$t('mam_pamm_43')%></div>
+                </div>
+                <div style="margin-top:80px;" class="page-section">
+                    <h1><%-$t('mam_pamm_44')%></h1>
+                    <iframe id="JotFormIFrame-52862702342452" allowtransparency="true" allowfullscreen="true" allow="geolocation; microphone; camera" src="https://form.jotform.me/52862702342452" frameborder="0" style="width: 1px; margin-top:16px; min-width: 100%; height:790px; border:none;" scrolling="no" > </iframe>
+                </div>
+            </div>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('mam_pamm_45')%></div>
+                    <div class="global-today"><%-$t('mam_pamm_46')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="mam_pamm_3" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('mam_pamm_47')%></a>
+                        <a id="mam_pamm_4" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('mam_pamm_48')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

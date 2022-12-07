@@ -1,0 +1,28 @@
+@import "../_global"; 
+
+.single-page.page-commodities {
+    .page-header {
+        background: url(/assets/img/single_market_page/banner2.png) no-repeat center right;
+    }
+    .page-first-text::before {
+        background: url(/assets/img/single_market_page/icon-comodity.svg) center center no-repeat transparent;
+    }
+    .comm-image {
+        background: url(/assets/img/single_market_page/commimg.png) center center no-repeat transparent;
+    }
+    .market-facts-card {
+        .facts-item::before {
+            color: #34E834;
+        }
+        .action-button {
+            background: #34E834;
+        }
+    }
+}
+@media screen and (max-width: 640px) {
+    .single-page.page-commodities {
+        .single-design-table .table-row {
+            height: 150px !important;
+        }
+    }
+}

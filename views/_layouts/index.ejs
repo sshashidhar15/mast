@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html data-branch="<%= branchID %>" data-country="<%= countryCode %>" data-start="<%= startDT %>" class="www2 home-page single-market-page yes-header-links access-from-<%= userAccessFrom %> com-host-<%= com_host %> eu-host-<%= eu_host %> uk-host-<%= uk_host %> sc-host-<%= sc_host %> bs-host-<%= bs_host %> ru-host-<%= ru_host %> cn-host-<%= cn_host %> mu-host-<%= mu_host %> ky-host-<%= ky_host %> country-<%= countryCode %> branch-<%= branchID %> locale-<%= locale %> is-supported-branch-<%= is_supported_branch %> <% if(!is_supported_branch) { %>user-accepted-unsupported-branch-<%= user_accepted_unsupported_branch %><% } %> suggested-branch-<%= suggested_branch %> suggested-country-<%= suggested_country %> is-available-some-branch-<%= is_available_some_branch %> s-c-<%= ['gb', 'es', 'de', 'nl', 'se', 'pt'].includes(countryCode) ? 1 : 0 %>">
+  <head>
+    <% if (forceCountryFrom === 'gb' && cysec) { %>
+        <title id="cryptoShow"><%- $t('title1', true) %></title>
+    <% } else { %>
+        <title id="cryptoHide"><%- $t('title', true) %></title>
+    <% } %>
+    <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=es5%2Ces6%2Ces7"></script>
+    <%- include('../_partials/components/hreflang.ejs') %>
+    <link rel="stylesheet" href="<%=md5('/css/bootstrap-icm-build.css')%>">
+    <link rel='stylesheet' href="<%=md5('/css/style.css')%>">
+    <link rel="stylesheet" href="<%=md5('/css/navigation.css')%>">
+    <link rel="stylesheet" href="<%=md5('/css/responsive.css')%>">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap">
+    <meta data-n-head="true" charset="utf-8">
+    <meta data-n-head="true" name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name="facebook-domain-verification" content="2ejcewkk85kbs8asynzohmdkiw0nt1" />
+    <% if (cysec) { %>
+        <meta name="facebook-domain-verification" content="7q4tsmpur8o7ldjqhdsfhxozehhiad" />
+    <% } else if (fsa) { %>
+        <% if(!isScHost && !isBsHost && !isRuHost && !isCnHost) {%>
+            <meta name="google-site-verification" content="RszAZq7M0h883aDAE-Z3RbPlL0TeWZEilLUIXrED71Y" />
+        <% } %>
+    <% } %>
+    <%- meta %>
+    <%- style %>
+    <% if (countryCode !== 'cn') { %>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js' ></script>
+    <% } else { %>
+        <script src='https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js' ></script>
+    <% } %>
+    <script type="text/javascript">
+        var ICMBranchID = '<%= branchID %>';
+        var ICMLocale = '<%= locale %>';
+        var ICMCountry = '<%= countryCode %>';
+        var isAvailableSomeBranch = '<%= is_available_some_branch %>';
+        var LOCALES = JSON.parse('<%- JSON.stringify(config.locales) %>')
+    </script>
+    <% if (cysec) { %>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-VQX9L9VJE9"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-VQX9L9VJE9');
+        </script>
+    <% } %>
+    <% if (!eu_cookies_enabled || (eu_cookies_enabled == 'all' || eu_cookies_enabled == '111')) { %>
+        <!-- Taboola Pixel Code -->
+            <script type='text/javascript'>window._tfa = window._tfa || []; window._tfa.push({notify: 'event', name: 'page_view', id: 1231667}); !function (t, f, a, x) { if (!document.getElementById(x)) { t.async = 1;t.src = a;t.id=x;f.parentNode.insertBefore(t, f); }}(document.createElement('script'), document.getElementsByTagName('script')[0], '//cdn.taboola.com/libtrc/unip/1231667/tfa.js', 'tb_tfa_script');</script>
+            <noscript><img src='//trc.taboola.com/1231667/log/3/unip?en=page_view' width='0' height='0' style='display:none'/></noscript>
+        <!-- End of Taboola Pixel Code -->
+    <% } %>
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '241371791216223');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=241371791216223&ev=PageView&noscript=1" /></noscript>
+    <!-- End Facebook Pixel Code -->
+
+    <!-- DCMN -->
+    <script type="text/javascript">
+        !function(n,t,e,r){var o,i,a="script",u="_dcmnTrackingSdk";n[u]=n[u]||r,n[r]=n[n[u]]||function(){(n[r].q=n[r].q||[]).push(arguments)},n[r].t=n[r].t||1*new Date,o=t.getElementsByTagName(a)[0],(i=t.createElement(a)).async=!0,i.src=e,o.parentNode.insertBefore(i,o)}(window, document, "https://sdk.dcmn.io/sdk.js", "_dcmn");
+        _dcmn("create", "fyr9k189kmdy");
+    </script>
+
+    <script type="text/javascript">
+        _dcmn("trackPageView");
+    </script>
+
+  </head>
+  <body data-country="<%= countryCode %>" class="<% if (!is_supported_branch && !user_accepted_unsupported_branch && !!is_available_some_branch) { %>top-banner<% } %>">
+    <%- include('../_partials/navigation.ejs') %>
+    <%- body %>
+    <%- include('../_partials/footer.ejs') %>
+    <%- /*include('../_partials/support.ejs')*/ %>
+    <style>
+      html.touch-device iframe#webWidget {
+          z-index: 9999999!important;
+      }
+      html.touch-device #launcher {
+          opacity: 0!important;
+          pointer-events: none!important;
+      }
+    </style>
+    <div class="fixed-bottom-bar" style="display:none;opacity: 1;">
+        <div class="fixed-bottom-bar-inner">
+            <div class="first">
+                <div class="trustpilot-widget" data-locale="en-AU" data-template-id="5406e65db0d04a09e042d5fc" data-businessunit-id="579605bd0000ff000592b66d" data-style-height="28px" data-style-width="100%" data-theme="light">
+                    <a id="footer_trustpilot" href="https://au.trustpilot.com/review/icmarkets.com" target="_blank">Trustpilot</a>
+                </div>
+            </div>
+            <div class="second">
+
+            <a class="open-an-account" href="<%= localePath('open-trading-account-live') %>">
+                        <%-$t('openanaccount')%>
+                    </a>
+                <!-- Web-2359-->
+                <!-- <a class="rugbybutton" href="<%= localePath('open-trading-account-live') %>">
+                    <img src="/assets/icons/svg/rugby.svg"   alt="rugby icon"/>
+                </a> -->
+                <a  class="goto-support" href="<%= localePath('help-resources-help-centre').replace(/\\/g, '/') %>">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 23 23" class="goto-icon">
+                    <path fill="rgba(31, 29, 49, 0.8)" d="M14,11 C14,9.891 13.109,9 12,9 C10.891,9 10,9.891 10,11 C10,12.109 10.891,13 12,13 C13.109,13 14,12.109 14,11 Z M8,11 C8,9.891 7.109,9 6,9 C4.891,9 4,9.891 4,11 C4,12.109 4.891,13 6,13 C7.109,13 8,12.109 8,11 Z M20,11 C20,9.891 19.109,9 18,9 C16.891,9 16,9.891 16,11 C16,12.109 16.891,13 18,13 C19.109,13 20,12.109 20,11 Z M11.5008214,21.0447283 C10.5635714,21.0447283 9.65260714,20.9458181 8.79257143,20.7490499 C7.66714393,21.1520631 7.88669523,21.1520631 5.96578923,22.326755 C5.67073475,22.4642122 4.65575282,22.9467401 4.27050282,22.9961952 C4.06514567,23.0288146 3.87293139,22.8478299 3.82118139,22.6016066 C3.82118139,21.8845185 3.88665664,20.5216655 4.01760714,18.5130475 C1.56646429,16.5895593 0,13.7285285 0,10.5223641 C0,4.70244454 5.14707143,0 11.5,0 C17.8529286,0 23,4.70244454 23,10.5223641 C23.0008214,16.3422838 17.85375,21.0447283 11.5008214,21.0447283 Z"></path>
+                    </svg>
+                    <%-$t('24_7_support')%>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <% if (isTranslator) { %>
+        <style>
+          .translator-controls-button_apply[disabled] b {
+            animation: rotater 1s linear infinite;
+            display: inline-block;
+          }
+          @keyframes rotater {
+            0% {
+              transform: rotate(0deg);
+            }
+            100% {
+              transform: rotate(360deg);
+            }
+          }
+        </style>
+        <%- include('../_partials/untranslated.ejs') %>
+        <%- include('../_partials/guide.ejs') %>
+    <% } %>
+
+    <% if (!isTranslator) { %>
+        <% if (countryCode !== 'cn') { %>
+            <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.min.js'>  </script>
+        <% } else { %>
+            <script src='https://cdn.staticfile.org/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.min.js'>  </script>
+        <% } %>
+    <% } %>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" charset="utf-8"></script>
+
+    <% if (countryCode !== 'cn') { %>
+        <% if (!eu_cookies_enabled || (eu_cookies_enabled == 'all' || eu_cookies_enabled == '111')) { %>
+            <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src="https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);})(window,document,"script","dataLayer","GTM-KJ95KC");</script>
+        <% } %>
+    <% } %>
+
+    <script src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" onload="(function tpInit() {var trustbox = $('.trustpilot-widget')[0]; if (trustbox && window.Trustpilot) {window.Trustpilot.loadFromElement(trustbox);}})()"></script>
+
+    <script>
+        const ZD_translations = {
+            DEPARTMENTS_CHATBOT: "<%-$t('ZD_DEPARTMENTS_CHATBOT')%>",
+            DEPARTMENTS_GLOBAL_SUPPORT: "<%-$t('ZD_DEPARTMENTS_GLOBAL_SUPPORT')%>",
+            DEPARTMENTS_ASIC: "<%-$t('ZD_DEPARTMENTS_ASIC')%>",
+            DEPARTMENTS_CYSEC: "<%-$t('ZD_DEPARTMENTS_CYSEC')%>",
+            DEPARTMENTS_FSA: "<%-$t('ZD_DEPARTMENTS_FSA')%>",
+            DEPARTMENTS_SCB: "<%-$t('ZD_DEPARTMENTS_SCB')%>",
+            DEPARTMENTS_CHINESE_SUPPORT: "<%-$t('ZD_DEPARTMENTS_CHINESE_SUPPORT_')%>",
+            STATUS_ONLINE: "<%-$t('ZD_STATUS_ONLINE')%>",
+            STATUS_OFFLINE: "<%-$t('ZD_STATUS_OFFLINE')%>",
+            GREETING_ASIC: "<%-$t('ZD_GREETING_ASIC')%>",
+            GREETING_CYSEC: "<%-$t('ZD_GREETING_CYSEC')%>",
+            GREETING_FSA: "<%-$t('ZD_GREETING_FSA')%>",
+            GREETING_SCB: "<%-$t('ZD_GREETING_SCB')%>",
+            TITLE_NO_CHAT_ASIC: "<%-$t('ZD_TITLE_NO_CHAT_ASIC')%>",
+            TITLE_NO_CHAT_CYSEC: "<%-$t('ZD_TITLE_NO_CHAT_CYSEC')%>",
+            TITLE_NO_CHAT_FSA: "<%-$t('ZD_TITLE_NO_CHAT_FSA_')%>",
+            TITLE_NO_CHAT_SCB: "<%-$t('ZD_TITLE_NO_CHAT_SCB_')%>",
+            TITLE_CHAT_ASIC: "<%-$t('ZD_TITLE_CHAT_ASIC')%>",
+            TITLE_CHAT_CYSEC: "<%-$t('ZD_TITLE_CHAT_CYSEC')%>",
+            TITLE_CHAT_FSA: "<%-$t('ZD_TITLE_CHAT_FSA_')%>",
+            TITLE_CHAT_SCB: "<%-$t('ZD_TITLE_CHAT_SCB_')%>",
+            TITLE_ANSWERBOT_ASIC: "<%-$t('ZD_TITLE_ANSWERBOT_ASIC')%>",
+            TITLE_ANSWERBOT_CYSEC: "<%-$t('ZD_TITLE_ANSWERBOT_CYSEC')%>",
+            TITLE_ANSWERBOT_FSA: "<%-$t('ZD_TITLE_ANSWERBOT_FSA_')%>",
+            TITLE_ANSWERBOT_SCB: "<%-$t('ZD_TITLE_ANSWERBOT_SCB_')%>",
+            contactButton: "<%-$t('ZD_contactButton')%>",
+            chatLabelOnline: "<%-$t('ZD_chatLabelOnline')%>",
+            chatLabelOffline: "<%-$t('ZD_chatLabelOffline')%>",
+            contactFormLabel: "<%-$t('ZD_contactFormLabel')%>",
+            Hi: "<%-$t('ZD_Hi')%>"
+        };
+    </script>
+    <!-- Start of Zowie Chat code -->
+    <% if (enableLivechat) { %>
+        <% if (locale === 'cn') { %>
+            <script>var instanceId = "3fa4ff1a86ef4265a387c41925ac45ee";</script>
+        <% } else { %>
+            <script>var instanceId = "3a974f00361a4e458f736d567e8ae564";</script>
+        <% } %>
+
+        <script type="text/javascript">
+            (function(d, s, id, cb) {
+                var js = d.createElement(s);
+                var n = d.createElement("div");
+                n.id = id;
+                if (js.readyState) {js.onreadystatechange = function() {if (js.readyState === "loaded" || js.readyState === "complete") {js.onreadystatechange = null; cb();}};
+                } else {js.onload = function(){cb();};}
+                js.src = "https://live-chat.chatbotize.com/chatbotize-entrypoint.min.js";
+                document.body.appendChild(js);
+                document.body.appendChild(n);
+                })(document, "script", "chatbotize", function() {
+                Zowie.init({
+                    instanceId: instanceId,
+                    sessionTimeout: 3600000,
+                    startOnOpen: true,
+                    headerMode: "white",
+                    alternativeChannels: {
+                    headerText: "You can reach us at:",
+                    chatButtonCaption: "Chat with us now",
+                    surface: "mobile",
+                    channels: [
+                        {
+                        type: "messenger",
+                        url: "https://m.me/119045658288299",
+                        title: "Messenger"
+                        },
+                        {
+                        type: "whatsapp",
+                        url: "https://wa.me/61280144280?text=Hello%20IC%20Markets%2C%20can%20you%20help%20me%3F",
+                        title: "WhatsApp"
+                        },
+                        {
+                        type: "telegram",
+                        url: "https://telegram.me/icmarketsofficialbot",
+                        title: "Telegram"
+                        }
+                    ]
+                    }
+                });
+            });
+        </script>
+    <% } %>
+    <!-- End of Zowie Chat code -->
+
+    <% if (countryCode !== 'cn') { %>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js"></script>
+    <% } else { %>
+        <script src="https://cdn.staticfile.org/js-cookie/2.2.0/js.cookie.min.js"></script>
+    <% } %>
+    <!--Start of HubSpot Embed Code -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/5513800.js"></script>
+    <!--End of HubSpot Embed Code -->
+    <script>
+        window['serverURL'] = '<%= config.reg_service_1_url %>';
+        window['enableLivechat'] = <%- enableLivechat %>;
+        window['helpCentreLink'] = "<%= localePath('help-resources-help-centre').replace(/\\/g, '/') %>";
+    </script>
+    <script src="<%=md5('/js/main.js')%>" charset="utf-8"></script>
+    <% if (isTranslator || isManager) { %>
+        <script type="text/javascript">
+            var ICMTranslations = <%- JSON.stringify(translations) %>
+            ,   isTranslator = <%- isTranslator || isManager %>
+            ,   isEditing = <%- isEditing %>
+        </script>
+        <% if (isTranslator) { %>
+        <script>
+            const translator_should_load_his_translations_from_pendings = Cookies.get('translator_should_load_his_translations_from_pendings')
+            if (translator_should_load_his_translations_from_pendings) {
+                fetch(
+                    location.origin + '/<%- prefix_by_regulator %>/<%- locale %>/translator/translations_from_pending',
+                    {
+                        method: 'POST',
+                        headers: {
+                            "Content-Type": "application/json"
+                        }
+                    }
+                )
+                    .then(_ => _.json())
+                    .then(translations => {
+                        Object.keys(translations).forEach(lang =>
+                            localStorage.setItem('translations-' + lang, JSON.stringify(translations[lang]))
+                        )
+                        Cookies.remove('translator_should_load_his_translations_from_pendings')
+                    })
+            }
+        </script>
+        <div style="display:none;"><%- $t('meta', true)%></div>
+        <div class="translator-controls">
+            <button type="button" class="translator-controls-button translator-controls-button_help" name="button" title="Guide of Translator Mode">Help</button>
+            <button type="button" class="translator-controls-button translator-controls-button_logout" name="button" title="LogOut from Translator Mode">Logout</button>
+            <button type="button" class="translator-controls-button translator-controls-button_apply" name="button" title="Send all stored changes for a current Language">Apply</button>
+            <button type="button" class="translator-controls-button translator-controls-button_apply_all" name="button" title="Send all stored changes for ALL Languages">Apply ALL</button>
+            <button type="button" class="translator-controls-button translator-controls-button_clear" name="button" title="Clear all stored changes for a current Language">Clear</button>
+            <button type="button" class="translator-controls-button translator-controls-button_clear_all" name="button" title="Clear all stored changes for ALL Languages">Clear ALL</button>
+            <button type="button" class="translator-controls-button translator-controls-button_edit" name="button" title="Switch Editing Mode for a current Language"><%= isEditing ? 'Stop edit' : 'Edit' %></button>
+            <a type="button" style="display:inline-block; background:#000; color:#fff; text-decoration:none; box-shadow: 0 0 0 1px white inset;" class="translator-controls-button translator-controls-button_non-editable" name="button" href="#untranslated" title="Move to the Dynamically Generated keys">Edit Dynamics</a>
+        </div>
+        <% } %>
+
+        <script src="https://cdn.ckeditor.com/ckeditor5/15.0.0/inline/ckeditor.js"></script>
+        <style>
+            .translator-editor[contenteditable] {
+                padding: 0 !important;
+                text-align: inherit !important;
+                overflow: hidden !important;
+            }
+            .translator-editor[contenteditable] span,
+            .translator-editor[contenteditable] p {
+                margin: inherit !important;
+                display: initial !important;
+                font-size: inherit !important;
+                font-weight: inherit !important;
+                padding: inherit !important;
+                color: inherit !important;
+                min-width: 20px !important;
+            }
+            .translator-editor-controls {
+                min-width: 70px;
+                position: absolute;
+                display: block;
+                top: 100%;
+                left: 0;
+                font-size: 12px;
+                color: #000;
+                z-index: 999999;
+            }
+            .ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-focused {
+                outline: none !important;
+                box-shadow: none !important;
+                border: none !important;
+                background: #ff9999 !important;
+                color: #000 !important;
+            }
+            .ck-content .table {
+                margin: auto !important;
+                display: inherit !important;
+            }
+            .translator-editor[contenteditable][modified="1"] {
+                background: #11aaff;
+                color: #000 !important;
+            }
+            .translator-editor[contenteditable][modified="1"]:hover:after {
+                position: absolute !important;
+                right: 1px !important;
+                top: 1px !important;
+                background: #f00 !important;
+                color: #fff !important;
+                content: "changed";
+                font-size: 10px !important;
+                padding: 2px !important;
+                height: 14px !important;
+                line-height: 1 !important;
+            }
+        </style>
+        <script src="<%=md5('/js/translations-editor.js')%>" charset="utf-8"></script>
+    <% } %>
+    <%- script %>
+  </body>
+</html>

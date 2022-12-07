@@ -1,0 +1,11 @@
+{
+  "name": "translation_merge_system",
+  "version": "1.0.0",
+  "description": "ICM Translation Merge System",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "v.fedorov@icmarkets.com.au",
+  "license": "ISC"
+}

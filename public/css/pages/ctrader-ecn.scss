@@ -1,0 +1,88 @@
+@import '../global';
+
+    .single-page.ctrader-ecn {
+        .page-content {
+            &.global-markets-today {
+                height: auto;
+                min-height: 455px;
+                background-image: url(/assets/img/single_market_page/ctrader-ecn-btm-cta-bg.png);
+
+                .icm-button-wrapper {
+                    a.live {
+                        padding: 25px !important;
+                        border-radius: 0 !important;
+                        font-size: 20px !important;
+                        font-weight: 900 !important;
+                    }
+                    a.demo {
+                        padding: 25px !important;
+                        border-radius: 0 !important;
+                        font-size: 20px !important;
+                        font-weight: 900 !important;
+                        background-color: #000 !important;
+                        color: #fff !important;
+                        margin-left: 9px;
+                    }
+                }
+            }
+        }
+        .page-header {
+            background: url(/assets/img/single_market_page/ctrader-ecn-banner-bg.jpg) no-repeat center right;
+            .icm-button-wrapper.page-header__primary-button a.icm-btn.icm-btn-primary {
+                    padding: 25px !important;
+                    border-radius: 2px !important;
+                    font-size: 20px !important;
+                    font-weight: 900 !important;
+            }
+        }
+        .first-section {
+            margin-left: 0 !important;
+        }
+        .comm-image {
+            background: url(/assets/img/single_market_page/commimg.png) center center no-repeat transparent;
+        }
+        .market-facts-card {
+            .facts-item::before {
+                color: #34E834;
+            }
+            .action-button {
+                background: #34E834;
+            }
+        }
+        .menu-item .menu-title {
+            text-transform: uppercase;
+        }
+        .grid-section {
+            display: grid;
+            grid-template-columns: 33% 33% 33%;
+
+            .content-head {
+                margin-bottom: 0 !important;
+            }
+            .grid-content {
+                padding: 20px;
+            }
+            .content-inside {
+                font-size: 16px;
+                line-height: 1.56;
+            }
+        }
+        @media screen and (max-width: 940px) {
+            .grid-section {
+                grid-template-columns: 100%;
+
+                .gc-1 {grid-row: 1}
+                .gc-4 {grid-row: 2}
+                .gc-2 {
+                    grid-row: 3;
+                    margin-top: 40px;
+                }
+                .gc-5 {grid-row: 4}
+                .gc-3 {
+                    grid-row: 5;
+                    margin-top: 40px;
+                }
+                .gc-6 {grid-row: 6}
+            }
+        }
+    }

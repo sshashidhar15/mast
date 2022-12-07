@@ -1,0 +1,56 @@
+<% setI18nPrefix('pages.help-resources.economic-calendar') %>
+<link rel="stylesheet" href="<%=md5('/css/pages/economic-calendar.css')%>">
+<meta name="description" content="<%- $t('meta', true) %>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+
+    <div class="single-page page-economic-calendar">
+        <article style="padding-top:140px; padding-bottom:140px;" class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('economic_calendar_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('economic_calendar_2')%></div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'help-resources-economic-calendar' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <h1><%-$t('economic_calendar_6')%></h1>
+                    <iframe scrolling="no" allowtransparency="true" frameborder="0" width="100%" height="720"
+                        src="https://www.mql5.com/en/economic-calendar/widget?mode=2&amp;utm_source=www.icmarkets.com">
+                    </iframe>
+                </div>
+                <div class="page-section grid-section">
+                    <div class="grid-item gi-1">
+                        <h1><%-$t('economic_calendar_7')%></h1>
+                        <iframe name="myfxbook_top_news" width="100%" height="340" scrolling="yes" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginheight="0" marginwidth="0"
+                            src="https://widgets.myfxbook.com/widgets/news.html">
+                        </iframe>
+                    </div>
+                    <div class="grid-item gi-2">
+                        <h1><%-$t('economic_calendar_8')%></h1>
+                        <iframe name="myfxbook_market" width="235" max-width="450" height="290" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginheight="0" marginwidth="0"
+                            src="https://widgets.myfxbook.com/widgets/market.html">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('economic_calendar_9')%></div>
+                    <div class="global-today"><%-$t('economic_calendar_10a')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="economic_calendar_1" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('economic_calendar_11')%></a>
+                        <a id="economic_calendar_2" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('economic_calendar_12')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

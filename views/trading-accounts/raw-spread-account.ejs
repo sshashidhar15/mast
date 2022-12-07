@@ -1,0 +1,148 @@
+<% setI18nPrefix('pages.trading-accounts.true-ecn-account') %>
+<link rel="stylesheet" href="<%=md5('/css/pages/true-ecn-account.css')%>">
+<meta name="description" content="<%- $t('meta', true) %>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+
+    <div class="single-page true-ecn-account-page">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('true_ecn_account_page_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('true_ecn_account_page_2')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="raw_spread_account_1" class="icm-btn icm-btn-primary" href="<%=localePath('open-trading-account-live') %>"><%-$t('true_ecn_account_page_171')%></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+            <%- include('./_menu.ejs', { current: 'trading-accounts-raw-spread-account' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="market-facts-card">
+                        <div class="facts-header">
+                            <div class="header-label"><%-$t('true_ecn_account_page_9')%></div>
+                            <div class="header-title"><%-$t('true_ecn_account_page_10')%></div>
+                        </div>
+                        <div class="facts-items">
+                            <div class="facts-item"><%-$t('true_ecn_account_page_11')%></div>
+                            <div class="facts-item"><%-$t('true_ecn_account_page_12')%></div>
+                            <div class="facts-item"><%-$t('true_ecn_account_page_13')%></div>
+                            <div class="facts-item">
+                                <% if (isAPACcountry(countryCode)) { %>
+                                    <%-$t('true_ecn_account_page_14_apac')%>
+                                <% } else { %>
+                                    <%-$t('true_ecn_account_page_14')%>
+                                <% } %>                                
+                            </div>
+                            <div class="facts-item"><%-$t('true_ecn_account_page_15')%></div>
+                            <div class="facts-item"><%-$t('true_ecn_account_page_16')%></div>
+                        </div>
+                        <div class="action-buttons-container">
+                            <a id="raw_spread_account_2" class="action-button icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('true_ecn_account_page_17')%></a>
+                        </div>
+                    </div>
+                    <div class="first-section">
+                        <div class="page-first-text">
+                            <p><%-$t('true_ecn_account_page_18')%></p>
+                            <p><%-$t('true_ecn_account_page_19')%></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content highlighted-content">
+                <div class="page-section">
+                    <h1><%-$t('true_ecn_account_page_20')%></h1>
+                    <p><%-$t('true_ecn_account_page_21')%></p>
+                    <p><%-$t('true_ecn_account_page_22')%></p>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="page-section split-2">
+                    <div class="left-section">
+                        <h1><%-$t('true_ecn_account_page_23')%></h1>
+                        <p><%-$t('true_ecn_account_page_24')%></p>
+                        <p><%-$t('true_ecn_account_page_25')%></p>
+                    </div>
+                    <div class="right-section">
+                        <h1><%-$t('true_ecn_account_page_26')%></h1>
+                        <p><%-$t('true_ecn_account_page_27')%></p>
+                        <p><%-$t('true_ecn_account_page_28')%></p>
+                    </div>
+                </div>
+                <div class="page-section split-2">
+                    <div class="left-section">
+                        <h1><%-$t('true_ecn_account_page_29')%><br><%-$t('true_ecn_account_page_30')%></h1>
+                        <p><%-$t('true_ecn_account_page_31')%></p>
+                        <p><%-$t('true_ecn_account_page_32')%></p>
+                    </div>
+                    <div class="right-section">
+                        <h1><%-$t('true_ecn_account_page_33')%><br><%-$t('true_ecn_account_page_34')%></h1>
+                        <p><%-$t('true_ecn_account_page_35')%></p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content highlighted-content">
+                <div class="page-section split-2">
+                    <div class="left-section">
+                        <h1><%-$t('true_ecn_account_page_36')%><br><%-$t('true_ecn_account_page_37')%></h1>
+                        <p><%-$t('true_ecn_account_page_38')%></p>
+                    </div>
+                    <div class="right-section">
+                        <h1><%-$t('true_ecn_account_page_39')%></h1>
+                        <p><%-$t('true_ecn_account_page_40')%></p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="grid-section">
+                        <div class="grid-content gc-1">
+                            <div class="content-head"><%-$t('true_ecn_account_page_41')%></div>
+                        </div>
+                        <div class="grid-content gc-2">
+                            <div class="content-head">
+                                <% if (isAPACcountry(countryCode)) { %>
+                                    <%-$t('true_ecn_account_page_42_apac')%>
+                                <% } else { %>
+                                    <%-$t('true_ecn_account_page_42')%>
+                                <% } %>                                
+                            </div>
+                        </div>
+                        <div class="grid-content gc-3">
+                            <div class="content-head"><%-$t('true_ecn_account_page_43')%></div>
+                        </div>
+                        <div class="grid-content gc-4">
+                            <div class="content-inside"><%-$t('true_ecn_account_page_44')%></div>
+                        </div>
+                        <div class="grid-content gc-5">
+                            <div class="content-inside">
+                                <% if (isAPACcountry(countryCode)) { %>
+                                    <%-$t('true_ecn_account_page_45_apac')%>
+                                <% } else { %>
+                                    <%-$t('true_ecn_account_page_45')%>
+                                <% } %>                                
+                            </div>
+                        </div>
+                        <div class="grid-content gc-6">
+                            <div class="content-inside"><%-$t('true_ecn_account_page_46')%></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('true_ecn_account_page_47')%></div>
+                    <div class="global-today"><%-$t('true_ecn_account_page_48')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="raw_spread_account_3" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('true_ecn_account_page_49')%></a>
+                        <a id="raw_spread_account_4" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('true_ecn_account_page_50')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

@@ -1,0 +1,91 @@
+<% setI18nPrefix('pages.forex-trading-platform-metatrader.iphone') %>
+<meta name="description" content="<%- $t('meta', true) %>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/metatrader-iphone.css')%>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+    <div class="single-page page-meta-trader-ios">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('mt_ios_page_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('mt_ios_page_2')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="iphone_1" class="icm-btn icm-btn-primary" href="<%= clientAreaPath() %>" target="_blank"><%- $t('mt_ios_page_3') %></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'forex-trading-platform-metatrader-iphone' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="market-facts-card">
+                        <div class="facts-header">
+                            <div class="header-label"><%-$t('mt_ios_page_4')%></div>
+                            <div class="header-title"><%-$t('mt_ios_page_5')%></div>
+                        </div>
+                        <div class="facts-items">
+                            <div class="facts-item"><%-$t('mt_ios_page_6')%></div>
+                            <div class="facts-item"><%-$t('mt_ios_page_7')%></div>
+                            <div class="facts-item"><%-$t('mt_ios_page_8')%></div>
+                            <div class="facts-item"><%-$t('mt_ios_page_9')%></div>
+                            <div class="facts-item"><%-$t('mt_ios_page_10')%></div>
+                            <div class="facts-item"><%-$t('mt_ios_page_11')%></div>
+                        </div>
+                        <div class="action-buttons-container">
+                            <a id="iphone_2" class="action-button icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('mt_ios_page_12')%></a>
+                        </div>
+                    </div>
+                    <div class="first-section">
+                        <div class="page-first-image"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content highlighted-content">
+                <div class="page-section">
+                    <p><%-$t('mt_ios_page_13')%></p>
+                    <p><%-$t('mt_ios_page_14')%></p>
+                </div>
+            </div>
+            <div class="page-content">
+                <div style="position:relative;" class="page-section">
+                    <div class="floated-block">
+                        <h1><%-$t('mt_ios_page_16')%></h1>
+                        <p><%-$t('mt_ios_page_17')%></p>
+                    </div>
+                    <h1 style="font-weight:900;"><%-$t('mt_ios_page_18')%></h1>
+                    <h1><%-$t('mt_ios_page_19')%></h1>
+                    <div class="pre-image-item"><%-$t('mt_ios_page_19_1')%></div>
+                    <div class="pre-image-item"><%-$t('mt_ios_page_19_2')%></div>
+                    <div class="pre-image-item"><%-$t('mt_ios_page_19_3')%></div>
+                    <div class="pre-image-item"><%-$t('mt_ios_page_19_4')%></div>
+                    <div class="pre-image-item"><%-$t('mt_ios_page_19_5')%></div>
+                    <div class="pre-image-item"><%-$t('mt_ios_page_19_6')%></div>
+                    <div class="pre-image-item"><%-$t('mt_ios_page_19_7')%></div>
+                    <div class="pre-image-item"><%-$t('mt_ios_page_19_8')%></div>
+                    <div class="pre-image-item"><%-$t('mt_ios_page_19_9')%></div>
+                    <div class="pre-image-item"><%-$t('mt_ios_page_19_10')%></div>
+                </div>
+                <div style="margin-top:60px;" class="page-section">
+                    <h1><%-$t('mt_ios_page_20')%></h1>
+                    <div class="pre-image-item"><%-$t('mt_ios_page_20_1')%></div>
+                    <div class="pre-image-item"><%-$t('mt_ios_page_20_2')%></div>
+                    <div class="pre-image-item"><%-$t('mt_ios_page_20_3')%></div>
+                    <div class="pre-image-item"><%-$t('mt_ios_page_20_4')%></div>
+                </div>
+            </div>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('mt_ios_page_22')%></div>
+                    <div class="global-today"><%-$t('mt_ios_page_23')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="iphone_3" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('mt_ios_page_24')%></a>
+                        <a id="iphone_4" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('mt_ios_page_25')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

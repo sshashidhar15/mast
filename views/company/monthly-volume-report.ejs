@@ -1,0 +1,638 @@
+<% setI18nPrefix('pages.company.monthly-volume-report') %>
+<meta name="description" content="<%- $t('meta', true) %>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/monthly-volume-report.css')%>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+    <%
+    var volumes = [
+        {
+            year: 2015,
+            month: {
+                '1': 0,
+                '2': 0,
+                '3': 0,
+                '4': 0,
+                '5': 0,
+                '6': 58,
+                '7': 80,
+                '8': 77,
+                '9': 62,
+                '10': 60,
+                '11': 70,
+                '12': 71
+            }
+        },
+        {
+            year: 2016,
+            month: {
+                '1': 83,
+                '2': 91,
+                '3': 106,
+                '4': 109,
+                '5': 115,
+                '6': 112,
+                '7': 139,
+                '8': 131,
+                '9': 148,
+                '10': 158,
+                '11': 188,
+                '12': 136
+            }
+        },
+        {
+            year: 2017,
+            month: {
+                '1': 161,
+                '2': 162,
+                '3': 234,
+                '4': 193,
+                '5': 251,
+                '6': 279,
+                '7': 313,
+                '8': 343,
+                '9': 339,
+                '10': 287,
+                '11': 303,
+                '12': 265
+            }
+        },
+        {
+            year: 2018,
+            month: {
+                '1': 335,
+                '2': 311,
+                '3': 339,
+                '4': 338,
+                '5': 447,
+                '6': 412,
+                '7': 397,
+                '8': 468,
+                '9': 420,
+                '10': 568,
+                '11': 530,
+                '12': 489
+            }
+        },
+        {
+            year: 2019,
+            month: {
+                '1': 536,
+                '2': 507,
+                '3': 646,
+                '4': 643,
+                '5': 683,
+                '6': 651,
+                '7': 673
+            }
+        }
+    ];
+
+    volumes = volumes.map(v => ({
+      ...v,
+      highest: Object.keys(v.month)
+                .map(i => v.month[i])
+                .filter(v => !!v)
+                .sort((a, b) => a > b)
+                .slice(-1)[0]
+    }))
+
+    var currentVolume = volumes.slice(-1)[0];
+    %>
+    <div class="single-page page-monthly-volume-report">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('monthly_volume_report_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('monthly_volume_report_2')%></div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+            <div class="page-header__menu">
+              <% volumes.forEach((v, i) => {%>
+                <div class="menu-item inverse-menu-color <%= currentVolume.year === v.year ? 'current-page' : '' %>" data-index="<%= i %>"><span class="menu-title"><%-$t('monthly_volume_report_YEAR')%> <%= v.year %></span></div>
+              <%})%>
+                <div class="menu-item menu-switch"><span class="menu-icon icon-switch"></span></div>
+            </div>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section flex-section">
+                    <div class="f-1">
+                        <h1><%-$t('monthly_volume_report_3')%></h1>
+                        <div><%-$t('monthly_volume_report_4')%></div>
+                    </div>
+                    <div class="f-2">
+                        <div><%-$t('monthly_volume_report_5')%> <span id="current-year"><%= currentVolume.year %></span></div>
+                        <h1>$<span id="current-highest"><%= currentVolume.highest %></span> <%-$t('monthly_volume_report_6')%></h1>
+                    </div>
+                </div>
+                <div class="page-section canvas-container" style="height:500px; overflow:hidden;">
+                    <canvas id="mvr_canvas"></canvas>
+                </div>
+            </div>
+            <div class="page-content highlighted-content">
+                <div class="page-section">
+                    <h1><%-$t('monthly_volume_report_7')%></h1>
+                </div>
+                <div class="page-section grid-section">
+                    <div class="grid-item gi-1 pre-img">
+                        <h1><%-$t('monthly_volume_report_8')%></h1>
+                        <p><%-$t('monthly_volume_report_9')%></p>
+                    </div>
+                    <div class="grid-item gi-2 pre-img">
+                        <h1><%-$t('monthly_volume_report_10')%></h1>
+                        <p><%-$t('monthly_volume_report_11')%></p>
+                    </div>
+                    <div class="grid-item gi-3 pre-img">
+                        <h1><%-$t('monthly_volume_report_12')%></h1>
+                        <p><%-$t('monthly_volume_report_13')%></p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('monthly_volume_report_14')%></div>
+                    <div class="global-today"><%-$t('monthly_volume_report_15')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="monthly_volume_report_1" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('monthly_volume_report_16')%></a>
+                        <a id="monthly_volume_report_2" class="icm-btn demo"  href="<%= localePath('open-trading-account-demo') %>"><%-$t('monthly_volume_report_17')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+
+<script src="<%=md5('/assets/js/common.js')%>" charset="utf-8"></script>
+<script>
+    const app = {
+                menuExpand: false,
+                volumes: <%- JSON.stringify(volumes) %>,
+                billion: "<%= $t('monthly_volume_report_hover_Billion', true) %>",
+                mn: [
+                    "<%= $t('monthly_volume_report_month_JAN', true) %>",
+                    "<%= $t('monthly_volume_report_month_FEB', true) %>",
+                    "<%= $t('monthly_volume_report_month_MAR', true) %>",
+                    "<%= $t('monthly_volume_report_month_APR', true) %>",
+                    "<%= $t('monthly_volume_report_month_MAY', true) %>",
+                    "<%= $t('monthly_volume_report_month_JUN', true) %>",
+                    "<%= $t('monthly_volume_report_month_JUL', true) %>",
+                    "<%= $t('monthly_volume_report_month_AUG', true) %>",
+                    "<%= $t('monthly_volume_report_month_SEP', true) %>",
+                    "<%= $t('monthly_volume_report_month_OCT', true) %>",
+                    "<%= $t('monthly_volume_report_month_NOV', true) %>",
+                    "<%= $t('monthly_volume_report_month_DEC', true) %>"
+                ],
+                years: [],
+                selected: -1,
+
+            headerButtonClick: function (indexToSelect) {
+                this.selected = indexToSelect;
+                if (this.menuExpand) {
+                    this.headerSwitchClick();
+                }
+                this.draw();
+            },
+            getYearData: function (year) {
+                var y, res = null;
+                for (var i in this.volumes) {
+                    y = this.volumes[i];
+                    if (y && y.year == year) {
+                        res = $.extend({}, y.month);
+                        break;
+                    }
+                }
+                return res;
+            },
+            getHighestValue: function (year) {
+                var data = this.getYearData(year);
+                if (!data) return 0;
+                var i, d, keys, m, v, highest;
+                highest = 0;
+                keys = Object.keys(data);
+                for (m in keys) {
+                    v = data[keys[m]];
+                    if (v > highest) {
+                        highest = v;
+                    }
+                }
+                return highest;
+            },
+            fillCache: function () {
+                let volumes = this.volumes;
+                this.years = volumes.map(({ year, month }) => ({
+                  year,
+                  month,
+                  highest: this.getHighestValue(year)
+                }));
+
+                if (this.selected == -1) {
+                    this.selected = this.years.length - 1;
+                }
+                this.draw();
+            },
+            draw: function () {
+                var data = this.years[this.selected];
+                var page = $('.single-page');
+                if (!data || !page.is('.page-monthly-volume-report')) return;
+
+                var PIXEL_RATIO = (function () {
+                    var _ctx = document.createElement("canvas").getContext("2d"),
+                        _dpr = window.devicePixelRatio || 1,
+                        _bsr = _ctx.webkitBackingStorePixelRatio ||
+                            _ctx.mozBackingStorePixelRatio ||
+                            _ctx.msBackingStorePixelRatio ||
+                            _ctx.oBackingStorePixelRatio ||
+                            _ctx.backingStorePixelRatio || 1;
+
+                    return _dpr / _bsr;
+                })();
+
+                this.drawData(PIXEL_RATIO);
+            },
+            drawData: function (PIXEL_RATIO) {
+                var yearObject = this.years[this.selected];
+                if (!yearObject) return;
+                let _this = this;
+
+                var yearData =  $.extend({}, yearObject.month);
+                var highestValue = this.getHighestValue(yearObject.year);
+                if (highestValue && highestValue > 0) {
+                    var ratio = PIXEL_RATIO;
+
+                    var containerBox = common_library.box($('.canvas-container'));
+                    var ww = containerBox.w * ratio;
+                    var hh = containerBox.h * ratio;
+                    var style = 'horizontal';
+                    if (containerBox.w < 768) {
+                        hh = 1000 * ratio;
+                        style = 'vertical';
+                        common_library.box($('.canvas-container'), {h: 1000}, true);
+                        containerBox = common_library.box($('.canvas-container'));
+                    } else {
+                        common_library.box($('.canvas-container'), {h: 500}, true);
+                        containerBox = common_library.box($('.canvas-container'));
+                    }
+                    var pp = 50 * ratio;
+                    var leftTextMargin = 50 * ratio;
+                    var w = ww - pp * 2;
+                    var h = hh - pp * 2;
+                    var bm = (containerBox.w * 40 / 1184) * ratio;
+                    var bw = (w - leftTextMargin - bm * 13) / 12;
+                    if (style == 'vertical') {
+                        bm = (containerBox.h * 40 / 1184) * ratio;
+                        bw = (h - bm * 13) / 12;
+                    }
+                    var data = yearData;
+                    var highest = highestValue;
+                    var len = highest.toString().length - 1;
+                    highest *= 1.2;
+                    var max = (parseInt(highest.toString().substr(0, 1), 10) + 1) * Math.pow(10, len > 0 ? len : 0);
+                    var scale = max / h;
+                    if (style == 'vertical') {
+                        scale = max / w;
+                    }
+                    var $canvas = $('canvas#mvr_canvas');
+                    var canvas = $canvas[0];
+                    var ctx = canvas.getContext('2d');
+                    ctx.ratio = ratio;
+                    canvas.width = ww * ratio;
+                    canvas.height = hh * ratio;
+                    canvas.style.width = ww + "px";
+                    canvas.style.height = hh + "px";
+                    canvas.drawStyle = style;
+                    //ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+                    var obj = function (s) {
+                        this.v = s.v;
+                        this.ctx = s.ctx;
+                        this.x = s.x;
+                        this.y = s.y;
+                        this.w = s.w;
+                        this.h = s.h;
+                        this._y = this.y;
+                        this._h = this.h;
+                        this._s = s._s || 3;
+                        this.hovered = false;
+
+                        this.render = function (ctx) {
+                            this._y = this.y;
+                            this._h = this.h;
+                            if (ctx.canvas.drawStyle == 'horizontal') {
+                                ctx.beginPath();
+                                if (!this.hovered) {
+                                    ctx.globalAlpha = 0.6;
+                                    ctx.fillStyle = '#dce0df';
+                                } else {
+                                    ctx.globalAlpha = 1;
+
+                                    ctx.beginPath();
+                                    var x = this.x + this.w / 2;
+                                    var y = this._y - 5;
+                                    ctx.moveTo(x, y);
+                                    ctx.lineTo(x - 10, y - 10);
+                                    ctx.lineTo(x - 10 - 50, y - 10);
+                                    ctx.lineTo(x - 10 - 50, y - 10 - 80);
+                                    ctx.lineTo(x + 10 + 50, y - 10 - 80);
+                                    ctx.lineTo(x + 10 + 50, y - 10);
+                                    ctx.lineTo(x + 10, y - 10);
+                                    ctx.closePath();
+                                    ctx.fillStyle = '#323138';
+                                    ctx.fill();
+
+                                    ctx.textBaseline = "bottom";
+                                    ctx.textAlign = "center";
+                                    ctx.fillStyle = '#f4f7f5';
+                                    ctx.font = 'normal 24px Roboto';
+                                    var text1 = '$' + this.v;
+                                    ctx.fillText(text1, (this.x + this.w / 2), this._y - 50);
+                                    ctx.fillStyle = '#aaacad';
+                                    ctx.font = 'normal 18px Roboto';
+                                    var text2 = _this.billion;
+                                    ctx.fillText(text2, (this.x + this.w / 2), this._y - 30);
+
+                                    ctx.fillStyle = '#34E834';
+                                }
+                                ctx.globalAlpha = 0.8;
+                                ctx.fillRect(this.x, this._y, this.w, this._h);
+                                ctx.globalAlpha = 1;
+                                ctx.closePath();
+                            } else if (ctx.canvas.drawStyle == 'vertical') {
+                                if (this.v > 0) {
+                                    ctx.beginPath();
+                                    ctx.globalAlpha = 1;
+                                    ctx.fillStyle = '#34E834';
+                                    ctx.globalAlpha = 0.8;
+                                    ctx.fillRect(this.x, this._y, this.w, this._h);
+
+                                    ctx.textBaseline = "middle";
+                                    ctx.textAlign = "center";
+                                    ctx.fillStyle = '#000';
+                                    ctx.font = 'normal 26px Roboto';
+                                    var text1 = '$' + this.v;
+                                    ctx.fillText(text1, (this.x + this.w), this._y + this.h / 2 - 7);
+                                    ctx.fillStyle = '#555';
+                                    ctx.font = 'normal 16px Roboto';
+                                    var text2 = _this.billion;
+                                    ctx.fillText(text2, (this.x + this.w), this._y + this.h / 2 + 15);
+                                    ctx.closePath();
+                                }
+                            }
+                        };
+                    };
+                    var objects = [];
+                    var keys = Object.keys(data);
+                    var index = 0;
+                    var m, v, bx, by, _y, ob;
+                    if (style == 'horizontal') {
+                        for (m in keys) {
+                            v = data[keys[m]];
+                            bx = pp + leftTextMargin + bm + (bw + bm) * index;
+                            by = pp + h - v / scale;
+                            _y = pp + h;
+                            ob = new obj({
+                                v: v,
+                                ctx: ctx,
+                                x: bx,
+                                y: by,
+                                w: bw,
+                                h: v / scale,
+                                _y: _y,
+                                _h: 0,
+                                _s: 10
+                            });
+                            objects.push(ob);
+                            index++;
+                        }
+                    } else if (style == 'vertical') {
+                        for (m in keys) {
+                            v = data[keys[m]];
+                            bx = pp + w - v / scale;
+                            by = pp + bm + (bw + bm) * index;
+                            _y = pp + h;
+                            ob = new obj({
+                                v: v,
+                                ctx: ctx,
+                                x: pp,
+                                y: by,
+                                w: v / scale,
+                                h: bw,
+                                _y: _y,
+                                _h: 0,
+                                _s: 10
+                            });
+                            objects.push(ob);
+                            index++;
+                        }
+                    }
+                    canvas.objects = objects;
+                    var renderGrid = function (p) {
+                        var w = p.w;
+                        var h = p.h;
+                        var max = p.max;
+                        var scale = p.scale;
+                        var style = p.style;
+                        var ctx = p.ctx;
+                        var pp = p.pp;
+                        var bw = p.bw;
+                        var bm = p.bm;
+                        var leftTextMargin = p.leftTextMargin;
+
+                        if (style == 'horizontal') {
+                            // volume axis Y
+                            var gridShift = 1;
+                            var s, m, ml = 5, mh = 10, i, x, y, k, t, d, y_text;
+                            s = 1;   m = max / s; if (m >= ml && m <= mh) gridShift = s;
+                            s = 2;   m = max / s; if (m >= ml && m <= mh) gridShift = s;
+                            s = 5;   m = max / s; if (m >= ml && m <= mh) gridShift = s;
+                            s = 10;  m = max / s; if (m >= ml && m <= mh) gridShift = s;
+                            s = 20;  m = max / s; if (m >= ml && m <= mh) gridShift = s;
+                            s = 50;  m = max / s; if (m >= ml && m <= mh) gridShift = s;
+                            s = 100; m = max / s; if (m >= ml && m <= mh) gridShift = s;
+                            s = 200; m = max / s; if (m >= ml && m <= mh) gridShift = s;
+                            s = 500; m = max / s; if (m >= ml && m <= mh) gridShift = s;
+                            s = 1000; m = max / s; if (m >= ml && m <= mh) gridShift = s;
+                            s = 2000; m = max / s; if (m >= ml && m <= mh) gridShift = s;
+                            s = 5000; m = max / s; if (m >= ml && m <= mh) gridShift = s;
+                            var shift = gridShift / scale;
+                            ctx.lineWidth = 1;
+                            ctx.font = 'normal 24px Roboto';
+                            ctx.textBaseline = "middle";
+                            ctx.textAlign = "end";
+                            ctx.strokeStyle = '#e1e2e1';
+                            ctx.fillStyle = 'rgba(11, 10, 20, 0.8)';
+                            y = 0;
+                            for (i = h; i >= pp; i -= shift) {
+                                ctx.moveTo(pp + leftTextMargin, pp + i);
+                                ctx.lineTo(pp + w, pp + i);
+                                y_text = y.toString();
+                                ctx.fillText(y_text, pp + leftTextMargin - 30, pp + i);
+                                y += gridShift;
+                            }
+                            ctx.moveTo(pp + leftTextMargin, pp + i);
+                            ctx.lineTo(pp + w, pp + i);
+                            y_text = y.toString();
+                            ctx.fillText(y_text, pp + leftTextMargin - 30, pp + i);
+                            ctx.stroke();
+
+                            // time axis X
+                            ctx.moveTo(pp + leftTextMargin, pp - 10);
+                            ctx.lineTo(pp + leftTextMargin, pp + h);
+                            ctx.stroke();
+
+                            var mn = _this.mn;
+                            d = p.d;
+                            var keys = Object.keys(d);
+                            var index = 0;
+                            ctx.textBaseline = "top";
+                            ctx.textAlign = "center";
+                            for (k = 0; k < 12 /*keys.length*/; k++) {
+                                t = mn[k];
+                                x = pp + leftTextMargin + bm + (bw + bm) * index + (bw / 2);
+                                y = pp + h + 10;
+                                ctx.fillText(t, x, y);
+                                index++;
+                            }
+                        } else if (style == 'vertical') {
+                            ctx.lineWidth = 1;
+                            ctx.font = 'normal 26px Roboto';
+                            ctx.strokeStyle = '#222';
+                            ctx.fillStyle = '#222';
+
+                            var mn = _this.mn;
+                            d = p.d;
+                            var keys = Object.keys(d);
+                            var index = 0;
+                            ctx.textBaseline = "middle";
+                            ctx.textAlign = "left";
+                            for (k = 0; k < 12; k++) {
+                                t = mn[k];
+                                x = pp + 10;
+                                y = pp + bm + (bw + bm) * index + (bw / 2);
+                                ctx.fillText(t, x + 20, y);
+                                ctx.fillRect(x - 10, y - (bw / 2), 1, bw);
+                                index++;
+                            }
+                        }
+                    };
+
+                    function animate (d) {
+                        ctx.clearRect(0, 0, d.w + d.pp * 2, d.h + d.pp * 2);
+                        if (ctx.canvas.drawStyle == 'horizontal') {
+                            renderGrid({
+                                d: d.d,
+                                s: d.s,
+                                w: d.w,
+                                h: d.h,
+                                pp: d.pp,
+                                bw: d.bw,
+                                bm: d.bm,
+                                max: d.max,
+                                scale: d.scale,
+                                style: d.style,
+                                leftTextMargin: d.leftTextMargin,
+                                ctx: d.ctx
+                            });
+                            for (var i in objects) {
+                                objects[i].render(ctx);
+                            }
+                        } else if (ctx.canvas.drawStyle == 'vertical') {
+                            for (var i in objects) {
+                                objects[i].render(ctx);
+                            }
+                            renderGrid({
+                                d: d.d,
+                                s: d.s,
+                                w: d.w,
+                                h: d.h,
+                                pp: d.pp,
+                                bw: d.bw,
+                                bm: d.bm,
+                                max: d.max,
+                                scale: d.scale,
+                                style: d.style,
+                                leftTextMargin: d.leftTextMargin,
+                                ctx: d.ctx
+                            });
+                        }
+                    }
+
+                    var d = {
+                        d: data,
+                        pp: pp,
+                        bw: bw,
+                        bm: bm,
+                        w: w,
+                        h: h,
+                        max: max,
+                        scale: scale,
+                        style: style,
+                        leftTextMargin: leftTextMargin,
+                        ctx: ctx
+                    };
+
+                    var current_hovered_object = {};
+
+                    animate(d);
+
+                    canvas.box = common_library.box($(canvas));
+
+                    $(canvas).off('mouseout');
+                    $(canvas).on('mouseout', function (e) {
+                        current_hovered_object.hovered = false;
+                        animate(d);
+                    });
+                    $(canvas).off('mousemove');
+                    $(canvas).on('mousemove', function (e) {
+                        var x = e.offsetX;
+                        var y = e.offsetY;
+                        var point = {
+                            x: x,
+                            y: y
+                        };
+                        var ct = this.getContext('2d');
+                        var i, b, box;
+                        var new_hovered_object = objects.find(object => common_library.pointInBox(point, {
+                            l: object.x / ct.ratio,
+                            t: object.y / ct.ratio,
+                            w: object.w / ct.ratio,
+                            h: object.h / ct.ratio
+                        }));
+                        if (!new_hovered_object) {
+                            current_hovered_object.hovered = false;
+                            current_hovered_object = {};
+                            animate(d);
+                        } else if (new_hovered_object !== current_hovered_object) {
+                            new_hovered_object.hovered = true;
+                            current_hovered_object.hovered = false;
+                            current_hovered_object = new_hovered_object;
+                            animate(d);
+                        }
+                    });
+                }
+
+        },
+        mounted: function () {
+            this.fillCache();
+            let _this = this;
+            $(window).resize(function() {
+                requestAnimationFrame(function () {
+                    _this.draw();
+                });
+            });
+            var yearLinks = $('.menu-item:not(.menu-switch)')
+            yearLinks.on('click', function() {
+              var link = $(this)
+              ,   index = link.data('index')
+              _this.headerButtonClick(index)
+              yearLinks.removeClass('current-page')
+              link.addClass('current-page')
+              $('#current-year').html(_this.volumes[index].year)
+              $('#current-highest').html(_this.volumes[index].highest)
+            })
+        }
+    }
+
+    $(document).ready(app.mounted.bind(app))
+</script>

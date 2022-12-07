@@ -1,0 +1,91 @@
+@import "../_global";
+
+.single-page.page-cryptocurrency {
+    .page-header {
+        background: url(/assets/img/single_market_page/btc-banner.png) no-repeat center right;
+    }
+    .page-first-text::before {
+        background: url(/assets/img/single_market_page/icon-crypto.svg) center center no-repeat transparent;
+    }
+    .risk-image {
+        background: url(/assets/img/single_market_page/cryptoImg.png) center center no-repeat transparent;
+        background-size: contain;
+    }
+    .market-facts-card {
+        .facts-item::before {
+            color: #34E834;
+        }
+        .action-button {
+            background: #34E834;
+        }
+    }
+    .crypto-items-container {
+        display: grid;
+        grid-template-columns: 50% 50%;
+
+        .crypto-item {
+            display: inline-flex;
+            width: 100%;
+            margin-bottom: 60px;
+            padding-right: 40px;
+
+            .crypto-image {
+                width: 120px;
+                height: 120px;
+                background: red;
+                flex: 120px 0;
+                margin-right: 30px;
+                background-size: cover !important;
+            }
+            .crypto-content {
+                flex: 1;
+            }
+
+            &.c-bitcoin .crypto-image { background: url(/assets/img/single_market_page/btc-color.png) center center no-repeat transparent; }
+            &.c-ethereum .crypto-image { background: url(/assets/img/single_market_page/ethereum-color.png) center center no-repeat transparent; }
+            &.c-dash .crypto-image { background: url(/assets/img/single_market_page/dash-color.png) center center no-repeat transparent; }
+            &.c-litecoin .crypto-image { background: url(/assets/img/single_market_page/lite-color.png) center center no-repeat transparent; }
+            &.c-bitcoin-cash .crypto-image { background: url(/assets/img/single_market_page/btc-cash-color.png) center center no-repeat transparent; }
+            &.c-ripple .crypto-image { background: url(/assets/img/single_market_page/rippleIcon.png) center center no-repeat transparent; }
+            &.c-eos .crypto-image { background: url(/assets/img/single_market_page/eos-icon.jpg) center center no-repeat transparent; }
+            &.c-emc .crypto-image { background: url(/assets/img/single_market_page/emc-icon.jpg) center center no-repeat transparent; }
+            &.c-nmc .crypto-image { background: url(/assets/img/single_market_page/nmc-icon.jpg) center center no-repeat transparent; }
+            &.c-ppc .crypto-image { background: url(/assets/img/single_market_page/ppc-icon.jpg) center center no-repeat transparent; }
+
+            &.c-dot .crypto-image { background: url(/assets/img/single_market_page/dot-icon.png) center center no-repeat transparent; }
+            &.c-lnk .crypto-image { background: url(/assets/img/single_market_page/xlm-icon.png) center center no-repeat transparent; }
+            &.c-xlm .crypto-image { background: url(/assets/img/single_market_page/lnk-icon.png) center center no-repeat transparent; }
+            &.c-dgc .crypto-image { background: url(/assets/img/single_market_page/dgc-icon.png) center center no-repeat transparent; }
+            &.c-tzs .crypto-image { background: url(/assets/img/single_market_page/tzs-icon.png) center center no-repeat transparent; }
+            &.c-usp .crypto-image { background: url(/assets/img/single_market_page/usp-icon.png) center center no-repeat transparent; }
+            &.c-cdo .crypto-image { background: url(/assets/img/single_market_page/cdo-icon.png) center center no-repeat transparent; }
+            &.c-bnc .crypto-image { background: url(/assets/img/single_market_page/bnc-icon.png) center center no-repeat transparent; }
+            &.c-avalanche .crypto-image { background: url(/assets/img/single_market_page/avalanche-icon.png) center center no-repeat transparent; }
+            &.c-luna .crypto-image { background: url(/assets/img/single_market_page/luna-icon.png) center center no-repeat transparent; }
+            &.c-polygon-matic .crypto-image { background: url(/assets/img/single_market_page/polygon-matic-icon.png) center center no-repeat transparent; }
+            &.c-moonbeam .crypto-image { background: url(/assets/img/single_market_page/moonbeam-icon.png) center center no-repeat transparent; }
+            &.c-kusama .crypto-image { background: url(/assets/img/single_market_page/kusama-icon.png) center center no-repeat transparent; }                                                          
+        }
+    }
+}
+@media screen and (max-width: 900px) {
+    .single-page.page-cryptocurrency {
+        .crypto-items-container {
+            grid-template-columns: 100%;
+        }
+    }
+}
+@media screen and (max-width: 640px) {
+    .single-page.page-cryptocurrency {
+        .single-design-table .table-row {
+            height: 150px !important;
+        }
+    }
+}
+@media screen and (max-width: 480px) {
+    .single-page.page-cryptocurrency {
+        .crypto-items-container .crypto-item {
+            display: block;
+        }
+    }
+}

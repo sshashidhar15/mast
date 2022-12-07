@@ -1,0 +1,50 @@
+
+  .icm-button-wrapper {
+    border-radius: 4px;
+    width: 100%;
+}
+
+.icm-btn {
+    display: inline-block;
+    margin-bottom: 0;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    border: 1px solid transparent;
+    background-image: none;
+    white-space: nowrap;
+    padding: 6px 12px;
+    user-select: none;
+
+    width: 100%;
+    border-radius: 4px;
+    color: $icm-secondary-button-color;
+    font-size: $icm-primary-button-font-size;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.icm-btn:hover,
+.icm-btn:active {
+    text-decoration: none;
+    color: inherit;
+    @include icm-button-animation();
+}
+
+.icm-btn-primary {
+    background-color: #34E834;
+    color: $icm-primary-button-color;
+}
+
+.icm-btn-secondary {
+    background-color: $icm-primary-button-bg;
+    color: $icm-secondary-button-color;
+}
+
+.icm-btn-black {
+    background-color: $icm-bg-color-black;
+    color: $icm-color-green;
+}

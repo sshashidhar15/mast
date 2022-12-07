@@ -1,0 +1,193 @@
+@import '../_global';
+
+
+.popular-container {
+    position: relative;
+}
+.popular_green {
+    position: absolute;
+    font-size: 12px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2.5;
+    letter-spacing: -0.2px;
+    text-transform: uppercase;
+
+    transform: rotate(45deg);
+    background-color: #34E834;
+    padding-left: 159px;
+    padding-right: 110px;
+    margin-left: 131px;
+
+}
+
+.deposit-card-container:hover {
+    background-color: #222127;
+
+    .deposit-header {
+        &__row1 {
+            color: #B6B6B7;
+        }
+        &__row2 {
+            color: #F9F9F9;
+        }
+    }
+    .deposit-row {
+        &__accepted {
+            color: #D9D9DA;
+        }
+        &__approx {
+            color: #DBDADB;
+        }
+        &__currency-list1 {
+            color: #F9F9F9;
+        }
+        &__currency-list2 {
+            color: #F9F9F9;
+        }
+        &__time {
+            color: #DFDFE0;
+            background-color: #5C5B5F;
+        }
+        &.approx-time {
+            background-color: #2A292F;
+        }
+    }
+}
+
+
+.deposit-card-container {
+    overflow: hidden;
+    width: 340px;
+    height: 495px;
+    border-radius: 18px !important;
+    background-color: #fbfafa;
+    box-shadow: 0px 3px 24px 0 rgba(0, 0, 0, 0.14);
+    display: inline-block;
+
+    .icm-btn {
+        display: block !important;
+        text-transform: uppercase !important;
+        border-radius: 20px !important;
+        font-size: 12px !important;
+        background-color: #34E834 !important;
+        padding: 14px 27px !important;
+        margin: 13px auto !important;
+        line-height: 1 !important;
+        width: max-content !important;;
+    }
+    .card-footer__button--style {
+        text-align: center;
+    }
+
+
+    .deposit-header {
+        padding-top: 50px;
+        text-align: center;
+
+        &__row1 {
+            color: #9b9b9b;
+        }
+        &__row2 {
+            padding-top: 24px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #000000;
+            line-height: 1;
+        }
+        &__row-small {
+            color: #888;
+            font-weight: 300;
+            font-size: 11px;
+            line-height: 1;
+        }
+    }
+    .deposit-row {
+        &__time_col {
+            margin-top: -2px;
+            justify-content: center;
+            display: flex;
+        }
+        &__logo {
+            justify-content: center;
+            display: flex;
+            padding-top: 25px;
+        }
+        &__logo-image {
+            width: 67px;
+            height: 40px;
+            margin-right: 15px;
+        }
+        &__accepted {
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            padding-top: 42px;
+            line-height: 1;
+        }
+        &__approx {
+            text-transform: uppercase;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            line-height: 1;
+        }
+        &__currency-list1 {
+            padding-top: 23px;
+        }
+        &__currency-list2 {
+            padding-top: 8px;
+        }
+        &__currency-list1,
+        &__currency-list2 {
+            height: 43.5px;// (23 + 38 + 26) / 2
+            display: flex;
+            justify-content: center;
+        }
+        .currency-item {
+            margin-right: 15px;
+        }
+        &__time {
+            text-align: center;
+            background-color: #EDEDED;
+            border-radius: 12px;
+            width: max-content;
+            font-size: 12px;
+            padding: 7px 19px;
+            margin-top: 14px;
+            line-height: 1;
+        }
+        &.approx-time {
+            background-color: #F6F6F6;
+            padding-top: 20px;
+            padding-bottom: 18px;
+            margin-bottom: 12px;
+        }
+        .icm-btn {
+            font-size: 20px;
+            font-weight: 500;
+        }
+        &__logo-image {
+            &.skrill { background-image: url('../../assets/img/payments/skrill.png'); }
+            &.union_pay { background-image: url('../../assets/img/payments/union_pay.png'); }
+            &.visa { background-image: url('../../assets/img/payments/visa.png'); }
+            &.webmoney { background-image: url('../../assets/img/payments/webmoney.png'); }
+            &.wire_transfer { background-image: url('../../assets/img/payments/wire_transfer.png'); }
+            &.bpay { background-image: url('../../assets/img/payments/bpay.png'); }
+            &.broker_to_broker { background-image: url('../../assets/img/payments/broker_to_broker.png'); }
+            &.fasa_pay { background-image: url('../../assets/img/payments/fasa_pay.png'); }
+            &.local_bank_transfer { background-image: url('../../assets/img/payments/local_bank_transfer.png'); }
+            &.master { background-image: url('../../assets/img/payments/master.png'); background-size: cover; width: 67px; }
+            &.neteller { background-image: url('../../assets/img/payments/neteller.png'); }
+            &.neteller_vip { background-image: url('../../assets/img/payments/neteller_vip.png'); }
+            &.paypal { background-image: url('../../assets/img/payments/paypal.png'); }
+            &.poli { background-image: url('../../assets/img/payments/poli.png'); }
+            &.thai { background-image: url('../../assets/img/payments/thai.png'); }
+            &.viet { background-image: url('../../assets/img/payments/viet.png'); }
+            &.rapidpay { background-image: url('../../assets/img/payments/rapidpay.png'); }
+            &.klarna { background-image: url('../../assets/img/payments/klarna.png'); }
+            &.btcwallet { background-image: url('../../assets/img/payments/btcwallet.png'); }
+        }
+    }
+}

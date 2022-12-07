@@ -1,0 +1,135 @@
+
+<style>
+    .list {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 100%;
+
+    }
+    .one-line {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    #_link_container {
+        margin-top: 20px;
+    }
+    button.disabled {
+      cursor:default;
+    }
+    .import-file-section .col-md-6 {
+      padding-left:0;
+    }
+    .old-content-hidden {
+      display: none !important;
+    }
+    .import-file-section button b {
+      margin-left:15px;
+    }
+</style>
+<script>
+  never_used_keys_count = `<%- Object.keys(app.never_used_keys).length %>`;
+  already_used_keys_count = `<%- Object.keys(app.already_used_keys).length %>`;
+  never_used_keys = `<%- JSON.stringify(app.never_used_keys, null, 4) %>`;
+  already_used_keys = `<%- JSON.stringify(app.already_used_keys, null, 4) %>`;
+</script>
+<div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4">
+  <h1 class="h3">Export translations</h1>
+</div>
+<p style="font-size:10pt;">Export translation by regulator and locale to file in JSON format. This file can be given to external translators.</p>
+<div class="row">
+  <div class="col-md-12 mb-4 list">
+    <div class="one-line">
+      <select disabled id="_select_regulator" class="form-control"></select>
+      <p>&nbsp;&nbsp;&nbsp;</p>
+      <select disabled id="_select_lang" class="form-control"></select>
+    </div>
+    <button disabled id="_button_export" class="one-line btn btn-primary">
+        <i>Loading translations</i>
+        <i id="_loading_translations_regulator"></i>
+        <i id="_loading_translations_lang"></i>
+        <b>🔃</b>
+    </button>
+    <div id="_link_container"></div>
+  </div>
+</div>
+
+<div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4">
+  <h1 class="h3">Export Un-Translated</h1>
+</div>
+<p style="font-size:10pt;">Export untranslated by regulator and locale to file in JSON format. This file can be given to external translators.</p>
+<div class="row">
+  <div class="col-md-12 mb-4 list">
+    <div class="one-line">
+      <select disabled id="_un_select_regulator" class="form-control"></select>
+      <p>&nbsp;&nbsp;&nbsp;</p>
+      <select disabled id="_un_select_lang" class="form-control"></select>
+    </div>
+    <button disabled id="_un_button_export" class="one-line btn btn-primary">
+        <i>Loading translations</i>
+        <i id="_un_loading_translations_regulator"></i>
+        <i id="_un_loading_translations_lang"></i>
+        <b>🔃</b>
+    </button>
+    <div id="_un_link_container"></div>
+  </div>
+</div>
+
+<div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4">
+  <h1 class="h3">Export Never Used keys</h1>
+</div>
+<p style="font-size:10pt;">Export the never used keys file in JSON format. For delete it after sometime from the etalon (to prevent unnecessary translations).</p>
+<p style="font-size:10pt;">Total keys count in the system: <%- app.total_keys_count %></p>
+<p style="font-size:10pt;">Count of already used keys now: <%- Object.keys(app.already_used_keys).length %></p>
+<p style="font-size:10pt;">Count of never used keys for now: <%- Object.keys(app.never_used_keys).length %></p>
+<div class="row">
+  <div class="col-md-12 mb-4 list">
+    <div id="_already_used_container"></div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 mb-4 list">
+    <div id="_never_used_container"></div>
+  </div>
+</div>
+
+<div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4">
+  <h1 class="h3" id="_import_title">Import translations from Github repo <a target="_blank" href="https://github.com/ICMarkets/WWW2.Contents">WWWW2.Contents</a></h1>
+</div>
+<div class="row import-file-section">
+  <div class="col-md-12 mb-4 list">
+    <p>You are currently importing for <b id="_show_regulator"></b></p>
+    <div class="one-line">  
+      <div class="col-md-6">
+        <select class="form-control" id="_lang_import_select">
+          <option selected disabled value="">Please choose a language</option>
+          <option value="all">All</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <button id="_import_json" class="btn btn-primary disabled">Import</button>
+      </div>     
+    </div>
+  </div>
+</div>
+
+
+  <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4 old-content-hidden" >
+    <h1 class="h3">Import translations</h1>
+  </div>
+  <br>
+  <p style="font-size:10pt;" class="old-content-hidden">Import translation will load *.json file and convert it content in pendings by locales included in *.json content</p>
+  <div class="row old-content-hidden">
+    <div class="col-md-12 mb-4 list">
+      <div class="one-line">
+          <label for="_input_import_json">Choose a JSON file with translations:</label>
+          <input type="file" id="_input_import_json" accept="application/JSON"/>
+      </div>
+    </div>
+  </div>
+
+<script src="<%=md5('/js/admin_views/import_export.js')%>"></script>

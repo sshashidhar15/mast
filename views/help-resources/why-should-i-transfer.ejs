@@ -1,0 +1,75 @@
+
+<% setI18nPrefix('pages.help-resources.why-should-i-transfer') %>
+<link rel="stylesheet" href="<%=md5('/css/pages/why-should-i-transfer.css')%>">
+<meta name="description" content="<%- $t('meta', true) %>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+    <div class="single-page why-should-i-transfer">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('why_should_i_transfer_1')%></h1>
+                </header>
+            </section>
+        </article>
+        <article class="page-content-container ">
+            <div class="page-content bgcolor1">
+                <div class="page-section">
+                    <div class="double-sidebar-block">
+                        <div class="sidebar-cta-card-container sidebar-top-card random-background rnd-back-1">
+                            <div class="bottom-block">
+                                <p class="bottom-block__message"><%-$t('why_should_i_transfer_2')%><br><b style="font-size:28px;"><%-$t('why_should_i_transfer_3')%></b></p>
+                                <div class="icm-button-wrapper bottom-block__cta-button">
+                                    <a id="why_should_i_transfer_1" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('why_should_i_transfer_4')%></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-card contact-block">
+                            <div class="contact-header">
+                                <div class="header-label"><%-$t('why_should_i_transfer_5')%></div>
+                                <div class="header-title"><%-$t('why_should_i_transfer_6')%></div>
+                            </div>
+                            <div class="contact-pre-imaged chat-img">
+                                <div><%-$t('contact_card_help')%></div>
+                            </div>
+                            <% if (!fsa && !scb && !fsc && !cima) { %>
+                            <div class="contact-phone">
+                                <div><%-$t('contact_card_phone')%></div>
+                            </div>
+                            <% } %>
+                            <div class="contact-pre-imaged email-img">
+                                <% if (asic) {%>
+                                    <div><%-$t('contact_card_email_asic')%></div>
+                                <% } else { %>
+                                    <div><%-$t('contact_card_email')%></div>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="first-section">
+                        <div class="page-first-text"><%-$t('why_should_i_transfer_10')%></div>
+                        <p><%-$t('why_should_i_transfer_11')%></p>
+                        <p><%-$t('why_should_i_transfer_12')%> <b><%-$t('why_should_i_transfer_13')%></b></p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content bgcolor2">
+                <div class="page-section">
+                    <h1><%-$t('why_should_i_transfer_14')%></h1>
+                    <p><%-$t('why_should_i_transfer_15')%></p>
+                    <p><%-$t('why_should_i_transfer_16')%></p>
+                </div>
+            </div>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('why_should_i_transfer_17')%></div>
+                    <div class="global-today"><%-$t('why_should_i_transfer_18')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="why_should_i_transfer_2" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('why_should_i_transfer_19')%></a>
+                        <a id="why_should_i_transfer_3" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('why_should_i_transfer_20')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

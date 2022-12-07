@@ -1,0 +1,16 @@
+Automatic Merge System for GET the files system and 
+all contents from "1_current_language_en" directory 
+and PUT into "3_absent_target_in_current" with 
+replace json-content from "2_target_language_other"
+
+
+1. Copy all last files with directory structure from "locale/en/" directory of our new website ("WWW" in the GIT) to "1_current_language_en" directory
+2. Copy other language given files with directory structure to "2_target_language_other" directory
+3. Run comparing by command in terminal or console: > node index
+4. In process will compared "current" and "target" values and collected equals (this indicated untranslated text)
+5. On any JSON parsing fail will be error message in the console
+6. DONE (???) message in console will inform about count of discrepancies
+7. Get compared result from "3_absent_target_in_current"
+8. Send compared result to translator (in case if system will find discrepancy)
+
+NOTE: Directory "3_absent_target_in_current" will be removed on start after run (if it present) and re-created with actual structure from "1_current_language_en" after finish

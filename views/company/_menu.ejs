@@ -1,0 +1,46 @@
+<% setI18nPrefix('menu.company') %>
+<div class="page-header__menu">
+<%
+(cysec
+  ?
+    [
+      'company-about-icmarkets',
+      // 'company-entities',
+      'company-regulation',
+      'company-careers',
+      'company-contact-us'
+    ]
+  :
+    asic ? [
+      'company-about-icmarkets',
+      // 'company-entities',
+      'company-regulation',
+      'company-careers',
+      'company-contact-us' //,
+      // 'company-monthly-volume-report'
+    ]
+    :
+    fca ? [
+      'company-contact-us',
+    ]
+    : scb ? [
+        'company-about-icmarkets',
+        // 'company-entities',
+        'company-regulation',
+        // 'company-careers',
+        'company-contact-us' //,
+        // 'company-monthly-volume-report'
+      ] : [
+      'company-about-icmarkets',
+        // 'company-entities',
+        'company-regulation',
+        'company-careers',
+        'company-contact-us' //,
+        // 'company-monthly-volume-report'
+      ]
+).map(e => { %>
+      <div class="menu-item<%= typeof current !== 'undefined' && e === current ? ' current-page' : '' %>"><a id="company_menu_title" href="<%= localePath(e) %>" class="menu-title"><%-$t(e)%></a></div>
+    <% }) %>
+    <div class="menu-item menu-switch"><span class="menu-icon icon-switch"></span></div>
+  </div>
+<% prevI18nPrefix() %>

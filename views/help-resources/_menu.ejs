@@ -1,0 +1,20 @@
+<% setI18nPrefix('menu.help-resources') %>
+<div class="page-header__menu">
+<%
+(cysec
+  ?
+    [
+      'help-resources-help-centre'
+    ]
+  : [
+      'help-resources-help-centre',
+      // 'help-resources-fsa-migration-help',
+      'help-resources-forex-calculators',
+      'help-resources-economic-calendar'
+    ]
+).map(e => { %>
+      <div class="menu-item<%= typeof current !== 'undefined' && e === current ? ' current-page' : '' %>"><a id="help_resource_menu_1" href="<%= localePath(e) %>" class="menu-title"><%-$t(e)%></a></div>
+    <% }) %>
+    <div class="menu-item menu-switch"><span class="menu-icon icon-switch"></span></div>
+  </div>
+<% prevI18nPrefix() %>

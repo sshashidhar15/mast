@@ -1,0 +1,713 @@
+@import "../_global";
+
+.single-page.introduction-mobile-trading-app {
+    .mobile-page-header-container {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        min-height: 500px;
+        height: 820px;
+        padding-top: 2%;
+        background: #fff url(../../assets/img/mobile_trading_app/header_background.png) no-repeat;
+        background-size: cover;
+        background-position: bottom;
+        direction: ltr !important;
+        .header-container {
+            width: 56%;
+            margin-left: 20%;
+            .header-text-id, .header-text-ko, .header-text-hr {
+                width: 103%;
+            }
+            .header-text-de {
+                width: 136%;
+            }
+            .header-text-vn {
+                width: 143%;
+            }
+            .header-text-pt, .header-text-my {
+                width: 128%;
+            }
+            .header-text-es, .header-text-ru {
+                width: 146%;
+            }
+            .header-text-it {
+                width: 114%;
+            }
+            .header-text-bg, .header-text-fr {
+                width: 122%;
+            }
+            .header-text {
+                display: flex;
+                flex-flow: column wrap;
+                justify-content: center;
+                text-align: left !important;
+                .header-title {
+                    font-size: 49px;
+                    font-weight: 600;
+                }
+                .header-description{
+                    margin-top: 3%;
+                }
+            }
+            .app-download-section {
+                display: flex;
+                align-items: center;
+                a:hover, a:focus {
+                    transform: scale(1.00,1.05);
+                }
+                .app-store-btn {
+                    margin-left: 38px;
+                }
+            }
+        }
+        .mobile-app-image {
+            height: 70%;
+            position: relative;
+            bottom: -10%;
+        }
+    }
+    .page-content-container { 
+        .m-t-40 {
+            margin-top: 40px;
+        }
+        .m-t-b-40 {
+            margin : 40px 0;
+        }
+
+        .dark-block {
+            height: 650px;
+            color:#fff;
+            background-color: #000;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+    
+        .light-block {
+            min-height: 590px;
+            background: #fff;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            .grid-section {
+                display: grid;
+                .grid-item {
+                    width: 94%;
+                    height: 300px;
+                    font-weight: 500;
+                    background-color: #f3f3f3;
+                    border-radius: 6px;
+                    margin-bottom: 30px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    img {
+                        margin: 8% 0% 15%;
+                    }
+                    div {
+                        padding: 0% 8%;
+                    }
+                }
+            }
+        }
+
+        #support-contact-block{
+            height: 640px !important;
+        }
+
+        .section-header {
+            font-size: 40px;
+            font-weight: 600;
+            padding: 20px 0;  
+        }
+
+        .highlight-text {
+            color: #34E834;
+            &.download-text {
+                height: 76px;
+                padding-top: 14px;
+                font-size: 22px;
+                font-weight: 500;
+            }
+        }
+
+        .center-align {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 32px;
+        }
+
+        .vertical-align {
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .global-markets{
+            flex-direction: column;
+            .markets-heading {
+                font-size: 47px;
+                font-weight: 500;
+                line-height: 1.5em;
+                width: 39%;
+                text-align: center;
+            }
+            .trade-options {
+                font-size: 16px;
+                line-height: 1.75em;
+                flex-direction: column;
+                img {
+                    padding-right: 14px;
+                }
+                img:hover, img:focus {
+                    transform: scale(1.02, 1.00);
+                }
+            }
+        }
+        .text-center {
+            width: 60%;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        .trader-block {
+            height: 600px;
+            color:#fff;
+            background-color: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .center-align {
+                    text-align: center;
+                    padding-top: 10px;
+            }
+            .markets-heading {
+                margin-bottom: 35px;
+            }
+        }
+        .traders {
+            background-color: #e9e9e9;
+            color: #000;
+            box-shadow: -5px 7px 0px 0px #02ff23a3;
+            font-size: 26px;
+            font-weight: 800;
+            border-radius: 20px;
+            width: 390px;
+            margin: 0 20px;     
+            .download-metatrader {
+                padding: 10px 34px;
+            }
+            .download-metatrader,.download-ctrader {
+                    height: 76px;
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+            }
+            .metatrader-icon {
+                width: 60%;
+            }
+            .ctrader {
+                width: 35%;
+                position: relative;
+                top: -8%;
+                left: -6%;
+            }
+            .download-options {
+                img {
+                    width: 65%;
+                }
+                .google-play {
+                    background: url(../../assets/img/mobile_trading_app/trade-google-play.png) no-repeat !important;
+                    height: 50px;
+                    width: 52px;
+                    margin : 0 48px;
+                }
+                .google-play:focus, .google-play:hover {
+                background : url(../../assets/img/mobile_trading_app/trade-google-play-g.png) no-repeat !important;
+                }
+                .app-store {
+                    background: url(../../assets/img/mobile_trading_app/trade-mac-client.png) no-repeat !important;
+                    height: 58px;
+                    width: 52px;
+                    margin : 0 48px;
+                }
+                .app-store:focus, .app-store:hover {
+                background : url(../../assets/img/mobile_trading_app/trade-mac-client-g.png) no-repeat !important;
+                }
+            }
+        }
+        .traders:focus, .traders:active, .traders:hover{
+            background-color: #f3f3f3;
+        }
+    }
+    @media screen and (max-width: 2400px) {
+        .header-container {
+            width: 102%;
+            height: 650px;
+            margin-top: 60px;
+            .header-text {
+                .header-title {
+                    width: 94%;
+                }
+            }
+            .app-download-section {
+                height: 30%;
+            }
+        }
+        .mobile-app-image {
+            height: 80%;
+        }
+        .page-content-container {
+            .upload-documents-block {
+                height: 650px;
+            }
+            .global-markets {
+                .markets-heading-my, .markets-heading-vn {
+                    width: 42%;
+                }
+                .markets-heading-ar {
+                    width: 87%;
+                }
+                .markets-heading-ru {
+                    width: 48%;
+                }
+                .markets-heading-th {
+                    width: 33%;
+                }
+            }
+        }
+        .grid-section {
+            grid-template-columns: 33% 33% 33%;
+            padding-top: 3%;
+            margin: 0 20% 3% 22%;
+        }
+    }
+
+    @media screen and (max-width: 1440px) {
+        .mobile-page-header-container {
+            height: 865px;
+            .header-container {
+                width: 86%;
+                margin-left: 15%;
+                .header-text-cn {
+                    width: 71%;
+                }
+                .header-text-vn, .header-text-id, .header-text-ko {
+                    width: 82%;
+                }
+                .header-text-es, .header-text-hr {
+                    width: 95%;
+                }
+                .header-text-pt{
+                    width: 98%;
+                }
+                .header-text-th, .header-text-tw {
+                    width: 78%;
+                }
+                .header-text-ru {
+                    width: 109%;
+                }
+                .header-text-my,.header-text-fr {
+                    width: 105%;
+                }
+                .header-text-it,.header-text-de {
+                    width: 84%;
+                }
+                .header-title {
+                    width: 92%;
+                }
+                .app-download-section {
+                height: 24%;
+            }
+            }
+            .mobile-app-image {
+                height: 60%;
+                position: relative;
+                bottom: -16%;
+            }
+        }
+        .page-content-container {
+            .light-block {
+                .grid-section {
+                    margin: 0 6% 3% 7%;
+                }
+            }
+            .vertical-align {
+                width: 36%;
+                #deposit-section-header {
+                    width: 103%;
+                }
+                .deposit-funds-text,.upload-documents-text {
+                    width: 110%;
+                }
+            }
+            .global-markets {
+                .markets-heading {
+                    width: 57%;
+                }
+                /* .markets-heading-cn {
+                    width: 60%;
+                } */
+                .markets-heading-th, .markets-heading-vn, .markets-heading-my {
+                    width: 50% !important;
+                }
+                .markets-heading-cn, .markets-heading-ko {
+                    width: 42%;
+                }
+                .markets-heading-ru {
+                    width: 55%;
+                }
+            }
+        }
+        #dots-image{
+            width: 94%;
+        }
+    }
+
+    @media screen and (max-width : 1026px){
+        .mobile-page-header-container {
+            .header-container {
+                width: 95%;
+                height: 350px;
+                margin-top: 40px;
+                margin-left: 11%;
+                .header-title {
+                    width: 85%;
+                    font-size: 40px !important;
+                }
+                .app-download-section {
+                    height: 50%;
+                    img {
+                        width: 80%;
+                    }
+                    .app-store-btn {
+                        margin : 0
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .mobile-page-header-container {
+            grid-template-columns: 100%;
+            min-height: 850px;
+            background: #fff url(../../assets/img/mobile_trading_app/header_background_mobile.png) no-repeat;
+            background-size: cover;
+            background-position: bottom left;
+            .header-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                margin-left: 0%;
+                .header-text {
+                    text-align: center !important;
+                    .header-title {
+                        width: 71%;
+                        margin-left: 10%;
+                    }
+                }
+                .header-text-en {
+                    width: 75%;
+                }
+                .header-text-ar {
+                    .header-title {
+                        width: 98%;
+                        margin: 0;
+                    }
+                    .header-description {
+                        padding: 0 4%;
+                    }
+                }
+                .header-text-ko {
+                    width: 94%;
+                }
+                .header-text-es {
+                    width: 93%;
+                }
+                .header-text-it {
+                    width: 88%;
+                }
+                .header-text-tw {
+                    width: 83%;
+                }
+                .header-text-my {
+                    .header-description {
+                        padding: 0 5%;
+                    }
+                }
+                .header-text-de {
+                    width: 102%;
+                    .header-description {
+                        padding: 0% 3%;
+                    }
+                }
+                .header-text-ru {
+                    width: 109%;
+                    .header-description {
+                        padding: 0% 10%;
+                    }
+                }
+                .header-text-fr {
+                    width: 107%;
+                    .header-description {
+                        padding: 0% 8%;
+                    }
+                }
+                .header-text-bg {
+                    width: 98%;
+                    .header-description {
+                        padding: 0 2%;
+                    }
+                }
+                .header-text-hr {
+                    width: 109%;
+                    .header-description {
+                        padding: 0 8%;
+                    }
+                }
+                .app-download-section {
+                    justify-content: center;
+                    img {
+                        width: 78%;
+                    }
+                }
+            }
+            .mobile-app-image {
+                height: 57%;
+                bottom: -8%;
+            }
+        }
+        .page-content-container {
+            .light-block {
+                .grid-section {
+                    .grid-item {
+                        min-height: 240px;
+                        font-size: 16px;
+                    }
+                }
+            }
+            .support-contact-img-section {
+                padding-left: 4%;
+                img {
+                    width: 98%;
+                }
+            }
+            .support-contact-section {
+                width: 50%;
+                #support-section-text {
+                    width: 80%;
+                }
+            }
+            .vertical-align {
+                #deposit-section-header {
+                    overflow-wrap: break-word;
+                }
+            }
+            #text-center {
+            width: 75%;
+            }
+            .global-markets {
+                .markets-heading {
+                    font-size: 40px;
+                    width: 88% !important;
+                }
+                .markets-heading-th, .markets-heading-ru {
+                width: 71% !important;
+                }
+                .markets-heading-tw {
+                width: 80% !important;
+                }
+            }
+            .trader-block {
+                height: 380px;
+            }
+            .traders {
+                width: 315px;
+                height: 175px;
+            }
+        }
+        .header-dots-image {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 568px) {
+        .mobile-page-header-container {
+            min-height: 600px;
+            height: 650px !important;
+            grid-template-columns: 100%;
+            .header-container {
+                width: 100%;
+                height: 280px;
+                margin-top: 10%;
+                .header-text {
+                    .header-title {
+                        width: 63%;
+                        font-size: 26px !important;
+                        margin-left: 18%;
+                    }
+                    .header-description {
+                        font-size: 15px;
+                        padding: 2px 16px;
+                    }
+                }
+                .header-text-hr {
+                    width: 104%;
+                }
+                .header-text-de {
+                    width: 90%;
+                }
+                .header-text-ar {
+                    width: 96%;
+                    .header-title {
+                        width: 94%;
+                        margin-left: 0;
+                    }
+                }
+                .header-text-bg {
+                    .header-title {
+                        width: 80%;
+                        margin-left: 8%;
+                    }
+                }
+                .header-text-it {
+                    width: 96%;
+                    .header-title {
+                        width: 81%;
+                        margin-left: 11%;
+                    }
+                }
+                .app-download-section {
+                    height: 38%;
+                    padding-top: 14%;
+                    img {
+                        width: 66%;
+                    }
+                }
+            }
+            .mobile-app-image {
+                    height: 39%;
+                    bottom: -10%;
+            }
+        }
+        .page-content-container {
+            padding-top: 20px;
+            .light-block {
+                flex-direction: column;
+                .grid-section {
+                    grid-template-columns: 50% 50%;
+                    .grid-item {
+                        min-height: 220px;
+                        font-size: 14px;
+                    }
+                }
+            }
+            .section-header {
+                    font-size: 20px;
+                    padding: 10px 0;
+            }
+            .dark-block {
+                height: 660px;
+                flex-direction: column;
+            }
+            .m-t-b-40 {
+                    margin: 10px 0;
+                    img {
+                        height: 420px;
+                    }
+            }
+            .vertical-align {
+                font-size: 14px;
+                width: 90%;
+                height: 160px;
+                align-items: center;
+                text-align: center;
+                div {
+                    img {
+                        width: 50%;
+                    }
+                }
+                #deposit-section-header {
+                    width: 88%;
+                }
+                .deposit-funds-text{
+                    width: 88%;
+                }
+                .upload-documents-text {
+                    width: 105%;
+                }
+            }
+            .global-markets {
+                .markets-heading {
+                    font-size: 22px;
+                    width: 89%;
+                }
+                .trade-options {
+                    width: 93%;
+                    font-size: 14px;
+                    .download-text {
+                        height: 58px;
+                    }
+                    div {
+                        margin: 0 30px;
+                        img {
+                            width: 48%;
+                            padding-right: 10px;
+                        }
+                    }
+                }
+            }
+            .support-contact-img-section {
+                width: 86%;
+            }
+            .upload-documents-block {
+                height: 610px;
+            }
+            .trader-block {
+                height: 506px;
+                .highlight-text {
+                    font-size: 14px;
+                }
+                .markets-heading {
+                    .highlight-text {
+                        font-size: 16px;
+                    }
+                    text-align: center;
+                    margin-bottom: 15px;
+                    font-size: 16px;
+                }
+                .trading-options {
+                    flex-direction: column;
+                    .traders {
+                        width: 270px;
+                        height: 150px;
+                        margin: 12px 0;
+                    }
+                    .download-metatrader,.download-ctrader {
+                        font-size: 16px;
+                        height: 50px;
+                    }
+                }
+            }
+            .traders {
+                .download-options {
+                    .google-play, .app-store {
+                        margin: 0 20px;
+                    }
+                }
+            }
+        }
+        #support-section-text {
+            width: 96%;
+        }    
+    }
+}
+.locale-ar {
+    .header-container {
+        direction: rtl !important;
+    }
+}

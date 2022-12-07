@@ -1,0 +1,23 @@
+<% setI18nPrefix('menu.forex-trading-platform-ctrader') %>
+<div class="page-header__menu">
+<%
+(cysec
+  ?
+    [
+      'forex-trading-platform-ctrader-ctrader-windows'
+    ]
+  :
+    [
+      'forex-trading-platform-ctrader-ctrader-windows',
+      'forex-trading-platform-ctrader-ctrader-web',
+      'forex-trading-platform-ctrader-ctrader-iphone',
+      'forex-trading-platform-ctrader-ctrader-android',
+      'forex-trading-platform-ctrader-calgo',
+      'forex-trading-platform-ctrader-ctrader-copy-trading'
+    ]
+).map(e => { %>
+      <div class="menu-item<%= typeof current !== 'undefined' && e === current ? ' current-page' : '' %>"><a id="platform_ctrader_menu_1" href="<%= localePath(e) %>" class="menu-title"><%-$t(e)%></a></div>
+    <% }) %>
+    <div class="menu-item menu-switch"><span class="menu-icon icon-switch"></span></div>
+  </div>
+<% prevI18nPrefix() %>

@@ -1,0 +1,340 @@
+<% setI18nPrefix('pages.trading-accounts.islamic-account') %>
+<link rel="stylesheet" href="<%=md5('/css/pages/islamic-account.css')%>">
+<meta name="description" content="<%- $t('meta', true) %>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+
+    <div class="single-page islamic-account-page">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('islamic_account_page_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('islamic_account_page_2')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="islamic_account_1" class="icm-btn icm-btn-primary" href="<%=localePath('open-trading-account-live') %>"><%-$t('openaccount')%></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+            <%- include('./_menu.ejs', { current: 'trading-accounts-islamic-account' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="market-facts-card">
+                        <div class="facts-header">
+                            <div class="header-label"><%-$t('islamic_account_page_9')%></div>
+                            <div class="header-title"><%-$t('islamic_account_page_10')%></div>
+                        </div>
+                        <div class="facts-items">
+                            <div class="facts-item"><%-$t('islamic_account_page_11')%></div>
+                            <div class="facts-item">
+                                <% if (isAPACcountry(countryCode)) { %>
+                                    <%-$t('islamic_account_page_12_apac')%>
+                                <% } else { %>
+                                    <%-$t('islamic_account_page_12')%>
+                                <% } %>
+                            </div>
+                            <div class="facts-item"><%-$t('islamic_account_page_13')%></div>
+                            <div class="facts-item"><%-$t('islamic_account_page_15')%></div>
+                            <div class="facts-item"><%-$t('islamic_account_page_16')%></div>
+                        </div>
+                        <div class="action-buttons-container">
+                            <a id="islamic_account_2" class="action-button icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('islamic_account_page_17')%></a>
+                        </div>
+                    </div>
+                    <div class="first-section">
+                        <div class="page-first-text">
+                            <p><%-$t('islamic_account_page_18')%></p>
+                            <p><%-$t('islamic_account_page_19')%></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="page-section">
+                    <h1><%-$t('islamic_account_page_20')%></h1>
+                    <p><%-$t('islamic_account_page_21')%></p>
+                    <p><a id="islamic_account_3" class="click-here-pdf" href="<%- getCDN() %>/uploads/islamic-terms-and-conditions.pdf" target="_blank"><%-$t('clickhere')%></a><%-$t('islamic_account_page_221')%></p>
+                </div>
+                <br>
+                <div class="page-section">
+                    <div class="flex-two-columns">
+                        <div class="left1">
+                            <div class="head">
+                                <div class="left2h"><%-$t('instrument')%></div>
+                                <div class="right2h"><%-$t('charges')%></div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">AUDSGD</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 5 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">EURDKK</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 5 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">EURHKD</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 5 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">NOKSEK</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 5 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">NOKJPY</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 5 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">SEKJPY</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 5 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">SGDJPY</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 5 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">USDHKD</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 5 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">USDSEK</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 5 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">USDTHB</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 5 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">USDCZK</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 5 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">CHFSGD</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 10 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">EURNOK</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 10 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">EURPLN</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 10 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">EURSEK</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 10 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">EURSGD</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 10 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">GBPTRY</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 50 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">GBPDKK</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 10 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">GBPNOK</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 10 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="separator"></div>
+                        <div class="right1">
+                            <div class="head second">
+                                <div class="left2h"><%-$t('instrument')%></div>
+                                <div class="right2h"><%-$t('charges')%></div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">GBPSEK</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 10 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">GBPSGD</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 10 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">USDCNH</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 10 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">USDDKK</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 10 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">USDHUF</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 10 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">USDNOK</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 10 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">USDPLN</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 10 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">XBRUSD</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 10 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">XTIUSD</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 10 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">EURZAR</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 20 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">USDMXN</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 20 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">USDZAR</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 20 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">USDRUB</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 30 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">EURTRY</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 50 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">USDTRY</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 50 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="left2r">XNGUSD</div>
+                                <div class="right2r">
+                                    <div class="left3">$ 80 </div>
+                                    <div class="right3"><%-$t('perlot')%></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="triplechargesapplicableonfridaynight">* <%-$t('triplechargesapplicableonfridaynight')%></div>
+                </div>
+            </div>
+
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('islamic_account_page_23')%></div>
+                    <div class="global-today"><%-$t('islamic_account_page_24')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="islamic_account_4" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('islamic_account_page_25')%></a>
+                        <a id="islamic_account_5" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('islamic_account_page_26')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

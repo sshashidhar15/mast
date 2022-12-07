@@ -1,0 +1,38 @@
+
+@import '../_global';
+
+.contactus-card-container {
+    max-width: $icm-max-ui-card-width;
+    padding: $icm-padding-m $icm-padding-m $icm-padding-std $icm-padding-m !important;
+    background-color: $icm-bg-color-black;
+    font-weight: $icm-font-weight-light;
+    color: $icm-font-color-white;
+    line-height: 1.2;
+    &__heading {
+        font-size: $font-size-h3;
+        padding-bottom: $icm-padding-std;
+    }
+    &__message {
+        font-size: $font-size-small;
+        padding-bottom: $icm-padding-std;
+    }
+    &__cta-button {
+        padding-bottom: $icm-padding-std;
+    }
+    &__phone-number, &__email-us {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        border-top: 1px solid #2f2f2f;
+        font-size: $font-size-small;
+    }
+    &__phone-number {
+
+    }
+    &__email-us {
+        border-bottom: 1px solid #2f2f2f;
+        a, a:hover {
+            color: $icm-color-bright-greeen;
+            text-decoration: none;
+        }
+    }
+}

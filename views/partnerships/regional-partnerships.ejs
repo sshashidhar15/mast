@@ -1,0 +1,95 @@
+<% setI18nPrefix('pages.partnerships.regional-partnerships') %>
+<meta name="description" content="<%- $t('meta', true) %>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/regional-partnerships.css')%>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+    <div class="single-page regional-partnerships">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('regional_partnerships_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('regional_partnerships_2')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="regional_partnerships_1" class="icm-btn icm-btn-primary scroll-to-form"><%- $t('regional_partnerships_3') %></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'partnerships-regional-partnerships' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="double-sidebar-block">
+                        <div class="sidebar-cta-card-container sidebar-top-card random-background rnd-back-1">
+                            <div class="bottom-block">
+                                <p class="bottom-block__message"><%-$t('regional_partnerships_8')%><br><b><%-$t('regional_partnerships_9')%></b></p>
+                                <div class="icm-button-wrapper bottom-block__cta-button">
+                                    <a id="regional_partnerships_2" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('regional_partnerships_12')%></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-card contact-block">
+                            <div class="contact-header">
+                                <div class="header-label"><%-$t('regional_partnerships_13')%></div>
+                                <div class="header-title"><%-$t('regional_partnerships_14')%></div>
+                            </div>
+                            <div class="contact-pre-imaged chat-img">
+                                <div><%-$t('contact_card_help')%></div>
+                            </div>
+                            <% if (!fsa && !scb && !fsc && !cima) { %>
+                            <div class="contact-phone">
+                                <div><%-$t('contact_card_phone')%></div>
+                            </div>
+                            <% } %>
+                            <div class="contact-pre-imaged email-img">
+                                <% if (asic) {%>
+                                    <div><%-$t('contact_card_email_asic')%></div>
+                                <% } else { %>
+                                    <div><%-$t('contact_card_email')%></div>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="first-section">
+                        <div class="page-first-text"><%-$t('regional_partnerships_4')%></div>
+                        <p><%-$t('regional_partnerships_501')%></p>
+                        <h1><%-$t('regional_partnerships_5')%></h1>
+                        <div class="pre-image-item"><%-$t('regional_partnerships_6')%></div>
+                        <div class="pre-image-item"><%-$t('regional_partnerships_7')%></div>
+                        <div class="pre-image-item"><%-$t('regional_partnerships_10')%></div>
+                        <div class="pre-image-item"><%-$t('regional_partnerships_11')%></div>
+                        <div class="pre-image-item"><%-$t('regional_partnerships_18')%></div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content highlighted-content">
+                <div class="page-section">
+                    <h1><%-$t('regional_partnerships_19')%></h1>
+                    <p><%-$t('regional_partnerships_20')%></p>
+                    <p><%-$t('regional_partnerships_2011')%></p>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="page-section">
+                    <p><%-$t('regional_partnerships_25')%></p>
+                    <div class="icm-form-block-container">
+                        <%- include('../_partials/components/contact-us-form-white-label-partnerships.ejs') %>
+                        <% setI18nPrefix('pages.partnerships.regional-partnerships') %>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('regional_partnerships_21')%></div>
+                    <div class="global-today"><%-$t('regional_partnerships_22')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="regional_partnerships_3"  class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('regional_partnerships_23')%></a>
+                        <a id="regional_partnerships_4"  class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('regional_partnerships_24')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

@@ -1,0 +1,247 @@
+@import '../global';
+
+.single-page.page-forex-calculators {
+    a {
+        /* color: rgba(12, 155, 255, 0.74) !important; */
+        cursor: pointer;
+    }
+
+    .page-header {
+        background: url(/assets/img/single_market_page/forex-calculators-banner.png) no-repeat center right;
+
+        .icm-button-wrapper.page-header__primary-button
+            a.icm-btn.icm-btn-primary {
+            border-radius: 2px !important;
+            padding: 25px !important;
+            font-size: 20px !important;
+            font-weight: 900 !important;
+            text-transform: uppercase;
+        }
+    }
+    .page-content-container {
+        background: #fff !important;
+    }
+    .page-content.global-markets-today {
+        background-image: url(/assets/img/single_market_page/forex-calculators-btm-bg.png);
+    }
+    .page-header__menu-container .page-header__menu .menu-item .menu-title {
+        padding-left: 0 !important;
+        text-transform: uppercase;
+    }
+    .page-content.global-markets-today .icm-button-wrapper {
+        a.live {
+            border-radius: 0 !important;
+            padding: 25px !important;
+            font-size: 20px !important;
+            font-weight: 900 !important;
+            text-transform: uppercase;
+        }
+        a.demo {
+            border-radius: 0 !important;
+            padding: 25px !important;
+            font-size: 20px !important;
+            font-weight: 900 !important;
+            text-transform: uppercase !important;
+            background: #000 !important;
+            color: #fff !important;
+            margin-left: 9px;
+        }
+    }
+    .grid-section {
+        display: grid;
+        margin-top: 90px !important;
+        grid-template-columns: auto 285px;
+
+        .grid-item {
+            &.gi-2 {
+                padding-left: 50px;
+            }
+        }
+    }
+    @media screen and (max-width: 940px) {
+        .grid-section {
+            grid-template-columns: 100%;
+
+            .h-space {
+                display: none;
+            }
+            a.h-card {
+                justify-self: center !important;
+
+                &.h-2 {
+                    border-top: 1px solid #c1c1c1;
+                    border-bottom: 1px solid #c1c1c1;
+                }
+            }
+        }
+    }
+
+    .forex-calculators-container {
+        * {
+            font-family: Roboto!important;
+        }
+        >h2 {
+            margin-bottom: 64px;
+            font-size: 40px;
+            color: #4a4a4a;
+        }
+        .icm-forex-calculators {
+            .calculators {
+                margin: 0;
+                background: none;
+                background-image: none;
+
+                .calculator-top {
+                    border: none;
+                    border-radius: 0px;
+                    padding-bottom: 64px;
+                    box-shadow: 0 1px 3px #000;
+                }
+                .calc-header {
+                    margin-bottom: 64px;
+                    .calc-selector {
+                        font-size: 40px;
+                        font-weight: 300;
+
+                        &::after {
+                            line-height: 50px;
+                        }
+                    }
+                }
+                .calc-label {
+                    margin-left: 0;
+                    color: #4a4a4a;
+                    font-size: 24px;
+                    font-weight: 100;
+                }
+                .calc-value {
+                    padding-left: 0;
+                    font-size: 24px;
+
+                    &.calc-input .custom-input input {
+                        font-size: 24px;
+                    }
+                }
+                .calc-value.calc-selector {
+                    height: 64px;
+                    line-height: 64px;
+                    padding-left: 32px;
+                    font-size: 24px;
+                    border: 0.5px solid #979797;
+
+                    &:after {
+                        color: #00C800;
+                        width: 64px;
+                        height: 64px;
+                        line-height: 64px;
+                    }
+                }
+                .calculator-bottom {
+                    background: transparent;
+                    color: rgba(11, 10, 20, 0.8);
+                    padding: 0;
+
+                    .info-container.info-left {
+                        display: none;
+                        flex: 2;
+                        margin-right: 0;
+                        padding: 130px 10px 60px 120px;
+                        position: relative;
+
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            left: 30px;
+                            top: 130px;
+                            width: 64px;
+                            height: 64px;
+                            opacity: 0.4;
+                            letter-spacing: -5px;
+                            background: transparent no-repeat center center;
+                            background-size: contain;
+                            background-image: url(/assets/img/single_market_page/careers-quote.png);
+                        }
+
+                        b,
+                        .info-bold {
+                            font-size: 0;
+                            font-weight: 100 !important;
+                            font-style: normal;
+                            font-stretch: normal;
+                            line-height: 1.23;
+                            letter-spacing: -1px;
+                            text-align: left;
+                            color: rgba(11, 10, 20, 0.8);
+
+                            *:first-child {
+                                font-size: 48px;
+                            }
+                        }
+
+                        .info-footer.calc-author-label {
+                            font-size: 14px;
+                            font-weight: bold;
+                            font-style: normal;
+                            font-stretch: normal;
+                            line-height: 2.5;
+                            letter-spacing: -0.3px;
+                            text-transform: uppercase;
+                            margin-top: 30px;
+                            text-align: left;
+                            color: rgba(11, 10, 20, 0.74);
+
+                            &::before {
+                                content: "- ";
+                            }
+                        }
+
+                    }
+                    .info-container.info-right {
+                        flex: 1;
+                        background: #303030;
+                        color: rgba(255, 255, 255, 0.68);
+                        letter-spacing: -0.3px;
+                        padding: 40px;
+
+                        span.info-bold.calc-formula-label {
+                            font-size: 48px;
+                            font-weight: 100;
+                            font-style: normal;
+                            font-stretch: normal;
+                            line-height: 1.04;
+                            letter-spacing: -1px;
+                            text-align: left;
+                            color: rgba(255, 255, 255, 0.8);
+                        }
+                        .calc-explain-text {
+                            line-height: 1.93;
+                            text-transform: uppercase;
+                            font-size: 14px;
+                        }
+                        .calc-formula-result-label {
+                            color: #fff;
+                        }
+
+                        .info-footer2 {
+                            font-size: 12px;
+                            font-style: italic;
+                            line-height: 2;
+                            margin-top: 30px;
+                            text-align: left;
+                        }
+                    }
+                }
+                .calc-result {
+                    font-weight: bold;
+                }
+            }
+            .custom-list {
+                margin-top: -2px;
+                border: 0.5px solid #979797;
+                .custom-list-item {
+                    cursor: default;
+                }
+            }
+        }
+    }
+}

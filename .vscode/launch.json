@@ -1,0 +1,302 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "icmarkets.com/en from Cyprus",
+            "env": {
+                "COUNTRY_CODE": "cy",
+                "IS_COM_HOST": "true"
+            },
+            "program": "${workspaceFolder}/bin/www",
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "icmarkets.com from Cyprus",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "env": {
+                "COUNTRY_CODE": "cy"
+            },
+            "program": "${workspaceFolder}/bin/www"
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "icmarkets.com from USA",
+            "env": {
+                "COUNTRY_CODE": "us"
+
+            },
+            "program": "${workspaceFolder}/bin/www",
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "icmarkets.com from Bahamas",
+            "env": {
+                "COUNTRY_CODE": "bs"
+
+            },
+            "program": "${workspaceFolder}/bin/www",
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "icmarkets.bs from Cyprus",
+            "env": {
+                "COUNTRY_CODE": "cy",
+                "IS_BS_HOST": "true"
+            },
+            "program": "${workspaceFolder}/bin/www",
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "icmarkets.sc from Cyprus",
+            "env": {
+                "COUNTRY_CODE": "cy",
+                "IS_SC_HOST": "true"
+            },
+            "program": "${workspaceFolder}/bin/www",
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "icmarkets.bs from Bahamas",
+            "env": {
+                "COUNTRY_CODE": "bs",
+                "IS_BS_HOST": "true"
+            },
+            "program": "${workspaceFolder}/bin/www",
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "icmarkets.bs from Australia",
+            "env": {
+                "COUNTRY_CODE": "au",
+                "IS_BS_HOST": "true"
+            },
+            "program": "${workspaceFolder}/bin/www",
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "icmarkets.com from Cyprus LOCAL REDIS",
+            "env": {
+                "COUNTRY_CODE": "cy",
+                "REDIS_DB_HOST": "localhost"
+
+            },
+            "program": "${workspaceFolder}/bin/www",
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "icmarkets.com from Australia LOCAL REDIS",
+            "env": {
+                "COUNTRY_CODE": "au",
+                "REDIS_DB_HOST": "localhost"
+
+            },
+            "program": "${workspaceFolder}/bin/www",
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "icmarkets.com from China",
+            "env": {
+                "COUNTRY_CODE": "cn"
+
+            },
+            "program": "${workspaceFolder}/bin/www",
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "icmarkets.com from Australia",
+            "env": {
+                "COUNTRY_CODE": "au"
+
+            },
+            "program": "${workspaceFolder}/bin/www",
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "icmarkets.com from Italy",
+            "env": {
+                "COUNTRY_CODE": "it"
+
+            },
+            "program": "${workspaceFolder}/bin/www",
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "icmarkets.com from India",
+            "env": {
+                "COUNTRY_CODE": "in"
+
+            },
+            "program": "${workspaceFolder}/bin/www",
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "icmarkets.com from Russia",
+            "env": {
+                "COUNTRY_CODE": "ru"
+
+            },
+            "program": "${workspaceFolder}/bin/www",
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "icmarkets.eu from Cyprus",
+            "env": {
+                "COUNTRY_CODE": "cy",
+                "IS_EU_HOST": "true"
+            },
+            "program": "${workspaceFolder}/bin/www",
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "icmarkets.eu from China",
+            "env": {
+                "COUNTRY_CODE": "cn",
+                "IS_EU_HOST": "true"
+            },
+            "program": "${workspaceFolder}/bin/www",
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "icmarkets.eu from Australia",
+            "env": {
+                "COUNTRY_CODE": "au",
+                "IS_EU_HOST": "true"
+
+            },
+            "program": "${workspaceFolder}/bin/www",
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "icmarkets.eu from Italy",
+            "env": {
+                "COUNTRY_CODE": "it",
+                "IS_EU_HOST": "true"
+
+            },
+            "program": "${workspaceFolder}/bin/www",
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "icmarkets.eu from Italy LOCAL REDIS",
+            "env": {
+                "COUNTRY_CODE": "it",
+                "IS_EU_HOST": "true",
+                "REDIS_DB_HOST": "localhost"
+
+            },
+            "program": "${workspaceFolder}/bin/www",
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "icmarkets.eu from India",
+            "env": {
+                "COUNTRY_CODE": "in",
+                "IS_EU_HOST": "true"
+
+            },
+            "program": "${workspaceFolder}/bin/www",
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "icmarkets.eu from Russia",
+            "env": {
+                "COUNTRY_CODE": "ru",
+                "IS_EU_HOST": "true"
+
+            },
+            "program": "${workspaceFolder}/bin/www",
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "icmarkets-zhv.com from Cyprus",
+            "env": {
+                "COUNTRY_CODE": "cy",
+                "IS_ZH_HOST": "true"
+            },
+            "program": "${workspaceFolder}/bin/www",
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "icmarkets-zhv.com from China",
+            "env": {
+                "COUNTRY_CODE": "cn",
+                "IS_ZH_HOST": "true"
+            },
+            "program": "${workspaceFolder}/bin/www",
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "icmarkets-zhv.com from Australia",
+            "env": {
+                "COUNTRY_CODE": "au",
+                "IS_ZH_HOST": "true"
+
+            },
+            "program": "${workspaceFolder}/bin/www",
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "icmarkets-zhv.com from Italy",
+            "env": {
+                "COUNTRY_CODE": "it",
+                "IS_ZH_HOST": "true"
+
+            },
+            "program": "${workspaceFolder}/bin/www",
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "icmarkets-zhv.com from India",
+            "env": {
+                "COUNTRY_CODE": "in",
+                "IS_ZH_HOST": "true"
+
+            },
+            "program": "${workspaceFolder}/bin/www",
+        },
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "icmarkets-zhv.com from Russia",
+            "env": {
+                "COUNTRY_CODE": "ru",
+                "IS_ZH_HOST": "true"
+
+            },
+            "program": "${workspaceFolder}/bin/www",
+        }
+    ]
+}

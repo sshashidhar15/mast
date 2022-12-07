@@ -1,0 +1,196 @@
+
+<div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4">
+  <h1 class="h3">Move translations</h1>
+</div>
+<p style="font-size:10pt;">Move is height order operation which calculate delta changes between several translations and create new pending translation based on calculated delta before. Translations delta can be filtered by key masks.</p>
+<style>
+ul {
+  list-style-type: none;
+}
+li {
+  display: flex;
+}
+li.center {
+  align-items: center;
+}
+.key {
+  color: black;
+}
+.nested {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+.key {
+  padding: 10px 10px
+}
+
+.value {
+  padding: 10px 10px
+}
+
+
+.fa-folder {
+  margin: 10px 10px;
+}
+.fa-folder-open {
+  margin: 10px 10px;
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+
+}
+.one-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 30px;
+}
+.arrow {
+  font-size: 300%;
+}
+#_button_restore_default_settings
+    width: 100%;
+}
+#_ul_only_keys > li {
+    margin-top: 20px;
+}
+#_ul_only_keys > li:hover {
+    color: red;
+    margin-top: 20px;
+}
+#_input_note {
+    margin-bottom: 30px;
+}
+#_filter_keys, #_filter_values {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#_filter_include, #_filter_exclude, #_filter_search, #_filter_replace, #_select_regulator_from, #_select_regulator_to, #_select_lang_from, #_select_lang_to {
+    width: 45%;
+}
+#_button_move {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+#_ul_move_keys > li {
+    cursor: pointer;
+}
+#_ul_include, #_ul_exclude {
+    margin-top: 10px;
+}
+#_ul_include > li > i, #_ul_include > li > p, #_ul_exclude > li > i, #_ul_exclude > li > p {
+    cursor: pointer;
+}
+#_ul_include > li > i, #_ul_exclude > li > i {
+    padding-top: 4px;
+    margin-right: 5px;
+}
+#_ul_move_keys > li:hover {
+    font-style: italic;
+}
+#_ul_move_keys > li {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+.key {
+    left: 0;
+}
+.value_before, .value_after, .value_replaced {
+    right: 0;
+}
+.light {
+    font-weight: bold;
+}
+.replace-from {
+    background-color: red;
+    color: #fff;
+}
+.replace-to {
+    background-color: blue;
+    color: #fff;
+}
+.value_searched, .value_replaced {
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+}
+.key-lang {
+    background-color: grey;
+    color: white;
+    font-weight: bold;
+    border-style: solid;
+    border-radius: 10px;
+    width: 30px;
+    text-align: center;
+}
+.key-and-lang {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.delete-filter:hover {
+    color: red;
+}
+</style>
+<div class="row">
+  <div class="col-md-12 mb-4 list">
+    <div class="one-line">
+        <button id="_button_restore_default_settings" class="btn btn-secondary">Restore controls to default</button>
+    </div>
+    <div class="one-line">
+      <select disabled id="_select_regulator_from" class="form-control"></select>
+      <div class="arrow">↦</div>
+      <select disabled id="_select_regulator_to" class="form-control"></select>
+    </div>
+    <div class="one-line">
+      <select disabled id="_select_lang_from" class="form-control"></select>
+      <div class="arrow">↦</div>
+      <select disabled id="_select_lang_to" class="form-control"></select>
+    </div>
+    <input id="_input_note" class="form-control" placeholder="Some Note for history"/>
+    <div id="_filter_keys">
+        <div id="_filter_include">
+            <label for="_input_include">Include key filter</label>
+            <input id="_input_include" class="form-control"/>
+            <ul id="_ul_include">
+                <li style="display:none;"></li>
+            </ul>
+        </div>
+        <div id="_filter_exclude">
+            <label for="_input_exclude">Exclude key filter</label>
+            <input id="_input_exclude" class="form-control"/>
+            <ul id="_ul_exclude">
+                <li style="display:none;"></li>
+            </ul>
+        </div>
+    </div>
+    <div id="_filter_values">
+        <div id="_filter_search">
+            <input id="_input_search" class="form-control" placeholder="Search"/>
+        </div>
+        <div id="_filter_replace">
+            <input id="_input_replace" class="form-control" placeholder="Replace"/>
+        </div>
+    </div>
+    <button disabled id="_button_move" class="one-line btn btn-primary">
+        <i>Loading translations</i>
+        <i id="_loading_translations_regulator"></i>
+        <i id="_loading_translations_lang"></i>
+        <b>🔃</b>
+    </button>
+    <ul id="_ul_move_keys"></ul>
+  </div>
+</div>
+
+<script src="<%=md5('/js/admin_views/move.js')%>"></script>

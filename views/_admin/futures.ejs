@@ -1,0 +1,401 @@
+<div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4">
+  <h1 class="h3">Actual Futures</h1>
+</div>
+<style>
+    .card {
+        border-radius: 20px;
+        margin-bottom: 20px;
+    }
+    .card-body {
+        display: flex;
+        flex-direction: column;
+    }
+    .btn.btn-sm.btn-primary.shadow-sm {
+        margin: 5px;
+    }
+    .history {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .revision {
+        width: 30px;
+        height: 25px;
+        margin: 5px 5px;
+        text-align: center;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: .2rem;
+        cursor: pointer;
+    }
+    .revision:hover {
+        border-color: black;
+    }
+    textarea {
+        margin: 5px 5px;
+        font-family: monospace;
+        background: #def;
+        border: none;
+        box-shadow: 2px 2px 7px 0px #666;
+    }
+    .buttons {
+        display: block;
+    }
+    button {
+        flex-grow: 1;
+    }
+    .selected {
+        font-weight: 900;
+        color: #000;
+    }
+</style>
+<div class="row">
+  <div class="col-md-12 mb-4">
+    <div class="card">
+      <div class="card-body">
+          <label for="index"><h3>Index (in JSON):</h3></label>
+          <textarea id="index" name="index" rows="20" cols="33">
+              <%- JSON.stringify(futuresIndex, null, 4) %>
+          </textarea>
+          <div id="index_history" class="history"></div>
+          <div class="buttons">
+              <button id="button_load_index_history" class="btn btn-sm btn-primary shadow-sm" onclick="load_index_history()">Load history</button>
+              <button id="button_save_index" class="btn btn-sm btn-primary shadow-sm" onclick="save_index()">Save</button>
+              <button id="button_save_index_all" class="btn btn-sm btn-primary shadow-sm" onclick="save_index_all()">Save for all regulators</button>
+          </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+          <label for="commodity"><h3>Commodity (in JSON):</h3></label>
+          <textarea id="commodity" name="commodity" rows="20" cols="33">
+              <%- JSON.stringify(futuresCommodity, null, 4) %>
+          </textarea>
+          <div id="commodity_history" class="history"></div>
+          <div class="buttons">
+              <button id="button_load_commodity_history" class="btn btn-sm btn-primary shadow-sm" onclick="load_commodity_history()">Load history</button>
+              <button id="button_save_commodity" class="btn btn-sm btn-primary shadow-sm" onclick="save_commodity()">Save</button>
+              <button id="button_save_commodity_all" class="btn btn-sm btn-primary shadow-sm" onclick="save_commodity_all()">Save for all regulators</button>
+          </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+          <label for="bonds"><h3>Bonds (in JSON):</h3></label>
+          <textarea id="bonds" name="bonds" rows="20" cols="33">
+              <%- JSON.stringify(futuresBonds, null, 4) %>
+          </textarea>
+          <div id="bonds_history" class="history"></div>
+          <div class="buttons">
+              <button id="button_load_bonds_history" class="btn btn-sm btn-primary shadow-sm" onclick="load_bonds_history()">Load history</button>
+              <button id="button_save_bonds" class="btn btn-sm btn-primary shadow-sm" onclick="save_bonds()">Save</button>
+              <button id="button_save_bonds_all" class="btn btn-sm btn-primary shadow-sm" onclick="save_bonds_all()">Save for all regulators</button>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BRANCH = location.pathname.split('/')[1]
+const LANG = Cookies.get('user_want_language') || location.pathname.split('/')[2]
+
+const validate_index = json => new Promise((y, n) => {
+    if (typeof json !== 'object') return n(new Error('index should be collection with typeof === object'))
+    if (!json.length) return n(new Error('index should be collection with length property'))
+    for (var i = 0;i < json.length;i++) {
+        if (Object.keys(json[i]).length !== 5) return n(new Error('index should have only 5 properties'))
+        if (!json[i].hasOwnProperty('name') || typeof json[i].name !== 'string') return n(new Error('name is required for index'))
+        if (!json[i].hasOwnProperty('start_date') || typeof json[i].start_date !== 'string') return n(new Error('start_date is required for index'))
+        if (!json[i].hasOwnProperty('close_only_date') || typeof json[i].close_only_date !== 'string') return n(new Error('close_only_date is required for index'))
+        if (!json[i].hasOwnProperty('expire_date') || typeof json[i].expire_date !== 'string') return n(new Error('expire_date is required for index'))
+        if (!json[i].hasOwnProperty('month') || typeof json[i].month !== 'string') return n(new Error('month is required for index'))
+    }
+    y()
+})
+
+const validate_commodity = json => new Promise((y, n) => {
+    if (typeof json !== 'object') return n(new Error('commodity should be collection with typeof === object'))
+    if (!json.length) return n(new Error('commodity should be collection with length property'))
+    for (var i = 0;i < json.length;i++) {
+        if (Object.keys(json[i]).length !== 5) return n(new Error('commodity should have only 5 properties'))
+        if (!json[i].hasOwnProperty('name') || typeof json[i].name !== 'string') return n(new Error('name is required for commodity'))
+        if (!json[i].hasOwnProperty('start_date') || typeof json[i].start_date !== 'string') return n(new Error('start_date is required for commodity'))
+        if (!json[i].hasOwnProperty('close_only_date') || typeof json[i].close_only_date !== 'string') return n(new Error('close_only_date is required for commodity'))
+        if (!json[i].hasOwnProperty('expire_date') || typeof json[i].expire_date !== 'string') return n(new Error('expire_date is required for commodity'))
+        if (!json[i].hasOwnProperty('month') || typeof json[i].month !== 'string') return n(new Error('month is required for commodity'))
+    }
+    y()
+})
+
+const validate_bonds = json => new Promise((y, n) => {
+    if (typeof json !== 'object') return n(new Error('bonds should be collection with typeof === object'))
+    if (!json.length) return n(new Error('bonds should be collection with length property'))
+    for (var i = 0;i < json.length;i++) {
+        if (Object.keys(json[i]).length !== 5) return n(new Error('index should have only 5 properties'))
+        if (!json[i].hasOwnProperty('name') || typeof json[i].name !== 'string') return n(new Error('name is required for bonds'))
+        if (!json[i].hasOwnProperty('start_date') || typeof json[i].start_date !== 'string') return n(new Error('start_date is required for bonds'))
+        if (!json[i].hasOwnProperty('close_only_date') || typeof json[i].close_only_date !== 'string') return n(new Error('close_only_date is required for bonds'))
+        if (!json[i].hasOwnProperty('expire_date') || typeof json[i].expire_date !== 'string') return n(new Error('expire_date is required for bonds'))
+        if (!json[i].hasOwnProperty('month') || typeof json[i].month !== 'string') return n(new Error('month is required for bonds'))
+    }
+    y()
+})
+
+const selected = {
+    index: null,
+    commodity: null,
+    bonds: null
+}
+
+index.oninput = event => {
+    try {
+        validate_index(JSON.parse(event.target.value))
+            .then(() => {
+                button_save_index.disabled = false
+                button_save_index_all.disabled = false
+            })
+            .catch(e => {
+                console.error(e)
+                button_save_index.disabled = true
+                button_save_index_all.disabled = true
+            })
+    } catch (e) {
+        console.error(e)
+        button_save_index.disabled = true
+        button_save_index_all.disabled = true
+    }
+}
+
+commodity.oninput = event => {
+    try {
+        validate_commodity(JSON.parse(event.target.value))
+            .then(() => {
+                button_save_commodity.disabled = false
+                button_save_commodity_all.disabled = false
+            })
+            .catch(e => {
+                console.error(e)
+                button_save_commodity.disabled = true
+                button_save_commodity_all.disabled = true
+            })
+    } catch (e) {
+        console.error(e)
+        button_save_commodity.disabled = true
+        button_save_commodity_all.disabled = true
+    }
+}
+
+bonds.oninput = event => {
+    try {
+        validate_bonds(JSON.parse(event.target.value))
+            .then(() => {
+                button_save_bonds.disabled = false
+                button_save_bonds_all.disabled = false
+            })
+            .catch(e => {
+                console.error(e)
+                button_save_bonds.disabled = true
+                button_save_bonds_all.disabled = true
+            })
+    } catch (e) {
+        console.error(e)
+        button_save_bonds.disabled = true
+        button_save_bonds_all.disabled = true
+    }
+}
+
+function save_index () {
+    fetch(
+        `/${BRANCH}/${LANG}/admin/futures/index`,
+        {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({json: JSON.parse(index.value)})
+        }
+    )
+        .then(() => alert('ok'))
+        .catch(e => alert(JSON.stringify(e)))
+}
+function save_commodity () {
+    fetch(
+        `/${BRANCH}/${LANG}/admin/futures/commodity`,
+        {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({json: JSON.parse(commodity.value)})
+        }
+    )
+        .then(() => alert('ok'))
+        .catch(e => alert(JSON.stringify(e)))
+}
+function save_bonds () {
+    fetch(
+        `/${BRANCH}/${LANG}/admin/futures/bonds`,
+        {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({json: JSON.parse(bonds.value)})
+        }
+    )
+        .then(() => alert('ok'))
+        .catch(e => alert(JSON.stringify(e)))
+}
+function save_index_all () {
+    fetch(
+        `/${BRANCH}/${LANG}/admin/futures/index_all`,
+        {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({json: JSON.parse(index.value)})
+        }
+    )
+        .then(() => alert('ok'))
+        .catch(e => alert(JSON.stringify(e)))
+}
+function save_commodity_all () {
+    fetch(
+        `/${BRANCH}/${LANG}/admin/futures/commodity_all`,
+        {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({json: JSON.parse(commodity.value)})
+        }
+    )
+        .then(() => alert('ok'))
+        .catch(e => alert(JSON.stringify(e)))
+}
+function save_bonds_all () {
+    fetch(
+        `/${BRANCH}/${LANG}/admin/futures/bonds_all`,
+        {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({json: JSON.parse(bonds.value)})
+        }
+    )
+        .then(() => alert('ok'))
+        .catch(e => alert(JSON.stringify(e)))
+}
+function load_index_history () {
+    button_load_index_history.disabled = true
+    fetch(
+        `/${BRANCH}/${LANG}/admin/futures/download_index_history`,
+        {
+            method: 'GET',
+            headers: {
+                "Content-Type": "application/json",
+            }
+        }
+    )
+        .then(_ => _.json())
+        .then(history => {
+            index_history.innerHTML = ''
+            history.forEach((revision, i) => {
+                var div = document.createElement('div')
+                div.className = 'revision'
+                div.textContent = i + 1
+                div.onclick = () => {
+                    index_history.children[selected.index].classList.remove('selected')
+                    selected.index = i
+                    div.classList.add('selected')
+                    index.value = JSON.stringify(revision, null, 4)
+                }
+                index_history.appendChild(div)
+            })
+            const i = history.length - 1
+            index_history.children[i].classList.add('selected')
+            selected.index = i
+            button_load_index_history.disabled = false
+        })
+        .catch(e => {
+            button_load_index_history.disabled = false
+            alert(JSON.stringify(e))
+        })
+}
+function load_commodity_history () {
+    button_load_commodity_history.disabled = true
+    fetch(
+        `/${BRANCH}/${LANG}/admin/futures/download_commodity_history`,
+        {
+            method: 'GET',
+            headers: {
+                "Content-Type": "application/json",
+            }
+        }
+    )
+        .then(_ => _.json())
+        .then(history => {
+            commodity_history.innerHTML = ''
+            history.forEach((revision, i) => {
+                var div = document.createElement('div')
+                div.className = 'revision'
+                div.textContent = i + 1
+                div.onclick = () => {
+                    commodity_history.children[selected.commodity].classList.remove('selected')
+                    selected.commodity = i
+                    div.classList.add('selected')
+                    commodity.classList.add('current')
+                    commodity.value = JSON.stringify(revision, null, 4)
+                }
+                commodity_history.appendChild(div)
+            })
+            const i = history.length - 1
+            commodity_history.children[i].classList.add('selected')
+            selected.commodity = i
+            button_load_commodity_history.disabled = false
+        })
+        .catch(e => {
+            button_load_commodity_history.disabled = false
+            alert(JSON.stringify(e))
+        })
+}
+function load_bonds_history () {
+    button_load_bonds_history.disabled = true
+    fetch(
+        `/${BRANCH}/${LANG}/admin/futures/download_bonds_history`,
+        {
+            method: 'GET',
+            headers: {
+                "Content-Type": "application/json",
+            }
+        }
+    )
+        .then(_ => _.json())
+        .then(history => {
+            bonds_history.innerHTML = ''
+            history.forEach((revision, i) => {
+                var div = document.createElement('div')
+                div.className = 'revision'
+                div.textContent = i + 1
+                div.onclick = () => {
+                    bonds_history.children[selected.bonds].classList.remove('selected')
+                    selected.bonds = i
+                    div.classList.add('selected')
+                    bonds.value = JSON.stringify(revision, null, 4)
+                }
+                bonds_history.appendChild(div)
+            })
+            const i = history.length - 1
+            bonds_history.children[i].classList.add('selected')
+            selected.bonds = i
+            button_load_bonds_history.disabled = false
+        })
+        .catch(e => {
+            button_load_bonds_history.disabled = false
+            alert(JSON.stringify(e))
+        })
+}
+</script>

@@ -1,0 +1,168 @@
+<% setI18nPrefix('pages.company.privacy-policy') %>
+<meta name="description" content="<%- $t('meta', true) %>">
+<link rel="stylesheet" href="<%=md5('/css/pages/aml-policy.css')%>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+    <div class="aml-policy-page">
+        <div class="generic-layout2-container">
+            <article class="generic-layout-col-1">
+
+              <div class="generic-layout2-col1-item icm-border-standard-bottom">
+                  <!--<h1 class="generic-layout2-col1-item__heading"><%- $t('pp-heading-sc') %></h1>
+                  <a
+                    href="<%- getCDN() %>/uploads/FSA/IC+Markets+Privacy+Policy+FSA.pdf"
+                    target="_blank"
+                    class="icm-btn icm-btn-primary">
+                      <%- $t('pp-button-sc') %>
+                  </a>
+                  <hr />-->
+                  <h1 class="generic-layout2-col1-item__heading"><%- $t('pp-heading-eu') %></h1>
+                  <h2 class="generic-layout2-col1-item__heading"><%- $t('theinformationwecollect') %></h2>
+                  <div slot="slot-paragraph-list">
+                      <p class="generic-layout2-col1-item__paragraph"><%-$t('personalinformationmaybecollected1')%></p>
+                      <p class="generic-layout2-col1-item__paragraph"><%-$t('personalinformationmaybecollected2')%></p>
+                      <p class="generic-layout2-col1-item__paragraph"><%-$t('personalinformationmaybecollected3')%></p>
+
+                      <div class="generic-layout-list-header"><%-$t('typicallyICMarketsmaycollect')%></div>
+                      <ul class="generic-layout2-col1-item__list">
+                          <li class="generic-layout2-col1-item__list-item"> <%-$t('NameAddressTelephonenumber')%></li>
+                          <li class="generic-layout2-col1-item__list-item"> <%-$t('emailaddress')%></li>
+                          <li class="generic-layout2-col1-item__list-item"> <%-$t('financialinformation')%></li>
+                          <li class="generic-layout2-col1-item__list-item"> <%-$t('investmentexperience')%></li>
+                          <li class="generic-layout2-col1-item__list-item"> <%-$t('datathatcouldindirectlyordirectlyidentifyyou')%></li>
+                          <li class="generic-layout2-col1-item__list-item"> <%-$t('otherrelatedinformation')%></li>
+                      </ul>
+                      <p class="generic-layout2-col1-item__paragraph"><%-$t('ifatanytimeyouhavequestion')%> <a id="privacy_policy_1" href="mailto:compliance@icmarkets.com.au">compliance@icmarkets.com.au</a></p>
+
+                      <div class="generic-layout-list-header padding-top-std"><%-$t('weonlycollectpersonalinformationabout')%></div>
+                      <ul class="generic-layout2-col1-item__list">
+                          <li class="generic-layout2-col1-item__list-item"><%-$t('provideyouqualityproductsorservices')%></li>
+                          <li class="generic-layout2-col1-item__list-item"><%-$t('keepupdatedcontactdetails')%></li>
+                          <li class="generic-layout2-col1-item__list-item"><%-$t('considerapplicationsandapproachesyoumaketousand')%></li>
+                      </ul>
+
+                      <div class="generic-layout-list-header padding-top-std"><%-$t('wegenerallyholdpersonalinformationrelatingto')%></div>
+                      <ul class="generic-layout2-col1-item__list">
+                          <li class="generic-layout2-col1-item__list-item"><%-$t('theproductsandservicesweprovideorhaveprovidedtoyou')%></li>
+                          <li class="generic-layout2-col1-item__list-item"><%-$t('yourfinancialinterestsandsometimesyourfinancialpositionand')%></li>
+                          <li class="generic-layout2-col1-item__list-item"><%-$t('yourcontactdetails')%></li>
+                      </ul>
+
+                      <p class="generic-layout2-col1-item__paragraph"><%-$t('sensitiveinformationrelatingtoyourracial')%></p>
+
+                  </div>
+              </div>
+
+
+              <div class="generic-layout2-col1-item icm-border-standard-bottom">
+                <h2 class="generic-layout2-col1-item__heading"><%- $t('personaldata') %></h2>
+                <div slot="slot-paragraph-list">
+                  <p class="generic-layout2-col1-item__paragraph"><%-$t('muchofwhatyoulikelyconsiderpersonaldataiscollecteddirectlyfromyouwhenyou')%></p>
+                  <p class="generic-layout2-col1-item__paragraph"><%-$t('_1createanaccountoruseanyofourservicesexamplenameaddresscreditcardnumbergovernmentidentificationnumber')%></p>
+                  <p class="generic-layout2-col1-item__paragraph"><%-$t('_2requestassistancefromourcustomersupportteamexamplephonenumber')%></p>
+                  <p class="generic-layout2-col1-item__paragraph"><%-$t('_3completecontactformsorrequestnewslettersorotherinformationfromusexampleemailor')%></p>
+                  <p class="generic-layout2-col1-item__paragraph"><%-$t('_4otherwiseparticipateinactivitieswepromotethatmightrequireinformationaboutyouexamplesurveyscontestsetc')%></p>
+                  <p class="generic-layout2-col1-item__paragraph"><%-$t('howeverindeliveringourserviceswemayalsocollectadditionalinformationfromyouthisistoensurethatwecancontinuetoprovidetopqualityperformancetoyouourclient')%></p>
+                  <p class="generic-layout2-col1-item__paragraph"><%-$t('thewaythatwemaycollectadditionalinformationfromyoumaynotbeobviousassuchwewantedtohighlightandexplainwhatthiscouldbeandhowandwhyitcouldbecollected')%></p>
+
+                  <p class="generic-layout2-col1-item__paragraph"><b><%-$t('_1accountrelatedinformation')%></b><%-$t('thisisinformationthatiscollectedfromyouwhen')%></p>
+                  <p class="generic-layout2-col1-item__paragraph"><b><%-$t('_2cookiesandsimilartechnologiesonourwebsites')%></b><%-$t('thisallowustotrackyourbrowsingbehaviouronourwebsite')%></p>
+                  <p class="generic-layout2-col1-item__paragraph"><b><%-$t('_3dataaboutusageofservices')%></b><%-$t('thisisautomaticallycollectedwhenyouuseandengage')%></p>
+                  <p class="generic-layout2-col1-item__paragraph"><b><%-$t('_4supplementeddata')%></b><%-$t('thismaybereceivedaboutyoufromothersources')%></p>
+
+                  <p class="generic-layout2-col1-item__paragraph"><%-$t('wedonotsellpersonalinformation')%></p>
+                </div>
+              </div>
+              <div class="generic-layout2-col1-item icm-border-standard-bottom">
+                <h2 class="generic-layout2-col1-item__heading"><%- $t('keepinginformationaccurateanduptodate') %></h2>
+                <div slot="slot-paragraph-list">
+                    <p class="generic-layout2-col1-item__paragraph"><%-$t('wetakeallreasonablestepstoensurethat')%></p>
+                    <p class="generic-layout2-col1-item__paragraph"><%-$t('privacy_policy_1')%></p>
+                    <p class="generic-layout2-col1-item__paragraph"><%-$t('youmayalsoupdateyouraccountdetail')%></p>
+                    <p class="generic-layout2-col1-item__paragraph"><%-$t('theinformationisprovidedingood')%></p>
+                    <p class="generic-layout2-col1-item__paragraph"><%-$t('ifyouusetheinformationyoudoso')%></p>
+                </div>
+              </div>
+              <div class="generic-layout2-col1-item icm-border-standard-bottom">
+                <h2 class="generic-layout2-col1-item__heading"><%- $t('keepinginformationsecure') %></h2>
+                <div slot="slot-paragraph-list">
+                    <p class="generic-layout2-col1-item__paragraph"><%-$t('weusesecurityproceduresandthe')%></p>
+                    <p class="generic-layout2-col1-item__paragraph"><%-$t('icmarketswillundertaketodelete')%></p>
+                    <p class="generic-layout2-col1-item__paragraph"><%-$t('herearesomeoftheway')%></p>
+                    <p class="generic-layout2-col1-item__paragraph"><b><%-$t('_1thirdparties')%></b><%-$t('allcontractorssubcontractorsvendors')%></p>
+                    <p class="generic-layout2-col1-item__paragraph"><b><%-$t('_2transferofpersonaldataabroad')%></b><%-$t('ifyouutilizeourservicesfrom')%></p>
+                    <p class="generic-layout2-col1-item__paragraph"><b><%-$t('_3compliancewithlegalregulatoryandlawenforcementrequests')%></b><%-$t('wecooperatewithgovernmentandlaw')%></p>
+                    <p class="generic-layout2-col1-item__paragraph"><%-$t('inordertocomplywith')%></p>
+                    <p class="generic-layout2-col1-item__paragraph"><b><%-$t('_4websiteanalytics')%></b><%-$t('weusemultiplewebanalyticstools')%></p>
+                    <p class="generic-layout2-col1-item__paragraph"><%-$t('eachcookiecanonlybeused')%></p>
+                    <p class="generic-layout2-col1-item__paragraph"><b><%-$t('_5targetedadvertisements')%></b><%-$t('targetedadsorinterestbased')%></p>
+                </div>
+              </div>
+              <div class="generic-layout2-col1-item icm-border-standard-bottom">
+                <h2 class="generic-layout2-col1-item__heading"><%- $t('ourcookiepolicy') %></h2>
+                <div slot="slot-paragraph-list">
+                    <p class="generic-layout2-col1-item__paragraph"><%-$t('asyoubrowseourwebsite')%></p>
+                </div>
+              </div>
+              <div class="generic-layout2-col1-item icm-border-standard-bottom">
+                <h2 class="generic-layout2-col1-item__heading"><%- $t('howyoucanaccessupdateordeleteyourpersonaldata') %></h2>
+                <div slot="slot-paragraph-list">
+                    <p class="generic-layout2-col1-item__paragraph"><%-$t('inordertoeasilyaccess')%></p>
+                    <p class="generic-layout2-col1-item__paragraph"><%-$t('ifyoumakearequestto')%></p>
+                    <p class="generic-layout2-col1-item__paragraph"><%-$t('furthermoreyoucancontact')%></p>
+                </div>
+              </div>
+              <div class="generic-layout2-col1-item icm-border-standard-bottom">
+                <h2 class="generic-layout2-col1-item__heading"><%- $t('howwecommunicatewithyou') %></h2>
+                  <div slot="slot-paragraph-list">
+                      <p class="generic-layout2-col1-item__paragraph"><%-$t('wemaycontactyoudirectly')%></p>
+
+                      <ul class="generic-layout2-col1-item__list">
+                          <li class="generic-layout2-col1-item__list-item"><%-$t('email')%></li>
+                          <li class="generic-layout2-col1-item__list-item"><%-$t('textsmsmessages')%></li>
+                          <li class="generic-layout2-col1-item__list-item"><%-$t('telephonecalls')%></li>
+                          <li class="generic-layout2-col1-item__list-item"><%-$t('automatedphonecallsortextmessages')%></li>
+                      </ul>
+
+                      <p class="generic-layout2-col1-item__paragraph"><%-$t('youmayalsoupdateyour')%></p>
+                      <p class="generic-layout2-col1-item__paragraph"><%-$t('ifyoubelievethatanyone')%></p>
+
+                  </div>
+              </div>
+              <div class="generic-layout2-col1-item icm-border-standard-bottom">
+                <h2 class="generic-layout2-col1-item__heading"><%- $t('changesinourprivacypolicy') %></h2>
+                  <div slot="slot-paragraph-list">
+                    <p class="generic-layout2-col1-item__paragraph"><%-$t('wereservetherighttomodify')%></p>
+                </div>
+              </div>
+              <div class="generic-layout2-col1-item icm-border-standard-bottom">
+                <h2 class="generic-layout2-col1-item__heading"><%- $t('contactus') %></h2>
+                  <div slot="slot-paragraph-list">
+                    <p class="generic-layout2-col1-item__paragraph"><%-$t('ifyouhaveanyquestions')%> <a id="privacy_policy_2" href="mailto:compliance@icmarkets.com.au">compliance@icmarkets.com.au</a></p>
+                    <p class="generic-layout2-col1-item__paragraph"><%-$t('inthealternativeyoumaycontactusat')%></p>
+
+                    <p>International Capital Markets Pty Ltd</p>
+                    <p>Level 4, 50 Carrington Street</p>
+                    <p>Sydney NSW</p>
+                    <p>2000 AUSTRALIA</p>
+
+                    <br/>
+
+                    <p class="generic-layout2-col1-item__paragraph"><%-$t('email')%> :
+                      <% if (asic) { %>
+                        <a id="privacy_policy_3" href="mailto:support@icmarkets.com.au">support@icmarkets.com.au</a>
+                      <% } else if (scb) { %>
+                        <a id="privacy_policy_4" href="mailto:contact@icmarkets.com">contact@icmarkets.com</a>
+                      <% } else { %>
+                        <a id="privacy_policy_5" href="mailto:support@icmarkets.com">support@icmarkets.com</a>
+                      <% } %>
+                    </p>
+                    <p class="generic-layout2-col1-item__paragraph"><b><%-$t('phone')%>: :</b>+61 (0)2 8014 4280</p>
+                </div>
+              </div>
+            </article>
+
+            <%- include('../_partials/sidebar-blocks.ejs') %>
+        </div>
+    </div>

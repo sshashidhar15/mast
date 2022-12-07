@@ -1,0 +1,104 @@
+<% setI18nPrefix('pages.company.insurance') %>
+<meta name="description" content="<%- $t('meta', true) %>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/insurance.css')%>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+<div class="single-page page-insurance">
+    <article class="page-header">
+        <section class="page-header__container">
+            <header>
+                <div class="page-header__description mt-1s"><%-$t('insurance_1')%></div>
+                <h1 class="page-header__heading--style "><%-$t('insurance_2')%></h1>
+                <div class="page-header__description f-16"><%-$t('insurance_3')%></div>
+            </header>
+            <div class="h-200">
+            </div>
+        </section>
+    </article>
+    <article class="page-content-container">
+        <div class="p-20">
+            <div class="page-section pt-0 text-left p3-lg">
+                <div class="glossary-block pt-0 ">
+                        <div class="glossary-block__item mt-1" key="insurance_2">
+                            <div class="glossary-accordion">
+                                <div class="accordion-toggle glossary-block__expand-button" data-toggle="collapse" data-parent=".accordion" data-target="insurance_2"><%-$t('insurance_4')%></div>
+                                <div id="insurance_2" class="panel-collapse collapse" style="display: block;">
+                                    <div class="panel-content">
+                                        <p class="p-2"><%-$t('insurance_5')%></p></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="glossary-block__item mt-1" key="insurance_3">
+                            <div class="glossary-accordion">
+                                <div class="accordion-toggle glossary-block__expand-button" data-toggle="collapse" data-parent=".accordion" data-target="insurance_3"><%-$t('insurance_6')%></div>
+                                <div id="insurance_3" class="panel-collapse collapse" style="display: block;">
+                                    <div class="panel-content">
+                                        <p class="p-2"><%-$t('insurance_7')%></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="glossary-block__item mt-1" key="insurance_4">
+                            <div class="glossary-accordion">
+                                <div class="accordion-toggle glossary-block__expand-button" data-toggle="collapse" data-parent=".accordion" data-target="insurance_4"><%-$t('insurance_8')%></div>
+                                <div id="insurance_4" class="panel-collapse collapse" style="display: block;">
+                                    <div class="panel-content">
+                                        <p class="p-2"><%-$t('insurance_9')%></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                  </div>
+                  <div class="p-3-xs "><a id="insurance_evidence" href="https://cdn.icmarkets.com/uploads/FSA/Evidence-of-Insurance-Certificate.pdf" target="_blank"><%-$t('insurance_10')%></a><img class="" src="/assets/img/insurance/certificate_icon2.png" alt="" style="
+                    height: 55px;
+                    margin-left: 15px;
+                    padding-bottom: 10px;
+                 "></div>
+            </div>
+        </div>
+        <div class="page-content pt-0-lg">
+            <div class="section-four p3-lgx">
+                <div class="page-section text-center mt-1">
+                    <div class="p-3-xs mt-2 f-21"><%-$t('insurance_11')%></div>
+                    <div class="p-3-xs mt-1 "><%-$t('insurance_12')%></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-content global-markets-today">
+            <div class="page-section">
+                <div class="start-trading"><%-$t('insurance_13')%></div>
+                <div class="global-today"><%-$t('insurance_14')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="insurance_live_registration" target="_blank" class="icm-btn live icm-btn-primary" href="/<%- prefix_by_regulator %>/open-trading-account/live"><%-$t('insurance_15')%></a>
+                    <a id="insurance_demo_registration" target="_blank" class="icm-btn demo" href="/<%- prefix_by_regulator %>/open-trading-account/demo"><%-$t('insurance_16')%></a>
+                </div>
+            </div>
+        </div>
+    </article>
+</div>
+
+<script>
+    $('.glossary-block__expand-button').on('click', function () {
+        var $button = $(this).toggleClass('collapsed');
+        $(this).parent().find('.panel-collapse').slideToggle();
+    });
+    $(function () {
+        $('a.togglebtn2').on('click', function (e) {
+            e.preventDefault();
+            $('#myContent2').stop().slideToggle(500);
+            if ($(this).is('.read-more')) {
+                $(this).toggleClass('read-more', false).toggleClass('read-less', true).text($('.cached-translation.read_less').text())
+            } else {
+                $(this).toggleClass('read-less', false).toggleClass('read-more', true).text($('.cached-translation.read_more').text())
+            }
+            return false;
+        });
+        $('a[href="#form"]').on('click', function (e) {
+            e.preventDefault();
+            $("html, body").animate({ scrollTop: $(".icm-btn-block").offset().top - 200 }, 1000);
+            return false;
+        });
+    });
+</script>

@@ -1,0 +1,98 @@
+<% setI18nPrefix('pages.zulutrade') %>
+<meta name="description" content="<%- $t('meta', true) %>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/zulutrade.css')%>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+    <div class="single-page zulutrade">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h2 class="green-head"><%-$t('zulutrade_0')%></h2>
+                    <h1 class="page-header__heading--style"><%-$t('zulutrade_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('zulutrade_2')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="zulutrade_zulutrade3" class="icm-btn icm-btn-primary" href="#popup"><%- $t('zulutrade_3') %></a>
+                </div>
+                <div class="note-header"><%-$t('zulutrade_4')%> <b><%-$t('zulutrade_444')%></b></div>
+            </section>
+        </article>
+        <article class="page-content-container">
+            <div class="why-zulu">
+                <div class="grey-big"><%-$t('zulutrade_6')%></div>
+                <div class="grey-small"><%-$t('zulutrade_7')%></div>
+                <div class="arrow">↓</div>
+            </div>
+            <div class="page-content">
+                <div class="page-section two">
+                    <div class="left with-text">
+                        <div class="zulu-title"><%-$t('zulutrade_13')%></div>
+                        <div class="green-small-box"></div>
+                        <div class="zulu-text"><%-$t('zulutrade_14')%></div>
+                    </div>
+                    <div class="right">
+                        <div class="zulu-img-fourtune-teller"></div>
+                    </div>
+                </div>
+                <div class="page-section two">
+                    <div class="left">
+                        <div class="zulu-img-guard"></div>
+                    </div>
+                    <div class="right with-text">
+                        <div class="zulu-title"><%-$t('zulutrade_15')%></div>
+                        <div class="green-small-box"></div>
+                        <div class="zulu-text"><%-$t('zulutrade_16')%></div>
+                    </div>
+                </div>
+                <div class="page-section two">
+                    <div class="left with-text">
+                        <div class="zulu-title"><%-$t('zulutrade_17')%></div>
+                        <div class="green-small-box"></div>
+                        <div class="zulu-text"><%-$t('zulutrade_18')%></div>
+                    </div>
+                    <div class="right">
+                        <div class="zulu-img-blue-mask"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content with-vidos">
+                <div class="title-vidos"><%-$t('zulutrade_11')%></div>
+                <div class="embed-video-container">
+                    <iframe width="640" height="360" src="https://www.youtube.com/embed/yz4qeidVkvw?controls=0&amp;showinfo=0&amp;rel=0" frameborder="0" allowfullscreen=""></iframe>
+                </div>
+                <div class="footer-vidos"><%-$t('zulutrade_12')%></div>
+                <div class="under-footer-vidos"><%-$t('zulutrade_5')%></div>
+            </div>
+            <div class="page-content">
+                <div class="two">
+                    <div class="img-devices"></div>
+                    <div class="text-text-button">
+                        <div class="title-tap"><%-$t('zulutrade_21')%></div>
+                        <p><%-$t('zulutrade_20')%></p>
+                        <div class="icm-button-wrapper page-header__primary-button">
+                            <a id="zulutrade_zulutrade19"class="icm-btn icm-btn-primary" href="#popup"><%- $t('zulutrade_19') %></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="notes-description"><%-$t('zulutrade_24')%></div>
+            </div>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('zulutrade_10')%></div>
+                    <div class="global-today"><%-$t('zulutrade_9')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a class="icm-btn live icm-btn-primary" id="zulutrade_zulutrade8" href="#popup"><%-$t('zulutrade_8')%></a>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-modal-mask" id="popup">
+                <div class="popup-container">
+                    <a id="zulutrade_"class="popup-closer" href="#">✕</a>
+                    <div class="popup-header"><%-$t('zulutrade_p1')%></div>
+                    <a id="zulutrade_live_registration_link" class="icm-btn popup-button b-1" href="<%= localePath('open-trading-account-live', { camp: 4149 }) %>"><%-$t('zulutrade_p2')%></a>
+                    <a id="zulutrade_live_registration_link2" class="icm-btn popup-button b-2" href="<%= localePath('open-trading-account-live', { camp: 4148 }) %>"><%-$t('zulutrade_p3')%></a>
+                </div>
+            </div>
+        </article>
+    </div>

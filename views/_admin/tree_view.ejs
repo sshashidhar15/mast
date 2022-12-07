@@ -1,0 +1,162 @@
+
+<div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4">
+  <h1 class="h3">Translations Viewer</h1>
+</div>
+<style>
+ul {
+  list-style-type: none;
+}
+li {
+  display: flex;
+}
+li.center {
+  align-items: center;
+}
+.key {
+  color: black;
+}
+.nested {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+.key {
+  padding: 10px 10px
+}
+
+.value {
+  padding: 10px 10px
+}
+.carousel-inner {
+  width: 70% !important;
+  left: 15% !important;
+}
+
+.fa-folder {
+  margin: 10px 10px;
+}
+.fa-folder-open {
+  margin: 10px 10px;
+}
+</style>
+<div class="row">
+  <div class="col-md-12 mb-4">
+    <div class="card">
+      <div class="card-body">
+        <% langs.forEach((lang, i) => {%>
+          <button type="button" class="btn btn-outline-primary" onclick="current('<%=lang%>', <%=i%>)"><%=lang%></button>
+        <% }) %>
+      </div>
+    </div>
+    <br>
+    <div class="card">
+      <div class="card-body">
+        <div id="carouselExampleIndicators" class="carousel slide">
+          <ol class="carousel-indicators">
+            <% langs.forEach((lang, i) => {%>
+              <li data-target="#carouselExampleIndicators" data-slide-to="<%=i%>"></li>
+            <% }) %>
+          </ol>
+          <div class="carousel-inner">
+            <% langs.forEach((lang, i) => {%>
+              <div class="carousel-item">
+                <h1 class="loading">Loading <%=lang%> lang...</h1>
+                <ul class="container"></ul>
+              </div>
+            <% }) %>
+          </div>
+          <a id="tree_view_previous" iclass="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a id="carousel-control-next" class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function render (parent, node) {
+    Object.keys(node).forEach(key => {
+      var li = document.createElement('li')
+      parent.appendChild(li)
+
+      if (typeof node[key] === 'string') {
+        li.classList.add('center')
+        var e = {
+          icon: document.createElement('div'),
+          key: document.createElement('div'),
+          value: document.createElement('div')
+        }
+        e.icon.className = 'icon'
+        e.key.className = 'key'
+        e.value.className = 'value'
+        e.icon.textContent = '🖹'
+        e.key.textContent = key
+        e.value.textContent = node[key];
+
+        [
+          e.icon,
+          e.key,
+          e.value
+        ].forEach(_ => li.appendChild(_))
+
+        return
+      }
+      var span = document.createElement('span')
+      var ul = document.createElement('ul')
+      var icon = document.createElement('i')
+      icon.classList.add('fas')
+      icon.classList.add('fa-folder')
+      ul.classList.add('nested')
+      span.appendChild(icon)
+      span.appendChild(document.createTextNode(key))
+      span.onclick = function () {
+        this.parentElement.querySelector('.nested').classList.toggle('active')
+        icon.classList.toggle('fa-folder')
+        icon.classList.toggle('fa-folder-open')
+      }
+      li.appendChild(span)
+      li.appendChild(ul)
+      render(ul, node[key])
+    })
+  }
+
+  var
+    container = document.getElementById('container'),
+    slides = document.getElementsByClassName('carousel-item'),
+    loading = document.getElementsByClassName('loading'),
+    containers = document.getElementsByClassName('container'),
+    current_i = Number(localStorage.getItem('tree-view-current-lang-id') || 0),
+    translations = [],
+    select_current_slide = i => {
+      if (i === current_i) return
+      slides[current_i].classList.remove('active')
+      slides[i].classList.add('active')
+      localStorage.setItem('tree-view-current-lang-id', i)
+      current_i = i
+    }
+    current = (lang, i) => {
+      select_current_slide(i)
+      if (translations[i]) return render(containers[i], translations[i])
+      fetch('/admin/CURRENT/' + lang)
+        .then(res => res.ok ? res.json() : Promise.reject(res.error || res.status))
+        .then(translation => {
+          translations[i] = translation
+          loading[i].style.display = 'none'
+          return translation
+        })
+        .then(translation => render(containers[i], translation))
+        .catch(e => alert(e))
+    }
+
+  $('.carousel').carousel({interval: false})
+  slides[current_i].classList.add('active')
+  document.getElementsByClassName('card-body')[0].children[current_i].click()
+</script>

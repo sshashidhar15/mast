@@ -1,0 +1,66 @@
+<link rel="stylesheet" href="<%=md5('/css/components/stocks1-table.css')%>">
+<div class="markets-spread-table stocks-spread-table">
+<%
+let stocks8Table = {
+    stocksSpreadsColHeadersDesktop: ['MT5 Symbol', 'Bolsa Madrid Stocks'],
+    stocksSpreadsData: [
+        ["ACS.MAD", "ACS"],
+        ["ACX.MAD", "Acerinox SA"],
+        ["AENA.MAD", "Aena SA"],
+        ["AMS.MAD", "Amadeus IT Holdings SA"],
+        ["ANA.MAD", "Acciona"],
+        ["BBVA.MAD", "BBVA SA (ES)"],
+        ["BKT.MAD", "BankInter"],
+        ["CABK.MAD", "CaixaBank SA"],
+        ["CIE.MAD", "CIE Automotive"],
+        ["CLNX.MAD", "Cellnex"],
+        ["COL.MAD", "Inmobiliaria Colonial"],
+        ["ELE.MAD", "Endesa"],
+        ["ENG.MAD", "Enagas"],
+        ["FER.MAD", "Ferrovial"],
+        ["GRF.MAD", "Grifols SA"],
+        ["IBE.MAD", "Iberdrola"],
+        ["IDR.MAD", "Indra Sistemas"],
+        ["ITX.MAD", "Inditex"],
+        ["MAP.MAD", "Mapfre"],
+        ["MEL.MAD", "Melia Hotels International"],
+        ["MRL.MAD", "Merlin Properties Socimi SA"],
+        ["MTS.MAD", "ArcelorMittal (ES)"],
+        ["NTGY.MAD", "Naturgy Energy Group"],
+        ["REP.MAD", "Repsol YPF"],
+        ["SAB.MAD", "Banco de Sabadell"],
+        ["SAN.MAD", "Banco Santander SA (ES)"],
+        ["SGRE.MAD", "Siemens Gamesa Renewable Energy"],
+        ["TEF.MAD", "Telefonica SA (ES)"],
+        ["TL5.MAD", "Mediaset Espana Comunicacion SA"],
+        ["TRE.MAD", "Tecnicas Reunida"],
+        ["VIS.MAD", "Viscofan"]
+    ]
+}
+%>
+<div class="single-design-search">
+    <div class="group search">
+        <span>Search by Symbol</span>
+        <input class="spreads-search-box" type="search"/>
+    </div>
+    <div class="group skin">
+        <span class="skin-label">Table Skin</span>
+        <span class="skin-toggle skin-light">&nbsp;</span>
+        <span class="skin-toggle skin-dark">&nbsp;</span>
+    </div>
+</div>
+
+<%- include('./spread-table-component.ejs', {
+    extraClass: 'stocks',
+    tableSkin: 'light-skin',
+    slotMobile: null,
+    slotTablet: null,
+    slotDesktop: null,
+    colHeadersMobile: stocks8Table.stocksSpreadsColHeadersDesktop,
+    mobileData: stocks8Table.stocksSpreadsData,
+    colHeadersTablet: stocks8Table.stocksSpreadsColHeadersDesktop,
+    tabletData: stocks8Table.stocksSpreadsData,
+    colHeadersDesktop: stocks8Table.stocksSpreadsColHeadersDesktop,
+    desktopData: stocks8Table.stocksSpreadsData
+}); %>
+</div>

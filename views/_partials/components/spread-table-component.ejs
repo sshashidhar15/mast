@@ -1,0 +1,113 @@
+<link rel="stylesheet" href="<%=md5('/css/components/spread-table-component.css')%>">
+<div class="single-design-table <%= tableSkin %>">
+    <div class="spread-table visible-xs <% if(typeof extraClass !== 'undefined') {%><%= extraClass %><%}%>">
+        <% if(slotMobile && slotMobile.length) {%>
+            <div class="header-bar header-bar-mobile">
+                <% slotMobile.forEach(s => {%>
+                    <div><%= s %></div>
+                <%})%>
+            </div>
+        <%}%>
+        <div class="column-header">
+            <% colHeadersMobile.forEach(colHeader =>{ %>
+                <div class="column-name"><%= colHeader %></div>
+            <%})%>
+        </div>
+        <div class="table-rows-wrap">
+        <% mobileData.forEach(rowData =>{ %>
+            <div class="table-row" style=" display: <%= ((typeof hasGroups != 'undefined' && hasGroups) && rowData.every(cellData => cellData !== 'Major')) ? 'none' : 'grid' %>;">
+                <% rowData.forEach((cellData, i) =>{ %>
+                    <% if(!["Minor", "Major", "Exotic"].includes(cellData)) {%>
+                        <div class="table-cell <%= 'c' + (i + 1) %>"><%= cellData %></div>
+                    <%} else {%>
+                        <div class="table-cell c-symbol-group"><%= cellData %></div>
+                    <%}%>
+                <%})%>
+                <% if(typeof forexTable != 'undefined' && forexTable) {%>
+                    <div class="table-cell c-true-ecn">Raw Spread Account</div>
+                <%}%>
+                <% if(typeof forexTable != 'undefined' && forexTable) {%>
+                    <div class="table-cell c-standard">Standard Account</div>
+                <%}%>
+                <% if(typeof allTables != 'undefined' && allTables) {%>
+                    <div class="table-cell c-all">All Accounts</div>
+                <%}%>
+            </div>
+        <%})%>
+        </div>
+    </div>
+
+    <div class="spread-table visible-sm <% if(typeof extraClass !== 'undefined') {%><%= extraClass %><%}%>">
+        <% if(slotTablet && slotTablet.length) {%>
+            <div class="header-bar header-bar-tablet">
+                <% slotTablet.forEach(s => {%>
+                    <div><%= s %></div>
+                <%})%>
+            </div>
+        <%}%>
+        <div class="column-header">
+            <% colHeadersTablet.forEach(colHeader =>{ %>
+                <div class="column-name"><%= colHeader %></div>
+            <%})%>
+        </div>
+        <div class="table-rows-wrap">
+        <% tabletData.forEach(rowData =>{ %>
+            <div class="table-row" style=" display: <%= ((typeof hasGroups != 'undefined' && hasGroups) && rowData.every(cellData => cellData !== 'Major')) ? 'none' : 'grid' %>;">
+                <% rowData.forEach((cellData, i) =>{ %>
+                    <% if(!["Minor", "Major", "Exotic"].includes(cellData)) {%>
+                        <div class="table-cell <%= 'c' + (i + 1) %>"><%= cellData %></div>
+                    <%} else {%>
+                        <div class="table-cell c-symbol-group"><%= cellData %></div>
+                    <%}%>
+                <%})%>
+                <% if(typeof forexTable != 'undefined' && forexTable) {%>
+                    <div class="table-cell c-true-ecn">Raw Spread Account</div>
+                <%}%>
+                <% if(typeof forexTable != 'undefined' && forexTable) {%>
+                    <div class="table-cell c-standard">Standard Account</div>
+                <%}%>
+                <% if(typeof allTables != 'undefined' && allTables) {%>
+                    <div class="table-cell c-all">All Accounts</div>
+                <%}%>
+            </div>
+        <%})%>
+        </div>
+    </div>
+
+    <div class="spread-table visible-md visible-lg <% if(typeof extraClass !== 'undefined') {%><%= extraClass %><%}%>">
+        <% if(slotDesktop && slotDesktop.length) {%>
+            <div class="header-bar header-bar-desktop">
+                <% slotDesktop.forEach(s => {%>
+                    <div><%= s %></div>
+                <%})%>
+            </div>
+        <%}%>
+        <div class="column-header">
+            <% colHeadersDesktop.forEach(colHeader =>{ %>
+                <div class="column-name"><%= colHeader %></div>
+            <%})%>
+        </div>
+        <div class="table-rows-wrap">
+        <% desktopData.forEach(rowData =>{ %>
+            <div class="table-row" style=" display: <%= ((typeof hasGroups != 'undefined' && hasGroups) && rowData.every(cellData => cellData !== 'Major')) ? 'none' : 'flex' %>;">
+                <% rowData.forEach((cellData, i) =>{ %>
+                    <% if(!["Minor", "Major", "Exotic"].includes(cellData)) {%>
+                        <div class="table-cell <%= 'c' + (i + 1) %>"><%= cellData %></div>
+                    <%} else {%>
+                        <div class="table-cell c-symbol-group"><%= cellData %></div>
+                    <%}%>
+                <%})%>
+                <% if(typeof forexTable != 'undefined' && forexTable) {%>
+                    <div class="table-cell c-true-ecn">Raw Spread Account</div>
+                <%}%>
+                <% if(typeof forexTable != 'undefined' && forexTable) {%>
+                    <div class="table-cell c-standard">Standard Account</div>
+                <%}%>
+                <% if(typeof allTables != 'undefined' && allTables) {%>
+                    <div class="table-cell c-all">All Accounts</div>
+                <%}%>
+            </div>
+        <%})%>
+        </div>
+    </div>
+</div>

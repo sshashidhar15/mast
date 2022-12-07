@@ -1,0 +1,165 @@
+<% setI18nPrefix('pages.trading-markets.bonds')%>
+<meta name="description" content="<%-$t('meta', true)%>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/bonds.css')%>">
+<%- contentFor('title')%>
+  <%-$t('title')%>
+<%- contentFor('body')%>
+    <div class="single-page page-bonds">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('bonds_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('bonds_2')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="bonds_1" class="icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('starttrading')%></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'trading-markets-bonds' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="market-facts-card">
+                        <div class="facts-header">
+                            <div class="header-label"><%-$t('bonds_4')%></div>
+                            <div class="header-title"><%-$t('bonds_5')%></div>
+                        </div>
+                        <div class="facts-items">
+                            <div class="facts-item"><%-$t('bonds_6')%></div>
+                            <div class="facts-item"><%-$t('bonds_7')%></div>
+                            <div class="facts-item"><% if (cysec) { %><%-$t('bonds_88')%><% } else { %><%-$t('bonds_8')%><% } %></div>
+                            <div class="facts-item"><%-$t('bonds_9')%></div>
+                            <div class="facts-item"><%-$t('bonds_10')%></div>
+                            <div class="facts-item"><%-$t('bonds_11')%></div>
+                        </div>
+                        <div class="action-buttons-container">
+                            <a id="bonds_2" class="action-button icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('bonds_12')%></a>
+                        </div>
+                    </div>
+                    <div class="first-section">
+                        <div class="page-first-text">
+                            <p><%-$t('bonds_13')%></p>
+                            <p><%-$t('bonds_14')%></p>
+                            <p><%-$t('bonds_15')%></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="page-section split-2">
+                    <div class="left-section">
+                        <h1><%-$t('bonds_16')%><br><%-$t('bonds_17')%></h1>
+                        <div class="bonds-image"></div>
+                    </div>
+                    <div class="right-section">
+                        <p><%-$t('bonds_18')%></p>
+                        <p><%-$t('bonds_19')%></p>
+                        <p><%-$t('bonds_20')%></p>
+                        <p><%-$t('bonds_21')%></p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content highlighted-content">
+                <div class="page-section">
+                    <h1><%-$t('bonds_22')%></h1>
+                    <div class="accent-block"><%-$t('bonds_23')%></div>
+                    <div class="flex-section">
+                        <div class="flex-content">
+                            <div class="content-head"><%-$t('bonds_24')%></div>
+                            <div class="content-inside label"><%-$t('bonds_25')%></div>
+                            <div class="content-inside value">($120.25 x 10 contracts) x $200 = USD $240,500</div>
+                            <div class="content-inside label"><%-$t('bonds_26')%></div>
+                            <div class="content-inside value">($118.32 x 10 contracts) x $200 = USD $236,640</div>
+                            <div class="content-inside label"><%-$t('bonds_27')%></div>
+                            <div class="content-inside value">$240,500 - $236,640 = USD $3,860</div>
+                        </div>
+                        <div class="flex-content">
+                            <div class="content-head"><%-$t('bonds_28')%></div>
+                            <div class="content-inside ordinary"><%-$t('bonds_29')%></div>
+                            <% if (false /*asic*/) { %>
+                            <div class="content-inside description"><%-$t('bonds_30')%></div>
+                            <% } %>
+                        </div>
+                        <div class="flex-content">
+                            <div class="content-head"><%-$t('bonds_31')%></div>
+                            <div class="content-inside ordinary"><%-$t('bonds_32')%></div>
+                            <div class="content-inside description"><%-$t('bonds_33')%></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="page-section">
+                    <h1><%-$t('bonds_46')%></h1>
+                    <div class="accent-block"><%-$t('bonds_47')%></div>
+                    <p><%-$t('bonds_48')%></p>
+                    <div class="grid-table grid-table-5 external-bonds-data-table">
+                        <div class="grid-table-row grid-table-header">
+                            <div><%-$t('bonds_139')%></div>
+                            <div><%-$t('bonds_143')%></div>
+                            <div><%-$t('bonds_144')%></div>
+                            <div><%-$t('bonds_142')%></div>
+                            <div><%-$t('bonds_141')%></div>
+                        </div>
+                        <% futuresBonds.forEach((fB, id) => { %>
+                            <div class="grid-table-row" key="<%- id %>">
+                                <div class="grid-table-label"><%- fB.name %></div>
+                                <div class="grid-table-value"><%- fB.start_date %></div>
+                                <div class="grid-table-value"><%- fB.close_only_date %></div>
+                                <div class="grid-table-value"><%- fB.expire_date %></div>
+                                <div class="grid-table-value"><%- fB.month %></div>
+                            </div>
+                        <%})%>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="page-section">
+                    <h1><%-$t('bonds_34')%></h1>
+                    <div class="accent-block"><%-$t('bonds_35')%></div>
+                    <article class="spreads-block icm-page-subsection-content">
+                        <div class="spreads-block__spread-item">
+                            <div class="spreads-accordion">
+                                <div class="panel-collapse collapse in">
+                                    <%- include('../_partials/components/bonds-spread-table.ejs') %>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <% if (asic) { %>
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="profile-buttons">
+                        <a id="bonds_3"  style="text-decoration:none;" class="profile-button" href="<%= localePath('trading-pricing-spreads')%>">
+                            <div class="profile-button-label"><%-$t('bonds_36')%></div>
+                            <div class="profile-button-value"><%-$t('bonds_37')%></div>
+                        </a>
+                        <a id="bonds_4"  style="text-decoration:none;" class="profile-button" href="<%- getCDN() %>/uploads/AU/Bond-Futures-Specification-Sheet.pdf" target="_blank">
+                            <div class="profile-button-label"><%-$t('bonds_38')%></div>
+                            <div class="profile-button-value"><%-$t('bonds_39')%></div>
+                        </a>
+                        <a id="bonds_5"  style="text-decoration:none;" class="profile-button" href="<%= localePath('trading-accounts-raw-spread-account')%>">
+                            <div class="profile-button-label"><%-$t('bonds_40')%></div>
+                            <div class="profile-button-value"><%-$t('bonds_411')%></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('bonds_42')%></div>
+                    <div class="global-today"><%-$t('bonds_43')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="bonds_6"  class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live')%>"><%-$t('bonds_44')%></a>
+                        <a id="bonds_7"  class="icm-btn demo" href="<%= localePath('open-trading-account-demo')%>"><%-$t('bonds_45')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

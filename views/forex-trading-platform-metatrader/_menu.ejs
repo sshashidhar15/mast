@@ -1,0 +1,31 @@
+<% setI18nPrefix('menu.forex-trading-platform-metatrader') %>
+<div class="page-header__menu">
+<%
+(cysec
+  ?
+    [
+      'forex-trading-platform-metatrader-metatrader-4',
+      'forex-trading-platform-metatrader-metatrader-5'
+    ]
+  :
+  fca
+  ?
+    [
+      'forex-trading-platform-metatrader-metatrader-4',
+      'forex-trading-platform-metatrader-metatrader-5'
+    ]
+  :
+    [
+      'forex-trading-platform-metatrader-metatrader-4',
+      'forex-trading-platform-metatrader-metatrader-5',
+      'forex-trading-platform-metatrader-web-trader',
+      'forex-trading-platform-metatrader-iphone',
+      'forex-trading-platform-metatrader-android',
+      'forex-trading-platform-metatrader-apple-mac'
+    ]
+).map(e => { %>
+      <div class="menu-item<%= typeof current !== 'undefined' && e === current ? ' current-page' : '' %>"><a id="forex_trading_platform_metatrader_menu_1" href="<%= localePath(e) %>" class="menu-title"><%-$t(e)%></a></div>
+    <% }) %>
+    <div class="menu-item menu-switch"><span class="menu-icon icon-switch"></span></div>
+  </div>
+<% prevI18nPrefix() %>

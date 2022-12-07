@@ -1,0 +1,193 @@
+<% setI18nPrefix('pages.trading-accounts.funding-netellervip') %>
+<link rel="stylesheet" href="<%=md5('/css/pages/funding-netellervip.css')%>">
+<meta name="description" content="<%- $t('meta', true) %>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+
+    <div class="single-page page-funding-netellervip">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('netellervip_1')%></h1>
+                </header>
+            </section>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section grid-section">
+                    <div class="grid-item gi-1">
+                        <p class="first-text"><%-$t('netellervip_2')%></p>
+                        <p><%-$t('netellervip_3')%></p>
+                        <div class="first-img"></div>
+                        <h1 style="margin-top:45px;"><%-$t('netellervip_4')%></h1>
+                        <div class="pre-image-item"><%-$t('netellervip_5')%></div>
+                        <div class="pre-image-item"><%-$t('netellervip_6')%></div>
+                        <div class="pre-image-item"><%-$t('netellervip_22')%></div>
+                        <div class="pre-image-item"><%-$t('netellervip_23')%></div>
+                        <div class="pre-image-item"><%-$t('netellervip_24')%></div>
+                        <div class="pre-image-item"><%-$t('netellervip_25')%></div>
+                        <div class="pre-image-item"><%-$t('netellervip_26')%></div>
+                        <div class="pre-image-item"><%-$t('netellervip_27')%></div>
+                        <p style="margin-top:45px;"><%-$t('netellervip_28')%> <a id="funding_netellervip_1" href="https://www.neteller.com/vip/" target="_blank">www.neteller.com/vip/</a></p>
+                    </div>
+                    <div class="grid-item gi-2">
+                        <div class="sidebar-block">
+                            <div class="sidebar-cta-card-container sidebar-top-card random-background rnd-back-1">
+                                <div class="header-block client-area-button"><a id="funding_netellervip_2" href="<%= clientAreaPath() %>"><%-$t('netellervip_7')%></a></div>
+                                <div class="content-block">
+                                    <div class="content-item"><a id="funding_netellervip_3" href="<%= localePath('trading-accounts-funding') %>"><%-$t('netellervip_8')%></a></div>
+                                    <div class="content-item"><a id="funding_netellervip_4" href="<%= localePath('trading-accounts-withdrawal') %>"><%-$t('netellervip_9')%></a></div>
+                                    <div class="content-item"><a id="funding_netellervip_5" href="<%= localePath('help-resources-help-centre') %>"><%-$t('netellervip_11')%></a></div>
+                                    <div class="content-item"><a id="funding_netellervip_6" href="<%= localePath('company-contact-us') %>"><%-$t('netellervip_12')%></a></div>
+                                </div>
+                                <div class="bottom-block">
+                                    <div class="icm-button-wrapper bottom-block__cta-button">
+                                        <a id="funding_netellervip_7" class="icm-btn live icm-btn-primary"  href="<%= localePath('open-trading-account-live') %>"><%-$t('netellervip_13')%></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-card contact-block">
+                                <div class="contact-header">
+                                    <div class="header-label"><%-$t('netellervip_14')%></div>
+                                    <div class="header-title"><%-$t('netellervip_15')%></div>
+                                </div>
+                                <div class="contact-pre-imaged chat-img">
+                                    <div><%-$t('contact_card_help')%></div>
+                                </div>
+                                <% if (!fsa && !scb && !fsc && !cima) { %>
+                                <div class="contact-phone">
+                                    <div><%-$t('contact_card_phone')%></div>
+                                </div>
+                                <% } %>
+                                <div class="contact-pre-imaged email-img">
+                                    <% if (asic) {%>
+                                        <div><%-$t('contact_card_email_asic')%></div>
+                                    <% } else { %>
+                                        <div><%-$t('contact_card_email')%></div>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content highlighted-content">
+                <div class="page-section">
+                    <p><%-$t('netellervip_29')%></p>
+                </div>
+            </div>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <h1><%-$t('netellervip_30')%></h1>
+                </div>
+                <div class="page-section">
+                    <div class="step-1 step-left-padding">
+                        <h2><%-$t('netellervip_31')%> <a id="funding_netellervip_8" href="https://member.neteller.com/member/signUp?step=twostep" class="icm-btn icm-btn-primary"><%-$t('netellervip_32')%></a></h2>
+                    </div>
+                </div>
+                <div class="page-section">
+                    <div class="step-2 step-left-padding">
+                        <h2><%-$t('netellervip_33')%></h2>
+                        <p class="step-title"><%-$t('netellervip_34')%></p>
+                        <p><%-$t('netellervip_35')%></p>
+                        <p class="step-title"><%-$t('netellervip_36')%></p>
+                        <p><%-$t('netellervip_37')%></p>
+                        <p class="step-title"><%-$t('netellervip_38')%></p>
+                        <p><%-$t('netellervip_39')%></p>
+                    </div>
+                </div>
+                <div class="page-section">
+                    <iframe
+                        id="JotFormIFrame-52041430978454"
+                        onload="window.parent.scrollTo(0,0)"
+                        allowtransparency="true"
+                        allowfullscreen="true"
+                        allow="geolocation; microphone; camera"
+                        src="https://form.jotform.me/52041430978454"
+                        frameborder="0"
+                        style="width: 1px; min-width: 100%; height:1186px; border:none;"
+                        scrolling="no"
+                    >
+                    </iframe>
+                </div>
+            </div>
+        </article>
+        <div class="page-content global-markets-today">
+            <div class="page-section">
+                <div class="start-trading"><%-$t('netellervip_18')%></div>
+                <div class="global-today"><%-$t('netellervip_19')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="funding_netellervip_9" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('netellervip_20')%></a>
+                    <a id="funding_netellervip_10" class="icm-btn demo"  href="<%= localePath('open-trading-account-demo') %>"><%-$t('netellervip_21')%></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+<script>
+var ifr = document.getElementById("JotFormIFrame-52041430978454");
+if(window.location.href && window.location.href.indexOf("?") > -1) {
+    var get = window.location.href.substr(window.location.href.indexOf("?") + 1);
+    if(ifr && get.length > 0) {
+    var src = ifr.src;
+    src = src.indexOf("?") > -1 ? src + "&" + get : src  + "?" + get;
+    ifr.src = src;
+    }
+}
+window.handleIFrameMessage = function(e) {
+    var args = e.data.split(":");
+    var iframe = null;
+    if (args.length > 2) { iframe = document.getElementById("JotFormIFrame-" + args[(args.length - 1)]); } else { iframe = document.getElementById("JotFormIFrame"); }
+    if (!iframe) { return; }
+    switch (args[0]) {
+    case "scrollIntoView":
+        iframe.scrollIntoView();
+        break;
+    case "setHeight":
+        iframe.style.height = args[1] + "px";
+        break;
+    case "collapseErrorPage":
+        if (iframe.clientHeight > window.innerHeight) {
+        iframe.style.height = window.innerHeight + "px";
+        }
+        break;
+    case "reloadPage":
+        window.location.reload();
+        break;
+    case "loadScript":
+        var src = args[1];
+        if (args.length > 3) {
+            src = args[1] + ':' + args[2];
+        }
+        var script = document.createElement('script');
+        script.src = src;
+        script.type = 'text/javascript';
+        document.body.appendChild(script);
+        break;
+    case "exitFullscreen":
+        if      (window.document.exitFullscreen)        window.document.exitFullscreen();
+        else if (window.document.mozCancelFullScreen)   window.document.mozCancelFullScreen();
+        else if (window.document.mozCancelFullscreen)   window.document.mozCancelFullScreen();
+        else if (window.document.webkitExitFullscreen)  window.document.webkitExitFullscreen();
+        else if (window.document.msExitFullscreen)      window.document.msExitFullscreen();
+        break;
+    }
+    var isJotForm = (e.origin.indexOf("jotform") > -1) ? true : false;
+    if(isJotForm && "contentWindow" in iframe && "postMessage" in iframe.contentWindow) {
+    var urls = {"docurl":encodeURIComponent(document.URL),"referrer":encodeURIComponent(document.referrer)};
+    iframe.contentWindow.postMessage(JSON.stringify({"type":"urls","value":urls}), "*");
+    }
+};
+if (window.addEventListener) {
+    window.addEventListener("message", handleIFrameMessage, false);
+} else if (window.attachEvent) {
+    window.attachEvent("onmessage", handleIFrameMessage);
+}
+</script>

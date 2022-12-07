@@ -1,0 +1,87 @@
+@import '../_global';
+
+.single-page.withdrawal-page {
+    .collaps {
+        display: none;
+    }
+    .page-content {
+        &.global-markets-today {
+            height: auto;
+            min-height: 455px;
+            background-image: url(/assets/img/single_market_page/withdrawal_btm_cta_bg.png);
+
+            .icm-button-wrapper {
+                a.live {
+                    padding: 25px !important;
+                    border-radius: 0 !important;
+                    font-size: 20px !important;
+                    font-weight: 900 !important;
+                }
+                a.demo {
+                    padding: 25px !important;
+                    border-radius: 0 !important;
+                    font-size: 20px !important;
+                    font-weight: 900 !important;
+                    background-color: #000 !important;
+                    color: #fff !important;
+                    margin-left: 9px;
+                }
+            }
+        }
+    }
+    .page-header {
+        background: url(/assets/img/single_market_page/withdrawal_header_bg.jpg) no-repeat center right;
+        .icm-button-wrapper.page-header__primary-button a.icm-btn.icm-btn-primary {
+                padding: 25px !important;
+                border-radius: 2px !important;
+                font-size: 20px !important;
+                font-weight: 900 !important;
+        }
+    }
+    .first-section {
+        margin-left: 0 !important;
+    }
+    .menu-item .menu-title {
+        text-transform: uppercase;
+    }
+    .flex-container-for-two {
+        display: flex;
+        flex-direction: row;
+
+        .have-4-elements .have-5-elements {
+            display: flex;
+        }
+        .have-5-elements {
+            margin-right: 50px;
+        }
+        .have-4-elements {
+            margin-left: 50px;
+        }
+    }
+}
+.withdrawal-note {
+    border-bottom: 1px solid #d2d2d2;
+    padding: 20px;
+    padding-left: 40px;
+    position: relative;
+}
+.withdrawal-note::before {
+    color: #34E834;
+    position: absolute;
+    font-family: 'Glyphicons Halflings';
+    top: 12px;
+    left: 0;
+    content: "\E013";
+    font-size: 25px;
+}
+@media screen and (max-width: 640px) {
+    .flex-container-for-two {
+        flex-direction: column !important;
+    }
+    .have-5-elements {
+        margin-right: 0px !important;
+    }
+    .have-4-elements {
+        margin-left: 0px !important;
+    }
+}

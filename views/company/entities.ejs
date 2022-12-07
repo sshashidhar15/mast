@@ -1,0 +1,275 @@
+<% setI18nPrefix('pages.company.entities') %>
+<link rel="stylesheet" href="<%=md5('/css/pages/overview.css')%>">
+<meta name="description" content="<%- $t('meta', true) %>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+
+    <div class="overview-page single-page page-account-overview">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('entities_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('entities_2')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="entities_live_registration" class="icm-btn icm-btn-primary" href="<%=localePath('open-trading-account-live') %>">
+                        <%-$t('entities_3')%>
+                    </a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+            <%- include('./_menu.ejs', { current: 'company-entities' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <p><%-$t('entities_2')%></p>
+                    <p><%-$t('entities_25')%></p>
+                    <p><%-$t('entities_26')%></p>
+                </div>
+            </div>
+            <div style="padding-top:40px;" class="page-content highlighted-content">
+                <div class="page-section">
+                    <div class="icm-overview-table-wrap">
+                        <div class="mobile-switch-wrap">
+                            <div class="msw c-2"><div class="column-header"><div class="header-1">CySEC</div></div></div>
+                            <div class="msw c-3 hovered"><div class="column-header"><div class="header-1">ASIC</div></div></div>
+                            <div class="msw c-4"><div class="column-header"><div class="header-1">FSA</div></div></div>
+                        </div>
+                        <table class="icm-overview-table" cellpadding="8" cellspacing="0" border="0">
+                            <col class="col-1" />
+                            <col class="col-2" />
+                            <col class="col-3 hovered" />
+                            <col class="col-4" />
+                            <col class="col-5" />
+                            <tr>
+                                <th class="c-1"><div class="column-header">h1</div></th>
+                                <th class="c-2"><div class="column-header"><div class="header-1">IC Markets</div><div class="header-2">EU</div></div></th>
+                                <th class="c-3 hovered"><div class="column-header"><div class="header-1">IC Markets</div><div class="header-2">AU</div></div></th>
+                                <th class="c-4"><div class="column-header"><div class="header-1">IC Markets</div><div class="header-2">SC</div></div></th>
+                                <th class="c-5"></th>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('entities_4')%></div></td>
+                                <td class="c-2"><div>CySEC</div></td>
+                                <td class="c-3 hovered"><div>ASIC</div></td>
+                                <td class="c-4"><div>FSA</div></td>
+                                <td class="c-5"></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('entities_12')%></div></td>
+                                <td class="c-2"><div>CySEC/Financial Ombudsman of the Republic of Cyprus</div></td>
+                                <td class="c-3 hovered"><div>AFCA</div></td>
+                                <td class="c-4"><div>FSA</div></td>
+                                <td class="c-5"></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('entities_31')%></div></td>
+                                <td class="c-2"><div><%-$t('entities_32')%></div></td>
+                                <td class="c-3 hovered"><div><%-$t('entities_33')%></div></td>
+                                <td class="c-4"><div><%-$t('entities_34')%></div></td>
+                                <td class="c-5"></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('entities_35')%></div></td>
+                                <td class="c-2"><div><span class="glyphicons-no"></span><span style="vertical-align:top; position:relative; top:2px; left:5px;">(<%-$t('entities_36')%>)</span></div></td>
+                                <td class="c-3 hovered"><div><span class="glyphicons-yes"></span></div></td>
+                                <td class="c-4"><div><span class="glyphicons-yes"></span></div></td>
+                                <td class="c-5"></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('entities_5')%></div></td>
+                                <td class="c-2"><div>200 EUR</div></td>
+                                <td class="c-3 hovered"><div>200 USD</div></td>
+                                <td class="c-4"><div>200 USD</div></td>
+                                <td class="c-5"></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('entities_37')%></div></td>
+                                <td class="c-2"><div><%-$t('entities_38')%></div></td>
+                                <td class="c-3 hovered"><div><%-$t('entities_38')%></div></td>
+                                <td class="c-4"><div><%-$t('entities_38')%></div></td>
+                                <td class="c-5"></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('entities_6')%></div></td>
+                                <td class="c-2"><div>EUR, USD, GBP, CHF, PLN</div></td>
+                                <td class="c-3 hovered"><div>AUD, USD, JPY, EUR, NZD, SGD, GBP, CAD, HKD, CHF</div></td>
+                                <td class="c-4"><div>AUD, USD, JPY, EUR, NZD, SGD, GBP, CAD, HKD, CHF</div></td>
+                                <td class="c-5"></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('entities_39')%></div></td>
+                                <td class="c-2"><div>CFDs</div></td>
+                                <td class="c-3 hovered"><div>CFDs</div></td>
+                                <td class="c-4"><div>CFDs</div></td>
+                                <td class="c-5"></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('entities_40')%></div></td>
+                                <td class="c-2"><div><%-$t('entities_41')%></div></td>
+                                <td class="c-3 hovered"><div><%-$t('entities_41')%></div></td>
+                                <td class="c-4"><div><%-$t('entities_41')%></div></td>
+                                <td class="c-5"></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('entities_7')%></div></td>
+                                <td class="c-2"><div><span class="glyphicons-yes"></span></div></td>
+                                <td class="c-3 hovered"><div><span class="glyphicons-no"></span></div></td>
+                                <td class="c-4"><div><span class="glyphicons-no"></span></div></td>
+                                <td class="c-5"></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('entities_8')%></div></td>
+                                <td class="c-2"><div><%-$t('entities_9')%></div></td>
+                                <td class="c-3 hovered"><div><%-$t('entities_9')%></div></td>
+                                <td class="c-4"><div><%-$t('entities_9')%></div></td>
+                                <td class="c-5"></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('entities_42')%></div></td>
+                                <td class="c-2"><div><%-$t('entities_43')%></div></td>
+                                <td class="c-3 hovered"><div><%-$t('entities_44')%></div></td>
+                                <td class="c-4"><div><%-$t('entities_44')%></div></td>
+                                <td class="c-5"></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('entities_10')%></div></td>
+                                <td class="c-2"><div>Raw Spreads, Standard</div></td>
+                                <td class="c-3 hovered"><div>Raw Spreads, Standard</div></td>
+                                <td class="c-4"><div>Raw Spreads, Standard</div></td>
+                                <td class="c-5"></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('entities_11')%></div></td>
+                                <td class="c-2"><div>MetaTrader 4, 5, cTrader</div></td>
+                                <td class="c-3 hovered"><div>MetaTrader 4, 5, cTrader</div></td>
+                                <td class="c-4"><div>MetaTrader 4, 5, cTrader</div></td>
+                                <td class="c-5"></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('entities_45')%></div></td>
+                                <td class="c-2"><div><%-$t('entities_46')%></div></td>
+                                <td class="c-3 hovered"><div><%-$t('entities_47')%></div></td>
+                                <td class="c-4"><div><%-$t('entities_46')%></div></td>
+                                <td class="c-5"></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('entities_13')%></div></td>
+                                <td class="c-2"><div><%-$t('entities_14')%></div></td>
+                                <td class="c-3 hovered"><div><%-$t('entities_14')%></div></td>
+                                <td class="c-4"><div><%-$t('entities_14')%></div></td>
+                                <td class="c-5"></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1" colspan="5" style="background:transparent; border-left:none; border-right:none;">
+                                    <div><%-$t('entities_15')%></div>
+                                </td>
+							</tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('entities_16')%></div></td>
+                                <td class="c-2"><div>1:5</div></td>
+                                <td class="c-3 hovered"><div>1:5</div></td>
+                                <td class="c-4"><div>1:20</div></td>
+                                <td class="c-5"></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('entities_17')%></div></td>
+                                <td class="c-2"><div>1:30</div></td>
+                                <td class="c-3 hovered"><div>1:30</div></td>
+                                <td class="c-4"><div>1:500</div></td>
+                                <td class="c-5"></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('entities_18')%></div></td>
+                                <td class="c-2"><div>1:20</div></td>
+                                <td class="c-3 hovered"><div>1:20</div></td>
+                                <td class="c-4"><div>1:200</div></td>
+                                <td class="c-5"></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('entities_19')%></div></td>
+                                <td class="c-2"><div>1:20</div></td>
+                                <td class="c-3 hovered"><div>1:20</div></td>
+                                <td class="c-4"><div>1:200</div></td>
+                                <td class="c-5"></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('entities_20')%></div></td>
+                                <td class="c-2"><div>1:20</div></td>
+                                <td class="c-3 hovered"><div>1:20</div></td>
+                                <td class="c-4"><div>1:500</div></td>
+                                <td class="c-5"></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('entities_21')%></div></td>
+                                <td class="c-2"><div>1:5</div></td>
+                                <td class="c-3 hovered"><div>1:5</div></td>
+                                <td class="c-4"><div>1:200</div></td>
+                                <td class="c-5"></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('entities_22')%></div></td>
+                                <td class="c-2"><div>1:2</div></td>
+                                <td class="c-3 hovered"><div>1:2</div></td>
+                                <td class="c-4"><div>1:20</div></td>
+                                <td class="c-5"></td>
+                            </tr>
+                            <tr class="c-x">
+                                <td class="c-1"><div></div></td>
+                                <td class="c-2"><div><a id="entities_live_registration_2" class="btn icm-btn-primary start-trading-button live" href="<%= localePath('open-trading-account-live') %>"><%-$t('entities_23')%></a><a id="entities_demo_registration" class="btn start-trading-button demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('entities_24')%></a></div></td>
+                                <td class="c-3 hovered"><div><a id="entities_live_registration_3"class="btn icm-btn-primary start-trading-button live" href="<%= localePath('open-trading-account-live') %>"><%-$t('entities_23')%></a><a id="entities_demo_registration_2" class="btn start-trading-button demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('entities_24')%></div></div></td>
+                                <td class="c-4"><div><a id="entities_live_registration_4" class="btn icm-btn-primary start-trading-button live" href="<%= localePath('open-trading-account-live') %>"><%-$t('entities_23')%></a><a id="entities_demo_registration_3" class="btn start-trading-button demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('entities_24')%></a></div></td>
+                                <td class="c-5"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('entities_27')%></div>
+                    <div class="global-today"><%-$t('entities_28')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="entities_live_registration_5"class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('entities_29')%></a>
+                        <a id="entities_demo_registration_4"class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('entities_30')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+
+<script>
+	let $col2 = $('.col-2');
+	let $col3 = $('.col-3');
+	let $col4 = $('.col-4');
+	let $c2 = $('.c-2');
+	let $c3 = $('.c-3');
+	let $c4 = $('.c-4');
+
+	let clearHover = function () {
+		$col2.toggleClass('hovered', false);
+		$col3.toggleClass('hovered', false);
+		$col4.toggleClass('hovered', false);
+		$c2.toggleClass('hovered', false);
+		$c3.toggleClass('hovered', false);
+		$c4.toggleClass('hovered', false);
+	};
+	$c2.on('mouseenter', function(e) {
+		clearHover();
+		$col2.toggleClass('hovered', true);
+		$c2.toggleClass('hovered', true);
+	});
+	$c3.on('mouseenter', function(e) {
+		clearHover();
+		$col3.toggleClass('hovered', true);
+		$c3.toggleClass('hovered', true);
+	});
+	$c4.on('mouseenter', function(e) {
+		clearHover();
+		$col4.toggleClass('hovered', true);
+		$c4.toggleClass('hovered', true);
+	});
+</script>

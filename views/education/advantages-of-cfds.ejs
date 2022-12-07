@@ -1,0 +1,124 @@
+<% setI18nPrefix('pages.education.advantages-of-cfds') %>
+<meta name="description" content="<%- $t('meta', true) %>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/advantages-of-cfds.css')%>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+    <div class="single-page advantages-of-cfds">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('advantages_of_cfds_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('advantages_of_cfds_2')%></div>
+
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="advantages_of_cfds_1" class="icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%- $t('advantages_of_cfds_3') %></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'education-advantages-of-cfds' }) %>
+        </article>
+        <article class="page-content-container ">
+            <div class="page-content bgcolor1">
+                <div class="page-section">
+                    <div class="double-sidebar-block">
+                        <div class="sidebar-cta-card-container sidebar-top-card random-background rnd-back-1">
+                            <div class="bottom-block">
+                                <p class="bottom-block__message"><%-$t('advantages_of_cfds_8')%><br><b><%-$t('advantages_of_cfds_9')%></b></p>
+                                <div class="icm-button-wrapper bottom-block__cta-button">
+                                    <a id="advantages_of_cfds_2"class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('advantages_of_cfds_12')%></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-card contact-block">
+                            <div class="contact-header">
+                                <div class="header-label"><%-$t('advantages_of_cfds_13')%></div>
+                                <div class="header-title"><%-$t('advantages_of_cfds_14')%></div>
+                            </div>
+                            <div class="contact-pre-imaged chat-img">
+                                <div><%-$t('contact_card_help')%></div>
+                            </div>
+                            <% if (!fsa && !scb && !fsc && !cima) { %>
+                            <div class="contact-phone">
+                                <div><%-$t('contact_card_phone')%></div>
+                            </div>
+                            <% } %>
+                            <div class="contact-pre-imaged email-img">
+                                <% if (asic) {%>
+                                    <div><%-$t('contact_card_email_asic')%></div>
+                                <% } else { %>
+                                    <div><%-$t('contact_card_email')%></div>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="first-section">
+                        <div class="page-first-text"><%-$t('advantages_of_cfds_20')%></div>
+                        <p><%-$t('advantages_of_cfds_21')%></p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content bgcolor2">
+                <div class="page-section">
+                    <h1><%-$t('advantages_of_cfds_22')%></h1>
+                    <p><%-$t('advantages_of_cfds_23')%></p>
+                    <p><%-$t('advantages_of_cfds_24')%></p>
+                    <p><%-$t('advantages_of_cfds_241')%></p>
+                </div>
+            </div>
+            <div class="page-content bgcolor3">
+                <div class="page-section">
+                    <h1><%-$t('advantages_of_cfds_25')%></h1>
+                    <p><%-$t('advantages_of_cfds_26')%></p>
+                </div>
+            </div>
+            <div class="page-content bgcolor1">
+                <div class="page-section">
+                    <h1><%-$t('advantages_of_cfds_27')%></h1>
+                    <p><%-$t('advantages_of_cfds_28')%></p>
+                    <p><%-$t('advantages_of_cfds_281')%></p>
+                </div>
+            </div>
+            <div class="page-content bgcolor2">
+                <div class="page-section">
+                    <h1><%-$t('advantages_of_cfds_29')%></h1>
+                    <p><%-$t('advantages_of_cfds_31')%></p>
+                </div>
+            </div>
+            <div class="page-content bgcolor1">
+                <div class="page-section">
+                    <h1><%-$t('advantages_of_cfds_32')%></h1>
+                    <p><%-$t('advantages_of_cfds_33')%></p>
+                </div>
+            </div>
+            <div class="page-content bgcolor2">
+                <div class="page-section">
+                    <h1><%-$t('advantages_of_cfds_42')%></h1>
+                    <p>
+                        <%-$t('advantages_of_cfds_43')%>
+                        <% if (asic) { %>
+                            <a id="advantages_of_cfds_3" class="blue-link" href="<%- getCDN() %>/uploads/IC-Markets-CFD-PDS.pdf" target="_blank"><%-$t('advantages_of_cfds_44')%></a>
+                        <% } else if (cysec) { %>
+                            <a id="advantages_of_cfds_3" class="blue-link" href="<%- getCDN() %>/uploads/EU/RISK+DISCLOSURE+NOTICE.pdf" target="_blank"><%-$t('advantages_of_cfds_44')%></a>
+                        <% } else if (fsa) { %>
+                            <a id="advantages_of_cfds_3" class="blue-link" href="<%- getCDN() %>/uploads/FSA/Risk_Disclosure_Notice_FSA.pdf" target="_blank"><%-$t('advantages_of_cfds_44')%></a>
+                        <% } else if (scb) { %>
+                            <a id="advantages_of_cfds_3" class="blue-link" href="<%- getCDN() %>/uploads/SCB/Risk_Disclosure_Notice.pdf" target="_blank"><%-$t('advantages_of_cfds_44')%></a>
+                        <% } %>
+                    </p>
+                </div>
+            </div>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('advantages_of_cfds_4')%></div>
+                    <div class="global-today"><%-$t('advantages_of_cfds_5a')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="advantages_of_cfds_4"class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('advantages_of_cfds_6')%></a>
+                        <a id="advantages_of_cfds_5" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('advantages_of_cfds_7')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

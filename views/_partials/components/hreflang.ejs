@@ -1,0 +1,32 @@
+<%
+    let def = {};
+    let routes = [];
+    let data = allRoutes();
+    let host = data.host;
+    let all = data.routes;
+    let current = data.current;
+    var keys = Object.keys(all);
+
+    if(!isFromLocal){
+        host = host.replace('http:', 'https:');
+    }
+
+    for (var i in keys) {
+        var lang = keys[i];
+        var path = '/' + all[keys[i]][current];
+        if (!current) path = '';
+        var link = {
+            href: (host + '/' + lang + path),
+            lang: lang
+        };
+        routes.push(link);
+        if (lang === 'en') {
+            def = link;
+        }
+    };
+%>
+
+<link rel="alternate" href="<%= def.href %>" hreflang="x-default" />
+<% routes.forEach(route =>{ %>
+    <link rel="alternate" href="<%= route.href %>" hreflang="<%= route.lang %>" />
+<%})%>

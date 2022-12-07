@@ -1,0 +1,54 @@
+.ui-card-list {
+    display: flex;
+    flex-wrap: wrap;
+    .ui-card--style {
+        width: 100%;
+        max-width: $icm-max-ui-card-width;
+        margin-bottom: 32px;
+    }
+}
+
+/* UI card specific max-with property for each card . Tablet */
+
+@media screen and (min-width: 685px) {
+    .ui-card-list {
+        .ui-card--style {
+            width: calc((100% - 32px) / 2);
+            max-width: $icm-max-ui-card-width;
+        }
+        .ui-card--style:nth-child(odd) {
+            margin-right: 16px;
+        }
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .ui-card-list {
+        .ui-card--style {
+            width: calc((100% - 32px - 32px - 16px) / 3);
+            max-width: $icm-max-ui-card-width;
+        }
+        .ui-card--style:not(:nth-child(3n)) {
+            margin-right: 16px;
+        }
+    }
+}
+
+/* Individual card style */
+
+.card-container {
+    border-radius: $icm-card-border-radius;
+    background: $icm-bg-color-white;
+    box-shadow: 0 1px 3px 0 #999999;
+}
+
+.footer-link-block--style {
+    padding-bottom: $icm-padding-m;
+    line-height: 1;
+    text-align: center;
+    font-size: $font-size-xs;
+}
+
+.hide-footer-link-block {
+    display: none;
+}

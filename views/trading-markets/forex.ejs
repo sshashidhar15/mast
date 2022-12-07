@@ -1,0 +1,164 @@
+<% setI18nPrefix('pages.trading-markets.forex')%>
+<meta name="description" content="<%-$t('meta', true)%>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/forex.css')%>">
+<%- contentFor('title')%>
+  <%-$t('title')%>
+<%- contentFor('body')%>
+    <div class="single-page page-forex">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('forex_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('forex_2')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a  id="forex_1" class="icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('starttrading')%></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'trading-markets-forex' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="market-facts-card">
+                        <div class="facts-header">
+                            <div class="header-label"><%-$t('forex_4')%></div>
+                            <div class="header-title"><%-$t('forex_5')%></div>
+                        </div>
+                        <div class="facts-items">
+                            <div class="facts-item"><%-$t('forex_6')%></div>
+                            <div class="facts-item"><%-$t('forex_7')%></div>
+                            <div class="facts-item">
+                                <% if (cysec) { %>
+                                    <%-$t('forex_88')%>
+                                <% } else { %>
+                                    <% if (isAPACcountry(countryCode)) { %>
+                                        <%-$t('forex_8_apac')%>
+                                    <% } else { %>
+                                        <%-$t('forex_8')%>
+                                    <% } %>
+                                <% } %>
+                            </div>
+                            <div class="facts-item"><%-$t('forex_9')%></div>
+                            <div class="facts-item"><%-$t('forex_11')%>,<br><%-$t('forex_12')%></div>
+                        </div>
+                        <div class="action-buttons-container">
+                            <a id="forex_2" class="action-button icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('forex_13')%></a>
+                        </div>
+                    </div>
+                    <div class="first-section">
+                        <div class="page-first-text">
+                            <p><%-$t('forex_14')%></p>
+                            <p><%-$t('forex_15')%></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content highlighted-content">
+                <div class="page-section">
+                    <h1><%-$t('forex_16')%></h1>
+                    <p><%-$t('forex_17')%></p>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="page-section split-2">
+                    <div class="left-section">
+                        <h1><%-$t('forex_18')%></h1>
+                        <div class="risk-image"></div>
+                    </div>
+                    <div class="right-section">
+                        <p>
+                            <% if (cysec) { %>
+                                <%-$t('forex_202')%>
+                            <% } else { %>
+                                <% if (isAPACcountry(countryCode)) { %>
+                                    <%-$t('forex_20_apac')%>
+                                <% } else { %>
+                                    <%-$t('forex_20')%>
+                                <% } %>
+                            <% } %>
+                        </p>
+                        <% if (asic) {%>
+                        <p style="margin-top:90px;"><%-$t('forex_21')%></p>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content highlighted-content">
+                <div class="page-section">
+                    <h1><%-$t('forex_22')%></h1>
+                    <div class="accent-block"><%-$t('forex_23')%></div>
+                    <div class="flex-section">
+                        <div class="flex-content">
+                            <div class="content-head"><%-$t('forex_24')%></div>
+                            <div class="content-inside label"><%-$t('forex_25')%></div>
+                            <div class="content-inside value">€200,000 x 1.33623 = USD $267,246</div>
+                            <div class="content-inside label"><%-$t('forex_26')%></div>
+                            <div class="content-inside value">€200,000 x 1.32129 = USD $264,258</div>
+                            <div class="content-inside label"><%-$t('forex_27')%></div>
+                            <div class="content-inside value">$2988</div>
+                        </div>
+                        <div class="flex-content">
+                            <div class="content-head"><%-$t('forex_28')%></div>
+                            <div class="content-inside ordinary"><%-$t('forex_29')%></div>
+                            <% if (asic) {%>
+                            <div class="content-inside description"><%-$t('forex_30')%></div>
+                            <% } %>
+                        </div>
+                        <div class="flex-content">
+                            <div class="content-head"><%-$t('forex_31')%></div>
+                            <div class="content-inside ordinary"><%-$t('forex_32')%></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="page-section">
+                    <h1><%-$t('forex_33')%></h1>
+                    <div class="accent-block"><%-$t('forex_34')%></div>
+                    <article class="spreads-block icm-page-subsection-content">
+                        <div class="spreads-block__spread-item">
+                            <div class="spreads-accordion">
+                                <div class="panel-collapse collapse in">
+                                    <%- include('../_partials/components/forex-spread-table.ejs') %>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <p><%-$t('forex_spreads_generated')%></p>
+                </div>
+            </div>
+            <% if (asic) {%>
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="profile-buttons">
+                        <a id="forex_3" style="text-decoration:none;" class="profile-button" href="<%= localePath('trading-pricing-spreads')%>">
+                            <div class="profile-button-label"><%-$t('forex_351')%></div>
+                            <div class="profile-button-value"><%-$t('forex_352')%></div>
+                        </a>
+                        <a id="forex_4" style="text-decoration:none;" class="profile-button" href="<%- getCDN() %>/uploads/AU/Foreign-Exchange-Product-Specificiation-Sheet.pdf" target="_blank">
+                            <div class="profile-button-label"><%-$t('forex_361')%></div>
+                            <div class="profile-button-value"><%-$t('forex_362')%></div>
+                        </a>
+                        <a id="forex_5" style="text-decoration:none;" class="profile-button" href="<%= localePath('trading-accounts-raw-spread-account')%>">
+                            <div class="profile-button-label"><%-$t('forex_371')%></div>
+                            <div class="profile-button-value"><%-$t('forex_3721')%></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('forex_38')%></div>
+                    <div class="global-today"><%-$t('forex_39')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="forex_6" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live')%>"><%-$t('forex_40')%></a>
+                        <a id="forex_7" class="icm-btn demo" href="<%= localePath('open-trading-account-demo')%>"><%-$t('forex_41')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

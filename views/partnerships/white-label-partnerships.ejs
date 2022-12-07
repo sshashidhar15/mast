@@ -1,0 +1,124 @@
+<% setI18nPrefix('pages.partnerships.white-label-partnerships') %>
+<meta name="description" content="<%- $t('meta', true) %>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/white-label-partnerships.css')%>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+    <div class="single-page white-label-partnerships">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('white_label_partnerships_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('white_label_partnerships_2')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="white_label_partnerships_1" class="icm-btn icm-btn-primary scroll-to-form"><%- $t('white_label_partnerships_3') %></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'partnerships-white-label-partnerships' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="double-sidebar-block">
+                        <div class="sidebar-cta-card-container sidebar-top-card random-background rnd-back-1">
+                            <div class="bottom-block">
+                                <p class="bottom-block__message"><%-$t('white_label_partnerships_8')%><br><b><%-$t('white_label_partnerships_9')%></b></p>
+                                <div class="icm-button-wrapper bottom-block__cta-button">
+                                    <a id="white_label_partnerships_2" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('white_label_partnerships_12')%></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-card contact-block">
+                            <div class="contact-header">
+                                <div class="header-label"><%-$t('white_label_partnerships_13')%></div>
+                                <div class="header-title"><%-$t('white_label_partnerships_14')%></div>
+                            </div>
+                            <div class="contact-pre-imaged chat-img">
+                                <div><%-$t('contact_card_help')%></div>
+                            </div>
+                            <% if (!fsa && !scb && !fsc && !cima) { %>
+                            <div class="contact-phone">
+                                <div><%-$t('contact_card_phone')%></div>
+                            </div>
+                            <% } %>
+                            <div class="contact-pre-imaged email-img">
+                                <% if (asic) {%>
+                                    <div><%-$t('contact_card_email_asic')%></div>
+                                <% } else { %>
+                                    <div><%-$t('contact_card_email')%></div>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="first-section">
+                        <div class="page-first-text"><%-$t('white_label_partnerships_4')%></div>
+                        <h1><%-$t('white_label_partnerships_5')%></h1>
+                        <p><%-$t('white_label_partnerships_501')%></p>
+                        <div class="bold-header"><%-$t('white_label_partnerships_502')%></div>
+                        <div class="pre-image-item"><%-$t('white_label_partnerships_6')%></div>
+                        <div class="pre-image-item"><%-$t('white_label_partnerships_7')%></div>
+                        <div class="pre-image-item"><%-$t('white_label_partnerships_10')%></div>
+                        <div class="pre-image-item"><%-$t('white_label_partnerships_11')%></div>
+                        <div class="pre-image-item"><%-$t('white_label_partnerships_18')%></div>
+                        <p></p>
+                        <div class="bold-header"><%-$t('white_label_partnerships_503')%></div>
+                        <div class="pre-image-item"><%-$t('white_label_partnerships_504')%></div>
+                        <div class="pre-image-item"><%-$t('white_label_partnerships_505')%></div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content highlighted-content">
+                <div class="page-section">
+                    <h1><%-$t('white_label_partnerships_19')%></h1>
+                    <p><%-$t('white_label_partnerships_20')%></p>
+                    <div class="bold-header"><%-$t('white_label_partnerships_5021')%></div>
+                    <div class="pre-image-item"><%-$t('white_label_partnerships_61')%></div>
+                    <div class="pre-image-item"><%-$t('white_label_partnerships_71')%></div>
+                    <div class="pre-image-item"><%-$t('white_label_partnerships_101')%></div>
+                    <div class="pre-image-item"><%-$t('white_label_partnerships_111')%></div>
+                    <div class="pre-image-item"><%-$t('white_label_partnerships_181')%></div>
+                    <p></p>
+                    <div class="bold-header"><%-$t('white_label_partnerships_5031')%></div>
+                    <div class="pre-image-item"><%-$t('white_label_partnerships_5041')%></div>
+                    <div class="pre-image-item"><%-$t('white_label_partnerships_5051')%></div>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="page-section">
+                    <h1><%-$t('white_label_partnerships_19')%></h1>
+                    <p><%-$t('white_label_partnerships_202')%></p>
+                    <p><%-$t('white_label_partnerships_201')%></p>
+                    <div class="bold-header"><%-$t('white_label_partnerships_50211')%></div>
+                    <div class="pre-image-item"><%-$t('white_label_partnerships_611')%></div>
+                    <div class="pre-image-item"><%-$t('white_label_partnerships_711')%></div>
+                    <div class="pre-image-item"><%-$t('white_label_partnerships_1011')%></div>
+                    <div class="pre-image-item"><%-$t('white_label_partnerships_1111')%></div>
+                    <div class="pre-image-item"><%-$t('white_label_partnerships_1811')%></div>
+                    <div class="pre-image-item"><%-$t('white_label_partnerships_1812')%></div>
+                    <p></p>
+                    <div class="bold-header"><%-$t('white_label_partnerships_50311')%></div>
+                    <div class="pre-image-item"><%-$t('white_label_partnerships_50411')%></div>
+                    <br>
+                    <br>
+                    <p><%-$t('white_label_partnerships_25')%></p>
+                    <div class="icm-form-block-container">
+                        <%- include('../_partials/components/contact-us-form-white-label-partnerships.ejs') %>
+                        <% setI18nPrefix('pages.partnerships.white-label-partnerships') %>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('white_label_partnerships_21')%></div>
+                    <div class="global-today"><%-$t('white_label_partnerships_22')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="white_label_partnerships_3" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('white_label_partnerships_23')%></a>
+                        <a id="white_label_partnerships_4" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('white_label_partnerships_24')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

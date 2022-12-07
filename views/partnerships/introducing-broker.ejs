@@ -1,0 +1,124 @@
+<% setI18nPrefix('pages.partnerships.introducing-broker') %>
+<meta name="description" content="<%- $t('meta', true) %>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/introducing-broker.css')%>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+    <div class="single-page one-page-home introducing-broker">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('introducing_broker_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('introducing_broker_2')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="introducing_broker_1" class="icm-btn icm-btn-primary scroll-to-form"><%- $t('introducing_broker_3') %></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'partnerships-introducing-broker' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="double-sidebar-block">
+                        <div class="sidebar-cta-card-container sidebar-top-card random-background rnd-back-1">
+                            <div class="bottom-block">
+                                <p class="bottom-block__message"><%-$t('introducing_broker_8')%><br><b><%-$t('introducing_broker_9')%></b></p>
+                                <div class="icm-button-wrapper bottom-block__cta-button">
+                                    <a id="introducing_broker_2"class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('introducing_broker_12')%></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-card contact-block">
+                            <div class="contact-header">
+                                <div class="header-label"><%-$t('introducing_broker_13')%></div>
+                                <div class="header-title"><%-$t('introducing_broker_14')%></div>
+                            </div>
+                            <div class="contact-pre-imaged chat-img">
+                                <div><%-$t('contact_card_help')%></div>
+                            </div>
+                            <% if (!fsa && !scb && !fsc && !cima) { %>
+                            <div class="contact-phone">
+                                <div><%-$t('contact_card_phone')%></div>
+                            </div>
+                            <% } %>
+                            <div class="contact-pre-imaged email-img">
+                                <% if (asic) {%>
+                                    <div><%-$t('contact_card_email_asic')%></div>
+                                <% } else { %>
+                                    <div><%-$t('contact_card_email')%></div>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="first-section">
+                        <div class="page-first-text"><%-$t('introducing_broker_4')%></div>
+                        <h1><%-$t('introducing_broker_5')%></h1>
+                        <div class="pre-image-item"><%-$t('introducing_broker_6')%></div>
+                        <div class="pre-image-item"><%-$t('introducing_broker_7')%></div>
+                        <div class="pre-image-item"><%-$t('introducing_broker_10')%></div>
+                        <div class="pre-image-item"><%-$t('introducing_broker_11')%></div>
+                        <div class="pre-image-item"><%-$t('introducing_broker_18')%></div>
+                        <div class="pre-image-item"><%-$t('introducing_broker_19')%></div>
+                        <div class="pre-image-item"><%-$t('introducing_broker_20')%></div>
+                        <div class="pre-image-item"><%-$t('introducing_broker_21')%></div>
+                        <div class="pre-image-item"><%-$t('introducing_broker_22')%></div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content highlighted-content">
+                <div class="page-section">
+                    <h1><%-$t('introducing_broker_23')%></h1>
+                    <p><%-$t('introducing_broker_24')%></p>
+                    <div class="bold-header"><%-$t('introducing_broker_25')%></div>
+                    <div class="pre-image-item"><%-$t('introducing_broker_26')%></div>
+                    <div class="pre-image-item"><%-$t('introducing_broker_27')%></div>
+                    <div class="pre-image-item"><%-$t('introducing_broker_28')%></div>
+                    <div class="pre-image-item"><%-$t('introducing_broker_29')%></div>
+                    <div class="pre-image-item"><%-$t('introducing_broker_30')%></div>
+                    <div class="pre-image-item"><%-$t('introducing_broker_31')%></div>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="page-section section-form">
+                    <h1><%-$t('introducing_broker_32')%></h1>
+                    <div class="section-home-content pb-0-1-sm-lg ">
+                        <div class="row flex-center pt-3">
+                            <div class="form-box">
+                                <div class="flex-block-form">
+                                    <div class="section-left">
+                                        <div class="wrapper-form">
+                                            <div class="second-heading center space">Existing Client?</div>
+                                            <div class="small-heading">You can apply to become a Preferred Partner within the client area and start earning today.</div>
+                                            <div class="icm-button-wrapper apply-btn">
+                                                <a id="introducing_broker_3" class="icm-btn icm-btn-primary page-header__primary-button" target="_blank" href="<%= clientAreaPath() %>/Account/LogOn" class="icmp-link">Apply Now</a>
+                                            </div>
+                                            <div class="apply-title center top-2">Join our Hybrid Affiliate Program</div>
+                                        </div>
+                                    </div>
+                                        <div class="section-right">
+                                            <div class="icm-form-block-wrap">
+                                                <%- include('../_partials/components/partnerships-form.ejs') %>
+                                                <% setI18nPrefix('pages.partnerships.introducing-broker') %>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('introducing_broker_36')%></div>
+                    <div class="global-today"><%-$t('introducing_broker_37')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="introducing_broker_4" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('introducing_broker_38')%></a>
+                        <a id="introducing_broker_5" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('introducing_broker_39')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

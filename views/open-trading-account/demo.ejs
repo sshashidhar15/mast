@@ -1,0 +1,708 @@
+<% setI18nPrefix('pages.open-trading-account.demo') %>
+<meta name="description" content="<%- $t('meta', true) %>">
+
+<% if (!cn_host) { %>
+    <link rel="stylesheet" href="<%=md5('/css/mask.css')%>">
+    <link rel="stylesheet" href="<%=md5('/icm-open-account/css/font-awesome.min.css')%>">
+    <link rel="stylesheet" href="<%=md5('/icm-open-account/css/jquery.mCustomScrollbar.min.css')%>">
+    <link rel="stylesheet" href="<%=md5('/icm-open-account/css/icm-open-account-bundle.css')%>">
+    <link rel="stylesheet" href="<%=md5('/icm-open-account/css/landing-page-template-bundle.css')%>">
+    <link rel="stylesheet" href="<%=md5('/icm-open-account/css/static-demo.css')%>">
+    <script src="<%=md5('/icm-open-account/js/js.cookie.min.js')%>" charset="utf-8"></script>
+<% } %>
+
+
+<% if(cn_host) { %>
+    <%- contentFor('title') %>
+    <%- $t('title') %>
+    <%- contentFor('body') %>
+        <div class="single-page page-demo">
+            <article style="padding-top:30px; padding-bottom:30px;" class="page-header">
+                <section class="page-header__container">
+                    <header>
+                        <h1 class="page-header__heading--style"><%-$t('demo_1')%></h1>
+                    </header>
+                    <div class="page-header__description">
+                        <div><%-$t('demo_2')%></div>
+                        <% if (asic) {%><div><%-$t('demo_3')%></div><% } %>
+                        <div><%-$t('demo_4')%></div>
+                    </div>
+                </section>
+            </article>
+            <article class="page-header__menu-container">
+                <div class="page-header__menu">
+                    <div class="menu-item" ><a  id="demo_1" href="<%= localePath("open-trading-account-live") %>" class="menu-title"><%-$t('demo_5')%></a></div>
+                    <div class="menu-item current-page" ><a id="demo_2" href="<%= localePath("open-trading-account-demo") %>" class="menu-title"><%-$t('demo_6')%></a></div>
+                    <div class="menu-item" ><a id="demo_3" href="<%= localePath("trading-accounts-funding") %>" class="menu-title"><%-$t('demo_7')%></a></div>
+                    <div class="menu-item" ><a id="demo_4" href="<%= localePath("trading-accounts-withdrawal") %>" class="menu-title"><%-$t('demo_8')%></a></div>
+
+                    <div class="menu-item menu-switch"><span class="menu-icon icon-switch"></span></div>
+                </div>
+            </article>
+            <article class="page-content-container">
+                <div class="page-content do-not-cut pt-20" style="padding-bottom:120px!important;">
+                    <div id="registration-app-cn"></div>
+                </div>
+            </article>
+            <% if (fsa) { %>
+                <img border="0"
+                    src="https://r.turn.com/r/beacon?b2=OgURFzwDjjaNNymlWQi13nVhNAwDRTjFm1zQuwRFPkJXdADLtSAajx1Hxk3tic2E6Gmhjhj2H31UGj_l7c2t2Q&cid=">
+            <% } %>
+        </div>
+
+        <script>
+            /*
+            NOTE:
+            1) insert here current regulator rule about allow to register with another possible regulator
+            2) that rule should be come from ENV variable of server side
+            */
+            window['isItCySECWebSite'] = <%=cysec%>; // is current website CySEC (for show redirect popup if no but selected country from branch 2)
+            window['isUserFromCySECCountry'] = <%=isCysecCountry%>; // is current current user from CySEC country (for show popup)
+            window['serverURL'] = '<%= config.reg_service_1_url %>';
+            window['cysecWebsiteURL'] = '<%= config.cysec_website_url %>';
+            window['cysecWebsiteName'] = '<%= config.cysec_website_name %>';
+            window['cysecRegformURL'] = '<%= config.cysec_website_url %>/en/open-trading-account/demo';
+            window['cysecCountriesString'] = '<%= cysecCountriesString %>';
+            window['currentBranchID'] = '<%= branchID %>';
+            window['currentLocale'] = '<%= locale %>';
+            window['countryFrom'] = '<%= countryCode %>';
+            window['forceCountryFrom'] = <% if (forceCountryFrom && userAccessFrom == "inside") { %> '<%= countryCode %>'.toUpperCase() <% } else { %> false <% } %>;
+            window['isSupportedCurrentBranch'] = '<%= is_supported_branch %>';
+            window['suggestedCountry'] = '<%= suggested_country %>';
+            window['request_from'] = 'WWW2 Branched demo';
+            window['currentDomain'] = '<%= current_domain %>';
+            window['regType'] = 'demo';       
+        </script>
+
+        <% if (isFromLocal) { %>
+            <script src="<%=md5('/regspa-cn/registration-cn.js')%>" charset="utf-8"></script>
+        <% } else { %>
+            <script src="<%=md5('/regspa-cn/registration-cn.min.js')%>" charset="utf-8"></script>
+        <% } %>
+<% } %>
+
+<% if(!cn_host) { %>
+    <%- contentFor('title') %>
+    <%- $t('title') %>
+    <%- contentFor('body') %>
+        <div class="single-page page-demo">
+            <div class="cached-translation reg_form_inputs_type_email"><%-$t('reg_form_inputs_type_email', true)%></div>
+            <div class="cached-translation reg_form_inputs_phone_number"><%-$t('reg_form_inputs_phone_number', true)%></div>
+            <div class="cached-translation reg_form_inputs_use_letters"><%-$t('reg_form_inputs_use_letters', true)%></div>
+            <div class="cached-translation reg_form_email_already_used"><%-$t('reg_form_email_already_used', true)%></div>
+            <div class="cached-translation reg_form_email_already_used_first_joint"><%-$t('reg_form_email_already_used_first_joint', true)%></div>
+            <div class="cached-translation reg_form_eu_clients_acknowledgment_branch1"><%-$t('reg_form_eu_clients_acknowledgment_branch_1', true)%></div>
+            <div class="cached-translation reg_form_eu_clients_acknowledgment_branch3"><%-$t('reg_form_eu_clients_acknowledgment_branch_3', true)%></div>
+            <div class="cached-translation reg_form_eu_clients_acknowledgment_branch4"><%-$t('reg_form_eu_clients_acknowledgment_branch_4', true)%></div>
+            <div class="cached-translation reg_form_branch_asic"><%-$t('reg_form_branch_asic', true)%></div>
+            <div class="cached-translation reg_form_branch_cysec"><%-$t('reg_form_branch_cysec', true)%></div>
+            <div class="cached-translation reg_form_branch_fsa"><%-$t('reg_form_branch_fsa', true)%></div>
+            <div class="cached-translation reg_form_branch_scb"><%-$t('reg_form_branch_scb', true)%></div>
+            <div class="cached-translation reg_form_branch_asic_description"><%-$t('reg_form_branch_asic_description', true)%></div>
+            <div class="cached-translation reg_form_branch_cysec_description"><%-$t('reg_form_branch_cysec_description', true)%></div>
+            <div class="cached-translation reg_form_branch_fsa_description"><%-$t('reg_form_branch_fsa_description', true)%></div>
+            <div class="cached-translation reg_form_branch_scb_description"><%-$t('reg_form_branch_scb_description', true)%></div>
+
+            <div class="waiting-mask"></div>
+            <article style="padding-top:120px; padding-bottom:120px;" class="page-header">
+                <section class="page-header__container">
+                    <header>
+                        <h1 class="page-header__heading--style"><%-$t('demo_1')%></h1>
+                    </header>
+                    <div class="page-header__description">
+                        <div><%-$t('demo_2')%></div>
+                        <% if (asic) {%><div><%-$t('demo_3')%></div><% } %>
+                        <div><%-$t('demo_4')%></div>
+                    </div>
+                </section>
+            </article>
+            <article class="page-header__menu-container">
+                <div class="page-header__menu">
+                    <div class="menu-item" ><a  id="demo_1" href="<%= localePath("open-trading-account-live") %>" class="menu-title"><%-$t('demo_5')%></a></div>
+                    <div class="menu-item current-page" ><a id="demo_2" href="<%= localePath("open-trading-account-demo") %>" class="menu-title"><%-$t('demo_6')%></a></div>
+                    <div class="menu-item" ><a id="demo_3" href="<%= localePath("trading-accounts-funding") %>" class="menu-title"><%-$t('demo_7')%></a></div>
+                    <div class="menu-item" ><a id="demo_4" href="<%= localePath("trading-accounts-withdrawal") %>" class="menu-title"><%-$t('demo_8')%></a></div>
+
+                    <div class="menu-item menu-switch"><span class="menu-icon icon-switch"></span></div>
+                </div>
+            </article>
+            <article class="page-content-container">
+                <div class="page-content do-not-cut demo-register-content-wrapper" style="padding-bottom:120px!important;">
+                <%- include('../_partials/components/maintenance-warning.ejs') %>
+                    <div class="page-section landing-page ">
+
+                        <h1 class="h1-title"><%-$t('reg_form_demo_page_title')%></h1>
+
+                        <div class="steps_container wp-icm-open-account demo">
+                            <div class="process_line" data-n="0">
+                                <div class="step_line">
+                                    <div class="step_icon">0</div>
+                                </div>
+                            </div>
+                            <div class="process_line" data-n="1">
+                                <div class="step_line">
+                                    <div class="step_icon">1</div>
+                                </div>
+                            </div>
+                            <div class="process_line" data-n="2">
+                                <div class="step_line">
+                                    <div class="step_icon">2</div>
+                                </div>
+                            </div>
+                            <div class="process_line" data-n="2">
+                                <div class="step_line">
+                                    <div class="step_icon">2</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wp-icm-open-account demo">
+                            <a id="demo_5" class="personal-area-url" href="<%= clientAreaPath() %>" style="display:none; opacity:0;">&nbsp;</a>
+                            <div class="main_register_wrap">
+                                <div class="register_wrap">
+                                    <div class="reg_header">
+                                        <div class="reg_login"><span data-ml="reg_form_demo_header_already"><%-$t('reg_form_demo_header_already')%></span> <a id="demo_5" class="link-to-personal-area" href=""><span data-ml="reg_form_demo_header_sign_in"><%-$t('reg_form_demo_header_sign_in')%></span></a></div>
+                                        <div class="rl reg_lang">
+                                            <div class="rl reg-lang-name"></div>
+                                        </div>
+                                    </div>
+                                    <div class="register_process_wrap">
+                                        <div class="reg_logo">
+                                            <img src="/icm-open-account/icons/Logo.svg" alt="">
+                                            <p data-ml="reg_form_demo_header_logo"><%-$t('reg_form_demo_header_logo')%></p>
+                                        </div>
+                                        <div class="reg_process">
+                                            <div class="process_line" data-n="0">
+                                                <div class="step_line"></div>
+                                            </div>
+                                            <div class="process_line" data-n="1">
+                                                <div class="step_line">
+                                                    <div class="step_icon">1</div>
+                                                </div>
+                                                <div class="process_line_text" data-ml="reg_form_demo_line_personal">
+                                                    <%-$t('reg_form_demo_line_personal')%>
+                                                </div>
+                                            </div>
+                                            <div class="process_line" data-n="2">
+                                                <div class="step_line">
+                                                    <div class="step_icon">2</div>
+                                                </div>
+                                                <div class="process_line_text" data-ml="reg_form_demo_line_account">
+                                                    <%-$t('reg_form_demo_line_account')%>
+                                                </div>
+                                            </div>
+                                            <div class="process_line" data-n="2">
+                                                <div class="step_line"></div>
+                                            </div>
+                                        </div>
+                                        <div class="reg_timer">
+                                            <span data-ml="reg_form_demo_line_estimated"><%-$t('reg_form_demo_line_estimated')%>:</span><br /><b data-ml="reg_form_demo_line_time"><%-$t('reg_form_demo_line_time')%></b>
+                                        </div>
+                                    </div>
+                                    <div class="register_form_wrap">
+                                        <form action="" data-parsley-focus="none" autocomplete="off">
+                                            <div style="display:none;">
+                                                <input autocomplete="off" type="hidden" name="tracking_info">
+                                            </div>
+                                            <div style="display:none;">
+                                                <input autocomplete="off" type="hidden" name="registered_from_domain" value="<%= current_domain %>">
+                                            </div>
+                                            <div class="register_form" id="step_1" data-n="1">
+                                                <h1 class="reg_title step-title" data-ml="reg_form_demo_step1_title"><%-$t('reg_form_demo_step1_title')%></h1>
+                                                <div style="display:none;">
+                                                    <input autocomplete="off" type="text" name="language" value="<%= locale %>">
+                                                </div>
+                                                <div class="input_group input input-select-country">
+                                                    <span class="select-icon" data-parsley-id="435">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#c1c1c1" data-parsley-id="437">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" data-parsley-id="439"></path>
+                                                        </svg>
+                                                    </span>
+                                                    <div class="searchDropdown el_wrap searched">
+                                                        <label for="country" class="field-label" style="margin-top: -20px;"><%-$t('reg_form_country_of_residence')%></label>
+                                                        <input autocomplete="off" type="text" id="countries" name="country" class="field-input rounded_el" placeholder="<%-$t('reg_form_country_of_residence_placeholder', true)%>" data-parsley-dropdown>
+                                                    </div>
+                                                </div>
+                                                <div class="input_group hint-go-eu" style="display:none;"><%-$t('reg_form_h_goto_eu_demo')%></div>
+                                                <div class="input_group hint-go-au" style="display:none;"><%-$t('reg_form_h_goto_au_demo')%></div>
+                                                <% if (!fca) { %>
+                                                <div class="input_group input input-select-state" style="display:none;">
+                                                    <span class="select-icon">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#c1c1c1">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                                        </svg>
+                                                    </span>
+                                                    <div class="searchDropdown el_wrap notSearched">
+                                                        <label for="state" class="field-label" style="margin-top: -20px;"><%-$t('reg_form_state_province')%></label>
+                                                        <input autocomplete="off" type="text" id="state" name="state" class="field-input rounded_el" placeholder="<%-$t('reg_form_state_province_placeholder', true)%>">
+                                                    </div>
+                                                </div>
+                                                <% } %>
+                                                <div class="input_group hint-canada-state" style="display:none;"><%-$t('reg_form_h_canada_states')%></div>
+                                                <% if(countryCode === 'vn' || locale === 'vn') {%>
+                                                    <div class="input_group input">
+                                                        <div class="field el_wrap ab_fix1">
+                                                            <label for="first_name" class="field-label" data-ml="reg_form_demo_step1_first_as_sur_mid_vn"><%-$t('reg_form_demo_step1_first_as_sur_mid_vn')%></label>
+                                                            <input autocomplete="off" type="text" id="first_name" name="first_name" class="field-input" data-parsley-pattern="[A-Za-z \-]+" data-parsley-maxlength="150" >
+                                                        </div>
+                                                    </div>
+                                                    <div class="input_group input">
+                                                        <div class="field el_wrap">
+                                                            <label for="last_name" class="field-label" data-ml="reg_form_demo_step1_last_as_first_vn"><%-$t('reg_form_demo_step1_last_as_first_vn')%></label>
+                                                            <input autocomplete="off" type="text" id="last_name" name="last_name" class="field-input"  data-parsley-pattern="[A-Za-z \-]+" data-parsley-maxlength="150" >
+                                                        </div>
+                                                    </div>
+                                                <%} else {%>
+                                                    <div class="input_group input">
+                                                        <div class="field el_wrap ab_fix1">
+                                                            <label for="first_name" class="field-label" data-ml="reg_form_demo_step1_first"><%-$t('reg_form_demo_step1_first')%></label>
+                                                            <input autocomplete="off" type="text" id="first_name" name="first_name" class="field-input" data-parsley-pattern="[A-Za-z \-]+" data-parsley-maxlength="150" >
+                                                        </div>
+                                                    </div>
+                                                    <div class="input_group input">
+                                                        <div class="field el_wrap">
+                                                            <label for="last_name" class="field-label" data-ml="reg_form_demo_step1_last"><%-$t('reg_form_demo_step1_last')%></label>
+                                                            <input autocomplete="off" type="text" id="last_name" name="last_name" class="field-input"  data-parsley-pattern="[A-Za-z \-]+" data-parsley-maxlength="150" >
+                                                        </div>
+                                                    </div>
+                                                <%}%>
+                                                <div class="input_group input">
+                                                    <div class="field el_wrap">
+                                                        <label for="email" class="field-label" data-ml="reg_form_demo_step1_email"><%-$t('reg_form_demo_step1_email')%></label>
+                                                        <input autocomplete="off" type="email" id="email" name="email" class="field-input" data-parsley-type="email" data-parsley-email data-parsley-maxlength="250">
+                                                    </div>
+                                                </div>
+                                                <div class="input_group checkbox_wrap" style="display:none!important;">
+                                                    <input autocomplete="off" type="checkbox" class="checkbox" name="news_subscription" id="newsletter">
+                                                    <label for="newsletter" data-ml="reg_form_demo_step1_newsletter"><%-$t('reg_form_demo_step1_newsletter')%></label>
+                                                </div>
+                                                <div class="input_group input">
+                                                    <div id="phone_container" class="field el_wrap">
+                                                        <label for="phone" class="field-label" data-ml="reg_form_demo_step1_phone"><%-$t('reg_form_demo_step1_phone')%></label>
+                                                        <input autocomplete="off" type="tel" id="phone" name="phone" class="field-input" data-parsley-pattern="([0-9]|[\-()+])+" data-parsley-maxlength="50" data-parsley-phoneprefix>
+                                                    </div>
+                                                </div>
+                                                <% if (!asic) {%>
+                                                    <div class="input_group checkbox_wrap reffer_check" <%- (cysec ? 'style="display:none;"' : '') %>>
+                                                        <input autocomplete="off" type="checkbox" class="checkbox" name="reffer" id="reffer">
+                                                        <label for="reffer" data-ml="reg_form_demo_step1_reffer"><%-$t('reg_form_demo_step1_reffer')%></label>
+                                                    </div>
+                                                    <div class="input_group reffer_id" <%- (cysec ? 'style="display:none;"' : '') %>>
+                                                        <div class="field el_wrap ab_fix1">
+                                                            <label for="reffer_id" class="field-label" data-ml="reg_form_demo_step1_reffer_id"><%-$t('reg_form_demo_step1_reffer_id')%></label>
+                                                            <input autocomplete="off" type="text" id="reffer_id" name="reffer_id" class="field-input" data-parsley-type="digits">
+                                                        </div>
+                                                    </div>
+                                                <% } %>
+
+                                                <div class="invitation-guid" style="display: none;">
+                                                    <div>
+                                                        <input autocomplete="off" type="text" id="invitation_guid" name="invitation_guid">
+                                                    </div>
+                                                </div>
+                                                <div class="info" style="display: none;">
+                                                    <div>
+                                                        <input autocomplete="off" type="text" id="info" name="info">
+                                                    </div>
+                                                </div>
+                                                <div class="input_group input demo-account-type">
+                                                    <div class="field el_wrap">
+                                                        <input autocomplete="off" type="hidden" id="acc_type" name="reg_type" class="field-input" value="demo">
+                                                    </div>
+                                                </div>
+
+                                                <!-- <div class="input_group acknowledgment_wrap" style="height: auto;">
+                                                    <input autocomplete="off" type="checkbox" class="checkbox" id="acknowledgment">
+                                                    <label for="acknowledgment"></label>
+                                                    <input autocomplete="off" type="hidden" name="eu_client_acknowledgment">
+                                                </div> -->
+                                                <div class="el_wrap next_btn">
+                                                    <button id="reg_form_demo_step1_register_btn" type="submit" class="btn icm-btn-primary start-trading-button" data-ml="reg_form_demo_step1_accept" >
+                                                        <%-$t('reg_form_demo_step1_register')%>
+                                                        <!-- Adform Tracking Code BEGIN -->
+                                                        <noscript>
+                                                            <p style="margin:0;padding:0;border:0;">
+                                                                <img src="https://track.adform.net/Serving/TrackPoint/?pm=2514467&ADFPageName=ICM_Demo_Subscription&ADFdivider=|" width="1" height="1" alt="" />
+                                                            </p>
+                                                        </noscript>
+                                                    <!-- Adform Tracking Code END -->
+                                                    </button>
+                                                    <a id="demo_6" href="javascript:toggleDemoDisclaimer()" class="read-demo-disclaimer"><%-$t('reg_form_demo_read_demo_disclaimer')%></a>
+                                                    <div class="overlay">
+                                                        <a id="demo_7" class="close" href="javascript:toggleDemoDisclaimer()">&times;</a>
+                                                        <div class="content">
+                                                            <div class="inner"><%-$t('reg_form_demo_disclaimer_popup', 1)%></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="input_group info-wrap" style="margin-top: 40px;">
+                                                        <!-- <div class="el_wrap">
+                                                            <% if (asic) { %>
+                                                                <p><b>International Capital Markets Pty Ltd</b> is located at Level 4, 50 Carrington Street Sydney, NSW 2000 and is licensed and regulated by the Australian Securities and Investments Commission.</p>
+                                                            <% } %>
+                                                            <% if (cysec) { %>
+                                                                <p><b>IC Markets (EU) Ltd</b> is located at 141 Omonoias Avenue, The Maritime Centre, Block B, 1st floor, 3045 Limassol, Cyprus and is licensed and regulated by the Cyprus Securities and Exchange Commission.</p>
+                                                            <% } %>
+                                                            <% if (fsa) { %>
+                                                                <p>Raw Trading Ltd, trading as <b>IC Markets Global</b>, is located at Eden Plaza, Office 209, Eden Island, Mahe, Seychelles and is licensed and regulated by the Financial Services Authority of Seychelles.</p>
+                                                            <% } %>
+                                                            <% if (scb) { %>
+                                                                <p><b>IC Markets Ltd</b> is located at Western Business Centre, Unit 3B Upper Floor, Western Road, New Providence, Nassau, The Bahamas and is licensed and regulated by the Securities Commission of The Bahamas.</p>
+                                                            <% } %>
+                                                        </div> -->
+                                                    </div>
+                                                    <span class="encrypt" data-ml="reg_form_demo_step1_encrypted"><%-$t('reg_form_demo_step1_encrypted')%></span>
+                                                </div>
+                                                <div class="input_group input branch-select" style="position:absolute; right:0; width:max-content; top:100%; display:none!important; visibility:hidden; opacity:0;">
+                                                    <div class="searchDropdown el_wrap notSearched">
+                                                        <input autocomplete="off" type="text" id="branch_id" name="branch_id" class="field-input rounded_el" data-ml="reg_form_regulator" placeholder="<%-$t('reg_form_regulator', true)%>">
+                                                        <ul class="options_list" id="branchesList"></ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="register_form process_animation" id="step_2" data-n="2">
+                                                <div>
+                                                    <div class="reg_loader">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="reg_overlay"></div>
+                            <div class="reg_modal_continue">
+                                <div class="reg_modal_inner">
+                                    <div class="reg_modal_close_btn"></div>
+                                    <div class="reg_modal_content">
+                                        <div class="reg_modal_text" data-ml="reg_form_demo_noticed_started"><%-$t('reg_form_demo_noticed_started')%></div>
+                                        <div class="reg_modal_icon_X"></div>
+                                    </div>
+                                    <div class="el_wrap reg_modal_btns">
+                                        <button type="button" id="resume_app" class="btn icm-btn-primary start-trading-button" data-ml="reg_form_demo_resume"><%-$t('reg_form_demo_resume')%></button>
+                                        <div class="empty-space"></div>
+                                        <button type="button" id="new_app" class="btn icm-btn-primary start-trading-button" data-ml="reg_form_demo_start_new"><%-$t('reg_form_demo_start_new')%></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="reg_modal_block">
+                                <div class="reg_modal_inner">
+                                    <div class="reg_modal_content">
+                                        <div class="reg_modal_text" data-ml="reg_form_demo_try_later"><%-$t('reg_form_demo_try_later')%></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="reg_modal_finish">
+                                <div class="reg_modal_inner">
+                                    <div class="reg_modal_close_btn"></div>
+                                    <div class="reg_modal_content">
+                                        <div class="reg_modal_text" data-ml="reg_form_demo_congratulations"><%-$t('reg_form_demo_congratulations')%></div><br /><br />
+                                        <div class="reg_modal_explain" data-ml="reg_form_demo_explain1"><%-$t('reg_form_demo_explain1')%></div>
+                                        <div class="reg_modal_explain" data-ml="reg_form_demo_explain2"><%-$t('reg_form_demo_explain2')%></div>
+                                        <div class="reg_modal_explain" data-ml="reg_form_demo_explain2_1"><%-$t('reg_form_demo_explain2_1')%></div>
+                                        <div class="reg_modal_explain" data-ml="reg_form_demo_explain2_2"><%-$t('reg_form_demo_explain2_2')%></div>
+                                        <div class="reg_modal_explain" data-ml="reg_form_demo_explain3_1"><%-$t('reg_form_demo_explain3_1')%> <a  id="demo_8" class="link-to-personal-area-downloads" href=""><span data-ml="reg_form_demo_explain3_2"><%-$t('reg_form_demo_explain3_2')%></span></a>&nbsp;<span data-ml="reg_form_demo_explain3_3"><%-$t('reg_form_demo_explain3_3')%></span></div><br /><br />
+                                    </div>
+                                    <div class="el_wrap reg_modal_btns">
+                                        <button type="button" id="finish_client_area" class="btn icm-btn-primary start-trading-button"><a id="demo_9" class="link-to-personal-area" href=""><span data-ml="reg_form_demo_sign_into_ca"><%-$t('reg_form_demo_sign_into_ca')%></span></a></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="reg_modal_fail">
+                                <div class="reg_modal_inner">
+                                    <div class="reg_modal_close_btn"></div>
+                                    <div class="reg_modal_content">
+                                        <div class="reg_modal_text" data-ml="reg_form_demo_failed"><%-$t('reg_form_demo_failed')%></div>
+                                        <br />
+                                        <br />
+                                        <div class="reg_modal_explain" data-ml="reg_form_demo_server_error"><%-$t('reg_form_demo_server_error')%></div>
+                                    </div>
+                                    <div class="el_wrap reg_modal_btns">
+                                        <button type="button" id="fail_try_again" class="btn icm-btn-primary start-trading-button" data-ml="reg_form_demo_re_try"><%-$t('reg_form_demo_re_try')%></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="reg_modal_unsupported_country">
+                                <div class="reg_modal_inner">
+                                    <div class="reg_modal_close_btn"></div>
+                                    <div class="reg_modal_content">
+                                        <div style="width: auto;" class="reg_modal_text">
+                                            <p data-ml="reg_form_live_unsupported_us_explain">
+                                                <%-$t('reg_form_live_unsupported_us_explain')%>
+                                            </p>
+                                        </div>
+                                        <div style="display: none;" class="reg_modal_explain unsupported_country">&nbsp;</div>
+                                    </div>
+                                    <div class="el_wrap reg_modal_btns">
+                                        <button type="button" class="btn icm-btn-primary start-trading-button unsupported_ok" data-ml="reg_form_live_unsupported_ok"><%-$t('reg_form_live_unsupported_ok')%></button>
+                                        <div class="empty-space"></div>
+                                        <button type="button" class="btn icm-btn-primary start-trading-button unsupported_cancel" data-ml="reg_form_live_unsupported_cancel"><%-$t('reg_form_live_unsupported_cancel')%></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="reg_modal_disallowed_country">
+                                <div class="reg_modal_inner">
+                                    <div class="reg_modal_close_btn"></div>
+                                    <div class="reg_modal_content">
+                                        <div class="reg_modal_text"><span data-ml="reg_form_live_disallowed_explain2"><%-$t('reg_form_live_disallowed_explain2')%></span><br /><span class="reg_modal_explain disallowed_country"></span></div>
+                                    </div>
+                                    <div class="el_wrap reg_modal_btns">
+                                        <button style="flex: 1;" type="button" class="btn icm-btn-primary start-trading-button disallowed_ok" data-ml="reg_form_live_disallowed_ok"><%-$t('reg_form_live_disallowed_ok')%></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </article>
+            <article class="page-content-container" style="display:none!important;">
+                <div class="page-content global-markets-today">
+                    <div class="page-section">
+                        <div class="start-trading"><%-$t('demo_9')%></div>
+                        <div class="global-today"><%-$t('demo_10')%></div>
+                        <div class="icm-button-wrapper page-header__primary-button">
+                            <a id="demo_10" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('demo_11')%></a>
+                            <a id="demo_11" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('demo_12')%></a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <% if (fsa) { %>
+                <img border="0"
+                    src="https://r.turn.com/r/beacon?b2=OgURFzwDjjaNNymlWQi13nVhNAwDRTjFm1zQuwRFPkJXdADLtSAajx1Hxk3tic2E6Gmhjhj2H31UGj_l7c2t2Q&cid=">
+            <% } %>
+        </div>
+
+        <%- include('../_partials/regulator-popups.ejs') %>
+
+        <%- include('../_partials/components/popup-modal.ejs', { extraClass:
+            'warning-only centered vertical', noclose: true, title: 'Important Information', content: `
+                <p>
+                    Sorry, our <span class="current-branch-name"></span> licensed entity can't accept residents of <span class="selected-country-name"></span>.
+                </p>
+                <div class="popup-modal-buttons">
+                    <div class="popup-modal-button accept-button accent"><b>CLOSE</b></div>
+                </div>
+        ` }); %>
+
+        <%- include('../_partials/components/popup-modal.ejs', { extraClass:
+            'expected-redirect-only centered vertical', noclose: true, title: 'Important Information', content: `
+                <p>
+                    Sorry, our <span class="current-branch-name"></span> licensed entity can't accept residents of <span class="selected-country-name"></span>. Instead, we're redirecting you to our <span class="redirect-to-branch-name"></span> licensed entity where you can choose to continue your application.
+                </p>
+                <div class="popup-modal-buttons">
+                    <div class="popup-modal-button accept-button accent"><b>CONTINUE</b></div>
+                </div>
+        ` }); %>
+
+        <%- include('../_partials/components/popup-modal.ejs', { extraClass:
+            'visit-group centered vertical', noclose: true, title: 'Important Information', content: `
+            <p>
+                Sorry, our <span class="current-branch-name"></span> licensed entity can't accept residents from <span class="selected-country-name"></span>. You can visit our IC Markets Group page and choose from other licensed entities more suitable for you.
+            </p>
+            <div class="popup-modal-buttons">
+                <div class="popup-modal-button accept-button accent"><b>Go to IC MARKETS GROUP</b></div>
+            </div>
+        ` }); %>
+
+        <%- include('../_partials/components/popup-modal.ejs', { extraClass:
+            'goto-default centered vertical', noclose: true, title: 'Important Information', content: `
+                <p>
+                    Based on your selected country of residence, you may wish to establish your account with <span class="redirect-default-branch-name"></span>. Would you like to register with <span class="redirect-default-branch-name"></span>?
+                </p>
+                <div class="popup-modal-buttons">
+                    <div class="popup-modal-button goback-button"><b>NO</b></div>
+                    <div class="popup-modal-button accept-button accent"><b>YES</b></div>
+                </div>
+        ` }); %>
+
+        <% if (asic) { %>
+            <%- include('../_partials/components/popup-modal.ejs', { extraClass:
+                'eu-proceed-to-com centered vertical', noclose: true, title: 'Regarding your application', content: `
+                <p>
+                    This website is operated by International Capital Markets Pty Ltd, an entity authorized and regulated by the Australian Securities and Investments Commission.
+                </p>
+                <p>
+                    Based on your selected country of residence, you might want to visit the website of IC Markets (EU) Ltd at <a id="demo_13" href='https://www.icmarkets.eu'>www.icmarkets.eu</a>.
+                </p>
+                <p>
+                    By clicking CONTINUE to the below, you agree to open an account at IC Markets (EU) Ltd.
+                </p>
+                <div class="popup-modal-buttons">
+                    <div class="popup-modal-button accept-button">DISREGARD</div>
+                    <div class="popup-modal-button goback-button accent">CONTINUE</div>
+                </div>
+            ` }); %>
+        <% } %>
+        <% if (fsa) { %>
+            <%- include('../_partials/components/popup-modal.ejs', { extraClass:
+                'eu-proceed-to-com centered vertical', noclose: true, title: 'Regarding your application', content: `
+                <p>
+                    This website is operated by IC Markets Global, an entity authorized and regulated by the Financial Services Authority of Seychelles.
+                </p>
+                <p>
+                    Based on your selected country of residence, you might want to visit the website of IC Markets (EU) Ltd at <a id="demo_15" href='https://www.icmarkets.eu'>www.icmarkets.eu</a>.
+                </p>
+                <p>
+                    By clicking CONTINUE to the below, you agree to open an account at IC Markets (EU) Ltd.
+                </p>
+                <div class="popup-modal-buttons">
+                    <div class="popup-modal-button accept-button">DISREGARD</div>
+                    <div class="popup-modal-button goback-button accent">CONTINUE</div>
+                </div>
+            ` }); %>
+        <% } %>
+        <% if (scb) { %>
+            <%- include('../_partials/components/popup-modal.ejs', { extraClass:
+                'eu-proceed-to-com centered vertical', noclose: true, title: 'Regarding your application', content: `
+                <p>
+                    This website is operated by IC Markets Ltd, an entity authorized and regulated by the Securities Commission of The Bahamas.
+                </p>
+                <p>
+                    Based on your selected country of residence, you might want to visit the website of IC Markets (EU) Ltd at <a id="demo_17" href='https://www.icmarkets.eu'>www.icmarkets.eu</a>.
+                </p>
+                <p>
+                    By clicking CONTINUE to the below, you agree to open an account at IC Markets (EU) Ltd.
+                </p>
+                <div class="popup-modal-buttons">
+                    <div class="popup-modal-button accept-button">DISREGARD</div>
+                    <div class="popup-modal-button goback-button accent">CONTINUE</div>
+                </div>
+            ` }); %>
+        <% } %>
+        <% if (false/*bs_host && countryCode == 'au'*/) { %>
+            <%- include('../_partials/components/popup-modal.ejs', { extraClass:
+                'au-continue-with-bs centered', noclose: true, title: 'Important information', content: `
+                <p>
+                    Dear Visitor,
+                </p>
+                <p>
+                    Based on your selected country, you may want to consider creating an account with International Capital Markets Pty Ltd (IC Markets AU). Our Australian regulated entity.
+                </p>
+                <p>
+                    Would you like to open an account with International Capital Markets Pty Ltd (Australia)?
+                </p>
+                <div class="popup-modal-buttons">
+                    <div class="popup-modal-button accept-button">NO</div>
+                    <div class="popup-modal-button goback-button">YES</div>
+                </div>
+            ` }); %>
+        <% } %>
+
+
+        <script>
+            /*
+            NOTE:
+            1) insert here current regulator rule about allow to register with another possible regulator
+            2) that rule should be come from ENV variable of server side
+            */
+            window['isItCySECWebSite'] = <%=cysec%>; // is current website CySEC (for show redirect popup if no but selected country from branch 2)
+            window['isUserFromCySECCountry'] = <%=isCysecCountry%>; // is current current user from CySEC country (for show popup)
+            window['serverURL'] = '<%= config.reg_service_1_url %>';
+            window['cysecWebsiteURL'] = '<%= config.cysec_website_url %>';
+            window['cysecWebsiteName'] = '<%= config.cysec_website_name %>';
+            window['cysecRegformURL'] = '<%= config.cysec_website_url %>/en/open-trading-account/demo';
+            window['cysecCountriesString'] = '<%= cysecCountriesString %>';
+            window['currentBranchID'] = '<%= branchID %>';
+            window['currentLocale'] = '<%= locale %>';
+            window['countryFrom'] = '<%= countryCode %>';
+            window['accessCountry'] = window.location.hostname.indexOf('localhost') !== -1 ? '<%= countryCode %>' : '';
+            window['forceCountryFrom'] = <% if (forceCountryFrom && userAccessFrom == "inside") { %> '<%= countryCode %>'.toUpperCase() <% } else { %> false <% } %>;
+            window['isSupportedCurrentBranch'] = '<%= is_supported_branch %>';
+            window['suggestedCountry'] = '<%= suggested_country %>';
+            function showPopupModalIfNeeded (countryCodeInLowerCase) {
+                if (!window['isItCySECWebSite']) {
+                    switch (countryCodeInLowerCase /*ICMCountry*/) {
+                        // case 'lv':
+                        //     $('body').toggleClass('popup-modal-active-lv', true);
+                        //     break;
+                        // case 'be':
+                        //     $('body').toggleClass('popup-modal-active-be', true);
+                        //     break;
+                        default:
+                            // $('.hint-go-eu').toggle(window['cysecCountriesString'].indexOf(countryCodeInLowerCase) !== -1);
+                    }
+                }
+            }
+            function toggleDemoDisclaimer() {
+                $('body').toggleClass('overlay-active')
+            }
+        </script>
+        <script src="<%=md5('/icm-open-account/js/static-demo.js')%>" charset="utf-8"></script>
+        <script src="<%=md5('/icm-open-account/js/jquery.mCustomScrollbar.min.js')%>" charset="utf-8"></script>
+        <script src="<%=md5('/icm-open-account/js/parsley.min.js')%>" charset="utf-8"></script>
+        <script>
+            function localizeParsleyMessages() {
+                Parsley.addMessages('<%=locale%>', {
+                    defaultMessage: '<%-$t("reg_form_inputs_default")%>',
+                    type: {
+                        email:      $('.reg_form_inputs_type_email').html(),
+                        url:        '<%-$t("reg_form_inputs_type_url")%>',
+                        number:     '<%-$t("reg_form_inputs_type_number")%>',
+                        integer:    '<%-$t("reg_form_inputs_type_integer")%>',
+                        digits:     '<%-$t("reg_form_inputs_type_digits")%>',
+                        alphanum:   '<%-$t("reg_form_inputs_type_alphanum")%>'
+                    },
+                    notblank:       '<%-$t("reg_form_inputs_notblank")%>',
+                    required:       '<%-$t("reg_form_inputs_required")%>',
+                    pattern:        '<%-$t("reg_form_inputs_pattern")%>',
+                    min:            '<%-$t("reg_form_inputs_min")%>',
+                    max:            '<%-$t("reg_form_inputs_max")%>',
+                    range:          '<%-$t("reg_form_inputs_range")%>',
+                    minlength:      '<%-$t("reg_form_inputs_minlength")%>',
+                    maxlength:      '<%-$t("reg_form_inputs_maxlength")%>',
+                    length:         '<%-$t("reg_form_inputs_length")%>',
+                    mincheck:       '<%-$t("reg_form_inputs_mincheck")%>',
+                    maxcheck:       '<%-$t("reg_form_inputs_maxcheck")%>',
+                    check:          '<%-$t("reg_form_inputs_check")%>',
+                    equalto:        '<%-$t("reg_form_inputs_equalto")%>'
+                });
+                //updateCustomValidators();
+                Parsley.setLocale('<%=locale%>');
+                // re-localize all showed messages
+                $('.wp-icm-open-account.live *').each(function() {
+                    $(this).parsley().validate();
+                });
+                // re-localize all dropdown inputs
+                //$('.wp-icm-open-account.live .searchDropdown input').each(function() {
+                //    var mlVal = $(this).attr('data-mlkey');
+                //    if (mlVal) {
+                //        $(this).val(mlVal);
+                //    }
+                //    $(this).parsley().validate();
+                //});
+            }
+        </script>
+        <script src="<%=md5('/icm-open-account/js/demo.js')%>" charset="utf-8"></script>
+<% } %>    
+
+<!-- Adform Tracking Code BEGIN -->
+<script type="text/javascript">
+    window._adftrack = Array.isArray(window._adftrack) ? window._adftrack : (window._adftrack ? [window._adftrack] : []);
+    window._adftrack.push({
+        HttpHost: 'track.adform.net',
+        pm: 2514467,
+        divider: encodeURIComponent('|'),
+        pagename: encodeURIComponent('ICM_Demo_LP')
+    });
+    (function () { var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'https://s2.adform.net/banners/scripts/st/trackpoint-async.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x); })();
+</script>
+<noscript>
+    <p style="margin:0;padding:0;border:0;">
+        <img src="https://track.adform.net/Serving/TrackPoint/?pm=2514467&ADFPageName=ICM_Demo_LP&ADFdivider=|" width="1" height="1" alt="" />
+    </p>
+</noscript>
+<!-- Adform Tracking Code END -->
+
+<!-- Adform Tracking Code BEGIN -->
+<script type="text/javascript">
+    window._adftrack = Array.isArray(window._adftrack) ? window._adftrack : (window._adftrack ? [window._adftrack] : []);
+    window._adftrack.push({
+        HttpHost: 'track.adform.net',
+        pm: 2514467,
+        divider: encodeURIComponent('|'),
+        pagename: encodeURIComponent('ICM_Demo_Subscription')
+    });
+    (function () { var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'https://s2.adform.net/banners/scripts/st/trackpoint-async.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x); })();
+</script>
+<!-- Adform Tracking Code END -->

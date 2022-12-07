@@ -1,0 +1,80 @@
+<div class="row justify-content-center" style="margin-top:30vh;">
+  <div class="col-xs-12 col-md-6">
+    <div class="card shadow-lg">
+      <div class="card-body">
+
+        <form id="form" onsubmit="javascript:formSubmit()">
+          <div class="form-group">
+              <div class="form-control form-control-user" style="border-style:none !important; text-align: center;">Welcome to Admin Panel!</div>
+          </div>
+          <div class="form-group" style="opacity:0" id="label">
+              <p class="form-control form-control-user" style="color:red; border-style:none !important; text-align: center;">Invalid username or password</p>
+          </div>
+          <div class="form-group">
+              <input class="form-control form-control-user" id="login" type="text" name="login" placeholder="login" required>
+          </div>
+          <div class="form-group">
+            <input class="form-control form-control-user" id="password" type="password" name="password" placeholder="password" required>
+          </div>
+          <div class="form-group">
+            <input class="form-control form-control-user btn btn-primary btn-user btn-block" id="submit" type="submit" value="Login as Manager">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  var submit    = document.getElementById('submit');
+  var form    = document.getElementById('form');
+  var login     = document.getElementById('login');
+  var password  = document.getElementById('password');
+  var label  = document.getElementById('label');
+  var fail = false
+  var error = () => {
+      [login, password].forEach(_ => _.style.borderColor = 'red')
+      label.style.opacity = '1'
+      fail = true
+  }
+  var clear = () => {
+      if (fail === false) return
+      [login, password].forEach(_ => _.style.borderColor = '')
+      submit.removeAttribute('disabled')
+      label.style.opacity = '0'
+      fail = false
+  };
+
+  [login, password].forEach(_ => {
+    _.onchange = clear
+    _.onkeyup  = clear
+    _.onfocus  = clear
+    _.onblur   = clear
+  })
+
+  form.onsubmit = e => {
+    localStorage.setItem('last_activity', Date.now())
+    submit.setAttribute('disabled', 'true')
+    e.preventDefault()
+    e.stopPropagation()
+
+    fetch(location.href, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        login: login.value,
+        password: password.value
+      })
+    })
+    .then(r => {
+      if (r.status === 200) {
+        location.href = location.href.replace('auth', 'pending')
+        return
+      }
+      error()
+    }, error)
+  }
+
+  login.focus()
+</script>

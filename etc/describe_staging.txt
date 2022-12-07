@@ -1,0 +1,29 @@
+Hi all, let me describe about the latest changes in our staging websites environment
+
+The entry endpoint is https://staging.icmarkets.com
+
+1) if user from Cyprus, then by default by Andrew request we will redirect him to the CySEC entity https://staging.icmarkets.eu/
+
+2) if user will from some other country, we will redirect him to the entity depends on our database settings for his country by default:
+2.1) user from Australia will go to https://staging.icmarkets.com/au/
+2.2) user from Germany will go to https://staging.icmarkets.com/global/
+2.3) user from Russia will go to https://staging.icmarkets.com/global/
+
+3) automatic redirections are removed completely, so from now, when user will manually change the url address in the browser (or use some promotional link, or even click link in the google search results), then he will see that website what he want
+3.1) if user from anywhere will manually type in the browser staging.icmarkets.com/global/ then he will see exactly FSA website https://staging.icmarkets.com/global/
+3.2) if user from anywhere will manually type in the browser staging.icmarkets.com/au/ then he will see exactly ASIC website https://staging.icmarkets.com/au/
+3.3) and same for staging.icmarkets.eu/ and staging.icmarkets.com/intl/
+
+4) only in case if user use the root link staging.icmarkets.com (in the prod it icmarkets.com), we are decide by his country (location by IP) setting to which entity we need to redirect him by default
+
+5) when user will come to some of our websites not by default routind but by using some link, and when his country from where he opened that link (location by IP) is not supported for onboarding in that branch, then we show a top banner where we suggest him a more relevant for his country by location (user will able to click "Change website" or "Disregard" buttons)
+5.1) if user will click "Change website" then he want to review a recommended for him website for a future registration in a proper entity for his country
+5.2) if user will click "Disregard" then most probably he understand and want to register with us by select his real country of residence (which may be different comparing to country from location by IP)
+
+6) anyhow user coming to any of our websites (IB link, google, manually, etc.), he will able to start the registration process on that website
+6.1) if user from some country (by IP) which is not supported in current entity, the we will show the countries dropdown without prefilling any country, only show "Please select your Country"
+6.2) then, in the registration form, user can select his country of residence, and if selected country is supported to onboard in current entity, then user can continue here
+6.3) in case if user will select unsupported country to onboard in current entity, then we will show him a relevant popup to exactly explain what happened and what user can do next
+6.4) some countries are allowed in different branches (ex. user from Germany can register in CySEC, FSA and may be SCB)
+6.5) but some countries are allowed in only one entity (ex. Australia in ASIC only)
+6.6) also we must understand that there a lot of other countries which are not allowed nowhere (that countries are absent in the countries dropdown on regforms)

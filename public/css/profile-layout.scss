@@ -1,0 +1,36 @@
+@import '_global';
+
+.profile-intro {
+  background: $icm-bg-color;
+  border-bottom: $icm-border-standard;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  &__desc--style {
+    @include icm-paragraph-standard--font-style();
+  }
+  &__sub-heading {
+    margin-bottom: $icm-margin-s;
+  }
+  &__desc--style:not(:last-child) {
+    margin-bottom: $icm-margin-std;
+  }
+  &__card {
+    margin-top: $icm-margin-std;
+  }
+}
+
+@media screen and (min-width: $screen-sm-min) {
+
+  .profile-intro__wrapper {
+    flex-direction: row;
+    margin: auto;
+
+  }
+  /* UI card specific max-with property for each card */
+  .profile-intro__card {
+    margin-top: 0;
+  }
+}

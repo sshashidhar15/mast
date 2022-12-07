@@ -1,0 +1,50 @@
+.auto-address {
+    .switch {
+        z-index: 1;
+        position: relative;
+        margin-bottom: 0px;
+        text-align: right;
+
+        button {
+            padding: 0px;
+            border: none;
+            background: none;
+            color: rgb(152, 152, 152);
+
+            img {
+                height: 13px;
+            }
+        }
+    }
+
+    .input-wrap {
+        .first {
+            @include screen(768px) {
+                margin-bottom: 5px;
+            }
+        }
+
+        .address-list {
+            position: absolute;
+            z-index: 10;
+            top: 50px;
+            padding: 0;
+            width: 100%;     
+            list-style: none;       
+            
+            li {
+                font-size: 14px;
+                cursor: pointer;
+                color: black;
+                padding: 8px 0px;
+                text-decoration: none;
+                display: block;
+                background-color: white;     
+                
+                &:hover {
+                    background-color: #f1f1f1;
+                }
+            }
+        }
+    }
+}

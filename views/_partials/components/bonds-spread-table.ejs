@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="<%=md5('/css/components/bonds-spread-table.css')%>">
+<div class="markets-spread-table bonds-spread-table">
+    <%
+    let bondsSpreadTable = {
+        bondsSpreadsColHeadersDesktop: ['SYMBOL', 'DESCRIPTION', 'MIN', 'AVG'],
+        bondsSpreadsData: [
+            ["EURBOBL","Euro Bobl","0.010","0.010"],
+            ["EURBUND","Euro Bund","0.010","0.011"],
+            ["EURSCHA","Euro Schatz","0.010","0.010"],
+            ["ITBTP10Y","BTP Italian Bonds","0.020","0.020"],
+            ["JGB10Y","Japanese 10 YR","0.030","0.034"],
+            ["UKGB","UK Long Gilt","0.010","0.012"],
+            ["UST05Y","US 5 YR T-Note","0.014","0.014"],
+            ["UST10Y","US 10 YR T-Note","0.031","0.031"],
+            ["UST30Y","US T-Bond (30 year)","0.030","0.031"]
+        ]
+    }
+    %>
+    <div class="single-design-search">
+        <div class="group min-max">* <b>MIN</b> - minimum, <b>AVG</b> - average</div>
+        <div class="group search">
+            <span>Search by Symbol</span>
+            <input class="spreads-search-box" type="search"/>
+        </div>
+        <div class="group skin">
+            <span class="skin-label">Table Skin</span>
+            <span class="skin-toggle skin-light">&nbsp;</span>
+            <span class="skin-toggle skin-dark">&nbsp;</span>
+        </div>
+    </div>
+
+    <%- include('./spread-table-component.ejs', {
+        tableSkin: 'light-skin',
+        slotMobile: ['Product', 'All Accounts'],
+        slotTablet: ['Product', 'All Accounts'],
+        slotDesktop: ['Product', 'All Accounts'],
+        colHeadersMobile: bondsSpreadTable.bondsSpreadsColHeadersDesktop,
+        mobileData: bondsSpreadTable.bondsSpreadsData,
+        colHeadersTablet: bondsSpreadTable.bondsSpreadsColHeadersDesktop,
+        tabletData: bondsSpreadTable.bondsSpreadsData,
+        colHeadersDesktop: bondsSpreadTable.bondsSpreadsColHeadersDesktop,
+        desktopData: bondsSpreadTable.bondsSpreadsData
+    }); %>
+</div>

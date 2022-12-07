@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+      "rootDir": ".",
+      "outDir": "./dist/cn/",
+      "noImplicitAny": true,
+      "module": "es6",
+      "target": "es5",
+      "jsx": "react",
+      "allowJs": true,
+      "allowSyntheticDefaultImports": true,
+      "moduleResolution": "Node",
+      "resolveJsonModule": true,
+      "lib": ["dom", "esnext"],
+      "esModuleInterop": true
+    },
+    "exclude": ["node_modules"]
+}

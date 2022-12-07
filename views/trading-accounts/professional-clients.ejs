@@ -1,0 +1,164 @@
+<% setI18nPrefix('pages.trading-accounts.professional-clients') %>
+<link rel="stylesheet" href="<%=md5('/css/pages/professional-clients.css')%>">
+<meta name="description" content="<%- $t('meta', true) %>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+
+<style>
+    .pro-wrap {
+        margin-bottom: 30px;
+    }
+    .professional {
+        padding: 25px !important;
+        border-radius: 2px !important;
+        font-size: 20px !important;
+        font-weight: 900 !important;
+        margin: auto;
+        display: block;
+        max-width: max-content;
+    }
+</style>
+    <div class="single-page professional-clients-page">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('professional-clients_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('professional-clients_2')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="professional_clients_1" class="icm-btn icm-btn-primary" href="<%=localePath('open-trading-account-live') %>"><%-$t('professional-clients_3')%></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+            <%- include('./_menu.ejs', { current: 'trading-accounts-professional-clients' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content highlighted-content">
+                <div class="page-section">
+                    <% if (cysec) { %>
+                    <div class="icm-button-wrapper page-header__primary-button pro-wrap">
+                        <a id="professional_clients_2"  target="_blank" class="icm-btn icm-btn-primary professional" href="https://secure.icmarkets.eu/Requests/ProfessionalClient"><%-$t('professional-clients_4')%></a>
+                    </div>
+                    <% } %>
+                    <div class="table-center">
+                    <table width="100%" align="left" border="1">
+                      <thead style="background-color: #A8D08D;">
+                            <tr>
+                                <th><%-$t('professional-clients__01001')%></th>
+                                <th><%-$t('professional-clients__02000')%></th>
+                            </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td><%-$t('professional-clients_1101')%></td>
+                              <td><%-$t('professional-clients_1102')%></td>
+                          </tr>
+                          <tr>
+                              <td><%-$t('professional-clients_1103')%></td>
+                              <td><%-$t('professional-clients_1104')%></td>
+                          </tr>
+                          <tr>
+                              <td><%-$t('professional-clients_1105')%></td>
+                              <td><%-$t('professional-clients_1106')%></td>
+                          </tr>
+                          <tr>
+                              <td><%-$t('professional-clients_1107')%></td>
+                              <td><%-$t('professional-clients_1108')%></td>
+                          </tr>
+                          <tr>
+                              <td><%-$t('professional-clients_1109')%></td>
+                              <td><%-$t('professional-clients_1110')%></td>
+                          </tr>
+                          <tr>
+                              <td><%-$t('professional-clients_1111')%></td>
+                              <td><%-$t('professional-clients_1112')%></td>
+                          </tr>
+                          <tr>
+                              <td><%-$t('professional-clients_1113')%></td>
+                              <td><%-$t('professional-clients_1114')%></td>
+                          </tr>
+                          <tr>
+                              <td><%-$t('professional-clients_1115')%></td>
+                              <td><%-$t('professional-clients_1116')%></td>
+                          </tr>
+                          <tr>
+                              <td><%-$t('professional-clients_1117')%></td>
+                              <td><%-$t('professional-clients_1118')%></td>
+                          </tr>
+                          <tr>
+                              <td><%-$t('professional-clients_1119')%></td>
+                              <td><%-$t('professional-clients_1120')%></td>
+                          </tr>
+                          <tr>
+                              <td><%-$t('professional-clients_1121')%></td>
+                              <td><%-$t('professional-clients_1122')%></td>
+                          </tr>
+                          <tr>
+                              <td><%-$t('professional-clients_1123')%></td>
+                              <td><%-$t('professional-clients_1124')%></td>
+                          </tr>
+                          <tr>
+                              <td><%-$t('professional-clients_1125')%></td>
+                              <td><%-$t('professional-clients_1126')%></td>
+                          </tr>
+                      </tbody>
+                    </table>
+                    </div>
+                    <br/>
+                    <p><%-$t('professional-clients__01016')%></p>
+                    <p><%-$t('professional-clients__01017')%></p>
+                    <h1><u><%-$t('professional-clients__01018')%></u></h1>
+                    <h5><%-$t('professional-clients__01019')%></h5>
+                    <p><%-$t('professional-clients__01020')%></p>
+                    <h5><%-$t('professional-clients__01021')%></h5>
+                    <p><%-$t('professional-clients__01022')%></p>
+                    <h5><%-$t('professional-clients__01023')%></h5>
+                    <p><%-$t('professional-clients__01024')%></p>
+                    <h5><%-$t('professional-clients__01025')%></h5>
+                    <p><%-$t('professional-clients__01026')%></p>
+
+                    <h1><u><%-$t('professional-clients__01027')%></u></h1>
+                    <h5><%-$t('professional-clients__01028')%></h5>
+                    <p><%-$t('professional-clients__01029')%></p>
+                    <h5><%-$t('professional-clients__01030')%></h5>
+                    <p><%-$t('professional-clients__01031')%></p>
+                    <h5><%-$t('professional-clients_3000')%></h5>
+                    <p><%-$t('professional-clients_3001')%></p>
+                    <h5><%-$t('professional-clients_3002')%></h5>
+                    <p><%-$t('professional-clients_3003')%></p>
+
+                    <p style="text-align: center"><%-$t('professional-clients__01032')%></p>
+                    <p style="text-align: center"><%-$t('professional-clients__01033')%></p>
+
+                    <div style="display: flex;flex-wrap: wrap;justify-content: space-around;">
+                      <div class="card"><%-$t('professional-clients__01034')%></div>
+                      <div class="card"><%-$t('professional-clients__01035')%></div>
+                      <div class="card"><%-$t('professional-clients__01036')%></div>
+                    </div>
+                    </br>
+                    <% if (asic) {%>
+                        <p><%-$t('professional-clients_2000_asic')%></p>
+                    <% } else { %>
+                        <p><%-$t('professional-clients_2000')%></p>
+                    <% } %>
+                    <% if (cysec) { %>
+                    <div class="icm-button-wrapper page-header__primary-button pro-wrap">
+                        <a id="professional_clients_3"  target="_blank" class="icm-btn icm-btn-primary professional" href="https://secure.icmarkets.eu/Requests/ProfessionalClient"><%-$t('professional-clients_4')%></a>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('professional-clients_47')%></div>
+                    <div class="global-today"><%-$t('professional-clients_48')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="professional_clients_4"  class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('professional-clients_49')%></a>
+                        <a id="professional_clients_5"  class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('professional-clients_50')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

@@ -1,0 +1,247 @@
+@import "../_global";
+
+.single-page.page-swap-rates {
+    .page-content-container {
+        background: #fff !important;
+
+        .page-content.highlighted-content {
+            background: #fafbfa;
+        }
+    }
+
+    .page-header {
+        background: url(/assets/img/single_market_page/swap-rates-banner.jpg) no-repeat center right;
+
+        .icm-button-wrapper.page-header__primary-button a.icm-btn.icm-btn-primary {
+            border-radius: 2px !important;
+            padding: 25px !important;
+            font-size: 20px !important;
+            font-weight: 900 !important;
+            text-transform: uppercase;
+        }
+    }
+    .page-content.global-markets-today {
+        background-image: url(/assets/img/single_market_page/mt5-btm-bg.png);
+    }
+    .page-header__menu-container .page-header__menu .menu-item .menu-title {
+        padding-left: 0 !important;
+        text-transform: uppercase;
+    }
+    .page-section .first-section {
+        margin-left: 0 !important;
+        margin-bottom: -125px !important;
+    }
+    .page-first-text::before {
+        display: none;
+
+    }
+    .page-content.global-markets-today .icm-button-wrapper {
+        a.live {
+            border-radius: 0 !important;
+            padding: 25px !important;
+            font-size: 20px !important;
+            font-weight: 900 !important;
+            text-transform: uppercase;
+        }
+        a.demo {
+            border-radius: 0 !important;
+            padding: 25px !important;
+            font-size: 20px !important;
+            font-weight: 900 !important;
+            text-transform: uppercase !important;
+            background: #000 !important;
+            color: #fff !important;
+            margin-left: 9px;
+        }
+    }
+    .grid-section {
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+
+        .content-head {
+            margin-bottom: 0 !important;
+        }
+        .grid-content {
+            padding: 20px;
+        }
+        .content-inside {
+            font-size: 16px;
+            line-height: 1.56;
+        }
+    }
+    .floated-block {
+        position: relative;
+        width: 300px;
+        padding: 0;
+        float: right;
+        background: #e9e9e9;
+        margin: 0 0 40px 40px;
+        border-radius: 0;
+        z-index: 2;
+
+        .contact-header {
+            padding: 42px 33px 38px 33px;
+
+            .header-label {
+                font-size: 28px;
+                line-height: 1;
+                letter-spacing: -0.6px;
+                text-align: left;
+                color: rgba(11, 10, 20, 0.8);
+            }
+
+            .header-title {
+                margin-top: 22px;
+                font-size: 14px;
+                line-height: 1.71;
+                letter-spacing: -0.3px;
+                text-align: left;
+                color: rgba(11, 10, 20, 0.8);
+            }
+        }
+
+        .contact-pre-imaged {
+            position: relative;
+            padding: 28px 33px 23px 100px;
+            background: #f2f2f2;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 1;
+            letter-spacing: -0.4px;
+            text-align: left;
+            color: rgba(0, 0, 0, 0.8);
+
+            a {
+                color: rgba(0, 0, 0, 0.8) !important;
+            }
+
+            &.chat-img {
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 33px;
+                    top: 15px;
+                    width: 40px;
+                    height: 40px;
+                    background: transparent no-repeat center center;
+                    background-size: contain;
+                    background-image: url(/assets/img/single_market_page/swap-rates-chat.png);
+                }
+            }
+            &.email-img {
+                background: #e9e9e9;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 33px;
+                    top: 15px;
+                    width: 40px;
+                    height: 40px;
+                    background: transparent no-repeat center center;
+                    background-size: contain;
+                    background-image: url(/assets/img/single_market_page/swap-rates-email.png);
+                }
+            }
+        }
+
+        .contact-phone {
+            background: #353535;
+            font-size: 28px;
+            font-weight: bold;
+            line-height: 2.18;
+            letter-spacing: -1.7px;
+            text-align: center;
+            color: #34E834;
+        }
+    }
+    .pre-i {
+        position: relative;
+        padding-left: 31px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 9px;
+            width: 16px;
+            height: 16px;
+            background: transparent no-repeat center center;
+            background-size: contain;
+            background-image: url(/assets/img/single_market_page/swap-rates-list.png);
+        }
+    }
+
+    .top-img {
+        position: relative;
+        padding-left: 198px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 120px;
+            height: 120px;
+            background: transparent no-repeat center center;
+            background-size: contain;
+            background-image: url(/assets/img/single_market_page/swap-rates-swaps.png);
+        }
+    }
+    @media screen and (max-width: 1040px) {
+        .page-section .first-section {
+            .page-first-image {
+                min-height: 300px;
+            }
+        }
+    }
+    @media screen and (max-width: 960px) {
+        .page-section .first-section {
+            padding-top: 80px !important;
+            margin-bottom: -85px !important;
+        }
+    }
+    @media screen and (max-width: 940px) {
+        .grid-section {
+            grid-template-columns: 100%;
+
+            .gc-1 {grid-row: 1}
+            .gc-4 {grid-row: 2}
+            .gc-2 {
+                grid-row: 3;
+                margin-top: 40px;
+            }
+            .gc-5 {grid-row: 4}
+            .gc-3 {
+                grid-row: 5;
+                margin-top: 40px;
+            }
+            .gc-6 {grid-row: 6}
+        }
+    }
+    @media screen and (max-width: 870px) {
+        .page-section .first-section {
+            padding-top: 80px !important;
+            margin-bottom: -85px !important;
+
+            .page-first-image {
+                min-height: 150px;
+            }
+        }
+    }
+    @media screen and (max-width: 768px) {
+        .floated-block {
+            float: initial;
+            margin: 40px auto;
+        }
+    }
+    @media screen and (max-width: 640px) {
+        .page-section {
+            .top-img {
+                position: relative;
+                padding-left: 0;
+                padding-top: 148px;
+            }
+        }
+    }
+}

@@ -1,0 +1,112 @@
+<% setI18nPrefix('pages.introduction.true-ecn') %>
+<link rel="stylesheet" href="<%=md5('/css/pages/true-ecn.css')%>">
+<meta name="description" content="<%- $t('meta', true) %>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+    <div class="single-page introduction-true-ecn">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('true_ecn_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('true_ecn_2')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="introduction_true_ecn_1" class="icm-btn icm-btn-primary" href="<%=localePath('open-trading-account-live') %>">
+                        <%-$t('true_ecn_3')%>
+                    </a>
+                <div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'introduction-true-ecn' }) %>
+        </article>
+        <article class="page-content-container ">
+            <div class="page-content bgcolor1">
+                <div class="page-section">
+                    <div class="double-sidebar-block">
+                        <div class="sidebar-cta-card-container sidebar-top-card random-background rnd-back-1">
+                            <div class="bottom-block">
+                                <p class="bottom-block__message"><%-$t('true_ecn_8')%><br><b><%-$t('true_ecn_9')%></b></p>
+                                <div class="icm-button-wrapper bottom-block__cta-button">
+                                    <a id="introduction_true_ecn_2" class="icm-btn live icm-btn-primary" href="<%=localePath('open-trading-account-live') %>">
+                                      <%-$t('true_ecn_12')%>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-card contact-block">
+                            <div class="contact-header">
+                                <div class="header-label"><%-$t('true_ecn_13')%></div>
+                                <div class="header-title"><%-$t('true_ecn_14')%></div>
+                            </div>
+                            <div class="contact-pre-imaged chat-img">
+                                <div><a id="introduction_true_ecn_3" href="https://secure.livechatinc.com/licence/1605601/open_chat.cgi?groups=0" target="_blank"><%-$t('true_ecn_15')%></a></div>
+                            </div>
+                            <div class="contact-phone">
+                                <div><%-$t('true_ecn_16')%></div>
+                            </div>
+                            <div class="contact-pre-imaged email-img">
+                                <div><a id="introduction_true_ecn_4" href="mailto:support@icmarkets.com"><%-$t('true_ecn_17')%></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="first-section">
+                        <div class="page-first-text"><%-$t('true_ecn_20')%></div>
+                        <p><%-$t('true_ecn_21')%></p>
+                        <h1><%-$t('true_ecn_22')%></h1>
+                        <div class="pre-image-item"><%-$t('true_ecn_23')%></div>
+                        <div class="pre-image-item"><%-$t('true_ecn_24')%></div>
+                        <div class="pre-image-item"><%-$t('true_ecn_25')%></div>
+                        <div class="pre-image-item"><%-$t('true_ecn_26')%></div>
+                        <div class="pre-image-item"><%-$t('true_ecn_27')%></div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content bgcolor2">
+                <div class="page-section">
+                    <h1><%-$t('true_ecn_28')%></h1>
+                    <p><%-$t('true_ecn_29')%></p>
+                </div>
+            </div>
+            <div class="page-content bgcolor1">
+                <div class="page-section">
+                    <h1><%-$t('true_ecn_30')%></h1>
+                    <p><%-$t('true_ecn_31')%></p>
+                    <h1><%-$t('true_ecn_32')%></h1>
+                    <p><%-$t('true_ecn_33')%></p>
+                    <p><%-$t('true_ecn_34')%></p>
+                </div>
+            </div>
+            <div class="page-content bgcolor2">
+                <div class="page-section">
+                    <div class="flex-container">
+                        <div class="left">
+                            <h1><%-$t('true_ecn_35')%></h1>
+                            <p><%-$t('true_ecn_36')%></p>
+                        </div>
+                        <div class="right">
+                            <h1><%-$t('true_ecn_39')%></h1>
+                            <p><%-$t('true_ecn_40')%></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content bgcolor1">
+                <div class="page-section">
+                    <h1><%-$t('true_ecn_37')%></h1>
+                    <p><%-$t('true_ecn_38')%></p>
+                </div>
+            </div>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('true_ecn_4')%></div>
+                    <div class="global-today"><%-$t('true_ecn_5')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="introduction_true_ecn_5" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('true_ecn_6')%></a>
+                        <a id="introduction_true_ecn_6" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('true_ecn_7')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

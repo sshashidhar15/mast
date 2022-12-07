@@ -1,0 +1,425 @@
+<% setI18nPrefix('pages.xp-trader') %>
+<meta name="description" content="<%- $t('meta', true) %>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/xp-trader.css')%>">
+<%- contentFor('title') %>
+<%- $t('title') %>
+<%- contentFor('body') %>
+<div class="single-page xp-trader">
+    <style>
+        .cached-translation {
+            display: none;
+            visibility: hidden;
+            opacity: 0;
+        }
+    </style>
+    <div class="cached-translation read_more"><%-$t('xc_90', true)%></div>
+    <div class="cached-translation read_less"><%-$t('xc_91', true)%></div>
+    <article class="page-header">
+        <section class="page-header__container">
+            <header>
+                <h1 class="page-header__heading--style mt-15"><%-$t('xc_01')%></h1>
+                <div class="mt-3 text-white f-600 text-md p-0-3-sm"><%-$t('xc_01_1')%></div>
+            </header>
+            <!-- <% if (cysec) { %>
+                <div class="icm-button-wrapper page-header__primary-button"><%-$t('xc_04_1')%></div>
+            <% } else { %> -->
+                <div class="icm-button-wrapper page-header__primary-button"><%-$t('xc_04')%></div>
+            <!-- <% } %> -->
+            
+        </section>
+    </article>
+    <article class="page-content-container">
+        <div class="page-content">
+            <div class="page-section">
+                <div class="text-head f-600"><%-$t('xc_05')%></div>
+                <div class="row no-gutter">
+                    <!-- <% if (cysec) { %>
+                        <div class="column three">
+                            <img class="icon-key" src="/img/xptrader/opportunity.png"></img>
+                            <div class="text-content"><%-$t('xa_06')%></div>
+                                <div class="text-title"><%-$t('xa_07_1')%></div>  
+                        </div>
+                        <div class="column four">
+                            <img class="icon-key-3" src="/img/xptrader/priority.png"></img>
+                            <div class="text-content"><%-$t('xa_12')%></div>
+                            <div class="text-title"><%-$t('xa_13')%></div>
+                        </div>
+                        <div class="column four">
+                            <img class="icon-key-2" src="/img/xptrader/security.png"></img>
+                            <div class="text-content"><%-$t('xa_15')%></div>
+                            <div class="text-title"><%-$t('xa_16')%></div>
+                        </div>
+                    <% } else { %> -->
+                        <div class="column three">
+                            <div class="flex-between">
+                                <div class="text-content md"><%-$t('xc_06')%></div>
+                                <img class="icon-key" src="/img/xptrader/opportunity.svg"></img>                     
+                            </div>    
+                                <div class="text-title lg mt-7"><%-$t('xc_07')%></div>
+                        </div>
+                        <div class="column three">
+                            <div class="flex-between">
+                                <div class="text-content md"><%-$t('xc_12')%></div>
+                                <img class="icon-key-3" src="/img/xptrader/potential.svg"></img>   
+                            </div> 
+                            <div class="text-title lg mt-7"><%-$t('xc_13')%></div>
+                        </div>
+                        <div class="column three">
+                            <div class="flex-between">
+                                <div class="text-content md"><%-$t('xc_15')%></div>
+                                <img class="icon-key-2" src="/img/xptrader/security.svg"></img>      
+                            </div>         
+                            <div class="text-title lg mt-7"><%-$t('xc_16')%></div>
+                        </div>
+                    <!-- <% } %>                 -->
+                </div>
+
+            </div>
+        </div>
+    </article>
+
+    <article class="page-content-container">
+        <div class="page-content pt-0">
+            <div class="page-section">
+                <div class="text-head f-600"><%-$t('xc_92')%></div>
+                <div class="row no-gutter pro-trader-table">
+                    <table class="">
+                        <thead>
+                          <tr>
+                            <th><%-$t('xc_93')%></th>
+                            <th><%-$t('xc_94')%></th>
+                            <th><%-$t('xc_95')%></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td data-column="Instrument"><%-$t('xc_96')%></td>
+                            <td data-column="Professional Leverage" class="f-600"><%-$t('xc_96_1')%></td>
+                            <td data-column="Retail Leverage"><%-$t('xc_96_2')%></td>
+                          </tr>
+                          <tr>
+                            <td data-column="Instrument"><%-$t('xc_97')%></td>
+                            <td data-column="Professional Leverage" class="f-600"><%-$t('xc_97_1')%></td>
+                            <td data-column="Retail Leverage"><%-$t('xc_97_2')%></td>
+                          </tr>
+                          <tr>
+                            <td data-column="Instrument"><%-$t('xc_98')%></td>
+                            <td data-column="Professional Leverage" class="f-600"><%-$t('xc_98_1')%></td>
+                            <td data-column="Retail Leverage"><%-$t('xc_98_2')%></td>
+                          </tr>
+                          <tr>
+                            <td data-column="Instrument"><%-$t('xc_99')%></td>
+                            <td data-column="Professional Leverage" class="f-600"><%-$t('xc_99_1')%></td>
+                            <td data-column="Retail Leverage"><%-$t('xc_99_2')%></td>
+                          </tr>
+                          <tr>
+                            <td data-column="Instrument"><%-$t('xc_100')%></td>
+                            <td data-column="Professional Leverage" class="f-600"><%-$t('xc_100_1')%></td>
+                            <td data-column="Retail Leverage"><%-$t('xc_100_2')%></td>
+                          </tr>
+                          <tr>
+                            <td data-column="Instrument"><%-$t('xc_101')%></td>
+                            <td data-column="Professional Leverage" class="f-600"><%-$t('xc_101_1')%></td>
+                            <td data-column="Retail Leverage"><%-$t('xc_101_2')%></td>
+                          </tr>
+                          <tr>
+                            <td data-column="Instrument"><%-$t('xc_101a')%></td>
+                            <td data-column="Professional Leverage" class="f-600"><%-$t('xc_101a_1')%></td>
+                            <td data-column="Retail Leverage"><%-$t('xc_101a_2')%></td>
+                          </tr>                          
+                          <tr>
+                            <td data-column="Instrument"><%-$t('xc_102')%></td>
+                            <td data-column="Professional Leverage" class="f-600"><%-$t('xc_102_1')%></td>
+                            <td data-column="Retail Leverage"><%-$t('xc_102_2')%></td>
+                          </tr>
+                          <tr>
+                            <td data-column="Instrument"><%-$t('xc_103')%></td>
+                            <td data-column="Professional Leverage" class="f-600"><%-$t('xc_103_1')%></td>
+                            <td data-column="Retail Leverage"><%-$t('xc_103_2')%></td>
+                          </tr>
+                          <tr>
+                            <td data-column="Instrument"><%-$t('xc_104')%></td>
+                            <td data-column="Professional Leverage" class="f-600"><%-$t('xc_104_1')%></td>
+                            <td data-column="Retail Leverage"><%-$t('xc_104_2')%></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                     
+                </div>
+
+            </div>
+        </div>
+        <div class="page-content account-condition">
+            <div class="page-section">
+                <div class="text-head f-600 p-0-3-sm" id="account-condition"><%-$t('xc_18')%></div>
+                <!-- <% if (cysec) { %>
+                    <div class="detail-description text-left-align"><%-$t('xc_19_1')%></div>
+                    <div class="start-trading mt-2"><%-$t('xc_20_1')%></div>
+                <% } else { %> -->
+                    <div class="start-trading mt-2 f-600">
+                        <div class="">
+                            <%-$t('xc_19')%>
+                        </div>
+                        <div class="mt-1">
+                            <%-$t('xc_20')%>
+                        </div>
+                        <div class="mt-1">
+                            <%-$t('xc_20_1')%>
+                        </div>
+                        <div class="mt-1">
+                            <%-$t('xc_20_2')%>
+                        </div>
+                        <div class="mt-1">
+                            <%-$t('xc_20_3')%>
+                        </div>
+                    </div>
+                <!-- <% } %> -->
+               
+              </div>
+         </div>
+    </article>
+
+    <article class="page-content-container">
+        <div class="page-content pt-0">
+            <div class="row no-gutter">
+                <div class="text-head mt-1 f-600 text-center flex-center"><%-$t('xc_21')%></div>
+                    <div class="flex-center text-center p-0-3-sm"><%-$t('xc_21_1')%></div>
+                <div class="page-section">
+                    <!-- <% if (cysec) { %>
+                        <div class="page-section" id="content-here">
+                            <div class="text-content"><%-$t('xa_70_1')%></div>
+                            <div class="detail-description sm mb-1"><%-$t('xa_70_2')%></div>
+                            <div class="flex-center"> 
+                                <div class="icm-btn-block mt-0 mb-5 w-400"><a id="xptrader_securelink" class="link-icm" target="_blank"
+                                href="https://secure.icmarkets.eu/Requests/ProfessionalClient"><%-$t('xa_89_1')%></a>
+                              </div>
+                        </div>      
+                        </div>
+                    <% } else { %> -->
+                        <div class="detail-more mt-1">
+                            <div class="column right">  
+                                <div class="b-2-gray">
+                                    <div class="panel-content">
+                                        <div class="text-content md2"><%-$t('xc_70')%></div>
+                                        <div class="text-desc mt-2"><%-$t('xc_37')%></div>
+                                        <div class="checklist-note sm mt-1"><%-$t('xc_38')%></div>
+                                        <div class="checklist-note sm"><%-$t('xc_39')%> <br> AND </div>
+                                        <div class="checklist-note sm"><%-$t('xc_87_1')%> </div>
+                                        <div class="text-desc mt-1 mb-1"><%-$t('xc_40')%></div>
+                                        <div class=""><img class="w-full" src="\assets\img\xp-trader\option2.png" alt="option1"/></div>
+                                        <div class="b-1-gray mt-2"></div>
+                                        <div class="text-desc mt-2 f-600 mb-1">If you’re eligible, it’s easy:</div>
+                                        <ol>
+                                            <li class="text-desc mt-1">Contact our account team to confirm your Income or Assets.</li>
+                                            <li class="text-desc mt-1"><%-$t('xc_87_1')%></li>
+                                            <li class="text-desc mt-2">Download an Application Form:<br>
+                                                Fill the form and upload it into your client area.<br> Our accounts team will review your request to become a wholesale investor and contact you accordingly</li>
+                                        </ol>
+                                       <div class="icm-btn-block mt-2 w-full"><a id="xptrader_wholesale" class="link-icm" target="_blank"
+                                                href="https://cdn.icmarkets.com/uploads/form-icm-wholesale.pdf"><%-$t('xc_73')%></a></div>
+                                        <div class="text-desc sm2 mt-2">
+                                            <p>By providing this completed form, you hereby acknowledge that you wish to apply to be treated as a Wholesale Investor and that retail client status and protections will not apply to you. 
+                                                </p>
+                                            <p class="mt-1">You have read and understood the '<a class="f-600" href="#account-condition">Account Conditions</a>' and risks and other important information detailed in the '<a class="f-600" href="https://cdn.icmarkets.com/uploads/ICMwholesaleClient.pdf" target="_blank">Wholesale Client Information Statement (Wholesale clients only)</a>'.
+                                            </p>
+                                         </div>
+                                    </div>
+                                </div>    
+                            </div>
+        
+                            <div class="column left"> 
+                                <div class="b-2-gray">
+                                    <div class="text-content md2 mt-05"><%-$t('xc_75')%></div>
+                                    <div class="panel-content">
+                                        <div class="text-desc mt-1"><%-$t('xc_76')%></div>
+                                        <div class="checklist-note sm mt-1"><%-$t('xc_77')%></div>
+                                        <div class="checklist-note sm"><%-$t('xc_78')%></div>
+                                        <div class="checklist-note sm"><%-$t('xc_79')%></div>
+                                        <div class="checklist-note sm"><%-$t('xc_80')%></div>
+                                        <div class="checklist-note sm"><%-$t('xc_80_1')%></div>  
+                                            <!-- <a id="xptrader_readme" href="#" class="togglebtn2 p-5px read-more"><%-$t('xc_90')%></a> -->
+                                            <!-- <div id="myContent2" class="toggle-content"> </div>  -->
+                                             <div>
+                                            <div class="b-1-gray"></div>
+                                            <div class="text-desc mt-1 f-600"><%-$t('xc_82')%></div>
+                                            <div class="text-desc mt-1 f-600"><%-$t('xc_82_1')%></div>
+                                            <div class="text-desc mt-1 f-600"><%-$t('xc_83')%></div>
+                                            <div class="b-1-gray mt-30"></div>
+                                            <div class="text-desc mt-2 f-600 "><%-$t('xc_84')%></div>
+                                            <ol>
+                                                <li class="text-desc mt-1"><%-$t('xc_85')%></li>
+                                                <li class="text-desc mt-1"><%-$t('xc_86')%></li>
+                                                <li class="text-desc mt-1"><%-$t('xc_87_1')%></li>
+                                                <li class="text-desc mt-1"><%-$t('xc_87_2')%></li>
+                                            </ol>
+                                            </div>
+                                                  
+                                        <div class="icm-btn-block mt-2 w-full"><a id="xptrader_sophisticated_investor" class="link-icm" target="_blank"
+                                            href="https://cdn.icmarkets.com/uploads/Sophisticated-Investor-Acknowledgment.pdf"><%-$t('xc_89')%></a>
+                                        </div>
+                                        <div class="text-desc sm2 mt-2">
+                                            <p>By providing this completed form, you hereby acknowledge that you wish to apply to be treated as a Wholesale Investor and that retail client status and protections will not apply to you. 
+                                                </p>
+                                            <p class="mt-1">You have read and understood the '<a class="f-600" href="#account-condition">Account Conditions</a>' and risks and other important information detailed in the '<a class="f-600" href="https://cdn.icmarkets.com/uploads/ICMwholesaleClient.pdf" target="_blank">Wholesale Client Information Statement (Wholesale clients only)</a>'.      
+                                            </p>
+                                         </div>
+                                    </div>
+                                </div>
+                                     
+                        </div>
+                    </div>
+                    <!-- <% } %> -->
+            </div>
+            
+                </div>
+              
+            </div>
+
+            </div>
+        </div>
+    </article>
+ 
+    <div class="single-page xp-trader">
+        <div class="page-content faq-protrader p-0-3-sm">
+        <div class="page-section">
+            <div class="text-head-md f-600">Frequently Asked Questions</div>           
+          </div>
+     </div>
+    </div>
+        <article class="page-content-container">
+            <div class="faq-block">
+                <div class="xp-trader-block p-0-3-sm">
+                    <div class="xp-trader-content">
+                                                   
+                        <div class="xp-trader-qa faq-block__item" key="most-q-01">
+                            <div class="faq-accordion">
+                                <div class="accordion-toggle collapsed faq-block__expand-button" data-toggle="collapse" data-parent="#accordion" data-target="#most-q-01">What is the key difference between a standard CFD account and a Pro account?</div>
+                                <div id="most-q-01" class="panel-collapse collapse">        
+                                    <div class="panel-content">
+                                        As an IC Markets Pro account holder you are considered a wholesale client and not a retail client. This gives you access to different trading conditions. To become a IC Markets Pro client, you have to meet the <b class="f-600">"wholesale client"</b> eligibility criteria under the Corporations Act and are expected to have a more sophisticated understanding of complex financial products. 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="xp-trader-qa faq-block__item" key="most-q-02">
+                            <div class="faq-accordion">
+                                <div class="accordion-toggle collapsed faq-block__expand-button" data-toggle="collapse" data-parent="#accordion" data-target="#most-q-02">What if I am not eligible for a IC Markets Pro account?</div>
+                                <div id="most-q-02" class="panel-collapse collapse">
+                                  <div class="panel-content">
+                                    If you’re not eligible for IC Markets Pro account, you can still access and trade thousands of financial instruments using a retail IC Markets account. You can continue to trade with the full retail client protection. You'll still benefit from our tight spreads, fast execution and industry-leading support.
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="xp-trader-qa faq-block__item" key="most-q-03">
+                            <div class="faq-accordion">
+                                <div class="accordion-toggle collapsed faq-block__expand-button" data-toggle="collapse" data-parent="#accordion" data-target="#most-q-03">Why do I need to open an account before I can apply to become an IC Markets Pro?</div>
+                                <div id="most-q-03" class="panel-collapse collapse">
+                                    <div class="panel-content">
+                                        Only clients that are new to IC Markets will need to first open a standard CFD trading account before applying for a IC Markets Pro account. If you already have a CFD account with us, you can apply for a IC Markets Pro account now, if you think you may be eligible.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="xp-trader-qa faq-block__item" key="most-q-04">
+                            <div class="faq-accordion">
+                                <div class="accordion-toggle collapsed faq-block__expand-button" data-toggle="collapse" data-parent="#accordion" data-target="#most-q-04">What is IC Markets Pro?</div>
+                                <div id="most-q-04" class="panel-collapse collapse">
+                                   
+                                   <div class="panel-content">
+                                        If you are eligible and approved as a IC Markets Pro, retail trading restrictions according to the Corporations Act 2001 (Cth) in Australia won't apply to you.  
+                                        <br>Please note that you will lose some retail-only protections if you become a wholesale client.
+                                   </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="xp-trader-qa faq-block__item" key="most-q-05">
+                            <div class="faq-accordion">
+                                <div class="accordion-toggle collapsed faq-block__expand-button" data-toggle="collapse" data-parent="#accordion" data-target="#most-q-05">Can I use trading history from other companies to apply?</div>
+                                <div id="most-q-05" class="panel-collapse collapse">                     
+                                   <div class="panel-content">
+                                    Yes, you can use your trading history from other accounts and even other brokers. 
+                                   </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="xp-trader-qa faq-block__item" key="most-q-06">
+                            <div class="faq-accordion">
+                                <div class="accordion-toggle collapsed faq-block__expand-button" data-toggle="collapse" data-parent="#accordion" data-target="#most-q-06">Can I keep my same account number?</div>
+                                <div id="most-q-06" class="panel-collapse collapse">
+                                  <div class="panel-content">
+                                    Yes, you will have the same account number. 
+                                  </div>
+                                  
+                                </div>
+                            </div>
+                        </div>
+                        <div class="xp-trader-qa faq-block__item" key="most-q-07">
+                            <div class="faq-accordion">
+                                <div class="accordion-toggle collapsed faq-block__expand-button" data-toggle="collapse" data-parent="#accordion" data-target="#most-q-07">Can I apply for IC Markets Pro if I have a joint account?</div>
+                                <div id="most-q-07" class="panel-collapse collapse">
+                                  <div class="panel-content">
+                                    Unfortunately, we currently do not offer IC Markets Pro accounts to joint account holders. 
+                                  </div>
+                                  
+                                </div>
+                            </div>
+                        </div>
+                        <div class="xp-trader-qa faq-block__item" key="most-q-08">
+                            <div class="faq-accordion">
+                                <div class="accordion-toggle collapsed faq-block__expand-button" data-toggle="collapse" data-parent="#accordion" data-target="#most-q-08">Why I cannot keep my open trades when changing to IC Markets Pro?</div>
+                                <div id="most-q-08" class="panel-collapse collapse">
+                                  <div class="panel-content">
+                                    Due to the change in trading conditions it is not possible to convert your open trades when changing to IC Markets Pro. 
+                                  </div>
+                                  
+                                </div>
+                            </div>
+                        </div>
+                </div>       
+                </div> 
+            
+            </div>
+        </article>
+    
+    <div class="single-page xp-trader">
+        <div class="page-content global-markets-today">
+            <div class="page-section">
+                <div class="start-trading"></div>
+                <div class="global-today">Experience trading as a professional trader today</div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="refer_a_friend_a_4" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>">Open Live Account</a>
+                    <!-- <a id="refer_a_friend_a_5" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>">Apply Pro Account</a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+   
+   
+</div>
+<script>
+    $(function () {
+        $('a.togglebtn2').on('click', function (e) {
+            e.preventDefault();
+            $('#myContent2').stop().slideToggle(500);
+            if ($(this).is('.read-more')) {
+                $(this).toggleClass('read-more', false).toggleClass('read-less', true).text($('.cached-translation.read_less').text())
+            } else {
+                $(this).toggleClass('read-less', false).toggleClass('read-more', true).text($('.cached-translation.read_more').text())
+            }
+            return false;
+        });
+        $('a[href="#form"]').on('click', function (e) {
+            e.preventDefault();
+            $("html, body").animate({ scrollTop: $(".icm-btn-block").offset().top - 200 }, 1000);
+            return false;
+        });
+    });
+  
+</script>

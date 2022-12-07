@@ -1,0 +1,190 @@
+<% setI18nPrefix('components.forms') %>
+<link rel="stylesheet" href="<%=md5('/css/components/contact-us-form-white-label-partnerships.css')%>">
+<%- include('./maintenance-warning.ejs') %>
+<div id="direction-for-green-btn-click" class="form-container">
+    <div class="form-header-block">
+        <div class="allfields-required">* <%-$t('allfieldsarerequired')%></div>
+    </div>
+
+    <form class="form-block invalid">
+        <div class="">
+            <div class="form-block__input-elements padding-bottom-std big-flex-wrap">
+                <div class="input-ele-block">
+                    <input class="input-ele-block__input" id="firstname" type="text" placeholder="<%- $t('firstname', true) %>" data-model="firstNameVal" name="firstname" minlength="3" maxlength="50" required/>
+                </div>
+                <div class="input-ele-block">
+                    <input class="input-ele-block__input" id="lastname" type="text" placeholder="<%- $t('lastname', true) %>" data-model="lastNameVal" name="lastname" minlength="3" maxlength="50" required/>
+                </div>
+                <div class="input-ele-block">
+                    <input class="input-ele-block__input" id="emailaddress" placeholder="<%- $t('emailaddress', true) %>" data-model="emailIdVal" type="email" name="emailaddress" required/>
+                </div>
+                <div class="input-ele-block">
+                    <input class="input-ele-block__input" id="phone" type="text" required placeholder="<%- $t('phone', true) %>" data-model="phoneNumberVal" name="phone" pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$" title="Please enter a valid phone or mobile number"/>
+                </div>
+            </div>
+            <div class="form-block__input-elements padding-bottom-std small-flex-wrap">
+                <div class="input-ele-block checkbox-container">
+                    <input class="input-ele-block__input" id="havetradingaccount" type="checkbox" data-model="havetradingaccountVal" checked="checked" name="havetradingaccount" minlength="3" maxlength="50" />
+                    <label class="input-ele-block__label" for="havetradingaccount"><%-$t('havelivetradingaccount')%></label>
+                </div>
+                <div class="input-ele-block">
+                    <input class="input-ele-block__input" :disabled="!havetradingaccountVal" id="tradingaccount" type="text" placeholder="<%- $t('tradingaccountnumber', true) %>" data-model="tradingaccountVal" name="havetradingaccount" minlength="5" maxlength="20"/>
+                </div>
+                <div class="input-ele-block">
+                    <select class="input-ele-block__input" id="department" name="Department" data-model="departmentVal" data-component="dropdown" required>
+                        <option value="Sales"><%-$t('departmentsales')%></option>
+                        <option value="Support" selected="selected"><%-$t('departmentsupport')%></option>
+                        <option value="Accounts"><%-$t('departmentaccount')%></option>
+                        <option value="Compliance"><%-$t('departmentcompilance')%></option>
+                        <option value="Marketing"><%-$t('departmentmarketing')%></option>
+                        <option value="IB / Partners"><%-$t('departmentibpartners')%></option>
+                    </select>
+
+                </div>
+                <div class="input-ele-block">
+                    <input v-else class="input-ele-block__input" id="subject" type="text" placeholder="<%- $t('subject', true) %>" data-model="subjectInput" name="Subject" required/>
+                </div>
+            </div>
+        </div>
+        <div class="input-ele-block textarea-block ">
+            <textarea class="input-ele-block__input textarea_input" id="message"  placeholder="<%- $t('message', true) %>" data-model="messageVal" name="message" required></textarea>
+        </div>
+
+        <div class="form-block__submit-button-block">
+            <!-- <div class="g-recaptcha" data-sitekey="6Le1oigUAAAAAOYd9X-pJLHiU0wC_L5d9Hc8JExE"></div> -->
+            <div class="buttons-container">
+                <button type="button" class="btn icm-btn-primary start-trading-button submit">
+                    <%-$t('submitform')%>
+                </button>
+                <button type="button" class="btn icm-btn-primary start-trading-button clear">
+                    <%-$t('clearform')%>
+                </button>
+            </div>
+        </div>
+        <div class="form-sended-info" style="display:none;"><div><%- $t('form_sended_info') %></div></div>
+    </form>
+</div>
+<script>
+    var formApp = {
+        havetradingaccountVal: true,
+        tradingaccountVal: "",
+        firstNameVal: "",
+        lastNameVal: "",
+        emailIdVal: "",
+        subjectInput: "",
+        phoneNumberVal: "",
+        departmentVal: "Support",
+        formSended: false,
+        messageVal: "",
+        $form: $('.form-block'),
+
+        mounted: function () {
+            $('.form-block').on('change keyup touchend', 'input, select, textarea', this.validateField.bind(this));
+            $('.form-block .form-block__submit-button-block .submit').on('click touchend', this.handleFormSubmit.bind(this))
+            $('.form-block .form-block__submit-button-block .clear').on('click touchend', this.handleFormClear.bind(this))
+        },
+
+        validateField: function (e) {
+            // console.log(e);
+            var $el = $(e.target);
+            var field = $el.attr('data-model');
+            this[field] = $el.is(':checkbox') ? $el.prop('checked') : $el.val();
+            $el.toggleClass('invalid', !$el[0].checkValidity());
+            var $form = $el.closest('form');
+            var valid = true;
+            $form.find('[required]').each(function () {
+                if ($(this).is('.invalid') || !$(this).val().length) {
+                    valid = false;
+                }
+            });
+            $form.toggleClass('invalid', !valid);
+        },
+
+        handleFormSubmit: function (e) {
+            // console.log("Form SUBMIT click");
+            var form = document.querySelector('.form-block');
+            var valid = form.checkValidity();
+            if (form && valid) {
+                var data = {
+                    HaveTradingAccount: this.havetradingaccountVal ? 'on' : false,
+                    TradingAccount: this.tradingaccountVal,
+                    FirstName: this.firstNameVal,
+                    LastName: this.lastNameVal,
+                    Email: this.emailIdVal,
+                    Phone1: this.phoneNumberVal,
+                    Department: this.departmentVal,
+                    Subject: this.subjectVal || this.subjectInput,
+                    Message: this.messageVal,
+                    submitIntroBroker: "Submit"
+                };
+                // this.$emit('onFormSubmit', data);
+                this.onContactFormSubmit(data);
+            } else {
+                // console.log("ERROR: Form validation failed");
+            }
+        },
+        handleFormClear: function (e) {
+            // console.log("Form CLEAR click");
+
+            this.$form.find('input, textarea').val('')
+            this.$form.toggleClass('invalid', true);
+        },
+        onContactFormSubmit: function (formInput) {
+            // console.log("data received formInput: ", formInput);
+            let self = this;
+
+            let getSignTokenDemo = function () {
+                var $def = $.Deferred();
+                $.get('<%= config.reg_service_1_url %>~get~sign~token~?nocache=' + Date.now()).done(function (token) {
+                    $def.resolve(token);
+                }).fail(function () {
+                    $def.resolve(null);
+                });
+                return $def.promise();
+            };
+
+            // getSignTokenDemo().then(function(token) {
+            //     formInput.sign = token;
+            //     $.ajax({
+            //         type: 'POST',
+            //         url: '<%= config.reg_service_1_url %>',
+            //         dataType: "json",
+            //         data: formInput
+            //     }).done(function(data) {
+            //         console.log("Success", data);
+            //         $('.form-sended-info').show()
+            //         setTimeout(function () {
+            //             self.handleFormClear()
+            //         }, 3000);
+            //     }).fail(function(error) {
+            //         console.log("Error", error);
+            //         alert('Oops! Submit form failed.');
+            //     });
+            // });
+
+            getSignTokenDemo().then(function(token) {
+                formInput.sign = token;
+                $.ajax({
+                    type: 'POST',
+                    url: '<%= config.reg_service_1_url %>',
+                    dataType: "json",
+                    data: formInput
+                }).done(function(data) {
+                    console.log("Form send result: Success", data);
+                }).fail(function(error) {
+                    console.log("Form send Result: Error", error);
+                });
+
+                self.handleFormClear()
+                $('.form-sended-info').fadeIn(800);
+                setTimeout(function () {
+                    $('.form-sended-info').fadeOut(500);
+                }, 3000);
+            });
+        }
+
+    }
+
+    $(document).ready(formApp.mounted.bind(formApp))
+
+</script>

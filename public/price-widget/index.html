@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html class="single-price-widget home-page size-268x162 wait-for-initialize">
+    <head>
+        <title>Price Widget</title>
+        <link rel="stylesheet" href="../css/bootstrap-icm-build.css">
+        <link rel="stylesheet" href="../home/css/static-home.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" charset="utf-8"></script>
+        <script src="https://cdn.jsdelivr.net/npm/signalr@2.3.0/jquery.signalR.min.js" charset="utf-8"></script>
+        <meta data-n-head="true" charset="utf-8">
+        <meta data-n-head="true" name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+        <style>
+            html {
+                overflow: hidden;
+            }
+
+            html.wait-for-initialize {
+                opacity: 0.4;
+                pointer-events: none;
+            }
+
+            select.quote-widget-symbol {
+                font-size: 14px;
+                color: #000;
+                background: #34E834;
+                font-weight: 900;
+                border: 1px solid #000;
+                outline: none;
+                margin: 4px;
+            }
+            .quote-widget__header-symbol {
+                display: none;
+            }
+            .quote-widget__footer-logo {
+                width: 45%;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                height: 25px;
+                opacity: 0.5;
+            }
+        </style>
+    </head>
+    <body>
+        <div data-id="EURUSD" data-format="15" class="quote-widget widget-1 format-1-5 price-up">
+            <div class="quote-widget__header">
+                <select class="quote-widget-symbol">
+                    <option value="EURUSD" selected>EURUSD</option>
+                    <option value="AUDUSD">AUDUSD</option>
+                    <option value="GBPUSD">GBPUSD</option>
+                    <option value="XAUUSD">XAUUSD</option>
+                </select>
+                <div class="quote-widget__header-symbol">EURUSD</div>
+                <div class="quote-widget__header-change">+0.04%</div>
+            </div>
+            <div class="quote-widget__content">
+                <div class="quote-widget__content-bid">
+                    <div class="quote-widget__content-title">Bid</div>
+                    <div class="quote-widget__content-price"><span class="price-1">1.16</span><span class="price-2">69</span><span class="price-3">2</span></div>
+                </div>
+                <div class="quote-widget__content-ask">
+                    <div class="quote-widget__content-title">Ask</div>
+                    <div class="quote-widget__content-price"><span class="price-1">1.16</span><span class="price-2">69</span><span class="price-3">2</span></div>
+                </div>
+            </div>
+
+            <div class="quote-widget__footer">
+                <div class="quote-widget__footer-spread"><span class="spread-label">Spread</span><span class="spread-value">0.0</span></div>
+                <div class="quote-widget__footer-logo">
+                    <img src="/assets/icons/svg/ICM-logo.svg" alt="IC Markets">
+                </div>
+            </div>
+        </div>
+        <script src="./price-widget.js" charset="utf-8"></script>
+    </body>
+</html>

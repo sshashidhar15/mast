@@ -1,0 +1,487 @@
+<% setI18nPrefix('pages.company.contact-us') %>
+<meta name="description" content="<%- $t('meta', true) %>">
+<link rel="stylesheet" href="<%=md5('/css/pages/contact-us.css')%>">
+<%- contentFor('title') %>
+<%- $t('title') %>
+<%- contentFor('body') %>
+
+<style>
+	html.sc-host-1 .single-page.page-contact-us .grid-section.top-questions {
+	    grid-template-columns: 50% 50%;
+	}
+	html.sc-host-1 .single-page.page-contact-us .grid-section.top-questions .toll-free {
+	    display: none;
+	}
+	html.bs-host-1 .single-page.page-contact-us .grid-section.top-questions {
+	    grid-template-columns: 50% 50%;
+	}
+	html.bs-host-1 .single-page.page-contact-us .grid-section.top-questions .toll-free {
+	    display: none;
+	}
+	.page-content-container .page-content {
+		padding: 20px 0 !important;
+	}
+	.b-1 {
+		display: none !important;
+	}
+	.contact-us-form-container.form-container {
+		background-color: transparent !important;
+	}
+	.contact-us-form-container .input-ele-block__input {
+		background-color: #fff !important;
+	}
+	h2 {
+		text-align: center;
+		margin-top: 80px;
+	}
+	hr {
+		border-top: 1px solid #ccc;
+		border-bottom: 1px solid #fff;
+	}
+	.grid-50 {
+		display: grid;
+		grid-template-columns: 50% 50%;
+		grid-gap: 10px;
+		width: 330px;
+		font-size: 20px;
+		text-align: left;
+		cursor: default;
+	}
+	.tf-phone {
+		font-weight: 700;
+	}
+	@media screen and (max-width: 400px) {
+		.grid-50 {
+			grid-template-columns: 100%;
+			width: auto;
+			text-align: center;
+		}
+	}
+</style>
+
+<% if (asic) { %>
+	<%- include('../_partials/components/popup-modal.ejs', {
+		extraClass: 'tf centered',
+		noclose: true,
+		title: 'TOLL FREE NUMBERS',
+		content: `
+			<div class="grid-50">
+				<div class="tf-country">Australia</div>
+				<div class="tf-phone">+611800942969</div>
+
+				<div class="tf-country">Thailand</div>
+				<div class="tf-phone">+661800012799</div>
+
+				<div class="tf-country">South Africa</div>
+				<div class="tf-phone">+27800172944</div>
+
+				<div class="tf-country">Brazil</div>
+				<div class="tf-phone">+558008783186</div>
+			</div>
+		`
+	}) %>
+<% } %>
+<% if (cysec) { %>
+	<%- include('../_partials/components/popup-modal.ejs', {
+		extraClass: 'tf centered',
+		noclose: true,
+		title: 'TOLL FREE NUMBERS',
+		content: `
+			<div class="grid-50">
+				<div class="tf-country">Cyprus</div>
+				<div class="tf-phone">+35780070050</div>
+
+				<div class="tf-country">Spain</div>
+				<div class="tf-phone">+34900838243</div>
+
+				<div class="tf-country">Germany</div>
+				<div class="tf-phone">+498007238442</div>
+
+				<div class="tf-country">United Kingdom</div>
+				<div class="tf-phone">+448081890751</div>
+
+				<div class="tf-country">Poland</div>
+				<div class="tf-phone">+488001125138</div>
+
+				<div class="tf-country">France</div>
+				<div class="tf-phone">+33805983656</div>
+
+				<div class="tf-country">Finland</div>
+				<div class="tf-phone">+358800412176</div>
+
+				<div class="tf-country">Sweden</div>
+				<div class="tf-phone">+46201203021</div>
+
+				<div class="tf-country">Norway</div>
+				<div class="tf-phone">+4780062538</div>
+			</div>
+		`
+	}) %>
+<% } %>
+<% if (fsa) { %>
+	<%- include('../_partials/components/popup-modal.ejs', {
+		extraClass: 'tf centered',
+		noclose: true,
+		title: 'TOLL FREE NUMBERS',
+		content: `
+			<div class="grid-50">
+				<div class="tf-country">Brazil</div>
+				<div class="tf-phone">+558008783054</div>
+
+				<div class="tf-country">Thailand</div>
+				<div class="tf-phone">+661800011956</div>
+
+				<div class="tf-country">Indonesia</div>
+				<div class="tf-phone">+6280332160329</div>
+
+				<div class="tf-country">Colombia</div>
+				<div class="tf-phone">+5718005190364</div>
+
+				<div class="tf-country">Vietnam</div>
+				<div class="tf-phone">+8412032513</div>
+			</div>
+		`
+	}) %>
+<% } %>
+<% if (scb) { %>
+	<%- include('../_partials/components/popup-modal.ejs', {
+		extraClass: 'tf centered',
+		noclose: true,
+		title: 'TOLL FREE NUMBERS',
+		content: `
+			<div class="grid-50">
+				<div class="tf-country">Indonesia</div>
+				<div class="tf-phone">+6278033212195</div>
+
+				<div class="tf-country">Brazil</div>
+				<div class="tf-phone">+558008783061</div>
+
+				<div class="tf-country">Colombia</div>
+				<div class="tf-phone">+5718005190363</div>
+
+				<div class="tf-country">Vietnam</div>
+				<div class="tf-phone">+8412032101</div>
+			</div>
+		`
+	}) %>
+<% } %>
+<% if (fsc) { %>
+	<%- include('../_partials/components/popup-modal.ejs', {
+		extraClass: 'tf centered',
+		noclose: true,
+		title: 'TOLL FREE NUMBERS',
+		content: `
+			<div class="grid-50">
+				<div class="tf-country">Brazil</div>
+				<div class="tf-phone">+558008783054</div>
+
+				<div class="tf-country">Thailand</div>
+				<div class="tf-phone">+661800011956</div>
+
+				<div class="tf-country">Indonesia</div>
+				<div class="tf-phone">+6280332160329</div>
+
+				<div class="tf-country">Colombia</div>
+				<div class="tf-phone">+5718005190364</div>
+
+				<div class="tf-country">Vietnam</div>
+				<div class="tf-phone">+8412032513</div>
+			</div>
+		`
+	}) %>
+<% } %>
+<% if (cima) { %>
+	<%- include('../_partials/components/popup-modal.ejs', {
+		extraClass: 'tf centered',
+		noclose: true,
+		title: 'TOLL FREE NUMBERS',
+		content: `
+			<div class="grid-50">
+				<div class="tf-country">Brazil</div>
+				<div class="tf-phone">+558008783054</div>
+
+				<div class="tf-country">Thailand</div>
+				<div class="tf-phone">+661800011956</div>
+
+				<div class="tf-country">Indonesia</div>
+				<div class="tf-phone">+6280332160329</div>
+
+				<div class="tf-country">Colombia</div>
+				<div class="tf-phone">+5718005190364</div>
+
+				<div class="tf-country">Vietnam</div>
+				<div class="tf-phone">+8412032513</div>
+			</div>
+		`
+	}) %>
+<% } %>
+
+<div class="single-page page-contact-us">
+	<article class="page-header">
+		<section class="page-header__container">
+			<header>
+				<h1 class="page-header__heading--style mt-1-5"><%-$t('contact_us_001')%></h1>
+			</header>
+			<div class="page-header__description"></div>
+			<div class="icm-button-wrapper page-header__primary-button">
+				<a id="contact_us_5" href="javascript:openLiveChat()" class="icm-btn icm-btn-primary">
+					<%- $t('contact_us_3') %>
+				</a>
+			</div>
+		</section>
+	</article>
+	<article class="page-header__menu-container">
+		<%- include('./_menu.ejs', { current: 'company-contact-us' }) %>
+	</article>
+	<article class="page-content-container">
+		<div class="page-content">
+			<div class="page-section text-center"><%-$t('contact_us_002')%></div>
+			<% if (fca) { %>
+				<div class="page-section top-questions">
+			<% } else { %>
+				<div class="page-section grid-section-50 top-questions">
+			<% } %>
+			<% if (!fca) { %>
+				<div class="c-card lg b-none">
+					<div class="c-card-content">
+						<div class="c-card-img i-3 m-auto"></div>
+						<div class="c-card-title">
+							<div class="c-card-title">
+								<div class="title-green"><%-$t('contact_us_callus')%></div>
+							</div>
+						</div>
+						<div class="c-card-text">
+							<div class="c-card-text">
+								<% if (asic) { %>
+									<div><%-$t('contact_us_25')%> <b><%-$t('contact_us_004_2')%></b></div>
+									<div><%-$t('contact_us_42')%> <b><%-$t('contact_us_027')%></b></div>
+									<div style="font-size:14px;">(<%-$t('contact_us_018')%>)</div>
+								<% } else if (fsa) { %>
+									<div><%-$t('contact_us_25')%> <b><%-$t('contact_us_004_3')%></b></div>
+									<div style="font-size:14px;">(<%-$t('contact_us_018')%>)</div>
+								<% } else if (scb) { %>
+									<div><%-$t('contact_us_25')%> <b><%-$t('contact_us_004_4')%></b></div>
+								<% } %>
+								<div id="tf" class="icm-btn icm-btn-primary" style="margin-top: 10px;">Toll Free Numbers</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<% } %>
+				<div class="c-card m-auto mt-0-xs lg b-none">
+					<div class="c-card-content">
+						<div class="c-card-img i-4 m-auto"></div>
+						<div class="c-card-title">
+							<div class="title-green"><%-$t('contact_us_27')%></div>
+						</div>
+						<div class="c-card-text p-3-xs">
+							<div class="a-lg">
+								<% if (locale != 'cn' && locale != 'tw') { %>
+									<% if (asic) { %>
+										<div><b><%-$t('contact_us_28')%></b> <a id="contact_us_6" href="mailto:clientrelations@icmarkets.com.au">clientrelations@icmarkets.com.au</a></div>
+										<div><b>Support:</b> <a id="contact_us_7"href="mailto:support@icmarkets.com.au">support@icmarkets.com.au</a></div>
+									<% } else if (cysec) { %>
+										<div><b><%-$t('contact_us_28')%></b> <a id="contact_us_8" href="mailto:clientrelations@icmarkets.eu">clientrelations@icmarkets.eu</a></div>
+										<div><b>Support:</b> <a id="contact_us_9"href="mailto:support@icmarkets.eu">support@icmarkets.eu</a></div>
+									<% } else if (fsa) { %>
+										<div><b><%-$t('contact_us_28')%></b> <a id="contact_us_8" href="mailto:clientrelations@icmarkets.com">clientrelations@icmarkets.com</a></div>
+										<div><b>Support:</b> <a id="contact_us_9"href="mailto:support@icmarkets.com">support@icmarkets.com</a></div>
+									<% } else if (scb) { %>
+										<div><b><%-$t('contact_us_28')%></b> <a id="contact_us_8" href="mailto:clientrelations@icmarkets.com">clientrelations@icmarkets.com</a></div>
+										<div><b>Support:</b> <a id="contact_us_9"href="mailto:support@icmarkets.com">support@icmarkets.com</a></div>
+									<% } %>
+                                <% } else { %>
+									<div><b><%-$t('contact_us_28')%></b> <a id="contact_us_12" href="mailto:rm@icmarkets.com">rm@icmarkets.com</a></div>
+                                    <div><b>支持:</b> <a id="contact_us_13"href="mailto:support.cn@icmarkets-cs.com">support.cn@icmarkets-cs.com</a></div>
+								<% } %>
+								<% if (asic) { %>
+									<div><b><%-$t('contact_us_30')%></b> <a id="contact_us_14"href="mailto:accounts@icmarkets.com.au">accounts@icmarkets.com.au</a></div>
+									<div><b><%-$t('contact_us_32')%></b> <a id="contact_us_15"href="mailto:marketing@icmarkets.com.au">marketing@icmarkets.com.au</a></div>
+								<% } else if (fca) { %>
+									<div><b><%-$t('contact_us_30')%></b> <a id="contact_us_18"href="mailto:accounts@icmarketsuk.com">accounts@icmarketsuk.com</a></div>
+									<div><b>Support:</b> <a id="contact_us_19"href="mailto:support@icmarketsuk.com">support@icmarketsuk.com</a></div>
+								<% } else if (cysec) { %>
+									<div><b><%-$t('contact_us_30')%></b> <a id="contact_us_16"href="mailto:accounts@icmarkets.eu">accounts@icmarkets.eu</a></div>
+									<div><b><%-$t('contact_us_32')%></b> <a id="contact_us_17"href="mailto:marketing@icmarkets.eu">marketing@icmarkets.eu</a></div>
+								<% } else { %>
+									<div><b><%-$t('contact_us_30')%></b> <a id="contact_us_16"href="mailto:accounts@icmarkets.com">accounts@icmarkets.com</a></div>
+									<div><b><%-$t('contact_us_32')%></b> <a id="contact_us_17"href="mailto:marketing@icmarkets.com">marketing@icmarkets.com</a></div>
+								<% } %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<% if (!fca) { %>
+				<div class="page-content c-accent-1">
+					<div class="page-section text-center">
+						<%- include('../_partials/components/contact-us-form.ejs', {
+							departmentVal: `Support`,
+							isCySEC: cysec,
+							subjectVal: `CALL BACK REQUEST`
+						}); %>
+						<% setI18nPrefix('pages.company.contact-us') %>
+					</div>
+				</div>
+				<div class="page-section text-center spc-top">
+					<% if (false/*sc_host || bs_host*/) { %>
+					<div class="text-head-cu text-center"><%-$t('contact_us_019_sc_host')%></div>
+					<% } else { %>
+					<div class="text-head-cu text-center"><%-$t('contact_us_019')%></div>
+					<% } %>
+					<p class="p-3-xs"><%-$t('contact_us_020')%></p>
+				</div>
+			<% } %>
+			<% if (locale != 'cn' && locale != 'tw'/* && !sc_host && !bs_host*/) { %>
+				<% if (asic) { %>
+					<div class="page-content c-accent-1">
+						<div class="page-section">
+							<%- include('../_partials/au-contact-details.ejs') %>
+						</div>
+					</div>
+					<h2><%-$t('contact_us_076')%></h2>
+					<div class="page-content">
+						<div class="page-section">
+							<%- include('../_partials/eu-contact-details.ejs') %>
+						</div>
+					</div>
+					<div class="page-content c-accent-1">
+						<div class="page-section">
+							<%- include('../_partials/sc-contact-details.ejs') %>
+						</div>
+					</div>
+					<!-- <div class="page-content">
+						<div class="page-section">
+							<%- include('../_partials/bs-contact-details.ejs') %>
+						</div>
+					</div> -->
+				<% } else if (fsa) { %>
+					<div class="page-content c-accent-1">
+						<div class="page-section">
+							<%- include('../_partials/sc-contact-details.ejs') %>
+						</div>
+					</div>
+					<h2><%-$t('contact_us_076')%></h2>
+					<div class="page-content">
+						<div class="page-section">
+							<%- include('../_partials/au-contact-details.ejs') %>
+						</div>
+					</div>
+					<div class="page-content c-accent-1">
+						<div class="page-section">
+							<%- include('../_partials/eu-contact-details.ejs') %>
+						</div>
+					</div>
+					<!-- <div class="page-content">
+						<div class="page-section">
+							<%- include('../_partials/bs-contact-details.ejs') %>
+						</div>
+					</div> -->
+				<% } else if (scb) { %>
+					<div class="page-content c-accent-1">
+						<div class="page-section">
+							<%- include('../_partials/bs-contact-details.ejs') %>
+						</div>
+					</div>
+					<h2><%-$t('contact_us_076')%></h2>
+					<div class="page-content">
+						<div class="page-section">
+							<%- include('../_partials/au-contact-details.ejs') %>
+						</div>
+					</div>
+					<div class="page-content c-accent-1">
+						<div class="page-section">
+							<%- include('../_partials/eu-contact-details.ejs') %>
+						</div>
+					</div>
+					<div class="page-content">
+						<div class="page-section">
+							<%- include('../_partials/sc-contact-details.ejs') %>
+						</div>
+					</div>
+				<% } else if (fsc) { %>
+					<h2><%-$t('contact_us_076')%></h2>
+					<div class="page-content">
+						<div class="page-section">
+							<%- include('../_partials/au-contact-details.ejs') %>
+						</div>
+					</div>
+					<div class="page-content c-accent-1">
+						<div class="page-section">
+							<%- include('../_partials/eu-contact-details.ejs') %>
+						</div>
+					</div>
+					<div class="page-content">
+						<div class="page-section">
+							<%- include('../_partials/sc-contact-details.ejs') %>
+						</div>
+					</div>
+					<div class="page-content c-accent-1">
+						<div class="page-section">
+							<%- include('../_partials/bs-contact-details.ejs') %>
+						</div>
+					</div>
+				<% } else if (cima) { %>
+					<h2><%-$t('contact_us_076')%></h2>
+					<div class="page-content">
+						<div class="page-section">
+							<%- include('../_partials/au-contact-details.ejs') %>
+						</div>
+					</div>
+					<div class="page-content c-accent-1">
+						<div class="page-section">
+							<%- include('../_partials/eu-contact-details.ejs') %>
+						</div>
+					</div>
+					<div class="page-content">
+						<div class="page-section">
+							<%- include('../_partials/sc-contact-details.ejs') %>
+						</div>
+					</div>
+					<div class="page-content c-accent-1">
+						<div class="page-section">
+							<%- include('../_partials/bs-contact-details.ejs') %>
+						</div>
+					</div>
+				<% } else if (cysec) { %>
+					<div class="page-content c-accent-1">
+						<div class="page-section">
+							<%- include('../_partials/eu-contact-details.ejs') %>
+						</div>
+					</div>
+				<% } %>
+            <% } %>
+			<% if (false/*sc_host*/) { %>
+				<%- include('../_partials/sc-contact-details.ejs') %>
+			<% } %>
+			<% if (false/*bs_host*/) { %>
+				<%- include('../_partials/bs-contact-details.ejs') %>
+			<% } %>
+		</div>
+	</article>
+	<div class="overlay">
+		<a class="close" href="javascript:toggleTollNumbers()">&times;</a>
+		<div class="content">
+			<div class="inner">
+				<h2>
+					<%-$t('contact_us_18')%>
+				</h2>
+				<br />
+				<%- include('../_partials/tf-numbers.ejs') %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('.popup-modal.tf').on('click', function (e) {
+			$('body').toggleClass('popup-modal-active-tf', false);
+		});
+		$('#tf').on('click', function (e) {
+			setTimeout(function () {
+				$('body').toggleClass('popup-modal-active-tf', true);
+			}, 300);
+		});
+	});
+</script>

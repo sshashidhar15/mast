@@ -1,0 +1,25 @@
+<% setI18nPrefix('menu.partnerships') %>
+<div class="page-header__menu">
+<%
+(cysec
+  ?
+    [
+      'partnerships-money-managers',
+      'partnerships-white-label-partnerships',
+      'partnerships-regional-partnerships',
+      'partnerships-introducing-broker',
+      'partnerships-affiliate-program'
+    ]
+  : [
+      'partnerships-money-managers',
+      'partnerships-white-label-partnerships',
+      'partnerships-regional-partnerships',
+      'partnerships-introducing-broker',
+      'partnerships-affiliate-program'
+    ]
+).map(e => { %>
+      <div class="menu-item<%= typeof current !== 'undefined' && e === current ? ' current-page' : '' %>"><a id="partnerships_menu_1" href="<%= localePath(e) %>" class="menu-title"><%-$t(e)%></a></div>
+    <% }) %>
+    <div class="menu-item menu-switch"><span class="menu-icon icon-switch"></span></div>
+  </div>
+<% prevI18nPrefix() %>

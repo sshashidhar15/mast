@@ -1,0 +1,935 @@
+<% setI18nPrefix('components.navigation') %>
+<div class="icm-navbar affix-top" data-spy="affix" data-offset-top="100">
+    <%- include('./top.ejs') %>
+    <% setI18nPrefix('components.navigation') %>
+    <div class="icm-navbar__bottom icm-fixed-navbar-xs-sm icm-fixed-navbar-md-lg">
+        <% if (!fca) { %>
+            <div class="header-top">
+                <div class="group-top">
+                    <a href="/<%=prefix_by_regulator%>" class="<% if(asic && onProPage) {__append('to-go')} else {__append('current')} %>"><%-$t('client')%></a>
+                </div>
+                <% if (fsa || scb || fsc || cima) { %>
+                    <div class="group-separator">|</div>
+                    <div class="group-top">
+                        <a href="https://www.icmarketspartners.com" target="_blank" class="to-go"><%-$t('partners')%></a>
+                    </div>
+                <% } %>
+                <div class="group-separator">|</div>
+                <div class="group-top">
+                   <a href="https://icmarketsgroup.com?regulator=<%= branchID %>&domain=<%= getCurrentURL()%>/<%=prefix_by_regulator%>/<%= locale %>" target="_blank" class="to-go"><%-$t('group')%></a>
+                </div>
+                <% if (asic) { %>
+                    <div class="group-separator">|</div>
+                    <div class="group-top">
+                        <a href="/<%- prefix_by_regulator %>/xp-trader" target="_blank" class="<% if(onProPage) {__append('current')} else {__append('to-go')} %>"><%-$t('pro')%></a>
+                    </div>
+                <% } %>
+                <div class="group-separator">|</div>
+                <div class="group-top">
+                    <% if (countryCode === 'cn' || locale === 'cn') { %>
+                        <a id="navigation_cn_blog_5" href="<%- getWebsiteURL('cn') %>/blog/category/%E6%8A%80%E6%9C%AF%E9%9D%A2%E5%88%86%E6%9E%90/" target="_blank" class="<% if(onProPage) {__append('current')} else {__append('to-go')} %>">BLOG</a>
+                    <% } else { %>
+                        <a id="navigation_blog_4" href="<%- getWebsiteURL(countryCode) %>/blog/" target="_blank" class="<% if(onProPage) {__append('current')} else {__append('to-go')} %>">BLOG</a>
+                    <% } %>
+                </div>
+            </div>
+        <% } %>
+        <nav class="navbar navbar-default">
+            <!--Navbar header for Mobile phone& Tablet viewport-->
+            <div class="navbar-header visible-xs-block visible-sm-block">
+                <div id="nav-icon">
+                    <a id="navigation_nav" type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar collapsed"></span>
+                        <span class="icon-bar collapsed"></span>
+                        <span class="icon-bar collapsed"></span>
+                    </a>
+                </div>
+                <% if (fca) { %>
+                    <a  id="navigation_regulator_1" class="navbar-brand navbar-brand--style navbar-brand__mobile" href="/<%- prefix_by_regulator %>">
+                        <img src="/assets/icons/svg/ICM-logo.svg" width="172" height="43" alt="IC Markets Logo"/>
+                    </a>
+                <% } else { %>
+                    <a  id="navigation_regulator_1" class="navbar-brand navbar-brand--style navbar-brand__mobile mt-1-md" href="/<%- prefix_by_regulator %>">
+                        <img src="/assets/icons/svg/ICM-logo.svg" width="172" height="43" alt="IC Markets Logo"/>
+                    </a>
+                    <div class="language-select language-select--style mt-1-xs">
+                        <%- include('lang-selector.ejs') %>
+                    </div>
+                <% } %>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse  navbar-collapse--style">
+                <div class="navbar-brand navbar-brand--style visible-md visible-lg ">
+                    <a  id="navigation_regulator_2" href="/<%- prefix_by_regulator %>">
+                        <img src="/assets/icons/svg/ICM-logo.svg" width="172" height="43" alt="IC Markets Logo"/>
+                    </a>
+                </div>
+                <li class="visible-xs visible-sm icm-navbar-list-button">
+                    <a  id="navigation_support" data-action="support" class="top-item accent">Live Support</a>
+                    <a  id="navigation_clientArea" href="<%= clientAreaPath() %>?lang=<%= locale %>">
+                        <button class="btn btn-block icm-btn-primary client-login-button">
+                            <%-$t('clientlogin')%>
+                        </button>
+                    </a>
+                </li>
+                <ul class="nav navbar-nav scroll-menu navbar-list">
+                    <li class="dropdown navbar-list__item--style">
+                        <a  id="navigation_quickstart_1" class="dropdown-toggle hidden-md hidden-lg"
+                           data-toggle="dropdown"
+                           role="button" aria-haspopup="true"
+                           aria-expanded="false" data-hover="dropdown"
+                           data-delay="0" data-close-others="false">
+                            <%-$t('quickstart')%>
+                        </a>
+                        <a  id="navigation_quickstart_2" href=""
+                           class="dropdown-toggle hidden-xs hidden-sm "
+                           data-toggle="dropdown"
+                           role="button"
+                           aria-haspopup="true"
+                           aria-expanded="false"
+                           data-hover="dropdown"
+                           data-delay="0" data-close-others="false">
+                            <%-$t('quickstart')%>
+                        </a>
+                        <div class="dropdown-list-container dropdown-menu dropdown-menu--style">
+                            <div class="row icm-navbar-dropdown-container">
+                                <div class="hidden-xs hidden-sm col-md-4 col-lg-4">
+                                    <%- include('../_partials/components/navbar-cta.ejs', {
+                                        navbarCTA: $t('tradewiththeworldslargesttrue_1')
+                                    }) %>
+                                </div>
+                                <div class="col-xs-12 col-md-7 col-lg-7 margin-left-m">
+                                    <div class="col-xs-12 col-md-4">
+                                        <div class="dropdown-header"> <%-$t('introduction')%></div>
+                                        <ul class="dropdown-list-container___list">
+                                            <% if (!cysec) { %>
+                                                <% if (!fca) { %>
+                                                    <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                        data-target=".navbar-collapse.in">
+                                                        <a  id="navigation_why_icmarkets" href="<%= localePath('company-why-icmarkets') %>">
+                                                            <%-$t('whyicmarkets')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                        </a>
+                                                    </li>
+                                                <% } %>
+                                                <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                    data-target=".navbar-collapse.in">
+                                                    <a  id="navigation_trading_markets_range_of_markets" href="<%= localePath('trading-markets-range-of-markets') %>">
+                                                        <%-$t('whatyoucantrade')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                    </a>
+                                                </li>
+                                                <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                    data-target=".navbar-collapse.in">
+                                                    <a  id="navigation_trading_pricing_spreads_1" href="<%= localePath('trading-pricing-spreads') %>">
+                                                        <%-$t('whatistrueecn')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                    </a>
+                                                </li>
+                                            <% } %>
+                                            <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                data-target=".navbar-collapse.in">
+                                                <a  id="navigation_trading_pricing_spreads_2" href="<%= localePath('trading-pricing-spreads') %>">
+                                                    <%-$t('simplepricing')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                </a>
+                                            </li>
+                                            <% if (!cysec) { %>
+                                                <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                    data-target=".navbar-collapse.in">
+                                                    <a id="navigation_introduction_forex_trading" href="<%= localePath('introduction-forex-trading') %>">
+                                                        <%-$t('forextrading')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                    </a>
+                                                </li>
+                                            <% } %>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-12 col-md-4">
+                                        <div class="dropdown-header"><%-$t('youraccount')%></div>
+                                        <ul class="dropdown-list-container___list">
+                                            <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                data-target=".navbar-collapse.in">
+                                            </li>
+                                            <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                data-target=".navbar-collapse.in">
+                                                <a id="navigation_live_registration" href="<%= localePath('open-trading-account-live') %>">
+                                                    <%-$t('liveaccounts')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                data-target=".navbar-collapse.in">
+                                                <a id="navigation_demo_registration" href="<%= localePath('open-trading-account-demo') %>">
+                                                    <%-$t('demoaccounts')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                data-target=".navbar-collapse.in">
+                                                <a id="navigation_trading_accounts_funding" href="<%= localePath('trading-accounts-funding') %>">
+                                                    <%-$t('howtodeposit')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                data-target=".navbar-collapse.in">
+                                                <a id="navigation_trading_accounts_withdrawal" href="<%= localePath('trading-accounts-withdrawal') %>">
+                                                    <%-$t('howtowithdrawal')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                </a>
+                                            </li>
+                                            <% if (!fca) { %>
+                                                <li class="dropdown-list-container__list-item" data-toggle="collapse" data-target=".navbar-collapse.in">
+                                                    <a href="<%= localePath('introduction-icmarkets-mobile-app') %>">
+                                                        <%-$t('mobiletradingapp')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                    </a>
+                                                </li>
+                                            <% } %>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-12 col-md-4">
+                                        <div class="dropdown-header"><%-$t('tradingplatform')%></div>
+                                        <ul class="dropdown-list-container___list">
+                                            <% if (!fca) { %>
+                                                <li class="dropdown-list-container__list-item" data-toggle="collapse" data-target=".navbar-collapse.in">
+                                                    <% if (cysec || countryCode === 'it') { %>
+                                                        <a id="navigation_eu_webtrader" href="https://webtrader.icmarkets.eu/" target="_blank"><%-$t('webtrader')%> </a>
+                                                    <% } else if (countryCode === 'cn' || locale === 'cn') { %>
+                                                        <a id="navigation_cn_webtrader" href="https://webtrader-sc.icmarkets-zhv.com/" target="_blank"><%-$t('webtrader')%> </a>
+                                                    <% } else if (asic) { %>
+                                                        <a id="navigation_webtrtader" href="https://webtrader.icmarkets.com/" target="_blank"><%-$t('webtrader')%> </a>
+                                                    <% } else { %>
+                                                        <a id="navigation_sc_webtrader" href="https://webtrader-sc.icmarkets.com/" target="_blank"><%-$t('webtrader')%> </a>
+                                                    <% } %>
+                                                </li>
+                                            <% } %>
+                                            <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                data-target=".navbar-collapse.in">
+                                                <a id="navigation_metatrader4" href="<%= localePath('forex-trading-platform-metatrader-metatrader-4') %>">
+                                                    <%-$t('metatrader')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                data-target=".navbar-collapse.in">
+                                                <a id="navigation_ctrader_windows" href="<%= localePath('forex-trading-platform-ctrader-ctrader-windows') %>">
+                                                    <%-$t('ctrader')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                </a>
+                                            </li>
+                                            <% if (!fca) { %>
+                                                <% if (!cysec) { %>
+                                                    <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                        data-target=".navbar-collapse.in">
+                                                        <a id="navigation_myfxbook_autotrade" href="<%= localePath('forex-trading-platform-myfxbook-autotrade') %>">
+                                                            Myfxbook AutoTrade <span class="glyphicon glyphicon-arrow-right"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                        data-target=".navbar-collapse.in">
+                                                        <a id="navigation_zulutrade" href="<%= localePath('zulutrade') %>">
+                                                            <%-$t('zulutrade')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                        </a>
+                                                    </li>
+                                                <% } %>
+                                            <% } %>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown navbar-list__item--style">
+                        <a id="navigation_trading_1"
+                            class="dropdown-toggle hidden-md hidden-lg"
+                            data-toggle="dropdown"
+                            role="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            data-hover="dropdown"
+                            data-delay="0"
+                            data-close-others="false">
+                            <%-$t('trading')%>
+                        </a>
+                        <a id="navigation_trading_2"
+                            href=""
+                            class="dropdown-toggle hidden-xs hidden-sm "
+                            data-toggle="dropdown"
+                            role="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            data-hover="dropdown"
+                            data-delay="0"
+                            data-close-others="false">
+                            <%-$t('trading')%>
+                        </a>
+                        <div class="dropdown-list-container dropdown-menu dropdown-menu--style">
+                            <div class="row  icm-navbar-dropdown-container">
+                                <div class="hidden-xs hidden-sm col-md-4 col-lg-4">
+                                    <%- include('../_partials/components/navbar-cta.ejs', {
+                                        navbarCTA: $t('tradeglobalmarketswithatrueecnbroker')
+                                    }) %>
+                                </div>
+                                <div class="col-xs-12 col-md-7 col-lg-7 margin-left-m">
+                                    <div class="col-xs-12 col-md-4">
+                                        <div class="dropdown-header"> <%-$t('tradingaccounts')%></div>
+                                        <ul class="dropdown-list-container___list">
+                                            <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                data-target=".navbar-collapse.in">
+                                                <a  id="navigation_trading_accounts_overview" href="<%= localePath('trading-accounts-overview') %>">
+                                                    <%-$t('accountsoverview')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                </a>
+                                            </li>
+                                            <% if (false/*cysec*/) { %>
+                                                <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                    data-target=".navbar-collapse.in">
+                                                    <a  id="navigation_trading_accounts_professional_clients" href="<%= localePath('trading-accounts-professional-clients') %>">
+                                                        <%-$t('professional-clients')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                    </a>
+                                                </li>
+                                            <% } %>
+                                            <% if (!cysec) { %>
+                                                <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                    data-target=".navbar-collapse.in">
+                                                    <a  id="navigation_trading_accounts_raw_spread_account" href="<%= localePath('trading-accounts-raw-spread-account') %>">
+                                                        <%-$t('trueecn')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                    </a>
+                                                </li>
+                                                <% if (!fca) { %>
+                                                    <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                        data-target=".navbar-collapse.in">
+                                                        <a  id="navigation_trading_ctrader_raw" href="<%= localePath('trading-accounts-ctrader-raw') %>">
+                                                            <%-$t('navigation_1')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                        </a>
+                                                    </li>
+                                                <% } %>
+                                                <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                    data-target=".navbar-collapse.in">
+                                                    <a  id="navigation_trading_accounts_standard_account" href="<%= localePath('trading-accounts-standard-account') %>">
+                                                        <%-$t('standard')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                    </a>
+                                                </li>
+                                                <% if (countryCode !== 'cn') { %>
+                                                    <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                        data-target=".navbar-collapse.in">
+                                                        <a  id="navigation_trading_accounts_islamic" href="<%= localePath('trading-accounts-islamic-account') %>">
+                                                            <%-$t('islamic')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                        </a>
+                                                    </li>
+                                                <% } %>
+                                            <% } %>
+                                            <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                data-target=".navbar-collapse.in">
+                                                <a  id="navigation_trading_accounts_funding_2" href="<%= localePath('trading-accounts-funding') %>">
+                                                    <%-$t('accountfunding')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                data-target=".navbar-collapse.in">
+                                                <a  id="navigation_trading_accounts_withdrawal_2" href="<%= localePath('trading-accounts-withdrawal') %>">
+                                                    <%-$t('fundswithdrawal')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-12 col-md-4">
+                                        <div class="dropdown-header"><%-$t('markets')%></div>
+                                        <ul class="dropdown-list-container___list">
+                                            <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                data-target=".navbar-collapse.in">
+                                                <a  id="navigation_trading_markets_range_of_markets_2" href="<%= localePath('trading-markets-range-of-markets') %>">
+                                                    <%-$t('rangeofmarkets')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                data-target=".navbar-collapse.in">
+                                                <a  id="navigation_trading_markets_forex" href="<%= localePath('trading-markets-forex') %>">
+                                                    <%-$t('forex')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                data-target=".navbar-collapse.in">
+                                                <a  id="navigation_markets_commodities" href="<%= localePath('trading-markets-commodities') %>">
+                                                    <%-$t('commodities')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                data-target=".navbar-collapse.in">
+                                                <a  id="navigation_markets_indices" href="<%= localePath('trading-markets-indices') %>">
+                                                    <%-$t('indices')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                data-target=".navbar-collapse.in">
+                                                <a  id="navigation_trading_markets_bonds" href="<%= localePath('trading-markets-bonds') %>">
+                                                    <%-$t('bonds')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                </a>
+                                            </li>
+                                            <% if (!fca) { %>
+                                                <% if (!cysec) { %>
+                                                    <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                        data-target=".navbar-collapse.in">
+                                                        <a  id="navigation_trading_markets_digitalcurrency" href="<%= localePath('trading-markets-digitalcurrency') %>">
+                                                            <%-$t('cryptocurrency')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                        </a>
+                                                    </li>
+                                                <% } %>
+                                                <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                    data-target=".navbar-collapse.in">
+                                                    <a id="navigation_trading_markets_stocks" href="<%= localePath('trading-markets-stocks') %>">
+                                                        <%-$t('stocks')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                    </a>
+                                                </li>
+                                            <% } %>
+                                            <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                data-target=".navbar-collapse.in">
+                                                <a id="navigation_trading_markets_futures" href="<%= localePath('trading-markets-futures') %>">
+                                                    <%-$t('futures')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-12 col-md-4">
+                                        <div class="dropdown-header"><%-$t('pricing')%></div>
+                                        <ul class="dropdown-list-container___list">
+                                            <% if (!cysec) { %>
+                                                <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                    data-target=".navbar-collapse.in">
+                                                    <a  id="navigation_trading_pricing_trading_conditions" href="<%= localePath('trading-pricing-trading-conditions') %>">
+                                                        <%-$t('tradingconditions')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                    </a>
+                                                </li>
+                                            <% } %>
+                                            <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                data-target=".navbar-collapse.in">
+                                                <a id="navigation_trading_pricing_spreads_3" href="<%= localePath('trading-pricing-spreads') %>">
+                                                    <%-$t('spreads')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                data-target=".navbar-collapse.in">
+                                                <a  id="navigation_trading_hours" href="<%= localePath('trading-pricing-trading-hours') %>">
+                                                    <%-$t('tradinghours')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                data-target=".navbar-collapse.in">
+                                                <a  id="navigation_trading_pricing_swap_rates" href="<%= localePath('trading-pricing-swap-rates') %>">
+                                                    <%-$t('swaprates')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown navbar-list__item--style">
+                        <a id="navigation_platforms_1"
+                            class="dropdown-toggle hidden-md hidden-lg"
+                            data-toggle="dropdown"
+                            role="button" aria-haspopup="true"
+                            aria-expanded="false" data-hover="dropdown"
+                            data-delay="0" data-close-others="false">
+                            <%-$t('platforms')%>
+                        </a>
+                        <a id="navigation_platforms_2"
+                            href=""
+                            class="dropdown-toggle hidden-xs hidden-sm  "
+                            data-toggle="dropdown"
+                            role="button" aria-haspopup="true"
+                            aria-expanded="false" data-hover="dropdown"
+                            data-delay="0" data-close-others="false">
+                            <%-$t('platforms')%>
+                        </a>
+                        <div class="dropdown-list-container dropdown-menu dropdown-menu--style ">
+                            <div class="row  icm-navbar-dropdown-container">
+                                <div class="hidden-xs hidden-sm col-md-4 col-lg-4">
+                                    <%- include('../_partials/components/navbar-cta.ejs', {
+                                        navbarCTA: $t('tradefromanywhereonanydeviceatanytime')
+                                    }) %>
+                                </div>
+                                <div class="col-xs-12 col-md-7 col-lg-7 margin-left-m">
+                                    <div class="col-xs-12 col-md-4">
+                                        <div class="dropdown-header"> <%-$t('metatrader4and5')%></div>
+                                        <ul class="dropdown-list-container___list">
+                                            <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                data-target=".navbar-collapse.in">
+                                                <a id="navigation_metatrader4_2" href="<%= localePath('forex-trading-platform-metatrader-metatrader-4') %>">
+                                                    <%-$t('metatrader4')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                data-target=".navbar-collapse.in">
+                                                <a id="navigation_metatrader5" href="<%= localePath('forex-trading-platform-metatrader-metatrader-5') %>">
+                                                    <%-$t('metatrader5')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                </a>
+                                            </li>
+                                            <% if (!fca) { %>
+                                                <% if (!cysec) { %>
+                                                    <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                        data-target=".navbar-collapse.in">
+                                                        <a id="navigation_mtwebtrader" href="<%= localePath('forex-trading-platform-metatrader-web-trader') %>">
+                                                            <%-$t('mtwebtrader')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                        data-target=".navbar-collapse.in">
+                                                        <a id="navigation_mtiphoneipad" href="<%= localePath('forex-trading-platform-metatrader-iphone') %>">
+                                                            <%-$t('mtiphoneipad')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                        data-target=".navbar-collapse.in">
+                                                        <a id="navigation_mtandroid" href="<%= localePath('forex-trading-platform-metatrader-android') %>">
+                                                            <%-$t('mtandroid')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                        data-target=".navbar-collapse.in">
+                                                        <a  id="navigation_atmac" href="<%= localePath('forex-trading-platform-metatrader-apple-mac') %>">
+                                                            <%-$t('mtmac')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                        </a>
+                                                    </li>
+                                                <% } %>
+                                            <% } %>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-12 col-md-4">
+                                        <div class="dropdown-header"><%-$t('ctrader')%></div>
+                                        <ul class="dropdown-list-container___list">
+                                            <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                data-target=".navbar-collapse.in">
+                                                <a id="navigation_ctrader_windows_2" href="<%= localePath('forex-trading-platform-ctrader-ctrader-windows') %>">
+                                                    <%-$t('ctrader')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                data-target=".navbar-collapse.in">
+                                                <a  id="navigation_ctrader_web" href="<%= localePath('forex-trading-platform-ctrader-ctrader-web') %>">
+                                                    <%-$t('ctraderweb')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                data-target=".navbar-collapse.in">
+                                                <a  id="navigation_ctrader_iphone" href="<%= localePath('forex-trading-platform-ctrader-ctrader-iphone') %>">
+                                                    <%-$t('ctraderiphoneipad')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                data-target=".navbar-collapse.in">
+                                                <a  id="navigation_ctrader_android" href="<%= localePath('forex-trading-platform-ctrader-ctrader-android') %>">
+                                                    <%-$t('ctraderandroid')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                data-target=".navbar-collapse.in">
+                                                <a id="navigation_ctrader_calgo" href="<%= localePath('forex-trading-platform-ctrader-calgo') %>">
+                                                    <%-$t('ctradercalgo')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                </a>
+                                            </li>
+                                            <% if (fsa || scb || fsc || cima) { %>
+                                                <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                    data-target=".navbar-collapse.in">
+                                                    <a id="navigation_ctrader_copy_trading" href="<%= localePath('forex-trading-platform-ctrader-ctrader-copy-trading') %>">
+                                                        <%-$t('ctradercopytrading')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                    </a>
+                                                </li>
+                                            <% } %>
+                                        </ul>
+                                    </div>
+                                    <% if (!cysec) { %>
+                                        <div class="col-xs-12 col-md-4">
+                                            <div class="dropdown-header"><%-$t('tradingtools')%></div>
+                                            <ul class="dropdown-list-container___list">
+                                                <% if (!asic) { %>
+                                                <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                    data-target=".navbar-collapse.in">
+                                                    <a  id="navigation_forex_trading_tools_virtual_private_server" href="<%= localePath('forex-trading-tools-virtual-private-server') %>">
+                                                        <%-$t('virtualprivateserver')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                    </a>
+                                                </li>
+                                                <% } %>
+                                                <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                    data-target=".navbar-collapse.in">
+                                                    <a  id="navigation_forex_trading_tools_trading_servers" href="<%= localePath('forex-trading-tools-trading-servers') %>">
+                                                        <%-$t('tradingservers')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                    </a>
+                                                </li>
+                                                <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                    data-target=".navbar-collapse.in">
+                                                    <a id="navigation_forex_trading_tools_mt4_advanced" href="<%= localePath('forex-trading-tools-mt4-advanced-trading-tools') %>">
+                                                        <%-$t('mt4advancedtradingtools')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <% if (false /*Andrea, Kathryn (via Teams): remove the Partnerships section from everywhere, and redirect all related pages to the new separate domain*/) { %>
+                        <li class="navbar-list__item--style">
+                            <a id="navigation_partners_2"
+                                class="dropdown-toggle hidden-md hidden-lg"
+                                data-toggle="dropdown"
+                                role="button" aria-haspopup="true"
+                                aria-expanded="false" data-hover="dropdown"
+                                data-delay="0" data-close-others="false">
+                                <%-$t('partnerships')%>
+                            </a>
+                            <a id="navigation_partners_3"
+                                href=""
+                                class="dropdown-toggle hidden-xs hidden-sm "
+                                data-toggle="dropdown"
+                                role="button" aria-haspopup="true"
+                                aria-expanded="false" data-hover="dropdown"
+                                data-delay="0" data-close-others="false">
+                                <%-$t('partnerships')%>
+                            </a>
+                            <div class="dropdown-list-container dropdown-menu dropdown-menu--style">
+                                <div class="row icm-navbar-dropdown-container">
+                                    <div class="hidden-xs hidden-sm col-md-4 col-lg-4">
+                                        <%- include('../_partials/components/navbar-cta.ejs', {
+                                            navbarCTA: $t('partnerwithamarketleaderyoucan')
+                                        }) %>
+                                    </div>
+                                    <div class="col-xs-12 col-md-7 col-lg-7 margin-left-m">
+                                        <% if (!cysec) { %>
+                                            <div class="col-xs-12 col-md-4">
+                                                <div class="dropdown-header"><%-$t('partnerships')%></div>
+                                                <ul class="dropdown-list-container___list">
+                                                    <% if (!asic) { %>
+                                                        <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                            data-target=".navbar-collapse.in">
+                                                            <a id="navigation_partners_overview" href="<%= localePath('partnerships-partnerships-overview') %>">
+                                                                <%-$t('partnerships')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                            data-target=".navbar-collapse.in">
+                                                            <a id="navigation_partners_money_managers" href="<%= localePath('partnerships-money-managers') %>">
+                                                                <%-$t('moneymanagers')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                            data-target=".navbar-collapse.in">
+                                                            <a id="navigation_partners_white_label" href="<%= localePath('partnerships-white-label-partnerships') %>">
+                                                                <%-$t('whitelabelpartnerships')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                            data-target=".navbar-collapse.in">
+                                                            <a id="navigation_partners_regional" href="<%= localePath('partnerships-regional-partnerships') %>">
+                                                                <%-$t('regionalparnerships')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                            data-target=".navbar-collapse.in">
+                                                            <a id="navigation_partners_introducing_broker" href="<%= localePath('partnerships-introducing-broker') %>">
+                                                                <%-$t('introducingbroker')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                            </a>
+                                                        </li>
+                                                    <% } %>
+                                                    <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                        data-target=".navbar-collapse.in">
+                                                        <a id="navigation_partners_affiliate" href="<%= localePath('partnerships-affiliate-program') %>">
+                                                            <%-$t('affiliateprogram')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        <% } %>
+                                        <div class="col-xs-12 col-md-4">
+                                            <div class="dropdown-header"><%-$t('whyicmarkets')%></div>
+                                            <ul class="dropdown-list-container___list">
+                                                <% if (!cysec) { %>
+                                                    <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                        data-target=".navbar-collapse.in">
+                                                        <a id="navigation_why_icmarkets_2" href="<%= localePath('company-why-icmarkets') %>">
+                                                            <%-$t('whyicmarkets')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                        </a>
+                                                    </li>
+                                                <% } %>
+                                                <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                    data-target=".navbar-collapse.in">
+                                                    <a id="navigation_about_icmarkets" href="<%= localePath('company-about-icmarkets') %>">
+                                                        <%-$t('abouticmarkets')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                    </a>
+                                                </li>
+                                                <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                    data-target=".navbar-collapse.in">
+                                                    <a id="navigation_contact_us" href="<%= localePath('company-contact-us') %>">
+                                                        <%-$t('contactus')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    <% } %>
+                    <% if (!fca) { %>
+                        <li class="dropdown navbar-list__item--style dots-after">
+                            <a id="navigation_more"
+                            class="dropdown-toggle hidden-md hidden-lg"
+                            data-toggle="dropdown"
+                            role="button" aria-haspopup="true"
+                            aria-expanded="false" data-hover="dropdown"
+                            data-delay="0" data-close-others="false">
+                                <%-$t('more')%>
+                            </a>
+                            <a id="navigation_more_2"
+                                href="" class="dropdown-toggle hidden-xs hidden-sm"
+                            data-toggle="dropdown"
+                            role="button" aria-haspopup="true"
+                            aria-expanded="false" data-hover="dropdown"
+                            data-delay="0" data-close-others="false">
+                                <%-$t('more')%>
+                            </a>
+                            <div class="dropdown-list-container dropdown-menu dropdown-menu--style">
+                                <div class="row icm-navbar-dropdown-container">
+                                    <div class="hidden-xs hidden-sm col-md-4 col-lg-4">
+                                        <%- include('../_partials/components/navbar-cta.ejs', {
+                                            navbarCTA: $t('tradewiththeworldslargesttrue_1')
+                                        }) %>
+                                        <navbar-cta-block :navbarCTA="$t('tradewiththeworldslargesttrue_1')"></navbar-cta-block>
+                                    </div>
+                                    <div class="col-xs-12 col-md-7 col-lg-7 margin-left-m">
+                                        <div class="col-xs-12 col-md-4">
+                                            <div class="dropdown-header"> <%-$t('company')%></div>
+                                            <ul class="dropdown-list-container___list">
+                                                <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                    data-target=".navbar-collapse.in">
+                                                    <a id="navigation_platforms" href="<%= localePath('company-about-icmarkets') %>">
+                                                        <%-$t('abouticmarkets')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                    </a>
+                                                </li>
+                                                <% if (!cysec) { %>
+                                                    <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                        data-target=".navbar-collapse.in">
+                                                        <a id="navigation_why_icmarkets_3" href="<%= localePath('company-why-icmarkets') %>">
+                                                            <%-$t('whyicmarkets')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                        </a>
+                                                    </li>
+                                                <% } %>
+                                                <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                    data-target=".navbar-collapse.in">
+                                                    <a id="navigation_contact_us_2" href="<%= localePath('company-contact-us') %>">
+                                                        <%-$t('contactus')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                    </a>
+                                                </li>
+                                                <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                    data-target=".navbar-collapse.in">
+                                                    <a id="navigation_regulation" href="<%= localePath('company-regulation') %>">
+                                                        <%-$t('regulation')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                    </a>
+                                                </li>
+                                                <% if (!cysec) { %>
+                                                    <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                        data-target=".navbar-collapse.in">
+                                                        <% if (countryCode === 'cn' || locale === 'cn') { %>
+                                                            <a id="navigation_cn_blog" style="cursor:pointer;" href="<%- getWebsiteURL('cn') %>/blog/category/%E6%8A%80%E6%9C%AF%E9%9D%A2%E5%88%86%E6%9E%90/" target="_blank"><%-$t('companynews')%></a>
+                                                        <% } else { %>
+                                                            <a id="navigation_blog"  style="cursor:pointer;" href="<%- getWebsiteURL(countryCode) %>/blog/" target="_blank"><%-$t('companynews')%></a>
+                                                        <% } %>
+                                                    </li>
+                                                    <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                        data-target=".navbar-collapse.in">
+                                                        <% if (countryCode === 'cn' || locale === 'cn') { %>
+                                                            <a id="navigation_cn_blog_2"  style="cursor:pointer;" href="<%- getWebsiteURL('cn') %>/blog/category/%E6%8A%80%E6%9C%AF%E9%9D%A2%E5%88%86%E6%9E%90/" target="_blank"><%-$t('pressreleases')%></a>
+                                                        <% } else { %>
+                                                            <a id="navigation_blog_2"  style="cursor:pointer;" href="<%- getWebsiteURL(countryCode) %>/blog/" target="_blank"><%-$t('pressreleases')%></a>
+                                                        <% } %>
+                                                    </li>
+                                                <% } %>
+                                                <% if (!fsa && !scb && !fsc && !cima) { %>
+                                                    <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                        data-target=".navbar-collapse.in">
+                                                        <a id="navigation_company_careers" href="<%= localePath('company-careers') %>">
+                                                            <%-$t('careers')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                        </a>
+                                                    </li>
+                                                <% } %>
+                                                <!-- <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                    data-targetid="navigation_blog_2" =".navbar-collapse.in">
+                                                    <a href="<%= localePath('company-legal-documents') %>">
+                                                        <%-$t('legeldocuments')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                    </a>
+                                                </li> -->
+                                                <% if (false/*WEB-1187*/ && !cysec) { %>
+                                                    <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                        data-target=".navbar-collapse.in">
+                                                        <a id="navigation_monthly_volume_report" href="<%= localePath('company-monthly-volume-report') %>">
+                                                            <%-$t('monthlyvolumereport')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                        </a>
+                                                    </li>
+                                                <% } %>
+                                                <% if (fsa || scb || fsc || cima) { %>
+                                                    <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                        data-target=".navbar-collapse.in">
+                                                        <a id="navigation_company_insurance" href="<%= localePath('company-insurance') %>">
+                                                            <%-$t('insurance')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                        data-target=".navbar-collapse.in">
+                                                        <a id="navigation_company_careers" href="<%= localePath('company-careers') %>">
+                                                            <%-$t('careers')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                        </a>
+                                                    </li>
+                                                <% } %>
+                                            </ul>
+                                        </div>
+                                        <% if (true /*!cysec*/) { %>
+                                            <div class="col-xs-12 col-md-4">
+                                                <div class="dropdown-header"><%-$t('education')%></div>
+                                                <ul class="dropdown-list-container___list">
+                                                    <% if (true /*!cysec*/) { %>
+                                                        <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                            data-target=".navbar-collapse.in">
+                                                            <a id="navigation_education_overview" href="<%= localePath('education-education-overview') %>">
+                                                                <%-$t('educationoverview')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                            </a>
+                                                        </li>
+                                                    <% } %>
+                                                    <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                        data-target=".navbar-collapse.in">
+                                                        <% if (countryCode === 'cn' || locale === 'cn') { %>
+                                                            <a id="navigation_cn_blog_3" style="cursor:pointer;" href="<%- getWebsiteURL('cn') %>/blog/category/%E6%8A%80%E6%9C%AF%E9%9D%A2%E5%88%86%E6%9E%90/" target="_blank"><%-$t('tradingknowledge')%></a>
+                                                        <% } else { %>
+                                                            <a id="navigation_forex_trading_101" style="cursor:pointer;" href="<%- getWebsiteURL(countryCode) %>/blog/" target="_blank"><%-$t('tradingknowledge')%></a>
+                                                        <% } %>
+                                                    </li>
+                                                    <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                        data-target=".navbar-collapse.in">
+                                                        <a id="navigation_education_advantages" href="<%= localePath('education-advantages-of-forex') %>">
+                                                            <%-$t('advantagesofforex')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                        data-target=".navbar-collapse.in">
+                                                        <a id="navigation_education_advantages_of_cfds" href="<%= localePath('education-advantages-of-cfds') %>">
+                                                            <%-$t('advantagesofcfds')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                        data-target=".navbar-collapse.in">
+                                                        <a id="navigation_video_tutorials" href="<%= localePath('education-video-tutorials') %>">
+                                                            <%-$t('videotutorials')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                        data-target=".navbar-collapse.in">
+                                                        <a id="navigation_education_web_tv" href="<%= localePath('education-web-tv') %>">
+                                                            <%-$t('webtv')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                        </a>
+                                                    </li>
+                                                    <% if (countryCode !== 'cn' && locale !== 'cn') { %>
+                                                        <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                            data-target=".navbar-collapse.in">
+                                                            <% if (cysec) { %>
+                                                                <a id="navigation_webinar" target="_blank" href="https://www.icmarkets.eu/go/webinars/upcoming?regulator=<%= branchID %>" >
+                                                            <% } else { %>
+                                                                <a id="navigation_webinar" target="_blank" href="https://www.icmarkets.com/go/webinars/upcoming?regulator=<%= branchID %>" >
+                                                            <% } %>
+                                                                <%-$t('webinar')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                            data-target=".navbar-collapse.in">
+                                                            <% if (cysec) { %>
+                                                                <a id="navigation_podcast" target="_blank" href="https://www.icmarkets.eu/go/landing-pages/podcastseason2?regulator=<%= branchID %>">
+                                                            <% } else { %>
+                                                                <a id="navigation_podcast" target="_blank" href="https://www.icmarkets.com/go/landing-pages/podcastseason2?regulator=<%= branchID %>">
+                                                            <% } %>
+                                                                <%-$t('podcast')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="dropdown-list-container__list-item" data-toggle="collapse" data-target=".navbar-collapse.in">
+                                                            <% if (cysec) { %>
+                                                                <a target="_blank" href="https://www.icmarkets.eu/go/landing-pages/the-week-ahead?regulator=<%= branchID %>" >
+                                                            <% } else { %>
+                                                                <a target="_blank" href="https://www.icmarkets.com/go/landing-pages/the-week-ahead?regulator=<%= branchID %>">
+                                                            <% } %>
+                                                                Week Ahead <span class="glyphicon glyphicon-arrow-right"></span>
+                                                            </a>
+                                                        </li>
+                                                    <% } %>
+                                                    <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                        data-target=".navbar-collapse.in">
+                                                        <% if (countryCode === 'cn' || locale === 'cn') { %>
+                                                            <a id="navigation_cn_blog_4" style="cursor:pointer;" href="<%- getWebsiteURL('cn') %>/blog/category/%E6%8A%80%E6%9C%AF%E9%9D%A2%E5%88%86%E6%9E%90/" target="_blank"><%-$t('gettingstarted')%></a>
+                                                        <% } else { %>
+                                                            <a id="navigation_blog_3" style="cursor:pointer;" href="<%- getWebsiteURL(countryCode) %>/blog/" target="_blank"><%-$t('gettingstarted')%></a>
+                                                        <% } %>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        <% } %>
+                                        <div class="col-xs-12 col-md-4">
+                                            <div class="dropdown-header"><%-$t('helpandresources')%></div>
+                                            <ul class="dropdown-list-container___list">
+                                                <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                    data-target=".navbar-collapse.in">
+                                                    <a id="navigation_help_center" href="<%= localePath('help-resources-help-centre') %>">
+                                                        <%-$t('helpcentre')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                    </a>
+                                                </li>
+                                                <% if (false /*asic*/) { %>
+                                                    <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                        data-target=".navbar-collapse.in">
+                                                        <a id="navigation_fsa_migration_help" href="<%= localePath('help-resources-fsa-migration-help') %>">
+                                                            <%-$t('fsamigrationhelp')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                        </a>
+                                                    </li>
+                                                <% } %>
+                                                <% if (true /*!cysec*/) { %>
+                                                    <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                        data-target=".navbar-collapse.in">
+                                                        <% if (countryCode === 'cn' || locale === 'cn') { %>
+                                                            <a id="navigation_cn_blog_5" class="cursor-pointer" style="cursor:pointer;" href="<%- getWebsiteURL('cn') %>/blog/category/%E6%8A%80%E6%9C%AF%E9%9D%A2%E5%88%86%E6%9E%90/" target="_blank">IC Markets Blog</a>
+                                                        <% } else { %>
+                                                            <a id="navigation_blog_4" class="cursor-pointer" style="cursor:pointer;" href="<%- getWebsiteURL(countryCode) %>/blog/" target="_blank"><span class="icm-blogmarker">IC Markets Blog</span></a>
+                                                        <% } %>
+                                                    </li>
+                                                    <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                        data-target=".navbar-collapse.in">
+                                                        <a id="navigation_forex_calculators" href="<%= localePath('help-resources-forex-calculators') %>">
+                                                            <%-$t('forexcalculators')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                        data-target=".navbar-collapse.in">
+                                                        <a id="navigation_economic_calendar" href="<%= localePath('help-resources-economic-calendar') %>">
+                                                            <%-$t('economiccalendar')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                        data-target=".navbar-collapse.in">
+                                                        <a id="navigation_forex_glossary"  href="<%= localePath('help-resources-forex-glossary') %>">
+                                                            <%-$t('forexglossary')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                        </a>
+                                                    </li>
+                                                    <% if (!cysec) { %>
+                                                        <li class="dropdown-list-container__list-item" data-toggle="collapse"
+                                                            data-target=".navbar-collapse.in">
+                                                            <a id="navigation_teamviewer" href="<%= localePath('help-resources-teamviewer') %>">
+                                                                <%-$t('teamviewer')%> <span class="glyphicon glyphicon-arrow-right"></span>
+                                                            </a>
+                                                        </li>
+                                                    <% } %>
+                                                <% } %>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    <% } %>
+                </ul>
+                <div class="visible-md visible-lg client-login-block">
+                    <a id="navigation_clientArea_2"  href="<%= clientAreaPath() %>?lang=<%= locale %>" target="_blank">
+                        <button type="button" class="btn icm-btn-primary client-login-button">
+                            <%-$t('clientlogin')%>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>

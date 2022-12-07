@@ -1,0 +1,129 @@
+<% setI18nPrefix('pages.forex-trading-platform-ctrader.web') %>
+<meta name="description" content="<%- $t('meta', true) %>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/ctrader-web.css')%>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+    <div class="single-page ctrader-web">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('ctrader_web_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('ctrader_web_2')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <% if (countryCode !== 'cn') { %>
+                        <a id="ctrader_web_1" class="icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%- $t('ctrader_web_3') %></a>
+                    <% } else { %>
+                        <a id="ctrader_web_2" class="icm-btn icm-btn-primary" target="_blank" href="https://ct.icmarkets.com/"><%- $t('ctrader_web_3') %></a>
+                    <% } %>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'forex-trading-platform-ctrader-ctrader-web' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="market-facts-card">
+                        <div class="facts-header">
+                            <div class="header-label"><%-$t('ctrader_web_9')%></div>
+                            <div class="header-title"><%-$t('ctrader_web_10')%></div>
+                        </div>
+                        <div class="facts-items">
+                            <div class="facts-item"><%-$t('ctrader_web_11')%></div>
+                            <% if (cysec) { %>
+                                <div class="facts-item"><%-$t('ctrader_web_12_1')%></div>
+                            <% } else { %>
+                                <div class="facts-item">
+                                    <% if (isAPACcountry(countryCode)) { %>
+                                    <%-$t('ctrader_web_12_apac')%>
+                                    <% } else { %>
+                                    <%-$t('ctrader_web_12')%>
+                                    <% } %>
+                                </div>
+                            <% } %>
+                            <% if (!cysec) { %><div class="facts-item"><%-$t('ctrader_web_13')%></div><% } %>
+                            <div class="facts-item"><%-$t('ctrader_web_14')%></div>
+                            <% if (!cysec) { %><div class="facts-item"><%-$t('ctrader_web_15')%></div><% } %>
+                            <% if (cysec) { %>
+                                <div class="facts-item"><%-$t('ctrader_web_16_1')%></div>
+                            <% } else { %>
+                                <div class="facts-item"><%-$t('ctrader_web_16')%></div>
+                            <% } %>
+
+                        </div>
+                        <div class="action-buttons-container">
+                            <a id="ctrader_web_3" class="action-button icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('ctrader_web_17')%></a>
+                        </div>
+                    </div>
+                    <div class="first-section">
+                        <div class="page-first-image"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content highlighted-content">
+                <div class="page-section">
+                    <p><%-$t('ctrader_web_18')%></p>
+                    <p><%-$t('ctrader_web_19')%></p>
+                </div>
+            </div>
+            <div class="page-content">
+                <div style="position:relative;" class="page-section">
+                    <div class="floated-block">
+                        <div class="green-card">
+                            <h1><%-$t('ctrader_web_20')%></h1>
+                            <p><%-$t('ctrader_web_21')%></p>
+                        </div>
+                        <div class="grey-card">
+                            <h1><%-$t('ctrader_web_43')%></h1>
+                            <p><%-$t('ctrader_web_44')%></p>
+                        </div>
+                    </div>
+                    <h1 style="font-weight:900;"><%-$t('ctrader_web_22')%></h1>
+                    <h1><%-$t('ctrader_web_23')%></h1>
+                    <div class="pre-image-item"><%-$t('ctrader_web_24')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_web_25')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_web_26')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_web_27')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_web_28')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_web_29')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_web_30')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_web_31')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_web_32')%></div>
+                    <% if (cysec) { %>
+                        <div class="pre-image-item"><%-$t('ctrader_web_33_1')%></div>
+                    <% } else { %>
+                        <div class="pre-image-item">
+                            <% if (isAPACcountry(countryCode)) { %>
+                            <%-$t('ctrader_web_33_apac')%>
+                            <% } else { %>
+                            <%-$t('ctrader_web_33')%>
+                            <% } %>                            
+                        </div>
+                    <% } %>
+                </div>
+                <div style="margin-top:60px;" class="page-section">
+                    <h1><%-$t('ctrader_web_34')%></h1>
+                    <div class="pre-image-item"><%-$t('ctrader_web_35')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_web_36')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_web_37')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_web_39')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_web_40')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_web_41')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_web_42')%></div>
+                </div>
+            </div>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('ctrader_web_45')%></div>
+                    <div class="global-today"><%-$t('ctrader_web_46')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="ctrader_web_4" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('ctrader_web_47')%></a>
+                        <a id="ctrader_web_5" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('ctrader_web_48')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

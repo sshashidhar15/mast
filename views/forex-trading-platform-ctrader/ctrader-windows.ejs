@@ -1,0 +1,171 @@
+<% setI18nPrefix('pages.forex-trading-platform-ctrader.pc') %>
+<meta name="description" content="<%- $t('meta', true) %>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/ctrader-windows.css')%>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+    <div class="single-page ctrader-windows">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('ctrader_windows_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('ctrader_windows_2')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="ctrader_windows_1" class="icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%- $t('ctrader_windows_3') %></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'forex-trading-platform-ctrader-ctrader-windows' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="market-facts-card">
+                        <div class="facts-header">
+                            <div class="header-label"><%-$t('ctrader_windows_9')%></div>
+                            <div class="header-title"><%-$t('ctrader_windows_10')%></div>
+                        </div>
+                        <div class="facts-items">
+                            <div class="facts-item"><%-$t('ctrader_windows_11')%></div>
+                            <div class="facts-item">
+                                <% if (cysec) { %>
+                                    <%-$t('ctrader_windows_122')%>
+                                <% } else if (isAPACcountry(countryCode)) { %>
+                                    <%-$t('ctrader_windows_12_apac')%>                                    
+                                <% } else { %>
+                                    <%-$t('ctrader_windows_12')%>
+                                <% } %>
+                            </div>
+                            <div class="facts-item"><%-$t('ctrader_windows_13')%></div>
+                            <div class="facts-item"><%-$t('ctrader_windows_14')%></div>
+                            <div class="facts-item"><%-$t('ctrader_windows_15')%></div>
+                            <div class="facts-item"><%-$t('ctrader_windows_16')%></div>
+                        </div>
+                        <div class="action-buttons-container">
+                            <a id="ctrader_windows_2" class="action-button icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('ctrader_windows_17')%></a>
+                        </div>
+                    </div>
+                    <div class="first-section">
+                        <div class="page-first-image"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content highlighted-content">
+                <div class="page-section">
+                    <p><%-$t('ctrader_windows_18')%></p>
+                    <p><%-$t('ctrader_windows_19')%></p>
+                </div>
+            </div>
+            <div class="page-content">
+                <div style="position:relative;" class="page-section">
+                    <div class="floated-block">
+                        <div class="green-card">
+                            <h1><%-$t('ctrader_windows_20')%></h1>
+                            <p><%-$t('ctrader_windows_21')%></p>
+                        </div>
+                        <div class="grey-card">
+                            <h1><%-$t('ctrader_windows_43')%></h1>
+                            <p><%-$t('ctrader_windows_44')%></p>
+                        </div>
+                        <div class="grey-card">
+                            <h1><%-$t('ctrader_windows_70')%></h1>
+                            <p><%-$t('ctrader_windows_71')%></p>
+                        </div>
+                    </div>
+                    <h1><%-$t('ctrader_windows_22')%></h1>
+                    <% if (cysec) { %>
+                    <p><%-$t('ctrader_windows_25')%></p>
+                    <% } else { %>
+                    <p><%-$t('ctrader_windows_23')%><a id="ctrader_windows_3" href="/<%- prefix_by_regulator %>/forex-trading/forex/" class="blue-links"><%-$t('ctrader_windows_24')%></a><%-$t('ctrader_windows_25')%></p>
+                    <% } %>
+                    <h1><%-$t('ctrader_windows_26')%></h1>
+                    <p><%-$t('ctrader_windows_27')%></p>
+                    <p><%-$t('ctrader_windows_28')%></p>
+                </div>
+                <div style="margin-top:60px;" class="page-section">
+                    <div class="split-2">
+                        <div class="split-2-left">
+                            <h1><%-$t('ctrader_windows_29')%></h1>
+                            <p><%-$t('ctrader_windows_30')%></p>
+                        </div>
+                        <div class="split-2-right">
+                            <h1><%-$t('ctrader_windows_31')%></h1>
+                            <p><%-$t('ctrader_windows_32')%></p>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top:60px;" class="page-section">
+                    <h1><%-$t('ctrader_windows_33')%></h1>
+                    <p><%-$t('ctrader_windows_34')%></p>
+                    <p><%-$t('ctrader_windows_35')%></p>
+                    <p><%-$t('ctrader_windows_36')%> <a id="ctrader_windows_4" class="blue-links" href='<%= localePath("forex-trading-platform-ctrader-smart-stop-out") %>'><%-$t('ctrader_windows_37')%></a></p>
+                </div>
+            </div>
+            <% if (asic) { %>
+            <div class="page-content highlighted-content">
+                <div class="page-section">
+                    <div class="split-2">
+                        <div class="split-2-left">
+                            <h1><%-$t('ctrader_windows_38')%></h1>
+                            <p><%-$t('ctrader_windows_39')%></p>
+                        </div>
+                        <div class="split-2-right">
+                            <h1><%-$t('ctrader_windows_40')%></h1>
+                            <p><%-$t('ctrader_windows_41')%></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content">
+            <% } else { %>
+                <div class="page-content highlighted-content">
+            <% } %>
+                <div class="page-section">
+                    <h1><%-$t('ctrader_windows_42')%></h1>
+                    <div class="pre-image-item"><%-$t('ctrader_windows_43')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_windows_44')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_windows_45')%></div>
+                    <% if (asic) { %>
+                    <div class="pre-image-item">
+                        <% if (isAPACcountry(countryCode)) { %>
+                        <%-$t('ctrader_windows_46_apac')%>
+                        <% } else { %>
+                        <%-$t('ctrader_windows_46')%>
+                        <% } %>                        
+                    </div>
+                    <% } %>
+                    <div class="pre-image-item"><%-$t('ctrader_windows_47')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_windows_48')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_windows_49')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_windows_50')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_windows_51')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_windows_52')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_windows_53')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_windows_54')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_windows_55')%></div>
+                </div>
+                <div style="margin-top:60px;" class="page-section">
+                    <h1><%-$t('ctrader_windows_56')%></h1>
+                    <div class="pre-image-item"><%-$t('ctrader_windows_57')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_windows_58')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_windows_59')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_windows_60')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_windows_61')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_windows_62')%></div>
+
+                </div>
+            </div>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('ctrader_windows_63')%></div>
+                    <div class="global-today"><%-$t('ctrader_windows_64')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="ctrader_windows_5" class="icm-btn live icm-btn-primary" href=<%= localePath('open-trading-account-live') %>><%-$t('ctrader_windows_65')%></a>
+                        <a id="ctrader_windows_6" class="icm-btn demo" href=<%= localePath('open-trading-account-demo') %>><%-$t('ctrader_windows_66')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

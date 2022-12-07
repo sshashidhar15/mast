@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="<%=md5('/css/components/cryptocurrency-spread-table.css')%>">
+<div class="markets-spread-table cryptocurrency-spread-table">
+    <%
+    let cryptocurrencySpreadTable = {
+        cryptocurrencySpreadsColHeadersDesktop: ['SYMBOL', 'DESCRIPTION', 'MIN', 'AVG'],
+        cryptocurrencySpreadsData: [
+            ["BCHUSD","Bitcoin Cash vs United States Dollar CFD","2.210","5.839"],
+            ["BTCUSD","Bitcoin vs United States Dollar CFD","8.710","42.036"],
+            ["DOTUSD","Polkadot vs United States Dollar CFD","0.011","0.013"],
+            ["DSHUSD","Dash Coin vs United States Dollar CFD","0.000","1.241"],
+            ["EMCUSD","Emercoin vs United States Dollar CFD","0.157","0.157"],
+            ["EOSUSD","EOS vs United States Dollar CFD","0.000","0.064"],
+            ["ETHUSD","Ethereum vs United States Dollar CFD","4.560","11.605"],
+            ["LNKUSD","Chainlink vs United States Dollar CFD","0.012","0.020"],
+            ["LTCUSD","Lite Coin vs United States Dollar CFD","1.050","1.597"],
+            ["NMCUSD","NameCoin vs United States Dollar CFD","7.895","7.895"],
+            ["PPCUSD","PeerCoin vs United States Dollar CFD","0.184","0.276"],
+            ["XLMUSD","Stellar vs United States Dollar CFD","0.000","0.000"],
+            ["XRPUSD","Ripple vs United States Dollar CFD","0.008","0.020"],
+            ["ADAUSD","Cardano vs United States Dollar CFD","0.001","0.003"],
+            ["BNBUSD","Binance Smartchain vs United States Dollar CFD","1.266","1.415"],
+            ["DOGUSD","Doge vs United States Dollar CFD","0.001","0.001"],
+            ["UNIUSD","Uniswap vs United States Dollar CFD","0.061","0.064"],
+            ["XTZUSD","Tezos vs United States Dollar CFD","0.003","0.026"]
+        ]
+    }
+    %>
+    <div class="single-design-search">
+        <div class="group min-max">* <b>MIN</b> - minimum, <b>AVG</b> - average</div>
+        <div class="group search">
+            <span>Search by Symbol</span>
+            <input class="spreads-search-box" type="search"/>
+        </div>
+        <div class="group skin">
+            <span class="skin-label">Table Skin</span>
+            <span class="skin-toggle skin-light">&nbsp;</span>
+            <span class="skin-toggle skin-dark">&nbsp;</span>
+        </div>
+    </div>
+
+    <%- include('./spread-table-component.ejs', {
+        tableSkin: 'light-skin',
+        slotMobile: ['Product', 'All Accounts'],
+        slotTablet: ['Product', 'All Accounts'],
+        slotDesktop: ['Product', 'All Accounts'],
+        colHeadersMobile: cryptocurrencySpreadTable.cryptocurrencySpreadsColHeadersDesktop,
+        mobileData: cryptocurrencySpreadTable.cryptocurrencySpreadsData,
+        colHeadersTablet: cryptocurrencySpreadTable.cryptocurrencySpreadsColHeadersDesktop,
+        tabletData: cryptocurrencySpreadTable.cryptocurrencySpreadsData,
+        colHeadersDesktop: cryptocurrencySpreadTable.cryptocurrencySpreadsColHeadersDesktop,
+        desktopData: cryptocurrencySpreadTable.cryptocurrencySpreadsData
+    }); %>
+</div>

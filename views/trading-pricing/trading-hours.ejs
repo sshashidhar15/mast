@@ -1,0 +1,753 @@
+<% setI18nPrefix('pages.trading-pricing.trading-hours')%>
+<meta name="description" content="<%-$t('meta', true)%>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/trading-hours.css')%>">
+<%- contentFor('title')%>
+  <%-$t('title')%>
+<%- contentFor('body')%>
+    <div class="single-page page-trading-hours">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('trading_hours_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('trading_hours_2')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="trading_hours_1" class="icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('trading_hours_3')%></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'trading-pricing-trading-hours' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section grid-section">
+                    <div class="grid-item gi-1">
+                        <div class="top-img page-first-text">
+                            <p class="page-header-block__paragraph--style"><%-$t('trading_hours_4')%>.</p>
+                            <p class="page-header-block__paragraph--style"><%-$t('trading_hours_5_1')%></p>
+                            <p class="page-header-block__paragraph--style"><%-$t('trading_hours_6')%></p>
+                            <p class="page-header-block__paragraph--style"><%-$t('trading_hours_7')%></p>
+                        </div>
+                        <article class="trading-hours-block icm-page-subsection-content">
+                            <h1><%-$t('trading_hours_t_1')%></h1>
+                            <p class="page-header-block__paragraph--style">
+                                <%-$t('trading_hours_t_1_1')%>
+                            </p>
+                            <div class="trading-hours-block__item">
+                                <div class="trading-hours-accordion">
+                                    <div class="accordion-toggle trading-hours-block__expand-button"
+                                        data-toggle="collapse" data-parent="#accordion"
+                                        data-target="#collapseForextrading-hours"><%-$t('currencypairs')%>
+                                    </div>
+                                    <div id="collapseForextrading-hours" class="panel-collapse collapse in">
+                                        <table>
+                                            <thead>
+                                            <tr class="table-header">
+                                                <th><%-$t('trading_hours_t_2')%></th>
+                                                <th><%-$t('trading_hours_t_3')%></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><%-$t('trading_hours_t_all')%></td>
+                                                <td><%-$t('trading_hours_t_daily')%>: 00:01 – 23:59</td>
+                                            </tr>
+                                            <tr>
+                                                <td><%-$t('trading_hours_t_all')%></td>
+                                                <td><%-$t('trading_hours_t_friday')%>: 00:01 – 23:57</td>
+                                            </tr>
+                                            <tr>
+                                                <td>USD/RUB</td>
+                                                <td><%-$t('trading_hours_t_daily')%>: 10:00- 23:50</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="trading-hours-block__item">
+                                <div class="trading-hours-accordion">
+                                    <div class="accordion-toggle collapsed trading-hours-block__expand-button"
+                                        data-toggle="collapse" data-parent="#accordion"
+                                        data-target="#collapseCommoditiestrading-hours"><%-$t('metals')%>
+                                    </div>
+                                    <div id="collapseCommoditiestrading-hours" class="panel-collapse collapse">
+                                        <table>
+                                            <thead class="table-header">
+                                            <tr>
+                                                <th><%-$t('trading_hours_t_4')%></th>
+                                                <th><%-$t('trading_hours_t_5')%></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>XAU/USD</td>
+                                                <td>01:02 - 23:57 (<%-$t('trading_hours_t_friday')%>: 01:02 - 23:57)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>XAU/EUR</td>
+                                                <td>01:02 - 23:57 (<%-$t('trading_hours_t_friday')%>: 01:02 - 23:57)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>XAU/AUD</td>
+                                                <td>01:02 - 23:57 (<%-$t('trading_hours_t_friday')%>: 01:02 - 23:57)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>XAG/USD</td>
+                                                <td>01:00 - 23:59 (<%-$t('trading_hours_t_friday')%>: 01:00 - 23:57)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>XAG/EUR</td>
+                                                <td>01:00 - 23:59 (<%-$t('trading_hours_t_friday')%>: 01:00 - 23:57)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>XPT/USD</td>
+                                                <td>01:00 - 23:59 (<%-$t('trading_hours_t_friday')%>: 01:00 - 23:57)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>XPD/USD</td>
+                                                <td>01:00 - 23:59 (<%-$t('trading_hours_t_friday')%>: 01:00 - 23:57)</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="trading-hours-block__item">
+                                <div class="trading-hours-accordion">
+                                    <div class="accordion-toggle collapsed trading-hours-block__expand-button"
+                                        data-toggle="collapse" data-parent="#accordion"
+                                        data-target="#collapseIndicestrading-hours"><%-$t('spotenergies')%>
+                                    </div>
+                                    <div id="collapseIndicestrading-hours" class="panel-collapse collapse">
+                                        <table>
+                                            <thead class="table-header">
+                                            <tr>
+                                                <th><%-$t('trading_hours_t_6')%></th>
+                                                <th><%-$t('trading_hours_t_7')%></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>XTI/USD</td>
+                                                <td>01:00 - 23:59 (<%-$t('trading_hours_t_friday')%>: 01:00 - 23:57)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>XNG/USD</td>
+                                                <td>01:00 - 23:59 (<%-$t('trading_hours_t_friday')%>: 01:00 - 23:57)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>XBR/USD</td>
+                                                <td><%-$t('trading_hours_xbr_usd')%></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="trading-hours-block__item">
+                                <div class="trading-hours-accordion">
+                                    <div class="accordion-toggle collapsed trading-hours-block__expand-button"
+                                        data-toggle="collapse" data-parent="#accordion"
+                                        data-target="#collapseMetalstrading-hours"><%-$t('softcommodities')%>
+                                    </div>
+                                    <div id="collapseMetalstrading-hours" class="panel-collapse collapse">
+                                        <table>
+                                            <thead class="table-header">
+                                            <tr>
+                                                <th><%-$t('trading_hours_t_8')%></th>
+                                                <th><%-$t('trading_hours_t_9')%></th>
+                                                <th><%-$t('trading_hours_t_10')%></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><%-$t('trading_hours_t_11')%></td>
+                                                <td>03:00 - 21:20</td>
+                                                <td>15:45 - 16:30, 21:20 - 03:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td><%-$t('trading_hours_t_12')%></td>
+                                                <td>11:16 - 20:30</td>
+                                                <td>20:30 - 11:16</td>
+                                            </tr>
+                                            <tr>
+                                                <td><%-$t('trading_hours_t_13')%></td>
+                                                <td>03:00 - 21:15</td>
+                                                <td>15:45 - 16:30, 21:15 - 03:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td><%-$t('trading_hours_t_14')%></td>
+                                                <td>10:31 - 20:00</td>
+                                                <td>20:00 - 10:31</td>
+                                            </tr>
+                                            <tr>
+                                                <td><%-$t('trading_hours_t_15')%></td>
+                                                <td>03:00 - 21:20</td>
+                                                <td>15:45 - 16:30, 21:20 - 03:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td><%-$t('trading_hours_t_16')%></td>
+                                                <td>04:00 - 21:20</td>
+                                                <td>21:20 - 04:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td><%-$t('trading_hours_t_17')%></td>
+                                                <td>15:00 - 21:00</td>
+                                                <td>21:00 - 15:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td><%-$t('trading_hours_t_18')%></td>
+                                                <td>11:50 - 20:30</td>
+                                                <td>20:30 - 11:50</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="trading-hours-block__item">
+                                <div class="trading-hours-accordion">
+                                    <div class="accordion-toggle collapsed trading-hours-block__expand-button"
+                                        data-toggle="collapse" data-parent="#accordion"
+                                        data-target="#collapseBondstrading-hours"><%-$t('indices')%>
+                                    </div>
+                                    <div id="collapseBondstrading-hours" class="panel-collapse collapse">
+                                        <table>
+                                            <thead class="table-header">
+                                            <tr>
+                                                <th><%-$t('trading_hours_t_19')%></th>
+                                                <th><%-$t('trading_hours_t_20')%></th>
+                                                <th><%-$t('trading_hours_t_21')%></th>
+                                                <th><%-$t('trading_hours_t_22')%></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>UK100 </td>
+                                                <td>FTSE 100 Index</td>
+                                                <td>01:02 - 23:59 (<%-$t('trading_hours_t_mondayopen')%> 01:05, <%-$t('trading_hours_t_fridayclose')%> 22:59)</td>
+                                                <td>23:59 - 01:02</td>
+                                            </tr>
+                                            <tr>
+                                                <td>US2000</td>
+                                                <td>Russell 2000 Index</td>
+                                                <td>01:00 - 23:59 (<%-$t('trading_hours_t_mondayopen')%> 01:00, <%-$t('trading_hours_t_fridayclose')%> 23:55)</td>
+                                                <td>23:59 - 01:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>US30</td>
+                                                <td>DJIA Index</td>
+                                                <td>01:00 - 23:59 (<%-$t('trading_hours_t_mondayopen')%> 01:00, <%-$t('trading_hours_t_fridayclose')%> 23:55)</td>
+                                                <td>23:59 - 01:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>US500</td>
+                                                <td>E-mini S&P 500 Index</td>
+                                                <td>01:00 - 23:59 (<%-$t('trading_hours_t_mondayopen')%> 01:00, <%-$t('trading_hours_t_fridayclose')%> 23:55)</td>
+                                                <td>23:59 - 01:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>USTEC</td>
+                                                <td>E-mini Nasdaq 100</td>
+                                                <td>01:00 - 23:59 (<%-$t('trading_hours_t_mondayopen')%> 01:00, <%-$t('trading_hours_t_fridayclose')%> 23:55)</td>
+                                                <td>23:59 - 01:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>AUS200</td>
+                                                <td>Australia 200 Index</td>
+                                                <td>01:50 - 08:30, 09:10 - 22:59</td>
+                                                <td>08:30 - 09:10, 22:59 - 01:50</td>
+                                            </tr>
+                                            <tr>
+                                                <td>CA60</td>
+                                                <td>Canada 60 TSX Index</td>
+                                                <td>16:35 - 23:00</td>
+                                                <td>23:00 - 16:35</td>
+                                            </tr>
+                                            <tr>
+                                                <td>CHINA50</td>
+                                                <td>FTSE ChinaA50 Index</td>
+                                                <td>04:00 - 11:30, 12:00 - 23:45</td>
+                                                <td>11:30 - 12:00, 23:45 - 04:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>CHINAH</td>
+                                                <td>Hong Kong ChinaH Index</td>
+                                                <td>04:15 - 07:00, 08:00 - 11:30, 12:15 - 22:00</td>
+                                                <td>07:00 - 08:00, 11:30 - 12:15, 22:00 - 04:15</td>
+                                            </tr>
+                                            <tr>
+                                                <td>DE40</td>
+                                                <td>Germany 40 DAX Index</td>
+                                                <td>01:02 - 03:15, 03:16 - 23:59 (<%-$t('trading_hours_t_fridayclose')%> 23:00)</td>
+                                                <td>03:15 - 03:16, 23:59 - 01:02</td>
+                                            </tr>
+                                            <tr>
+                                                <td>ES35</td>
+                                                <td>IBEX 35 Spain Index</td>
+                                                <td>10:00 - 20:59</td>
+                                                <td>20:59 - 10:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>F40</td>
+                                                <td>France 40 CAC Index</td>
+                                                <td>09:00 - 22:59</td>
+                                                <td>22:59 - 09:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>HK50</td>
+                                                <td>Hong Kong 50 Index</td>
+                                                <td>04:15 - 07:00, 08:00 - 11:30, 12:15 - 22:00</td>
+                                                <td>07:00 - 08:00, 11:30 - 12:15, 22:00 - 04:15</td>
+                                            </tr>
+                                            <tr>
+                                                <td>IT40</td>
+                                                <td>Italian 40 Index</td>
+                                                <td>09:05 - 22:59</td>
+                                                <td>22:59 - 09:05</td>
+                                            </tr>
+                                            <tr>
+                                                <td>JP225</td>
+                                                <td>Japan 225 NIKKEI Index</td>
+                                                <td>01:00 - 23:15, 23:30 - 23:59 (Friday 01:00 - 23:15)</td>
+                                                <td>23:15 - 23:30, 23:59 - 01:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>MidDE50</td>
+                                                <td>Germany Mid50 Index</td>
+                                                <td>10:05 - 18:25</td>
+                                                <td>18:25 - 10:05</td>
+                                            </tr>
+                                            <tr>
+                                                <td>NETH25</td>
+                                                <td>Netherlands 25 Index</td>
+                                                <td>09:05 - 22:45</td>
+                                                <td>22:45 - 09:05</td>
+                                            </tr>
+                                            <tr>
+                                                <td>NOR25</td>
+                                                <td>Norway 25 Index</td>
+                                                <td>10:05 - 17:15</td>
+                                                <td>17:15 - 10:05</td>
+                                            </tr>
+                                            <tr>
+                                                <td>SA40</td>
+                                                <td>South Africa 40 Index</td>
+                                                <td>09:35 - 18:25</td>
+                                                <td>18:25 - 09:35</td>
+                                            </tr>
+                                            <tr>
+                                                <td>SE30</td>
+                                                <td>Sweden 30 Index</td>
+                                                <td>10:05 - 18:20</td>
+                                                <td>18:20 - 10:05</td>
+                                            </tr>
+                                            <tr>
+                                                <td>STOXX50</td>
+                                                <td>EUROSTOXX 50 Index</td>
+                                                <td>09:00 - 22:59</td>
+                                                <td>22:59 - 09:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>SWI20</td>
+                                                <td>Switzerland 20 Index</td>
+                                                <td>09:05 - 22:45</td>
+                                                <td>22:45 - 09:05</td>
+                                            </tr>
+                                            <tr>
+                                                <td>TecDE30</td>
+                                                <td>Germany Tech30 Index</td>
+                                                <td>10:05 - 18:25</td>
+                                                <td>18:25 - 10:05</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="trading-hours-block__item">
+                                <div class="trading-hours-accordion">
+                                    <div class="accordion-toggle collapsed trading-hours-block__expand-button"
+                                        data-toggle="collapse" data-parent="#accordion"
+                                        data-target="#collapseFutures"><%-$t('futures')%>
+                                    </div>
+                                    <div id="collapseFutures" class="panel-collapse collapse">
+                                        <table>
+                                            <thead class="table-header">
+                                            <tr>
+                                                <th><%-$t('trading_hours_t_38')%></th>
+                                                <th><%-$t('trading_hours_t_39')%></th>
+                                                <th><%-$t('trading_hours_t_40')%></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><%-$t('trading_hours_t_41')%></td>
+                                                <td>Monday: 01:00 - 23:59; Tuesday - Friday: 00:01 - 01:00, 03:00 - 23:59</td>
+                                                <td>01:00 - 03:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td><%-$t('trading_hours_t_42')%></td>
+                                                <td><%-$t('trading_hours_t_mondayopen')%>: 01:00, <%-$t('trading_hours_t_fridayclose')%>: 23:15</td>
+                                                <td>00:00 - 01:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td><%-$t('trading_hours_t_43')%></td>
+                                                <td><%-$t('trading_hours_t_mondayopen')%>: 01:00, <%-$t('trading_hours_t_fridayclose')%>: 23:15</td>
+                                                <td>23:15 - 01:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td><%-$t('trading_hours_t_44')%></td>
+                                                <td><%-$t('trading_hours_t_mondayopen')%>: 00:01, <%-$t('trading_hours_t_fridayclose')%>: 23:57</td>
+                                                <td>00:00 - 03:00</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <% if (!fca) { %>
+                            <div class="trading-hours-block__item" id="cryptoHrListHide">
+                                <div class="trading-hours-accordion">
+                                    <div class="accordion-toggle collapsed trading-hours-block__expand-button"
+                                        data-toggle="collapse" data-parent="#accordion"
+                                        data-target="#collapseCryptotrading-hours"><%-$t('cryptocurrency')%>
+                                    </div>
+                                    <div id="collapseCryptotrading-hours" class="panel-collapse collapse">
+                                        <table>
+                                            <thead class="table-header">
+                                            <tr>
+                                                <th><%-$t('trading_hours_t_45')%></th>
+                                                <th>MT4 & MT5</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>BCHUSD</td>
+                                                <td>Monday - Thursday 00:05-23:59 Friday 00:05-23:55 Saturday 00:45-23:59 Sunday 00:05-23:59</td>
+                                            </tr>
+                                            <tr>
+                                                <td>BTCUSD</td>
+                                                <td>Monday - Thursday 00:05-23:59 Friday 00:05-23:55 Saturday 00:45-23:59 Sunday 00:05-23:59</td>
+                                            </tr>
+                                            <tr>
+                                                <td>ETHUSD</td>
+                                                <td>Monday - Thursday 00:05-23:59 Friday 00:05-23:55 Saturday 00:45-23:59 Sunday 00:05-23:59</td>
+                                            </tr>
+                                            <tr>
+                                                <td>LTCUSD</td>
+                                                <td>Monday - Thursday 00:05-23:59 Friday 00:05-23:55 Saturday 00:45-23:59 Sunday 00:05-23:59</td>
+                                            </tr>
+                                            <tr>
+                                                <td>XRPUSD</td>
+                                                <td>Monday - Thursday 00:05-23:59 Friday 00:05-23:55 Saturday 01:05-17:00 Sunday 00:05-23:59</td>
+                                            </tr>
+                                            <tr>
+                                                <td>XLMUSD</td>
+                                                <td>Monday - Thursday 00:05-23:59 Friday 00:05-23:55 Saturday 01:05-17:00 Sunday 00:05-23:59</td>
+                                            </tr>
+                                            <tr>
+                                                <td>DOTUSD</td>
+                                                <td>Monday - Thursday 00:05-23:59 Friday 00:05-23:55 Saturday 01:05-17:00 Sunday 00:05-23:59</td>
+                                            </tr>
+                                            <tr>
+                                                <td>LNKUSD</td>
+                                                <td>Monday - Thursday 00:05-23:59 Friday 00:05-23:55 Saturday 01:05-17:00 Sunday 00:05-23:59</td>
+                                            </tr>
+                                            <tr>
+                                                <td>DSHUSD</td>
+                                                <td>Monday - Thursday 00:05-23:59 Friday 00:05-23:55</td>
+                                            </tr>
+                                            <tr>
+                                                <td>EOSUSD</td>
+                                                <td>Monday - Thursday 00:05-23:59 Friday 00:05-23:55</td>
+                                            </tr>
+                                            <tr>
+                                                <td>EMCUSD</td>
+                                                <td>Monday - Thursday 00:05-23:59 Friday 00:05-23:55</td>
+                                            </tr>
+                                            <tr>
+                                                <td>NMCUSD</td>
+                                                <td>Monday - Thursday 00:05-23:59 Friday 00:05-23:55</td>
+                                            </tr>
+                                            <tr>
+                                                <td>PPCUSD</td>
+                                                <td>Monday - Thursday 00:05-23:59 Friday 00:05-23:55</td>
+                                            </tr>
+                                            <tr>
+                                                <td>ADAUSD</td>
+                                                <td>Monday - Thursday 00:05-23:59 Friday 00:05-23:55</td>
+                                            </tr>
+                                            <tr>
+                                                <td>XTZUSD</td>
+                                                <td>Monday - Thursday 00:05-23:59 Friday 00:05-23:55</td>
+                                            </tr>
+                                            <tr>
+                                                <td>DOGUSD</td>
+                                                <td>Monday - Thursday 00:05-23:59 Friday 00:05-23:55</td>
+                                            </tr>
+                                            <tr>
+                                                <td>UNIUSD</td>
+                                                <td>Monday - Thursday 00:05-23:59 Friday 00:05-23:55</td>
+                                            </tr>
+                                            <tr>
+                                                <td>BNBUSD</td>
+                                                <td>Monday - Thursday 00:05-23:59 Friday 00:05-23:55</td>
+                                            </tr>
+                                            <tr>
+                                                <td>SOLUSD</td>
+                                                <td>Monday - Thursday 00:05-23:59 Friday 00:05-23:55</td>
+                                            </tr>
+                                            <tr>
+                                                <td>MTCUSD</td>
+                                                <td>Monday - Thursday 00:05-23:59 Friday 00:05-23:55</td>
+                                            </tr>
+                                            <tr>
+                                                <td>LUNUSD</td>
+                                                <td>Monday - Thursday 00:05-23:59 Friday 00:05-23:55</td>
+                                            </tr>
+                                            <tr>
+                                                <td>KSMUSD</td>
+                                                <td>Monday - Thursday 00:05-23:59 Friday 00:05-23:55</td>
+                                            </tr>
+                                            <tr>
+                                                <td>GLMUSD</td>
+                                                <td>Monday - Thursday 00:05-23:59 Friday 00:05-23:55</td>
+                                            </tr>
+                                            <tr>
+                                                <td>AVXUSD</td>
+                                                <td>Monday - Thursday 00:05-23:59 Friday 00:05-23:55</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <table>
+                                            <thead class="table-header">
+                                            <tr>
+                                                <th><%-$t('trading_hours_t_45')%></th>
+                                                <th>cTrader</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>BCHUSD</td>
+                                                <td>Monday - Thursday 00:05-23:59 Friday 00:05-23:55</td>
+                                            </tr>
+                                            <tr>
+                                                <td>BTCUSD</td>
+                                                <td>Monday - Thursday 00:05-23:59 Friday 00:05-23:55</td>
+                                            </tr>
+                                            <tr>
+                                                <td>ETHUSD</td>
+                                                <td>Monday - Thursday 00:05-23:59 Friday 00:05-23:55</td>
+                                            </tr>
+                                            <tr>
+                                                <td>LTCUSD</td>
+                                                <td>Monday - Thursday 00:05-23:59 Friday 00:05-23:55</td>
+                                            </tr>
+                                            <tr>
+                                                <td>DSHUSD</td>
+                                                <td>Monday - Thursday 00:05-23:59 Friday 00:05-23:55</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="trading-hours-block__item">
+                                <div class="trading-hours-accordion">
+                                    <div class="accordion-toggle collapsed trading-hours-block__expand-button"
+                                        data-toggle="collapse" data-parent="#accordion"
+                                        data-target="#collapseStocks"><%-$t('stocks')%>
+                                    </div>
+                                    <div id="collapseStocks" class="panel-collapse collapse">
+                                        <table>
+                                            <thead class="table-header">
+                                            <tr>
+                                                <th><%-$t('trading_hours_t_47')%></th>
+                                                <th><%-$t('trading_hours_t_48')%></th>
+                                                <th><%-$t('trading_hours_t_49')%></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>ASX</td>
+                                                <td><%-$t('trading_hours_t_50')%></td>
+                                                <td>02:10 - 07:55</td>
+                                            </tr>
+                                            <tr>
+                                                <td>NYSE</td>
+                                                <td><%-$t('trading_hours_t_51')%></td>
+                                                <td>16:35 - 22:55</td>
+                                            </tr>
+                                            <tr>
+                                                <td>NAS</td>
+                                                <td><%-$t('trading_hours_t_52')%></td>
+                                                <td>16:35 - 22:55</td>
+                                            </tr>
+                                            <tr>
+                                                <td>ETR</td>
+                                                <td><%-$t('trading_hours_t_52a')%></td>
+                                                <td>10:05 - 18:25</td>
+                                            </tr>
+                                            <tr>
+                                                <td>AMS</td>
+                                                <td><%-$t('trading_hours_t_52b')%></td>
+                                                <td>10:05 - 18:25</td>
+                                            </tr>
+                                            <tr>
+                                                <td>PAR</td>
+                                                <td><%-$t('trading_hours_t_52c')%></td>
+                                                <td>10:05 - 18:25</td>
+                                            </tr>
+                                            <tr>
+                                                <td>MAD</td>
+                                                <td><%-$t('trading_hours_t_52d')%></td>
+                                                <td>10:05 - 18:25</td>
+                                            </tr>
+                                            <tr>
+                                                <td>LSE</td>
+                                                <td><%-$t('trading_hours_t_52e')%></td>
+                                                <td>10:05 - 18:25</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <% } %>
+                            <div class="trading-hours-block__item">
+                                <div class="trading-hours-accordion">
+                                    <div class="accordion-toggle collapsed trading-hours-block__expand-button"
+                                        data-toggle="collapse" data-parent="#accordion"
+                                        data-target="#collapseBondfutures"><%-$t('bondfutures')%>
+                                    </div>
+                                    <div id="collapseBondfutures" class="panel-collapse collapse">
+                                        <table>
+                                            <thead class="table-header">
+                                            <tr>
+                                                <th><%-$t('trading_hours_t_53')%></th>
+                                                <th><%-$t('trading_hours_t_54')%></th>
+                                                <th><%-$t('trading_hours_t_55')%></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>ITBTP10Y</td>
+                                                <td><%-$t('trading_hours_t_56')%></td>
+                                                <td><%-$t('trading_hours_t_monday')%> 09:00 <%-$t('trading_hours_t_tofriday')%> 20:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>EURBOBL</td>
+                                                <td><%-$t('trading_hours_t_57')%></td>
+                                                <td><%-$t('trading_hours_t_monday')%> 09:00 <%-$t('trading_hours_t_tofriday')%> 22:59</td>
+                                            </tr>
+                                            <tr>
+                                                <td>EURBUND</td>
+                                                <td><%-$t('trading_hours_t_58')%></td>
+                                                <td><%-$t('trading_hours_t_monday')%> 09:00 <%-$t('trading_hours_t_tofriday')%> 22:59</td>
+                                            </tr>
+                                            <tr>
+                                                <td>EURSCHA</td>
+                                                <td><%-$t('trading_hours_t_59')%></td>
+                                                <td><%-$t('trading_hours_t_monday')%> 09:00 <%-$t('trading_hours_t_tofriday')%> 22:59</td>
+                                            </tr>
+                                            <tr>
+                                                <td>UKGB</td>
+                                                <td><%-$t('trading_hours_t_60')%></td>
+                                                <td><%-$t('trading_hours_t_monday')%> 10:00 <%-$t('trading_hours_t_tofriday')%> 20:00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>UST10Y</td>
+                                                <td><%-$t('trading_hours_t_61')%></td>
+                                                <td><%-$t('trading_hours_t_monday')%> 01:00 <%-$t('trading_hours_t_tofriday')%> 23:55</td>
+                                            </tr>
+                                            <tr>
+                                                <td>UST05Y</td>
+                                                <td><%-$t('trading_hours_t_62')%></td>
+                                                <td><%-$t('trading_hours_t_monday')%> 01:00 <%-$t('trading_hours_t_tofriday')%> 23:55</td>
+                                            </tr>
+                                            <tr>
+                                                <td>UST30Y</td>
+                                                <td><%-$t('trading_hours_t_63')%></td>
+                                                <td><%-$t('trading_hours_t_monday')%> 01:00 <%-$t('trading_hours_t_tofriday')%> 23:55</td>
+                                            </tr>
+                                            <tr>
+                                                <td>JGB10Y</td>
+                                                <td><%-$t('trading_hours_t_64')%></td>
+                                                <td><%-$t('trading_hours_t_monday')%> 03:00 <%-$t('trading_hours_t_tofriday')%> 19:00 (<%-$t('trading_hours_t_65')%> 12:10 - 13:30)</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="grid-item gi-2">
+                        <div class="sidebar-block">
+                            <div class="sidebar-cta-card-container sidebar-top-card random-background rnd-back-1">
+                                <div class="bottom-block">
+                                    <p class="bottom-block__message"><%-$t('trading_hours_8')%> <b>200</b> <%-$t('trading_hours_9')%> &amp; <%-$t('trading_hours_10')%><br><b><%-$t('trading_hours_11')%></b></p>
+                                    <div class="icm-button-wrapper bottom-block__cta-button">
+                                        <a id="trading_hours_2" class="icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('trading_hours_12')%></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-card contact-block">
+                                <% if (!fca) { %>
+                                <div class="contact-header">
+                                    <div class="header-label"><%-$t('trading_hours_13')%></div>
+                                    <div class="header-title"><%-$t('trading_hours_14')%></div>
+                                </div>
+                                <div class="contact-pre-imaged chat-img">
+                                    <div><%-$t('contact_card_help')%></div>
+                                </div>
+                                <% if (!fsa && !scb && !fsc && !cima) { %>
+                                <div class="contact-phone">
+                                    <div><%-$t('contact_card_phone')%></div>
+                                </div>
+                                <% } %>
+                                <% } %>
+                                <div class="contact-pre-imaged email-img">
+                                    <% if (asic) {%>
+                                        <div><%-$t('contact_card_email_asic')%></div>
+                                    <% } else { %>
+                                        <div><%-$t('contact_card_email')%></div>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% if (!fca) { %>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('trading_hours_18')%></div>
+                    <div class="global-today"><%-$t('trading_hours_19')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                      <a id="trading_hours_3" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live')%>"><%-$t('trading_hours_20')%></a>
+                      <a id="trading_hours_4" class="icm-btn demo" href="<%= localePath('open-trading-account-demo')%>"><%-$t('trading_hours_21')%></a>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </article>
+    </div>
+
+    <script>
+        window['cysec'] = '<%- cysec %>'
+        window['getCysecWebsiteUrl'] = '<%= config.cysec_website_url %>'
+
+        $(() => {
+            const isEU = window['cysec'];
+            const host = window['getCysecWebsiteUrl'];
+            let country_from = document.body.getAttribute('data-country');
+            if (!country_from) {
+                country_from = 'n/a';
+            }
+            if (country_from.toUpperCase() === 'GB' && JSON.parse(isEU)) $('#cryptoHrListHide').hide();
+        })
+    </script>

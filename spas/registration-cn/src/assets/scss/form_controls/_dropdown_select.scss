@@ -1,0 +1,92 @@
+.searchDropdown {
+    width: 100%;        
+    text-align: left;
+    margin-bottom: 35px;
+    position: relative;
+
+    .field-label {
+        display: block;
+        color: #525252;
+        line-height: 16px;
+        margin-top: 3px;
+        font-size: 14px;
+        font-weight: 400;
+        transition: transform 0.3s, color 0.3s;
+        transform-origin: 0 50%;            
+    }
+
+    .input-select {
+        position: relative;
+        
+        .field-input {
+            outline: none;
+            border: 1px solid #949494;
+            border-radius: 3px;
+            min-height: 44px;
+            padding: 0 0 0 10px;
+            width: 100%;
+            cursor: pointer;
+            background: #fcfcfc url(../images/Dropdown.png) no-repeat 98%;
+        }
+
+        .options_list_wrap  {
+            position: absolute;
+            width: 100%;
+            z-index: 99;
+            top: 44px;
+            background-color: #fcfcfc;
+            border: 1px solid #979797;
+            border-top: 1px dashed #eee;
+            border-radius: 0 0 4px 4px;
+
+            .ScrollbarsCustom {
+                .ScrollbarsCustom-Track {
+                    background: transparent !important;
+                    overflow: visible !important;
+                }
+
+                .ScrollbarsCustom-Thumb {
+                    background: transparent !important;
+                    border: 1px solid #979797 !important;
+                    width: 6px !important;
+                    height: 50px !important;
+                    position: relative !important;
+                    top: -10px !important;
+                }
+            }
+
+            .options_list {
+                list-style-type: none;
+                padding: 0;
+
+                > li {
+                    border-top: 1px solid #fbfbfb;
+                    min-height: 30px;
+                    line-height: 30px;
+                    margin-left: 0px;
+                    padding: 0px 15px;
+                    font-size: 14px;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                    white-space: nowrap;
+
+                    &.last-featured {
+                        border-bottom: 1px dashed #000;
+                    }
+
+                    &:hover {
+                        background-color: #ddd;
+                        color: #000;
+                        font-weight: bold;
+                    }
+
+                    &.active {
+                        background-color: #00c800;
+                        color: #000;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,272 @@
+<% setI18nPrefix('pages.trading-pricing.spreads')%>
+<meta name="description" content="<%-$t('meta', true)%>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/spreads.css')%>">
+<%- contentFor('title')%>
+  <%-$t('title')%>
+<%- contentFor('body')%>
+    <div class="single-page page-spreads">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('spreads_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('spreads_2')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="spreads_1" class="icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('spreads_3')%></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'trading-pricing-spreads' }) %>
+        </article>
+
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="top-img page-first-text">
+                        <p class="page-header-block__paragraph--style">
+                            <%-$t('icmarketsoffersvariablespreads')%>&nbsp;
+                            <% if (fca) { %> 
+                                <a id="spreads_2" href="<%= localePath('forex-trading-platform-metatrader-metatrader-4')%>"><%-$t('spreads_41')%></a>&nbsp;
+                                <%-$t('spreads_43')%>
+                                <a id="spreads_3" href="<%= localePath('forex-trading-platform-metatrader-metatrader-5')%>"><%-$t('spreads_42')%></a>&nbsp;
+                                <%-$t('forextradingplatformsweareabletooffer')%>
+                            <% } else { %>
+                                <a id="spreads_2" href="<%= localePath('forex-trading-platform-metatrader-metatrader-4')%>"><%-$t('spreads_41')%></a>,&nbsp;
+                                <a id="spreads_3" href="<%= localePath('forex-trading-platform-metatrader-metatrader-5')%>"><%-$t('spreads_42')%></a>&nbsp;
+                                <%-$t('spreads_43')%>
+                                <a id="spreads_4" href="<%= localePath('forex-trading-platform-ctrader-ctrader-windows')%>"><%-$t('spreads_44')%></a>,&nbsp;
+                                <%-$t('forextradingplatformsweareabletooffer')%>
+                            <% } %>
+                        </p>
+                        <p class="page-header-block__paragraph--style">
+                            <%-$t('ourtypicalspreadsareillustratedow')%>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content no-paddings">
+                <div class="page-section">
+                    <article class="spreads-block">
+                        <h1>Spreads</h1>
+                        <div class="spreads-block__spread-item">
+                            <div class="spreads-accordion">
+                                <div class="spreads-block__expand-button collapsed" data-toggle="collapse"><%-$t('spreads_6')%></div>
+                                <div class="panel-collapse collapse">
+                                    <%- include('../_partials/components/forex-spread-table.ejs') %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spreads-block__spread-item">
+                            <div class="spreads-accordion">
+                                <div class="spreads-block__expand-button collapsed" data-toggle="collapse"><%-$t('spreads_7')%></div>
+                                <div class="panel-collapse collapse">
+                                    <%- include('../_partials/components/commodities-spread-table.ejs') %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spreads-block__spread-item">
+                            <div class="spreads-accordion">
+                                <div class="spreads-block__expand-button collapsed" data-toggle="collapse"><%-$t('spreads_8')%></div>
+                                <div class="panel-collapse collapse">
+                                    <%- include('../_partials/components/indices-spread-table.ejs') %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spreads-block__spread-item">
+                            <div class="spreads-accordion">
+                                <div class="spreads-block__expand-button collapsed" data-toggle="collapse"><%-$t('spreads_9')%></div>
+                                <div class="panel-collapse collapse">
+                                    <%- include('../_partials/components/metals-spread-table.ejs') %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spreads-block__spread-item">
+                            <div class="spreads-accordion">
+                                <div class="spreads-block__expand-button collapsed" data-toggle="collapse"><%-$t('spreads_10')%></div>
+                                <div class="panel-collapse collapse">
+                                    <%- include('../_partials/components/bonds-spread-table.ejs') %>
+                                </div>
+                            </div>
+                        </div>
+                        <% if (!fca) { %>
+                        <div class="spreads-block__spread-item" id="cryptoListHide">
+                            <div class="spreads-accordion">
+                                <div class="spreads-block__expand-button collapsed" data-toggle="collapse">
+                                    <%-$t('spreads_11')%>
+                                </div>
+                                <div class="panel-collapse collapse">
+                                    <%- include('../_partials/components/cryptocurrency-spread-table.ejs') %>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+
+                        <h1 class="mt4_commission_rates"><%-$t('spreads_24')%></h1>
+                        <table>
+                            <thead class="table-header">
+                                <tr>
+                                    <th>Account Base Currency</th>
+                                    <th>Micro Lot Commission<br>(0.01 or 1,000 base currency)</th>
+                                    <th>Standard Lot Commission<br>(1 or 100,000 base currency)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% if (!cysec) { %>
+                                    <tr><td>AUD Account<br>Australian Dollar</td><td>AUD 0.035<br>(AUD 0.07 round turn)</td><td>AUD 3.50<br>(AUD 7.0 round turn)</td></tr>
+                                <% } %>
+                                <tr><td>USD Account<br>US Dollar</td><td>USD 0.035<br>(USD 0.07 round turn)</td><td>USD 3.50<br>(USD 7.0 round turn)</td></tr>
+                                <tr><td>EUR Account<br>Euro</td><td>EUR 0.0275<br>(EUR 0.06 round turn)</td><td>EUR 2.75<br>(EUR 5.5 round turn)</td></tr>
+                                <tr><td>GBP Account<br>Pound Sterling</td><td>GBP 0.025<br>(GBP 0.05 round turn)</td><td>GBP 2.50<br>(GBP 5.0 round turn)</td></tr>
+                                <% if (!cysec) { %>
+                                    <tr><td>SGD Account<br>Singapore Dollar</td><td>SGD 0.045<br>(SGD 0.09 round turn)</td><td>SGD 4.50<br>(SGD 9.0 round turn)</td></tr>
+                                    <tr><td>JPY Account<br>Japanese Yen</td><td>JPY 3.5<br>(JPY 7 round turn)</td><td>JPY 350<br>(JPY 700 round turn)</td></tr>
+                                    <tr><td>CHF Account<br>Swiss Franc</td><td>CHF 0.033<br>(CHF 0.07 round turn)</td><td>CHF 3.30<br>(CHF 6.60 round turn)</td></tr>
+                                    <tr><td>NZD Account<br>New Zealand Dollar</td><td>NZD 0.045<br>(NZD 0.09 round turn)</td><td>NZD 4.50<br>(NZD 9.00 round turn)</td></tr>
+                                    <tr><td>CAD Account<br>Canadian Dollar</td><td>CAD 0.035<br>(CAD 0.07 round turn)</td><td>CAD 3.50<br>(CAD 7.0 round turn)</td></tr>
+                                    <tr><td>HKD Account<br>Hong Kong Dollar</td><td>HKD 0.27125<br>(HKD 0.54 round turn)</td><td>HKD 27.125<br>(HKD 54.25 round turn)</td></tr>
+                                <% } %>
+                            </tbody>
+                        </table>
+                        <% if (!fca) { %>
+                        <h1 class="ctrader_commission_rates"><%-$t('spreads_23')%></h1>
+                        <p><%-$t('spreads_21')%></p>
+                        <p><%-$t('spreads_22')%></p>
+                        <table>
+                            <thead class="table-header">
+                                <tr>
+                                    <th></th>
+                                    <th>Calculation @ $3 USD per 100,000 USD</th>
+                                    <th>Commission on 1 lot EURUSD</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><%-$t('spreads_25')%></td>
+                                    <td>€100,000 x 1.3000 = USD $130,000 x (3 / 100,000)</td>
+                                    <td>$3.90</td>
+                                </tr>
+                                <tr>
+                                    <td><%-$t('spreads_26')%></td>
+                                    <td>€100,000 x 1.3100 = USD $131,000 x (3 / 100,000)</td>
+                                    <td>$3.93</td>
+                                </tr>
+                                <tr>
+                                    <td><%-$t('spreads_27')%></td>
+                                    <td></td>
+                                    <td>$7.83</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <% } %>
+                    </article>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="page-section">
+                    <h1><%-$t('spreads_13')%></h1>
+                    <p><%-$t('spreads_14_1')%></p>
+                    <div class="spreads-cards-container">
+                        <% if (!fca) { %>
+                        <div class="spreads-card o-card-1">
+                            <div class="spreads-card-header rows-3">
+                                <div class="spreads-card-popular"><%-$t('spreads_card_1_1')%></div>
+                                <div class="spreads-card-header-1"><%-$t('spreads_card_1_2')%></div>
+                                <div class="spreads-card-header-2"><%-$t('spreads_card_1_3')%></div>
+                                <div class="spreads-card-header-3"><%-$t('spreads_card_1_4')%></div>
+                            </div>
+                            <div class="spreads-card-content">
+                                <div class="spreads-card-section">
+                                    <div class="spreads-card-section-label"><%-$t('spreads_card_1_5')%></div>
+                                    <div class="spreads-card-section-value"><%-$t('spreads_card_1_6')%></div>
+                                </div>
+                                <div class="spreads-card-section last-section">
+                                    <div class="spreads-card-section-label"><%-$t('spreads_card_1_7')%><br><span><%-$t('spreads_card_1_8')%></span></div>
+                                    <div class="spreads-card-section-value bigger">$3</div>
+                                </div>
+                                <div class="spreads-card-buttons">
+                                    <a  id="spreads_5" href="<%= localePath('open-trading-account-live')%>" class="spreads-card-button-live icm-btn icm-btn-primary"><%-$t('spreads_card_1_11')%></a>
+                                    <div class="spreads-card-button-demo">
+                                        <a  id="spreads_6" href="<%= localePath('open-trading-account-demo')%>"><%-$t('spreads_card_1_12')%></a>&nbsp;<%-$t('spreads_card_1_13')%>&nbsp;
+                                        <a  id="spreads_7" href="<%= localePath('trading-accounts-ctrader-raw')%>"><%-$t('spreads_card_1_14')%></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                        <div class="spreads-card o-card-2 o-card-popular">
+                            <div class="spreads-card-header rows-2">
+                                <div class="spreads-card-popular"><%-$t('spreads_card_2_1')%></div>
+                                <div class="spreads-card-header-1"><%-$t('spreads_card_2_2')%></div>
+                                <div class="spreads-card-header-2"><%-$t('spreads_card_2_3')%></div>
+                            </div>
+                            <div class="spreads-card-content">
+                                <div class="spreads-card-section">
+                                    <div class="spreads-card-section-label"><%-$t('spreads_card_2_4')%></div>
+                                    <div class="spreads-card-section-value"><%-$t('spreads_card_2_5')%></div>
+                                </div>
+                                <div class="spreads-card-section last-section">
+                                    <div class="spreads-card-section-label"><%-$t('spreads_card_2_6')%><br><span><%-$t('spreads_card_2_7')%></span></div>
+                                    <div class="spreads-card-section-value bigger">$3.5</div>
+                                </div>
+                                <div class="spreads-card-buttons">
+                                    <a  id="spreads_8" href="<%= localePath('open-trading-account-live')%>" class="spreads-card-button-live icm-btn icm-btn-primary"><%-$t('spreads_card_2_10')%></a>
+                                    <div class="spreads-card-button-demo">
+                                        <a  id="spreads_9" href="<%= localePath('open-trading-account-demo')%>"><%-$t('spreads_card_2_11')%></a>&nbsp;<%-$t('spreads_card_2_12')%>&nbsp;
+                                        <a id="spreads_10"  href="<%= localePath('trading-accounts-raw-spread-account')%>"><%-$t('spreads_card_2_13')%></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spreads-card o-card-3">
+                            <div class="spreads-card-header rows-2">
+                                <div class="spreads-card-popular"><%-$t('spreads_card_3_1')%></div>
+                                <div class="spreads-card-header-1"><%-$t('spreads_card_3_2')%></div>
+                                <div class="spreads-card-header-2"><%-$t('spreads_card_3_3')%></div>
+                            </div>
+                            <div class="spreads-card-content">
+                                <div class="spreads-card-section">
+                                    <div class="spreads-card-section-label"><%-$t('spreads_card_3_4')%></div>
+                                    <div class="spreads-card-section-value"><%-$t('spreads_card_3_5')%></div>
+                                </div>
+                                <div class="spreads-card-section last-section">
+                                    <div class="spreads-card-section-label"><%-$t('spreads_card_3_6')%><br><span><%-$t('spreads_card_3_7')%></span></div>
+                                    <div class="spreads-card-section-value bigger">$0</div>
+                                </div>
+                                <div class="spreads-card-buttons">
+                                    <a id="spreads_11" href="<%= localePath('open-trading-account-live')%>" class="spreads-card-button-live icm-btn icm-btn-primary"><%-$t('spreads_card_3_10')%></a>
+                                    <div class="spreads-card-button-demo">
+                                        <a  id="spreads_12" href="<%= localePath('open-trading-account-demo')%>"><%-$t('spreads_card_3_11')%></a>&nbsp;<%-$t('spreads_card_3_12')%>&nbsp;
+                                        <a  id="spreads_13" href="<%= localePath('trading-accounts-standard-account')%>"><%-$t('spreads_card_3_13')%></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('spreads_15')%></div>
+                    <div class="global-today"><%-$t('spreads_16')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                      <a  id="spreads_14" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live')%>"><%-$t('spreads_17')%></a>
+                      <a  id="spreads_15" class="icm-btn demo" href="<%= localePath('open-trading-account-demo')%>"><%-$t('spreads_18')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <script>
+        window['cysec'] = '<%- cysec %>'
+
+        $(() => {
+            const isEU = window['cysec'];
+            let country_from = document.body.getAttribute('data-country');
+            if (!country_from) {
+                country_from = 'n/a';
+            }
+            if (country_from.toUpperCase() === 'GB' && JSON.parse(isEU))  $('#cryptoListHide').hide();
+        })
+    </script>

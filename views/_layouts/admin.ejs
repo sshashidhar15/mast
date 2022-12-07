@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html class="">
+  <head>
+    <title>ICMarkets Admin Panel</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap">
+    <meta data-n-head="true" charset="utf-8">
+    <meta data-n-head="true" name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/theme/vendor/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="/assets/theme/css/sb-admin-2.min.css">
+    <%- meta %>
+    <%- style %>
+    <script>
+        const REGULATOR = location.pathname.split('/')[1];
+        const regulators_prefixes = JSON.parse('<%- JSON.stringify(regulators_prefixes) %>')
+        <% if (isManager) { %>
+        const manager_login = JSON.parse('<%- JSON.stringify(manager_login) %>')
+        const is_superadmin = manager_login === 'superadmin'
+        <% } else { %>
+        const manager_login = ''
+        const is_superadmin = false
+        <% } %>
+        const regulators = JSON.parse('<%- JSON.stringify(regulators) %>')
+        const regulator = Object.keys(regulators_prefixes).find(_ => regulators_prefixes[_] === REGULATOR)
+        const langs = JSON.parse('<%- JSON.stringify(langs) %>')
+        const config_websocket_ping_frontend_period = JSON.parse('<%- JSON.stringify(config.websocket.ping.frontend_period) %>')
+        /*!
+         * Sanitize and encode all HTML in a user-submitted string
+         * (c) 2018 Chris Ferdinandi, MIT License, https://gomakethings.com
+         * @param  {String} str  The user-submitted string
+         * @return {String} str  The sanitized string
+         */
+        var sanitizeHTML = function (str) {
+        	var temp = document.createElement('div');
+        	temp.textContent = str;
+        	return temp.innerHTML;
+        };
+
+        /*
+         * Performs a deep merge of `source` into `target`.
+         * Mutates `target` only but not its objects and arrays.
+         *
+         * @author inspired by [jhildenbiddle](https://stackoverflow.com/a/48218209).
+        */
+        function mergeDeep (target, source) {
+          const isObject = (obj) => obj && typeof obj === 'object';
+
+          if (!isObject(target) || !isObject(source)) {
+            return source;
+          }
+
+          Object.keys(source).forEach(key => {
+            const targetValue = target[key];
+            const sourceValue = source[key];
+
+            if (Array.isArray(targetValue) && Array.isArray(sourceValue)) {
+              target[key] = targetValue.concat(sourceValue);
+            } else if (isObject(targetValue) && isObject(sourceValue)) {
+              target[key] = mergeDeep(Object.assign({}, targetValue), sourceValue);
+            } else {
+              target[key] = sourceValue;
+            }
+          });
+
+          return target;
+        }
+
+        function debounce(callback, time) {
+        	var timeout;
+        	return function() {
+        		var args = arguments;
+        		if (timeout) {
+        			clearTimeout(timeout);
+        		}
+        		timeout = setTimeout(function() {
+        			timeout = null;
+        			callback.apply(null, args);
+        		}, time);
+        	}
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+    <script src="/assets/theme/js/sb-admin-2.min.js" charset="utf-8"></script>
+    <script src="/assets/js/msgpack.min.js"></script>
+    <script src="/assets/js/localforage.min.js"></script>
+    <script src="https://raw.githubusercontent.com/mozilla/localForage/master/dist/localforage.min.js"></script>
+    <script src="<%=md5('/js/load_translations.js')%>"></script>
+    <style>
+      body {
+        font-family: 'Roboto', sans-serif;
+      }
+      #_button_logout {
+          position: absolute;
+          right: 5px;
+          top: 5px;
+      }
+      a[disabled] b,
+      button[disabled] b {
+        animation: rotater 1s linear infinite;
+        display: inline-block;
+      }
+      @keyframes rotater {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body >
+    <div id="wrapper">
+      <div style="opacity:0; visibility:hidden;" class="scroll-to-top"></div>
+      <%- include('../_partials/admin/nav.ejs') %>
+
+      <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+          <div class="container-fluid">
+            <%- body %>
+          </div>
+          <% if (isManager) { %>
+              <button id="_button_logout" class="btn btn-sm btn-danger" onclick="Cookies.remove('manager_token');location.href = '/admin/auth'">Logout (<%= manager_login %>)</button>
+              <table id="_table_admins_online" class="table table-striped table-bordered table-hover" style="display: none;">
+                  <thead>
+                      <tr>
+                          <th>Login</th>
+                          <th>Online since</th>
+                          <th>Delete manager role from SQL</th>
+                      </tr>
+                  </thead>
+                  <tbody id="_tbody_admins_online"></tbody>
+              </table>
+              <table id="_table_users" class="table table-striped table-bordered table-hover" style="display: none;">
+                  <thead>
+                      <tr>
+                          <th>ID</th>
+                          <th>Login</th>
+                          <th>
+                            <% if (manager_login === 'superadmin') { %>
+                              Toggle manager role
+                            <% } else { %>
+                              Role
+                            <% } %>
+                          </th>
+                      </tr>
+                  </thead>
+                  <tbody id="_tbody_users"></tbody>
+              </table>
+              <script src="<%=md5('/js/common.js')%>"></script>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <%- script %>
+  </body>
+</html>

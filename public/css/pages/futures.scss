@@ -1,0 +1,86 @@
+@import "../_global";
+
+.single-page.page-futures {
+    .node-desc {
+        background: #eeefef;
+        padding: 30px;
+        font-size: 14px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1;
+        letter-spacing: -0.3px;
+        text-align: center;
+        color: rgba(11, 10, 20, 0.8);
+        margin-bottom: 40px;
+    }
+
+    .grid-table {
+        display: grid;
+
+        .grid-table-row {
+            display: grid;
+            grid-template-columns: auto;
+            font-size: 14px;
+            font-weight: 500;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1;
+            letter-spacing: -0.3px;
+            text-align: left;
+            padding: 20px;
+            padding-left: 40px;
+            border-bottom: 1px solid #e2e3e3;
+
+            .grid-table-label {
+                color: rgba(0, 0, 0, 0.6);
+            }
+            .grid-table-value {
+                color: rgba(0, 0, 0, 0.8);
+            }
+
+            &.grid-table-header {
+                color: #000;
+                background: #e2e3e3;
+                font-size: 18px;
+            }
+        }
+        &.grid-table-2 .grid-table-row {
+            grid-template-columns: auto 25%;
+        }
+        &.grid-table-3 .grid-table-row {
+            grid-template-columns: auto 30% 30%;
+        }
+        &.grid-table-4 .grid-table-row {
+            grid-template-columns: auto 20% 25% 25%;
+        }
+        &.grid-table-5 .grid-table-row {
+            grid-template-columns: 20% 20% 20% 20% 20%;
+        }
+    }
+
+    .page-header {
+        background: url(/assets/img/single_market_page/banner2.png) no-repeat center right;
+    }
+    .page-first-text::before {
+        background: url(/assets/img/single_market_page/icon-futures.png) center center no-repeat transparent;
+    }
+    .stck-image {
+        background: url(/assets/img/single_market_page/stckimg.png) center center no-repeat transparent;
+    }
+    .market-facts-card {
+        .facts-item::before {
+            color: #34e834;
+        }
+        .action-button {
+            background: #34e834;
+        }
+    }
+}
+@media screen and (max-width: 640px) {
+    .single-page.page-futures {
+        .single-design-table .table-row {
+            height: 80px !important;
+        }
+    }
+}

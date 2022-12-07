@@ -1,0 +1,114 @@
+<% setI18nPrefix('pages.partnerships.affiliate-program') %>
+<meta name="description" content="<%- $t('meta', true) %>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/affiliate-program.css')%>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+    <div class="single-page affiliate-program">
+        <article class="page-header">
+            <section class="page-header__container"<% if (asic) { %> style="padding:80px 10px 160px;"<% } %>>
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('affiliate_program_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('affiliate_program_2')%></div>
+                <% if (!asic) { %>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="affiliate_program_1" class="icm-btn icm-btn-primary scroll-to-form"><%- $t('affiliate_program_3') %></a>
+                </div>
+                <% } %>
+            </section>
+        </article>
+        <% if (!asic) { %>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'partnerships-affiliate-program' }) %>
+        </article>
+        <% } %>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="double-sidebar-block">
+                        <div class="sidebar-cta-card-container sidebar-top-card random-background rnd-back-1">
+                            <div class="bottom-block">
+                                <p class="bottom-block__message"><%-$t('affiliate_program_8')%><br><b><%-$t('affiliate_program_9')%></b></p>
+                                <div class="icm-button-wrapper bottom-block__cta-button">
+                                    <a id="affiliate_program_2" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('affiliate_program_12')%></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-card contact-block" style="display: none;">
+                            <div class="contact-header">
+                                <div class="header-label"><%-$t('affiliate_program_13')%></div>
+                                <div class="header-title"><%-$t('affiliate_program_14')%></div>
+                            </div>
+                            <div class="contact-pre-imaged chat-img">
+                                <div><%-$t('contact_card_help')%></div>
+                            </div>
+                            <% if (!fsa && !scb && !fsc && !cima) { %>
+                            <div class="contact-phone">
+                                <div><%-$t('contact_card_phone')%></div>
+                            </div>
+                            <% } %>
+                            <div class="contact-pre-imaged email-img">
+                                <% if (asic) {%>
+                                    <div><%-$t('contact_card_email_asic')%></div>
+                                <% } else { %>
+                                    <div><%-$t('contact_card_email')%></div>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="first-section">
+                        <div class="page-first-text"><%-$t('affiliate_program_4')%></div>
+                        <% if (!asic) { %>
+                        <h1><%-$t('affiliate_program_5')%></h1>
+                        <div class="pre-image-item"><%-$t('affiliate_program_6')%></div>
+                        <div class="pre-image-item"><%-$t('affiliate_program_7')%></div>
+                        <div class="pre-image-item"><%-$t('affiliate_program_10')%></div>
+                        <div class="pre-image-item"><%-$t('affiliate_program_11')%></div>
+                        <div class="pre-image-item"><%-$t('affiliate_program_18')%></div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="page-section section-form">
+                    <h1><%-$t('affiliate_program_19')%></h1>
+                    <div class="section-home-content pb-0-1-sm-lg ">
+                        <div class="row flex-center pt-3">
+                            <div class="form-box">
+                                <div class="flex-block-form">
+                                    <div class="section-left">
+                                        <div class="wrapper-form">
+                                            <div class="second-heading center space">Existing Client?</div>
+                                            <div class="small-heading">You can apply to become a Preferred Partner within the client area and start earning today.</div>
+                                            <div class="icm-button-wrapper apply-btn">
+                                                <a id="affiliate_program_3" class="icm-btn icm-btn-primary page-header__primary-button" target="_blank" href="<%= clientAreaPath() %>/Account/LogOn" class="icmp-link">Apply Now</a>
+                                            </div>
+                                            <div class="apply-title center top-2">Join our Hybrid Affiliate Program</div>
+                                        </div>
+                                    </div>
+                                        <div class="section-right">
+                                            <div class="icm-form-block-wrap">
+                                                <%- include('../_partials/components/partnerships-form.ejs') %>
+                                                <% setI18nPrefix('pages.partnerships.affiliate-program') %>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('affiliate_program_21')%></div>
+                    <div class="global-today"><%-$t('affiliate_program_22')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="affiliate_program_4" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('affiliate_program_23')%></a>
+                        <a id="affiliate_program_5" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('affiliate_program_24')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

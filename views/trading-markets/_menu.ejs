@@ -1,0 +1,47 @@
+<% setI18nPrefix('menu.trading-markets') %>
+<div class="page-header__menu">
+<%
+var list = cysec
+  ?
+    [
+      'trading-markets-range-of-markets',
+      'trading-markets-forex',
+      'trading-markets-commodities',
+      'trading-markets-indices',
+      'trading-markets-bonds',
+      'trading-markets-stocks',
+      'trading-markets-futures'
+    ]
+  :
+  fca 
+  ?
+    [
+      'trading-markets-range-of-markets',
+      'trading-markets-forex',
+      'trading-markets-commodities',
+      'trading-markets-indices',
+      'trading-markets-bonds',
+      'trading-markets-futures'
+    ]
+  :
+    [
+      'trading-markets-range-of-markets',
+      'trading-markets-forex',
+      'trading-markets-commodities',
+      'trading-markets-indices',
+      'trading-markets-bonds',
+      'trading-markets-digitalcurrency',
+      'trading-markets-stocks',
+      'trading-markets-futures'
+    ]
+
+
+if (countryCode === 'cn')
+  list = list.filter(i => i !== 'tranding-markets-digitalcurrency')
+
+list.map(e => { %>
+      <div class="menu-item<%= typeof current !== 'undefined' && e === current ? ' current-page' : '' %>"><a id="trading_markets_menu_1" href="<%= localePath(e) %>" class="menu-title"><%-$t(e)%></a></div>
+    <% }) %>
+    <div class="menu-item menu-switch"><span class="menu-icon icon-switch"></span></div>
+  </div>
+<% prevI18nPrefix() %>

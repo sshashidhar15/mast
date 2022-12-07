@@ -1,0 +1,38 @@
+<% setI18nPrefix('pages.education.web-tv') %>
+<meta name="description" content="<%- $t('meta', true) %>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/video-tutorials.css')%>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+    <div class="single-page page-video-tutorials">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('web_tv_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('web_tv_2')%></div>
+
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="web_tv_1"class="icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%- $t('web_tv_b') %></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'education-web-tv' }) %>
+        </article>
+        <article class="page-content-container">
+          <iframe id="webtv" name="vzpl-19488" title="video player" class="video player" type="text/html" width="100%" height="800" frameborder="0" allowFullScreen allowTransparency="true" mozallowfullscreen webkitAllowFullScreen src="<%= `//view.vzaar.com/playlists/${locale === 'cn' ? '19528' : '19488'}` %>"></iframe>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('web_tv_7')%></div>
+                    <div class="global-today"><%-$t('web_tv_8a')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="web_tv_2" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('web_tv_9')%></a>
+                        <a id="web_tv_3" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('web_tv_10')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

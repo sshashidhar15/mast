@@ -1,0 +1,89 @@
+<% setI18nPrefix('pages.forex-trading-platform.myfxbook-autotrade') %>
+<meta name="description" content="<%- $t('meta', true) %>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/myfxbook-autotrade.css')%>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+    <div class="single-page page-myfxbook-autotrade">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('myfxbook_autotrade_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('myfxbook_autotrade_2')%></div>
+
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="myfxbook_autotrade_1" class="icm-btn icm-btn-primary" href="<%= clientAreaPath() %>" target="_blank"><%- $t('myfxbook_autotrade_3') %></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="autotrade-image"></div>
+                    <h1><%-$t('myfxbook_autotrade_4')%></h1>
+                    <p><%-$t('myfxbook_autotrade_5')%></p>
+                </div>
+            </div>
+            <div class="page-content highlighted-content">
+                <div class="page-section">
+                    <h1><%-$t('myfxbook_autotrade_6')%></h1>
+                    <div class="grid-section">
+                        <div class="grid-content gc-1">
+                            <div class="content-head"><%-$t('myfxbook_autotrade_7')%></div>
+                            <div class="content-inside"><%-$t('myfxbook_autotrade_8')%></div>
+                        </div>
+                        <div class="grid-content gc-2">
+                            <div class="content-head"><%-$t('myfxbook_autotrade_9')%></div>
+                            <div class="content-inside"><%-$t('myfxbook_autotrade_10')%></div>
+                        </div>
+                        <div class="grid-content gc-3">
+                            <div class="content-head"><%-$t('myfxbook_autotrade_11')%></div>
+                            <div class="content-inside"><%-$t('myfxbook_autotrade_12')%></div>
+                        </div>
+                        <div class="grid-content gc-4">
+                            <div class="content-head"><%-$t('myfxbook_autotrade_13')%></div>
+                            <div class="content-inside"><%-$t('myfxbook_autotrade_14')%></div>
+                        </div>
+                        <div class="grid-content gc-5">
+                            <div class="content-head"><%-$t('myfxbook_autotrade_15')%></div>
+                            <div class="content-inside"><%-$t('myfxbook_autotrade_16')%></div>
+                        </div>
+                        <div class="grid-content gc-6">
+                            <div class="content-head"><%-$t('myfxbook_autotrade_17')%></div>
+                            <div class="content-inside"><%-$t('myfxbook_autotrade_18')%></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="page-section">
+                    <h1><%-$t('myfxbook_autotrade_19')%></h1>
+                    <p><%-$t('myfxbook_autotrade_20')%>. <%-$t('myfxbook_autotrade_22')%></p>
+                </div>
+                <div class="page-section">
+                    <h2 class="step-1 step-left-padding"><%-$t('myfxbook_autotrade_23')%></h2>
+                </div>
+                <div class="page-section split-2">
+                    <div class="step-left-padding left-section">
+                        <b><%-$t('myfxbook_autotrade_24')%></b>
+                        <p><%-$t('myfxbook_autotrade_25')%></p>
+                        <a id="myfxbook_autotrade_2" href="<%= localePath('open-trading-account-live', {'camp': 1331}) %>" target="_blank" class="icm-btn icm-btn-primary"><%-$t('myfxbook_autotrade_26')%></a>
+                    </div>
+                    <div class="step-left-padding right-section">
+                        <b><%-$t('myfxbook_autotrade_27')%></b>
+                        <p><%-$t('myfxbook_autotrade_28')%> <a id="myfxbook_autotrade_3" class="text-link" href="<%= clientAreaPath() %>" target="_blank" style="color:rgba(10, 171, 255, 0.74);"><%-$t('myfxbook_autotrade_35')%></a> <%-$t('myfxbook_autotrade_36')%></p>
+                        <a id="myfxbook_autotrade_4" href="<%= clientAreaPath() %>" target="_blank" class="icm-btn demo"><%-$t('myfxbook_autotrade_29')%></a>
+                    </div>
+                </div>
+                <div class="page-section">
+                    <div class="step-2 step-left-padding">
+                        <h2><%-$t('myfxbook_autotrade_30')%></h2>
+                        <p><%-$t('myfxbook_autotrade_31')%></p>
+                        <a id="myfxbook_autotrade_5" href="https://autotrade.icmarkets.com/" target="_blank" class="icm-btn icm-btn-primary"><%-$t('myfxbook_autotrade_32')%></a>
+                    </div>
+                    <div class="notes-description"><%-$t('myfxbook_autotrade_33')%> <a id="myfxbook_autotrade_6" class="text-link" href="https://www.fxautotrade.com/support#terms_of_service" target="_blank">https://www.fxautotrade.com/support#terms_of_service</a>. <%-$t('myfxbook_autotrade_34')%></div>
+                </div>
+            </div>
+        </article>
+    </div>

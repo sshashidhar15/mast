@@ -1,0 +1,187 @@
+<style>
+  @media (min-width: 768px) {
+    .sidebar {
+      width: 200px!important;
+      position: relative;
+    }
+    .sidebar-menu-wrap {
+      text-align: center;
+    }
+    .sidebar.toggled {
+        width: 120px!important;
+    }
+    .sidebar.toggled .sidebar-heading {
+      text-align: center;
+      padding: 0;
+    }
+  }
+  .menu-logo {
+    width: 90%;
+  }
+  .sidebar-menu-wrap {
+    position: relative;
+    width: 100%!important;
+    margin-top: 15px;
+  }
+  .nav-item:hover {
+    background: rgba(0, 0, 0, 0.2);
+  }
+  .sidebar-dark .sidebar-heading {
+    color: #8dcf27;
+    text-shadow: 1px 1px 3px #000;
+  }
+  .sidebar .sidebar-heading {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+  .btn {
+    margin-bottom: 5px;
+  }
+</style>
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+  <div class="sidebar-menu-static-container">
+    <div class="sidebar-menu-wrap">
+      <img class="menu-logo" src="/assets/icons/svg/ICM-logo.svg"/>
+      <hr class="sidebar-divider">
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Regulator
+      </div>
+      <select id="regulator_selector" class="form-control form-control-sm" style="margin-left: 1rem;margin-bottom: 1rem;max-width: max-content;">
+          <% regulators.forEach(regulator => { %>
+          <option value="<%= regulators_prefixes[regulator] %>"><%= regulator %></option>
+          <% }) %>
+      </select>
+
+      <script>
+        regulator_selector.value = REGULATOR;
+
+        regulator_selector.onchange = function (event) {
+            if (event.target.value === REGULATOR) return;
+            Cookies.remove('regulator');
+            var splited = location.href.split('/');
+            var position_regulator = 3;
+
+            splited[position_regulator] = event.target.value;
+
+            var redirect_to = splited.join('/');
+            window.location.replace(redirect_to);
+        };
+        if (location.pathname.split('/').pop() !== 'auth') {
+            document.addEventListener("DOMContentLoaded", function () {
+                var a = Array.prototype.find.call(
+                    document.getElementsByClassName('nav-link'),
+                    function (a) {return a.href && a.href.length && a.href.includes(location.pathname);}
+                );
+                if (a) {
+                    a.firstElementChild.style.color = 'white';
+                    a.lastElementChild.style.color = 'white';
+                }
+            });
+        }
+      </script>
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Transla&shy;tions
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a id="nav_admin_pending" class="nav-link collapsed" href="/<%- prefix_by_regulator %>/<%- locale %>/admin/pending">
+          <i class="fas fa-fw fa-clipboard-check"></i>
+          <span>Pending</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a id="nav_admin_history" class="nav-link collapsed" href="/<%- prefix_by_regulator %>/<%- locale %>/admin/history">
+          <i class="fas fa-fw fa-book"></i>
+          <span>History</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a id="nav_admin_import_export" class="nav-link collapsed" href="/<%- prefix_by_regulator %>/<%- locale %>/admin/import_export">
+          <i class="fas fa-fw fa-save"></i>
+          <span>Import / Export</span>
+        </a>
+      </li>
+
+      <!-- Nav Item - Utilities Collapse Menu -->
+      <li class="nav-item">
+        <a id="nav_admin_counter" class="nav-link collapsed" href="/<%- prefix_by_regulator %>/<%- locale %>/admin/counter">
+          <i class="fas fa-fw fa-business-time"></i>
+          <span>Words count</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a id="nav_admin_search" class="nav-link collapsed" href="/<%- prefix_by_regulator %>/<%- locale %>/admin/search">
+          <i class="fas fa-fw fa-search"></i>
+          <span>Search & Replace</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a id="nav_admin_move" class="nav-link collapsed" href="/<%- prefix_by_regulator %>/<%- locale %>/admin/move">
+          <i class="fas fa-fw fa-forward"></i>
+          <span>Move</span>
+        </a>
+      </li>
+
+      <!-- Nav Item - Utilities Collapse Menu -->
+      <li class="nav-item">
+        <a id="nav_admin_tree_view" class="nav-link collapsed" href="/<%- prefix_by_regulator %>/<%- locale %>/admin/tree_view">
+          <i class="fas fa-fw fa-sitemap"></i>
+          <span>Tree View</span>
+        </a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Futures
+      </div>
+
+      <!-- Nav Item - Utilities Collapse Menu -->
+      <li class="nav-item">
+        <a id="nav_admin_futures" class="nav-link collapsed" href="/<%- prefix_by_regulator %>/<%- locale %>/admin/futures">
+          <i class="fas fa-fw fa-air-freshener"></i>
+          <span>Edit</span>
+        </a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Control managers
+      </div>
+
+      <!-- Nav Item - Utilities Collapse Menu -->
+      <li class="nav-item">
+        <a id="_a_nav_admins_online" class="nav-link collapsed">
+          <i class="fas fa-fw fa-air-freshener"></i>
+          <span>Online</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a id="_a_nav_users" class="nav-link collapsed">
+          <i class="fas fa-fw fa-air-freshener"></i>
+          <span>Users</span>
+        </a>
+      </li>
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+    </div>
+  </div>
+</ul>

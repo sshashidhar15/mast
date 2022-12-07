@@ -1,0 +1,126 @@
+<link rel="stylesheet" href="<%=md5('/css/components/stocks1-table.css')%>">
+<div class="markets-spread-table stocks-spread-table">
+<%
+let stocks5Table = {
+    stocksSpreadsColHeadersDesktop: ['MT5 Symbol', 'Xetra (Germany) STOCKS'],
+    stocksSpreadsData: [
+        ["1COV.ETR", "Covestro AG"],
+        ["ADS.ETR", "Adidas AG"],
+        ["ADV.ETR", "Adva"],
+        ["AFX.ETR", "Carl Zeiss Meditec"],
+        ["AIXA.ETR", "Aixtron"],
+        ["ALV.ETR", "Allianz SE (DE)"],
+        ["ARL.ETR", "Aareal Bank"],
+        ["BAS.ETR", "Basf Se (DE)"],
+        ["BAYN.ETR", "Bayer AG (DE)"],
+        ["BC8.ETR", "Bechtle"],
+        ["BEI.ETR", "Beiersdorf"],
+        ["BMW.ETR", "Bayerische Motoren Werke AG (Preference)"],
+        ["BNR.ETR", "Brenntag SE"],
+        ["BOSS.ETR", "Hugo Boss"],
+        ["CBK.ETR", "Commerzbank AG (DE)"],
+        ["COK.ETR", "Cancom SE"],
+        ["CON.ETR", "Continental AG"],
+        ["COP.ETR", "CompuGroup Medical SE & Co KGaA"],
+        ["DB1.ETR", "Deutsche Boerse NA"],
+        ["DBK.ETR", "Deutsche Bank AG (DE)"],
+        ["DEZ.ETR", "Deutz"],
+        ["DPW.ETR", "Deutsche Post AG"],
+        ["DRI.ETR", "1&1 AG"],
+        ["DRW8.ETR", "Draegerwerk AG & Co KGaA"],
+        ["DTE.ETR", "Deutsche Telekom AG (DE)"],
+        ["DWNI.ETR", "Deutsche Wohnen SE"],
+        ["EOAN.ETR", "E.On Se (DE)"],
+        ["EVK.ETR", "Evonik Industries AG"],
+        ["EVT.ETR", "Evotec"],
+        ["FME.ETR", "Fresenius Medical Care AG (DE)"],
+        ["FNTN.ETR", "Freenet"],
+        ["FPE3.ETR", "Fuchs Petrolub AG"],
+        ["FRA.ETR", "Fraport"],
+        ["FRE.ETR", "Fresenius KGaA"],
+        ["G1A.ETR", "GEA"],
+        ["GBF.ETR", "Bilfinger Berger"],
+        ["GFT.ETR", "GFT Technologies AG"],
+        ["HEI.ETR", "HeidelbergCement AG"],
+        ["HEN3.ETR", "Henkel AG & Co KGaA"],
+        ["HNR1.ETR", "Hannover RE"],
+        ["HOT.ETR", "HOCHTIEF"],
+        ["IFX.ETR", "Infineon TECH.AG"],
+        ["KCO.ETR", "Kloeckner & Co"],
+        ["KGX.ETR", "KION Group AG"],
+        ["KRN.ETR", "Krones"],
+        ["LEO.ETR", "Leoni"],
+        ["LHA.ETR", "Lufthansa"],
+        ["LIN.ETR", "Linde Plc (DE)"],
+        ["LXS.ETR", "Lanxess"],
+        ["M5Z.ETR", "Manz Automation"],
+        ["MOR.ETR", "Morphosys"],
+        ["MRK.ETR", "Merck KGAA"],
+        ["MTX.ETR", "MTU Aero Engines NA"],
+        ["MUV2.ETR", "Muench.Rueckvers.VNA"],
+        ["NDA.ETR", "Aurubis"],
+        ["NDX1.ETR", "Nordex"],
+        ["NEM.ETR", "Nemetschek AG"],
+        ["NWO.ETR", "New Work SE"],
+        ["O2D.ETR", "Telefonica Deutschland Holding"],
+        ["P911.ETR", "Porsche AG"],
+        ["PAH3.ETR", "Porsche Automobil Holding"],
+        ["PFV.ETR", "Pfeiffer Vacuum"],
+        ["PSM.ETR", "ProSiebenSat 1"],
+        ["QIA.ETR", "Qiagen N.V."],
+        ["RHK.ETR", "Rhoen-Klinikum"],
+        ["RHM.ETR", "Rheinmetall"],
+        ["RRTL.ETR", "RTL Group SA (DE)"],
+        ["RWE.ETR", "RWE AG (DE)"],
+        ["SAP.ETR", "SAP SE"],
+        ["SDF.ETR", "K+S"],
+        ["SGL.ETR", "SGL"],
+        ["SHA.ETR", "Schaeffler AG"],
+        ["SIE.ETR", "Siemens AG (DE)"],
+        ["SMHN.ETR", "Suess Microtec"],
+        ["SOW.ETR", "Software"],
+        ["SRT.ETR", "Sartorius AG Vz"],
+        ["SY1.ETR", "Symrise AG"],
+        ["SZG.ETR", "Salzgitter"],
+        ["SZU.ETR", "Suedzucker"],
+        ["TEG.ETR", "TAG Immobilien AG"],
+        ["TKA.ETR", "ThyssenKrupp"],
+        ["TLX.ETR", "Talanx AG"],
+        ["UN01.ETR", "Uniper AG"],
+        ["UTDI.ETR", "United Internet"],
+        ["VNA.ETR", "Vonovia SE"],
+        ["VOW3.ETR", "Volkswagen AG"],
+        ["WAF.ETR", "Siltronic AG"],
+        ["WCH.ETR", "Wacker Chemie"],
+        ["ZAL.ETR", "Zalando SE"],
+        ["ZIL2.ETR", "ElringKlinger"],
+        ["P911.ETR", "Porsche AG"]
+    ]
+}
+%>
+<div class="single-design-search">
+    <div class="group search">
+        <span>Search by Symbol</span>
+        <input class="spreads-search-box" type="search"/>
+    </div>
+    <div class="group skin">
+        <span class="skin-label">Table Skin</span>
+        <span class="skin-toggle skin-light">&nbsp;</span>
+        <span class="skin-toggle skin-dark">&nbsp;</span>
+    </div>
+</div>
+
+<%- include('./spread-table-component.ejs', {
+    extraClass: 'stocks',
+    tableSkin: 'light-skin',
+    slotMobile: null,
+    slotTablet: null,
+    slotDesktop: null,
+    colHeadersMobile: stocks5Table.stocksSpreadsColHeadersDesktop,
+    mobileData: stocks5Table.stocksSpreadsData,
+    colHeadersTablet: stocks5Table.stocksSpreadsColHeadersDesktop,
+    tabletData: stocks5Table.stocksSpreadsData,
+    colHeadersDesktop: stocks5Table.stocksSpreadsColHeadersDesktop,
+    desktopData: stocks5Table.stocksSpreadsData
+}); %>
+</div>

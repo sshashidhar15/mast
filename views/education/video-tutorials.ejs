@@ -1,0 +1,64 @@
+<% setI18nPrefix('pages.education.video-tutorials') %>
+<meta name="description" content="<%- $t('meta', true) %>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/video-tutorials.css')%>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+    <div class="single-page page-video-tutorials">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('video_tutorials_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('video_tutorials_2')%></div>
+
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="video_tutorials_1" class="icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%- $t('video_tutorials_b') %></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'education-video-tutorials' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section grid-section">
+                  <% [
+                    ['sAd6Z4BCdtc', 'video_tutorials_n1'],
+                    ['5zOuHVoQyb8', 'video_tutorials_n2'],
+                    ['GO5uJ5GU_0s', 'video_tutorials_n4'],
+                    ['NpViO2HKBsA', 'video_tutorials_n5'],
+                    ['hziKkojjfdk', 'video_tutorials_n6'],
+                    ['sg9yh9gd30M', 'navigatingmetatrader4'],
+                    ['nGCHL5C9b2I', 'usingthemarketwatcharea'],
+                    ['6ZDXdGG-xRc', 'placingdifferentordertypesinme'],
+                    ['ZUwFyOaEojI', 'usingthemetatrader4tradetermin'],
+                    ['se7G23mDFbA', 'video_tutorials_x1'],
+                    ['CkjuBeLVOsQ', 'video_tutorials_x2'],
+                    ['WPcT4we3rO0', 'video_tutorials_x3'],
+                    ['POC7rbjNwM0', 'video_tutorials_x4'],
+                    ['Hd_mulRQVyA', 'video_tutorials_x5'],
+                    ['o9NmLvDmWr8', 'video_tutorials_x6'],
+                    ['ERJX09RsbV4', 'video_tutorials_x7']
+                  ].forEach(([youtube_code, description_key]) => {%>
+                    <div class="grid-item gi-1">
+                        <iframe width="374" height="276" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen src="https://www.youtube.com/embed/<%- youtube_code %>?feature=oembed"></iframe>
+                        <div class="description"><span class="play"></span><span class="text"><%-$t(description_key)%></span></div>
+                    </div>
+                  <%}) %>
+                </div>
+            </div>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('video_tutorials_7')%></div>
+                    <div class="global-today"><%-$t('video_tutorials_8a')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="video_tutorials_2" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('video_tutorials_9')%></a>
+                        <a id="video_tutorials_3" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('video_tutorials_10')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

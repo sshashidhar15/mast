@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.1 (44463) - http://www.bohemiancoding.com/sketch -->
+    <title>Market--Indicies</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Templates" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Market--Indicies">
+            <g id="Group-218" transform="translate(1.000000, 1.000000)">
+                <path d="M19,0 L19,0 C3.21167626,0 0,3.21167626 0,19 C0,34.7883237 3.21167626,38 19,38 C34.7883237,38 38,34.7883237 38,19 C38,3.21167626 34.7883237,0 19,0 L19,0 Z" id="Shape" stroke="#34E834" stroke-width="2" fill-rule="nonzero"></path>
+                <path d="M14.34375,24.375 L12,24.375 L12,13 L14.34375,13 L14.34375,24.375 Z M25.765625,24.375 L23.421875,24.375 L18.859375,16.890625 L18.859375,24.375 L16.515625,24.375 L16.515625,13 L18.859375,13 L23.4296875,20.5 L23.4296875,13 L25.765625,13 L25.765625,24.375 Z" id="IN" fill="#34E834"></path>
+            </g>
+        </g>
+    </g>
+</svg>

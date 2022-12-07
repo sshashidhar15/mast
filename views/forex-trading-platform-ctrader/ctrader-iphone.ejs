@@ -1,0 +1,99 @@
+<% setI18nPrefix('pages.forex-trading-platform-ctrader.ctrader-iphone') %>
+<meta name="description" content="<%- $t('meta', true) %>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/ctrader-iphone.css')%>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+    <div class="single-page ctrader-iphone">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('ctrader_iphone_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('ctrader_iphone_2')%></div>
+
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="ctrader_iphone_1" class="icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%- $t('ctrader_iphone_3') %></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'forex-trading-platform-ctrader-ctrader-iphone' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="market-facts-card">
+                        <div class="facts-header">
+                            <div class="header-label"><%-$t('ctrader_iphone_9')%></div>
+                            <div class="header-title"><%-$t('ctrader_iphone_10')%></div>
+                        </div>
+                        <div class="facts-items">
+                            <% if (!cysec) { %><div class="facts-item"><%-$t('ctrader_iphone_11')%></div><% } %>
+                            <div class="facts-item"><%-$t('ctrader_iphone_12')%></div>
+                            <% if (!cysec) { %><div class="facts-item"><%-$t('ctrader_iphone_13')%></div><% } %>
+                            <div class="facts-item"><%-$t('ctrader_iphone_14')%></div>
+                            <div class="facts-item"><%-$t('ctrader_iphone_15')%></div>
+                            <% if (cysec) { %>
+                                <div class="facts-item"><%-$t('ctrader_iphone_16_1')%></div>
+                            <% } else { %>
+                                <div class="facts-item"><%-$t('ctrader_iphone_16')%></div>
+                            <% } %>
+                        </div>
+                        <div class="action-buttons-container">
+                            <a id="ctrader_iphone_2" class="action-button icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>" ><%-$t('ctrader_iphone_17')%></a>
+                        </div>
+                    </div>
+                    <div class="first-section">
+                        <div class="page-first-image"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content highlighted-content">
+                <div class="page-section">
+                    <p><%-$t('ctrader_iphone_18')%></p>
+                    <p><%-$t('ctrader_iphone_19')%></p>
+                    <p><%-$t('ctrader_iphone_191')%></p>
+                </div>
+            </div>
+            <div class="page-content">
+                <div style="position:relative;" class="page-section">
+                    <div class="floated-block">
+                        <div class="green-card">
+                            <h1><%-$t('ctrader_iphone_20')%></h1>
+                            <p><%-$t('ctrader_iphone_21')%></p>
+                        </div>
+                    </div>
+                    <h1 style="font-weight:900;"><%-$t('ctrader_iphone_22')%></h1>
+                    <h1><%-$t('ctrader_iphone_23')%></h1>
+                    <div class="pre-image-item"><%-$t('ctrader_iphone_24')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_iphone_25')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_iphone_26')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_iphone_27')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_iphone_28')%></div>
+                </div>
+                <div style="margin-top:60px;" class="page-section">
+                    <h1><%-$t('ctrader_iphone_29')%></h1>
+                    <div class="pre-image-item"><%-$t('ctrader_iphone_30')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_iphone_31')%></div>
+                    <div class="pre-image-item"><%-$t('ctrader_iphone_32')%></div>
+
+                </div>
+                <div style="margin-top:60px;" class="page-section">
+                    <h1><%-$t('ctrader_iphone_33')%></h1>
+                    <div class="pre-image-item"><%-$t('ctrader_iphone_34')%></div>
+
+                </div>
+            </div>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('ctrader_iphone_35')%></div>
+                    <div class="global-today"><%-$t('ctrader_iphone_36')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="ctrader_iphone_3" class="icm-btn live icm-btn-primary"  href="<%= localePath('open-trading-account-live') %>" ><%-$t('ctrader_iphone_37')%></a>
+                        <a id="ctrader_iphone_4" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>" ><%-$t('ctrader_iphone_38')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

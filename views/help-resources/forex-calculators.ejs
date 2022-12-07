@@ -1,0 +1,124 @@
+<% setI18nPrefix('pages.help-resources.forex-calculators') %>
+<link rel="stylesheet" href="<%=md5('/css/pages/forex-calculators.css')%>">
+<link rel="stylesheet" href="<%=md5('/css/components/forex-calculators/css/bundle.css')%>">
+
+<meta name="description" content="<%- $t('meta', true) %>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+
+    <div class="single-page page-forex-calculators">
+        <article style="padding-top:140px; padding-bottom:140px;" class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('forex_calculators_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('forex_calculators_2')%></div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'help-resources-forex-calculators' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section forex-calculators-container">
+                    <h1><%-$t('forex_calculators_6')%></h1>
+                    <div class="icm-forex-calculators"></div>
+                </div>
+            </div>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('forex_calculators_7')%></div>
+                    <div class="global-today"><%-$t('forex_calculators_8a')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="forex_calculators_1" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('forex_calculators_9')%></a>
+                        <a id="forex_calculators_2" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('forex_calculators_10')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+
+
+<script><%- forexCalculatorsBundle %></script>
+<script>window.currentLocale = '<%= locale %>';</script>
+<script>
+    // export default {
+    //     nuxtI18n: {
+    //       paths: {
+    //         it: 'calcolatore-pips'
+    //       }
+    //     },
+    //     i18n: {
+    //       prefix: 'pages.help-resources.forex-calculators'
+    //     },
+    //     head(){
+    //         return {
+    //             title: this.$t('title'),
+    //             meta: [{
+    //                 name: "description",
+    //                 content: this.$t('meta', true)
+    //             }]
+    //         }
+    //     },
+    //     data: function () {
+    //         return {
+	// 			menuExpand: false
+    //         };
+    //     },
+    //     methods: {
+    //         headerButtonClick: function(id) {
+    //             switch (id) {
+    //                 case 1:
+    //                     this.goToPage(this.$router, "help-resources-help-centre");
+    //                     break;
+    //                 case 2:
+    //                     this.goToPage(this.$router, "help-resources-forex-calculators");
+    //                     break;
+    //                 case 3:
+    //                     this.goToPage(this.$router, "help-resources-economic-calendar");
+    //                     break;
+    //             }
+    //             if (this.menuExpand) {
+    //                 this.headerSwitchClick();
+    //             }
+    //         },
+    //         headerSwitchClick: function() {
+    //             this.menuExpand = !this.menuExpand;
+    //         }
+    //     },
+    //     mounted: function () {
+    //   			$("html").toggleClass("single-market-page", true);
+
+    //         if (process.server) return;
+
+    //         var Application = require('forex-calculators');
+    //         window.app = new Application({
+    //             host: '<%= config.reg_service_1_url %>'
+    //         });
+    //         var type = 'pip';
+    //         window.app.getActualSymbols().then(function () {
+    //             window.app.setType(type);
+    //         });
+    //     }
+    // }
+
+    $(document).ready(function () {
+        var url = '<%= config.reg_service_1_url %>';
+        if (url.endsWith('/')) {
+            url = url.substr(0, url.length - 1);
+        }
+        window.app = new Application({
+            regulator: "<%= branchID %>",
+            host: url // NOTE: here used regservice url without slash at the end!
+        });
+        var type = 'pip';
+        window.app.getActualSymbols().then(function () {
+            window.app.setBranch("<%= branchID %>");
+            window.app.setType(type);
+            window.app.changeLanguage(window.currentLocale);
+        });
+    });
+</script>

@@ -1,0 +1,358 @@
+<% setI18nPrefix('pages.trading-accounts.overview') %>
+<link rel="stylesheet" href="<%=md5('/css/pages/overview.css')%>">
+<meta name="description" content="<%- $t('meta', true) %>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+
+    <div class="overview-page single-page page-account-overview">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('account_overview_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('account_overview_2')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="trading_accounts_overview_1" class="icm-btn icm-btn-primary" href="<%=localePath('open-trading-account-live') %>"><%-$t('account_overview_3')%></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+            <%- include('./_menu.ejs', { current: 'trading-accounts-overview' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content overview-background">
+                <div class="page-section">
+                    <div class="overview-cards-container">
+                        <% if (!fca) { %>
+                        <div class="overview-card o-card-1">
+                            <div class="overview-card-header rows-3">
+                                <div class="overview-card-popular"><%-$t('account_overview_card_1_1')%></div>
+                                <div class="overview-card-header-1"><%-$t('account_overview_card_1_2')%></div>
+                                <div class="overview-card-header-2"><%-$t('account_overview_card_1_3')%></div>
+                                <div class="overview-card-header-3"><%-$t('account_overview_card_1_4')%></div>
+                            </div>
+                            <div class="overview-card-content">
+                                <div class="overview-card-section">
+                                    <div class="overview-card-section-label"><%-$t('account_overview_card_1_5')%></div>
+                                    <div class="overview-card-section-value"><%-$t('account_overview_card_1_6')%></div>
+                                </div>
+                                <div class="overview-card-section">
+                                    <div class="overview-card-section-label"><%-$t('account_overview_card_1_7')%><br><span><%-$t('account_overview_card_1_8')%></span></div>
+                                    <div class="overview-card-section-value bigger">$3.0</div>
+                                </div>
+                                <div class="overview-card-section">
+                                    <div class="overview-card-section-label"><%-$t('account_overview_card_1_9')%><br><span><%-$t('account_overview_card_1_10')%></span></div>
+                                    <div class="overview-card-section-value bigger">0.0</div>
+                                </div>
+                                <div class="overview-card-buttons">
+                                    <a id="trading_accounts_overview_2" href="<%= localePath('open-trading-account-live') %>" class="overview-card-button-live icm-btn icm-btn-primary"><%-$t('account_overview_card_1_11')%></a>
+                                    <a id="trading_accounts_overview_3" href="<%= localePath('open-trading-account-demo') %>" class="overview-card-button-demo icm-btn"><%-$t('account_overview_card_1_12')%></a>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                        <div class="overview-card o-card-2 o-card-popular">
+                            <div class="overview-card-header rows-2">
+                                <div class="overview-card-popular"><%-$t('account_overview_card_2_1')%></div>
+                                <div class="overview-card-header-1"><%-$t('account_overview_card_2_2')%></div>
+                                <div class="overview-card-header-2"><%-$t('account_overview_card_2_3')%></div>
+                            </div>
+                            <div class="overview-card-content">
+                                <div class="overview-card-section">
+                                    <div class="overview-card-section-label"><%-$t('account_overview_card_2_4')%></div>
+                                    <div class="overview-card-section-value"><%-$t('account_overview_card_2_5')%></div>
+                                </div>
+                                <div class="overview-card-section">
+                                    <div class="overview-card-section-label"><%-$t('account_overview_card_2_6')%><br><span><%-$t('account_overview_card_2_7')%></span></div>
+                                    <div class="overview-card-section-value bigger">$3.5</div>
+                                </div>
+                                <div class="overview-card-section">
+                                    <div class="overview-card-section-label"><%-$t('account_overview_card_2_8')%><br><span><%-$t('account_overview_card_2_9')%></span></div>
+                                    <div class="overview-card-section-value bigger">0.0</div>
+                                </div>
+                                <div class="overview-card-buttons">
+                                    <a id="trading_accounts_overview_4" href="<%= localePath('open-trading-account-live') %>" class="overview-card-button-live icm-btn icm-btn-primary"><%-$t('account_overview_card_2_10')%></a>
+                                    <a id="trading_accounts_overview_5" href="<%= localePath('open-trading-account-demo') %>" class="overview-card-button-demo icm-btn"><%-$t('account_overview_card_2_11')%></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="overview-card o-card-3">
+                            <div class="overview-card-header rows-2">
+                                <div class="overview-card-popular"><%-$t('account_overview_card_3_1')%></div>
+                                <div class="overview-card-header-1"><%-$t('account_overview_card_3_2')%></div>
+                                <div class="overview-card-header-2"><%-$t('account_overview_card_3_3')%></div>
+                            </div>
+                            <div class="overview-card-content">
+                                <div class="overview-card-section">
+                                    <div class="overview-card-section-label"><%-$t('account_overview_card_3_4')%></div>
+                                    <div class="overview-card-section-value"><%-$t('account_overview_card_3_5')%></div>
+                                </div>
+                                <div class="overview-card-section">
+                                    <div class="overview-card-section-label"><%-$t('account_overview_card_3_6')%><br><span><%-$t('account_overview_card_3_7')%></span></div>
+                                    <div class="overview-card-section-value bigger">$0</div>
+                                </div>
+                                <div class="overview-card-section">
+                                    <div class="overview-card-section-label"><%-$t('account_overview_card_3_8')%><br><span><%-$t('account_overview_card_3_9')%></span></div>
+                                    <div class="overview-card-section-value bigger">0.6</div>
+                                </div>
+                                <div class="overview-card-buttons">
+                                    <a id="trading_accounts_overview_6" href="<%= localePath('open-trading-account-live') %>" class="overview-card-button-live icm-btn icm-btn-primary"><%-$t('account_overview_card_3_10')%></a>
+                                    <a id="trading_accounts_overview_7" href="<%= localePath('open-trading-account-demo') %>" class="overview-card-button-demo icm-btn"><%-$t('account_overview_card_3_11')%></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content highlighted-content">
+                <div class="page-section">
+                    <h3> <%-$t('compare_account_features')%></h3>
+                    <h1> <%- $t('why_choose_our_true_ecn_account')%> </h1>
+                    <p> <% if (cysec) {%><%-$t('account_overview_51')%><% } else {%><%-$t('our_true_ecn_account_offers_some')%><% } %></p>
+                </div>
+                <div class="page-section">
+                    <div class="icm-overview-table-wrap">
+                        <div class="mobile-switch-wrap">
+                            <div class="msw c-2"><div class="column-header"><div class="header-1"><%-$t('compare_account')%></div><div class="header-2"><%-$t('compare_ctrader')%></div></div></div>
+                            <div class="msw c-3 hovered"><div class="column-header popular"><div class="header-1"><%-$t('compare_account')%></div><div class="header-2"><%-$t('compare_trueecn')%></div></div></div>
+                            <div class="msw c-4"><div class="column-header"><div class="header-1"><%-$t('compare_account')%></div><div class="header-2"><%-$t('compare_standard')%></div></div></div>
+                        </div>
+                        <table class="icm-overview-table" cellpadding="8" cellspacing="0" border="0">
+                            <col class="col-1" />
+                            <col class="col-2" />
+                            <col class="col-3 hovered" />
+                            <col class="col-4" />
+                            <tr>
+                                <th class="c-1"><div class="column-header">h1</div></th>
+                                <% if (!fca) { %>
+                                <th class="c-2"><div class="column-header"><div class="header-1"><%-$t('compare_account')%></div><div class="header-2"><%-$t('compare_ctrader')%></div></div></th>
+                                <% } %>
+                                <th class="c-3 hovered"><div class="column-header"><div class="overview-card-popular"><%-$t('account_overview_popular')%></div><div class="header-1"><%-$t('compare_account')%></div><div class="header-2"><%-$t('compare_trueecn')%></div></div></th>
+                                <th class="c-4"><div class="column-header"><div class="header-1"><%-$t('compare_account')%></div><div class="header-2"><%-$t('compare_standard')%></div></div></th>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('compare_trading_platform')%></div></td>
+                                <% if (!fca) { %>
+                                <td class="c-2"><div><%-$t('compare_tp_ctrader')%></div></td>
+                                <% } %>
+                                <td class="c-3 hovered"><div><%-$t('compare_tp_mt')%></div></td>
+                                <td class="c-4"><div><%-$t('compare_tp_mt')%></div></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('compare_commission')%> (<%-$t('compare_per_lot')%>)</div></td>
+                                <% if (!fca) { %>
+                                <td class="c-2"><div>$3.0<div style="font-weight:500; font-size:12px;">($6.0 per lot roundturn)</div></div></td>
+                                <% } %>
+                                <td class="c-3 hovered">
+                                  <div>
+                                      $3.5<div style="font-weight:500; font-size:12px;">($7.0 per lot roundturn)</div>
+                                  </div>
+                                </td>
+                                <td class="c-4"><div>$0.0</div></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('compare_spread_from')%> (<%-$t('compare_pips')%>)</div></td>
+                                <% if (!fca) { %>
+                                <td class="c-2"><div>0.0</div></td>
+                                <% } %>
+                                <td class="c-3 hovered"><div>0.0</div></td>
+                                <td class="c-4"><div>0.6</div></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('compare_starting_deposit')%> (USD)</div></td>
+                                <% if (!fca) { %>
+                                <td class="c-2"><div>$200</div></td>
+                                <% } %>
+                                <td class="c-3 hovered">
+                                  <div>$200</div>
+                                </td>
+                                <td class="c-4"><div>$200</div></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('compare_leverage')%></div></td>
+                                <% if (cysec || asic || fca) { %>
+                                    <td class="c-2"><div>1:30</div></td>
+                                    <td class="c-3 hovered"><div>1:30</div></td>
+                                    <td class="c-4"><div>1:30</div></td>
+                                <% } else if (fsa || scb || fsc || cima) { %>
+                                    <td class="c-2"><div>1:500</div></td>
+                                    <td class="c-3 hovered"><div>1:500</div></td>
+                                    <td class="c-4"><div>1:500</div></td>
+                                <% } else if (isAPACcountry(countryCode)) { %>
+                                    <td class="c-2"><div>1:1000</div></td>
+                                    <td class="c-3 hovered"><div>1:1000</div></td>
+                                    <td class="c-4"><div>1:1000</div></td>
+                                <% } %>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('compare_position_orders')%></div></td>
+                                <% if (!fca) { %>
+                                <td class="c-2"><div>2000</div></td>
+                                <% } %>
+                                <td class="c-3 hovered"><div>200</div></td>
+                                <td class="c-4"><div>200</div></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('compare_server_location')%></div></td>
+                                <% if (!fca) { %>
+                                <td class="c-2"><div><%-$t('compare_london')%></div></td>
+                                <% } %>
+                                <td class="c-3 hovered"><div><%-$t('compare_ny')%></div></td>
+                                <td class="c-4"><div><%-$t('compare_ny')%></div></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('compare_micro_lot')%> <%-$t('compare_trading')%> (0.01)</div></td>
+                                <% if (!fca) { %>
+                                <td class="c-2"><div><span class="glyphicons-yes"></span></div></td>
+                                <% } %>
+                                <td class="c-3 hovered"><div><span class="glyphicons-yes"></span></div></td>
+                                <td class="c-4"><div><span class="glyphicons-yes"></span></div></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('compare_currency_pairs')%></div></td>
+                                <% if (!fca) { %>
+                                <td class="c-2"><div>61</div></td>
+                                <% } %>
+                                <td class="c-3 hovered"><div>61</div></td>
+                                <td class="c-4"><div>61</div></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('compare_index_cfd')%> <%-$t('compare_trading')%></div></td>
+                                <% if (!fca) { %>
+                                <td class="c-2"><div><span class="glyphicons-yes"></span></div></td>
+                                <% } %>
+                                <td class="c-3 hovered"><div><span class="glyphicons-yes"></span></div></td>
+                                <td class="c-4"><div><span class="glyphicons-yes"></span></div></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('compare_stop_out_level')%></div></td>
+                                <% if (!fca) { %>
+                                <td class="c-2"><div>50%</div></td>
+                                <% } %>
+                                <td class="c-3 hovered"><div>50%</div></td>
+                                <td class="c-4"><div>50%</div></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('compare_one_click')%> <%-$t('compare_trading')%></div></td>
+                                <% if (!fca) { %>
+                                <td class="c-2"><div><span class="glyphicons-yes"></span></div></td>
+                                <% } %>
+                                <td class="c-3 hovered"><div><span class="glyphicons-yes"></span></div></td>
+                                <td class="c-4"><div><span class="glyphicons-yes"></span></div></td>
+                            </tr>
+                            <% if (!cysec) { %>
+                            <tr>
+                                <td class="c-1"><div><%-$t('compare_islamic')%> <%-$t('compare_accounts')%></div></td>
+                                <% if (!fca) { %>
+                                <td class="c-2"><div><span class="glyphicons-yes"></span></div></td>
+                                <% } %>
+                                <td class="c-3 hovered"><div><span class="glyphicons-yes"></span></div></td>
+                                <td class="c-4"><div><span class="glyphicons-yes"></span></div></td>
+                            </tr>
+                            <% } %>
+                            <% if (false) { %>
+                            <tr>
+                                <td class="c-1"><div><%-$t('compare_cns_cross')%><br><%-$t('compare_connect')%></div></td>
+                                <% if (!fca) { %>
+                                <td class="c-2"><div><span class="glyphicons-no"></span></div></td>
+                                <% } %>
+                                <td class="c-3 hovered"><div><span class="glyphicons-yes"></span></div></td>
+                                <td class="c-4"><div><span class="glyphicons-yes"></span></div></td>
+                            </tr>
+                            <% } %>
+                            <tr>
+                                <td class="c-1"><div><%-$t('compare_trading_styles')%> <%-$t('compare_allowed')%></div></td>
+                                <% if (!fca) { %>
+                                <td class="c-2"><div><%-$t('compare_all')%></div></td>
+                                <% } %>
+                                <td class="c-3 hovered"><div><%-$t('compare_all')%></div></td>
+                                <td class="c-4"><div><%-$t('compare_all')%></div></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('compare_order_distance')%> <%-$t('compare_restriction')%></div></td>
+                                <% if (!fca) { %>
+                                <td class="c-2"><div><%-$t('compare_none')%></div></td>
+                                <% } %>
+                                <td class="c-3 hovered"><div><%-$t('compare_none')%></div></td>
+                                <td class="c-4"><div><%-$t('compare_none')%></div></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('compare_programming')%> <%-$t('compare_language')%></div></td>
+                                <% if (!fca) { %>
+                                <td class="c-2"><div>C#</div></td>
+                                <% } %>
+                                <td class="c-3 hovered"><div>MQL4</div></td>
+                                <td class="c-4"><div>MQL4</div></td>
+                            </tr>
+                            <tr>
+                                <td class="c-1"><div><%-$t('compare_suitable_for')%></div></td>
+                                <% if (!fca) { %>
+                                <td class="c-2"><div><%-$t('compare_day_traders')%></div></td>
+                                <% } %>
+                                <td class="c-3 hovered"><div><%-$t('compare_eas')%></div></td>
+                                <td class="c-4"><div><%-$t('compare_discretionary')%></div></td>
+                            </tr>
+                            <tr class="c-x">
+                                <td class="c-1"><div></div></td>
+                                <% if (!fca) { %>
+                                <td class="c-2"><div><a id="trading_accounts_overview_8" class="btn icm-btn-primary start-trading-button live" href="<%= localePath('open-trading-account-live') %>"><%-$t('compare_start_trading')%></a><a id="trading_accounts_overview_9"class="btn start-trading-button demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('compare_try_free_demo')%></a></div></td>
+                                <% } %>
+                                <td class="c-3 hovered"><div><a id="trading_accounts_overview_10" class="btn icm-btn-primary start-trading-button live" href="<%= localePath('open-trading-account-live') %>"><%-$t('compare_start_trading')%></a><a id="trading_accounts_overview_11" class="btn start-trading-button demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('compare_try_free_demo')%></a></div></td>
+                                <td class="c-4"><div><a id="trading_accounts_overview_12" class="btn icm-btn-primary start-trading-button live" href="<%= localePath('open-trading-account-live') %>"><%-$t('compare_start_trading')%></a><a id="trading_accounts_overview_13" class="btn start-trading-button demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('compare_try_free_demo')%></a></div></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <% if (!fca) { %>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('account_overview_47')%></div>
+                    <div class="global-today"><%-$t('account_overview_48')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="trading_accounts_overview_14" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('account_overview_49')%></a>
+                        <a id="trading_accounts_overview_15" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('account_overview_50')%></a>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </article>
+    </div>
+
+<script>
+
+            let $col2 = $('.col-2');
+            let $col3 = $('.col-3');
+            let $col4 = $('.col-4');
+            let $c2 = $('.c-2');
+            let $c3 = $('.c-3');
+            let $c4 = $('.c-4');
+
+            let clearHover = function () {
+                $col2.toggleClass('hovered', false);
+                $col3.toggleClass('hovered', false);
+                $col4.toggleClass('hovered', false);
+                $c2.toggleClass('hovered', false);
+                $c3.toggleClass('hovered', false);
+                $c4.toggleClass('hovered', false);
+            };
+            $c2.on('mouseenter', function(e) {
+                clearHover();
+                $col2.toggleClass('hovered', true);
+                $c2.toggleClass('hovered', true);
+            });
+            $c3.on('mouseenter', function(e) {
+                clearHover();
+                $col3.toggleClass('hovered', true);
+                $c3.toggleClass('hovered', true);
+            });
+            $c4.on('mouseenter', function(e) {
+                clearHover();
+                $col4.toggleClass('hovered', true);
+                $c4.toggleClass('hovered', true);
+            });
+
+</script>

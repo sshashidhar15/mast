@@ -1,0 +1,26 @@
+#!/usr/bin/env node
+const apply_migrations = require('../utils/apply_migrations')
+const redis = require('../redis')
+
+console.log('apply_migrations begin')
+console.time('apply_migrations')
+
+function thank_you_and_goodbuy () {
+    console.timeEnd('apply_migrations')
+    redis((error, db ) => {
+        if (error) process.exit(console.error(error))
+        db.quit(error => {
+            if (error) process.exit(console.error(error))
+        })
+    })
+}
+
+apply_migrations()
+    .then(() => {
+        console.log('apply_migrations end successful')
+        thank_you_and_goodbuy()
+    })
+    .catch(error => {
+        console.error('apply_migrations end with fail', error)
+        thank_you_and_goodbuy()
+    })

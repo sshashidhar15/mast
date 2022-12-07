@@ -1,0 +1,114 @@
+/* ICM Primary values from UX design */
+/* Width - container, element, card, */
+/* Margin */
+/* padding */
+/* Border */
+/*
+  Roboto font related weights
+   https://fonts.google.com/specimen/Roboto?selection.family=Roboto:100,300,400,500,700,900
+*/
+/* font color, background color */
+/* UI elements specific color */
+/* Card specific color */
+/* max width properties for UI Cards for different number of cards in a container */
+/* one are more cards */
+/* three are more cards */
+i[x] {
+  display: none !important; }
+
+.single-page.islamic-account-page .click-here-pdf {
+  color: #34e834; }
+
+.single-page.islamic-account-page .page-content .page-section .flex-two-columns {
+  display: flex;
+  justify-content: space-around; }
+  .single-page.islamic-account-page .page-content .page-section .flex-two-columns .separator {
+    width: 20%;
+    flex-grow: 3; }
+  .single-page.islamic-account-page .page-content .page-section .flex-two-columns .left1, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .right1 {
+    width: 100%;
+    flex-grow: 1; }
+  .single-page.islamic-account-page .page-content .page-section .flex-two-columns .left1, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .right1, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .separator {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; }
+    .single-page.islamic-account-page .page-content .page-section .flex-two-columns .left1 .head, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .left1 .row, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .right1 .head, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .right1 .row, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .separator .head, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .separator .row {
+      display: flex; }
+      .single-page.islamic-account-page .page-content .page-section .flex-two-columns .left1 .head .left2h, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .left1 .head .right2h, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .left1 .row .left2h, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .left1 .row .right2h, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .right1 .head .left2h, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .right1 .head .right2h, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .right1 .row .left2h, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .right1 .row .right2h, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .separator .head .left2h, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .separator .head .right2h, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .separator .row .left2h, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .separator .row .right2h {
+        width: 50%;
+        display: flex; }
+    .single-page.islamic-account-page .page-content .page-section .flex-two-columns .left1 .head, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .right1 .head, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .separator .head {
+      font-size: 20px;
+      padding: 20px;
+      background-color: #E5E5E5; }
+      .single-page.islamic-account-page .page-content .page-section .flex-two-columns .left1 .head .left2h, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .left1 .head .right2h, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .right1 .head .left2h, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .right1 .head .right2h, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .separator .head .left2h, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .separator .head .right2h {
+        display: flex; }
+      .single-page.islamic-account-page .page-content .page-section .flex-two-columns .left1 .head .left2h, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .right1 .head .left2h, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .separator .head .left2h {
+        width: 70%; }
+      .single-page.islamic-account-page .page-content .page-section .flex-two-columns .left1 .head .right2h, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .right1 .head .right2h, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .separator .head .right2h {
+        width: 30%; }
+    .single-page.islamic-account-page .page-content .page-section .flex-two-columns .left1 .row, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .right1 .row, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .separator .row {
+      font-size: 15px;
+      margin-left: 0px !important;
+      margin-right: 0px !important;
+      padding: 18px;
+      border-bottom: 1px solid #d2d2d2; }
+      .single-page.islamic-account-page .page-content .page-section .flex-two-columns .left1 .row .left2r, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .right1 .row .left2r, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .separator .row .left2r {
+        width: 70%; }
+      .single-page.islamic-account-page .page-content .page-section .flex-two-columns .left1 .row .right2r, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .right1 .row .right2r, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .separator .row .right2r {
+        width: 30%;
+        display: flex;
+        flex-direction: row; }
+        .single-page.islamic-account-page .page-content .page-section .flex-two-columns .left1 .row .right2r .left3, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .left1 .row .right2r .right3, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .right1 .row .right2r .left3, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .right1 .row .right2r .right3, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .separator .row .right2r .left3, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .separator .row .right2r .right3 {
+          display: flex; }
+        .single-page.islamic-account-page .page-content .page-section .flex-two-columns .left1 .row .right2r .left3, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .right1 .row .right2r .left3, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .separator .row .right2r .left3 {
+          text-align: left; }
+        .single-page.islamic-account-page .page-content .page-section .flex-two-columns .left1 .row .right2r .right3, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .right1 .row .right2r .right3, .single-page.islamic-account-page .page-content .page-section .flex-two-columns .separator .row .right2r .right3 {
+          margin-left: 5px;
+          color: #B3B3B3; }
+
+.single-page.islamic-account-page .page-content.global-markets-today {
+  height: auto;
+  min-height: 455px;
+  /* background-image: url(/assets/img/single_market_page/islamic_btm_cta_bg.png);  */
+}
+  .single-page.islamic-account-page .page-content.global-markets-today .icm-button-wrapper a.live {
+    padding: 25px !important;
+    border-radius: 0 !important;
+    font-size: 20px !important;
+    font-weight: 900 !important; }
+  .single-page.islamic-account-page .page-content.global-markets-today .icm-button-wrapper a.demo {
+    padding: 25px !important;
+    border-radius: 0 !important;
+    font-size: 20px !important;
+    font-weight: 900 !important;
+    color: #fff !important;
+    margin-left: 9px; }
+
+.single-page.islamic-account-page .page-header {
+  background: url(/assets/img/single_market_page/islamic_banner_bg.jpg) no-repeat center right; }
+  .single-page.islamic-account-page .page-header .icm-button-wrapper.page-header__primary-button a.icm-btn.icm-btn-primary {
+    padding: 25px !important;
+    border-radius: 2px !important;
+    font-size: 20px !important;
+    font-weight: 900 !important; }
+
+.single-page.islamic-account-page .first-section {
+  margin-left: 0 !important; }
+
+.single-page.islamic-account-page .market-facts-card .facts-item::before {
+  color: #34E834; }
+
+.single-page.islamic-account-page .market-facts-card .action-button {
+  background: #34E834; }
+
+.single-page.islamic-account-page .menu-item .menu-title {
+  text-transform: uppercase; }
+
+@media screen and (max-width: 700px) {
+  .flex-two-columns {
+    flex-direction: column !important; }
+  .second {
+    display: none !important; } }
+
+/*# sourceMappingURL=islamic-account.css.map */

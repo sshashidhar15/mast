@@ -1,0 +1,99 @@
+@import '../_global';
+@import '../single-market-page';
+
+.single-page.error-404-page {
+    .page-content-container {
+        background: url(../../assets/img/404/error_page_bg.jpg) no-repeat center right !important;
+        background-size: contain !important;
+
+        .container-for-center {
+            padding-top: 103px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .bot-img {
+                position: relative;
+                background: url(../../assets/img/404/bot_img.png) no-repeat center;
+                background-size: contain;
+                width: 100%;
+                max-width: 574px;
+                height: 334px;
+                .oops {
+                    position: absolute;
+                    background: url(../../assets/img/404/oops.png) no-repeat center right;
+                    background-size: contain;
+                    width: 19%;
+                    height: 18%;
+                    left: 21%;
+                    top: -6%;
+                }
+                .sorry {
+                    position: absolute;
+                    background: url(../../assets/img/404/sorry_i_could_not_find_it.png) no-repeat center right;
+                    background-size: contain;
+                    width: 20%;
+                    height: 20%;
+                    left: 59%;
+                    top: -9%;
+                }
+            }
+            .title {
+                font-size: 68px;
+                font-weight: 700;
+                color: #b5b5b5;
+                padding-top: 28px;
+                line-height: 1;
+            }
+            .description {
+                text-align: center;
+                font-size: 48px;
+                font-weight: 200;
+                color: #ededed;
+                padding-top: 13px;
+                line-height: 1;
+                max-width: 525px;
+            }
+        }
+
+        .page-content {
+            &.global-markets-today {
+                height: auto;
+                padding-bottom: 55px !important;
+                min-height: 0 !important;
+                background-image: none !important;
+
+                .icm-button-wrapper {
+                    button.live {
+                        padding: 25px !important;
+                        border-radius: 0 !important;
+                        font-size: 20px !important;
+                        font-weight: 900 !important;
+                    }
+                    button.demo {
+                        padding: 25px !important;
+                        text-transform: uppercase;
+                        border-radius: 0 !important;
+                        font-size: 20px !important;
+                        font-weight: 900 !important;
+                        background-color: #000 !important;
+                        color: #fff !important;
+                        margin-left: 9px;
+                    }
+                }
+            }
+        }
+
+        .group-of-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 219px;
+            .link {
+                color: #B9B9BA;
+                margin-right: 20px;
+            }
+        }
+    }
+}

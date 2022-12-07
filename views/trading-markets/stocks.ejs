@@ -1,0 +1,300 @@
+<% setI18nPrefix('pages.trading-markets.stocks')%>
+<meta name="description" content="<%-$t('meta', true)%>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/stocks.css')%>">
+<%- contentFor('title')%>
+  <%-$t('title')%>
+<%- contentFor('body')%>
+<div class="single-page page-stocks">
+    <article class="page-header">
+        <section class="page-header__container">
+            <header>
+                <h1 class="page-header__heading--style"><%-$t('stocks_1')%></h1>
+            </header>
+            <div class="page-header__description"><%-$t('stocks_2')%></div>
+            <div class="icm-button-wrapper page-header__primary-button">
+                <a id="stocks_1" class="icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('starttrading')%></a>
+            </div>
+        </section>
+    </article>
+    <article class="page-header__menu-container">
+      <%- include('./_menu.ejs', { current: 'trading-markets-stocks' }) %>
+    </article>
+    <article class="page-content-container">
+        <div class="page-content">
+            <div class="page-section">
+                <div class="market-facts-card">
+                    <div class="facts-header">
+                        <div class="header-label"><%-$t('stocks_4')%></div>
+                        <div class="header-title"><%-$t('stocks_5')%></div>
+                    </div>
+                    <div class="facts-items">
+                        <div class="facts-item"><%-$t('stocks_6')%></div>
+                        <div class="facts-item"><%-$t('stocks_7')%></div>
+                        <div class="facts-item"><%-$t('stocks_8')%></div>
+                        <div class="facts-item"><%-$t('stocks_9')%></div>
+                        <div class="facts-item"><%-$t('stocks_10')%></div>
+                    </div>
+                    <div class="action-buttons-container">
+                        <a id="stocks_2" class="action-button icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('stocks_11')%></a>
+                    </div>
+                </div>
+                <div class="first-section">
+                    <div class="page-first-text">
+                        <p><%-$t('stocks_12')%></p>
+                        <p><%-$t('stocks_13')%></p>
+                        <p><%-$t('stocks_14')%></p>
+                        *<a id="stocks_3" style="cursor:pointer;" class="scroll-to-description"><%-$t('stocks_100')%></a>
+                        <br>
+                        **<a id="stocks_4" style="cursor:pointer;" class="scroll-to-asx"><%-$t('stocks_200')%></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-content">
+            <div class="page-section split-2">
+                <div class="left-section">
+                    <h1><%-$t('stocks_15')%></h1>
+                    <div class="stck-image"></div>
+                </div>
+                <div class="right-section">
+                    <p><%-$t('stocks_17')%></p>
+                    <p><%-$t('stocks_18')%></p>
+                </div>
+            </div>
+        </div>
+        <div class="page-content highlighted-content">
+            <div class="page-section">
+                <h1><%-$t('stocks_19')%></h1>
+                <div class="accent-block"><%-$t('stocks_20')%></div>
+                <div class="flex-section">
+                    <div class="flex-content">
+                        <div class="content-head"><%-$t('stocks_21')%></div>
+                        <div class="content-inside label"><%-$t('stocks_22')%></div>
+                        <div class="content-inside value">$152 x 100 shares = USD $15,200</div>
+                        <div class="content-inside label"><%-$t('stocks_23')%></div>
+                        <div class="content-inside value">$170 x 100 shares = USD $17,000</div>
+                        <div class="content-inside label"><%-$t('stocks_24')%></div>
+                        <div class="content-inside value">USD $17,000 - $15,200 = $1,800</div>
+                    </div>
+                    <div class="flex-content">
+                        <div class="content-head"><%-$t('stocks_25')%></div>
+                        <div class="content-inside ordinary"><%-$t('stocks_26')%></div>
+                        <div class="content-inside description"><%-$t('stocks_27')%></div>
+                    </div>
+                    <div class="flex-content">
+                        <div class="content-head"><%-$t('stocks_28')%></div>
+                        <div class="content-inside ordinary"><%-$t('stocks_29')%></div>
+                        <div class="content-inside description"><%-$t('stocks_30')%></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-content">
+            <div class="page-section">
+                <h1><%-$t('stocks_31')%></h1>
+                <article class="spreads-block icm-page-subsection-content">
+                    <div class="spreads-block__spread-item">
+                        <div class="spreads-accordion">
+                            <div class="spreads-block__expand-button" data-toggle="collapse"><%-$t('stocks_32')%></div>
+                            <div class="panel-collapse collapse in">
+                                <stocks1-table :singleDesign="true"></stocks1-table>
+                                <%- include('../_partials/components/stocks1-table.ejs') %>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>        
+        <div class="page-content">
+            <div class="page-section">
+                <h1><%-$t('stocks_33')%></h1>
+                <article class="spreads-block icm-page-subsection-content">
+                    <div class="spreads-block__spread-item">
+                        <div class="spreads-accordion">
+                            <div class="spreads-block__expand-button" data-toggle="collapse"><%-$t('stocks_34')%></div>
+                            <div class="panel-collapse collapse in">
+                                <%- include('../_partials/components/stocks2-table.ejs') %>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <div class="page-content">
+            <div class="page-section">
+                <h1><%-$t('stocks_35')%></h1>
+                <article class="spreads-block icm-page-subsection-content">
+                    <div class="spreads-block__spread-item">
+                        <div class="spreads-accordion">
+                            <div class="spreads-block__expand-button" data-toggle="collapse" ><%-$t('stocks_36')%></div>
+                            <div class="panel-collapse collapse in">
+                                <%- include('../_partials/components/stocks3-table.ejs') %>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <div class="page-content">
+            <div class="page-section">
+                <h1>EURONEXT AMSTERDAM</h1>
+                <article class="spreads-block icm-page-subsection-content">
+                    <div class="spreads-block__spread-item">
+                        <div class="spreads-accordion">
+                            <div class="spreads-block__expand-button" data-toggle="collapse"><%-$t('stocks_32')%></div>
+                            <div class="panel-collapse collapse in">
+                                <%- include('../_partials/components/stocks4-table.ejs') %>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <div class="page-content">
+            <div class="page-section">
+                <h1>Xetra (Germany)</h1>
+                <article class="spreads-block icm-page-subsection-content">
+                    <div class="spreads-block__spread-item">
+                        <div class="spreads-accordion">
+                            <div class="spreads-block__expand-button" data-toggle="collapse"><%-$t('stocks_32')%></div>
+                            <div class="panel-collapse collapse in">
+                                <%- include('../_partials/components/stocks5-table.ejs') %>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <div class="page-content">
+            <div class="page-section">
+                <h1>London Stock Exchange</h1>
+                <article class="spreads-block icm-page-subsection-content">
+                    <div class="spreads-block__spread-item">
+                        <div class="spreads-accordion">
+                            <div class="spreads-block__expand-button" data-toggle="collapse"><%-$t('stocks_32')%></div>
+                            <div class="panel-collapse collapse in">
+                                <%- include('../_partials/components/stocks6-table.ejs') %>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        
+        <div class="page-content">
+            <div class="page-section">
+                <h1>EURONEXT PARIS</h1>
+                <article class="spreads-block icm-page-subsection-content">
+                    <div class="spreads-block__spread-item">
+                        <div class="spreads-accordion">
+                            <div class="spreads-block__expand-button" data-toggle="collapse"><%-$t('stocks_32')%></div>
+                            <div class="panel-collapse collapse in">
+                                <%- include('../_partials/components/stocks7-table.ejs') %>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        
+        <div class="page-content">
+            <div class="page-section">
+                <h1>Bolsa Madrid</h1>
+                <article class="spreads-block icm-page-subsection-content">
+                    <div class="spreads-block__spread-item">
+                        <div class="spreads-accordion">
+                            <div class="spreads-block__expand-button" data-toggle="collapse"><%-$t('stocks_32')%></div>
+                            <div class="panel-collapse collapse in">
+                                <%- include('../_partials/components/stocks8-table.ejs') %>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+
+        <div id="us_stock_trading_description" class="page-content highlighted-content">
+            <div class="page-section description-section">
+                <h1>*<%-$t('stocks_101')%></h1>
+                <p><%-$t('stocks_102')%></p>
+                <div class="content-head"><%-$t('stocks_103')%></div>
+                <p><%-$t('stocks_104')%></p>
+                <div class="content-head"><%-$t('stocks_105')%></div>
+                <p><%-$t('stocks_106')%></p>
+                <div class="content-head"><%-$t('stocks_107')%></div>
+                <p><%-$t('stocks_108')%> <a id="stocks_5" href="https://www.irs.gov/pub/irs-pdf/fw8ben.pdf" target="_blank">"Form W-8BEN"</a> <%-$t('stocks_108_1')%></p>
+                <p><%-$t('stocks_109')%> <a id="stocks_6" href="https://www.irs.gov/pub/irs-pdf/fw8bene.pdf" target="_blank">"Form W-8BEN-E"</a> <%-$t('stocks_109_1')%></p>
+                <p><%-$t('stocks_110')%> <a id="stocks_7" href="<%= localePath('company-contact-us') %>"><%-$t('stocks_110_1')%></a></p>
+            </div>
+        </div>
+        <div id="asx_description" class="page-content">
+            <div class="page-section description-section">
+                <h1>**<%-$t('stocks_201')%></h1>
+                <div class="content-head"><%-$t('stocks_202')%></div>
+                <p><%-$t('stocks_203')%></p>
+                <p><%-$t('stocks_204')%></p>
+                <div class="content-head"><%-$t('stocks_205')%></div>
+                <p><%-$t('stocks_206')%></p>
+            </div>
+        </div>
+        <% if (asic) { %>
+        <div class="page-content">
+            <div class="page-section">
+                <div class="profile-buttons">
+                    <a id="stocks_8" style="text-decoration:none;" class="profile-button" href="<%= localePath('trading-pricing-spreads')%>">
+                        <div class="profile-button-label"><%-$t('stocks_37')%></div>
+                        <div class="profile-button-value"><%-$t('stocks_38')%></div>
+                    </a>
+                    <a id="stocks_9" style="text-decoration:none;" class="profile-button" href="<%- getCDN() %>/uploads/AU/Stocks-Specification-Sheet.pdf" target="_blank">
+                        <div class="profile-button-label"><%-$t('stocks_39')%></div>
+                        <div class="profile-button-value"><%-$t('stocks_40')%></div>
+                    </a>
+                    <a id="stocks_10" style="text-decoration:none;" class="profile-button" href="<%= localePath('trading-accounts-raw-spread-account')%>">
+                        <div class="profile-button-label"><%-$t('stocks_41')%></div>
+                        <div class="profile-button-value"><%-$t('stocks_421')%></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <% } else if (cysec || fsa && !isCnHost && !isScHost) { %>
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="profile-buttons">
+                        <% if (cysec) { %>
+                            <a id="stocks_9" style="text-decoration:none;" class="profile-button" href="<%- getCDN() %>/uploads/EU/Stocks-Specification-Sheet.pdf" target="_blank">
+                        <% } else { %>
+                            <a id="stocks_9" style="text-decoration:none;" class="profile-button" href="<%- getCDN() %>/uploads/GLOBAL/Stocks-Specification-Sheet.pdf" target="_blank">
+                        <% } %>
+                                <div class="profile-button-label"><%-$t('stocks_39')%></div>
+                                <div class="profile-button-value"><%-$t('stocks_40')%></div>
+                            </a>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+        <div class="page-content global-markets-today">
+            <div class="page-section">
+                <div class="start-trading"><%-$t('stocks_43')%></div>
+                <div class="global-today"><%-$t('stocks_44')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="stocks_11"  class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live')%>"><%-$t('stocks_45')%></a>
+                    <a id="stocks_12"  class="icm-btn demo" href="<%= localePath('open-trading-account-demo')%>"><%-$t('stocks_46')%></a>
+                </div>
+            </div>
+        </div>
+    </article>
+</div>
+<script>
+    $(document).ready(function () {
+        $('.scroll-to-description').on('click', function () {
+            $('body,html').animate({scrollTop: $('#us_stock_trading_description').offset().top - 100}, 400);
+        });
+        $('.scroll-to-asx').on('click', function () {
+            $('body,html').animate({scrollTop: $('#asx_description').offset().top - 100}, 400);
+        });
+    });
+</script>

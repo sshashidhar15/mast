@@ -1,0 +1,215 @@
+/* ICM Primary values from UX design */
+
+$icm-color-white: #ffffff !default;
+$icm-color-black: #000000 !default;
+$icm-color-black-2: #101010 !default;
+$icm-color-dark: #181818 !default;
+$icm-color-grey1: #cccccc;
+$icm-color-grey2: #999999;
+$icm-color-grey3: #838789;
+$icm-color-grey4: #666666;
+$icm-color-grey5: #3c4346;
+$icm-color-grey6: #2f2f2f;
+$icm-color-grey7: #232323;
+$icm-color-grey8: #7f7f7f;
+$icm-color-green: #34e834;
+$icm-color-secondary-light: #d9d9d9;
+$icm-color-secondary-dark: #14191c;
+$icm-color-primary-action: $icm-color-green;
+$icm-color-bright-greeen: #34e834;
+$icm-color-dark-green: #009600;
+$icm-hyperlink-color-green: $icm-color-dark-green;
+$icm-hyperlink-color-hovered-green: $icm-color-bright-greeen;
+$icm-bg-color: #eeeeee !default;
+$icm-bg-color-secondary: #efeeec !default;
+$icm-bg-color-dark: $icm-color-dark !default;
+$icm-bg-color-black: $icm-color-black !default;
+$icm-bg-color-white: $icm-color-white !default;
+$icm-font-weight-thin: 100;
+$icm-font-weight-light: 300;
+//$roboto-font-weight-regular: 400; - normal
+$icm-font-weight-medium: 500;
+//$roboto-font-weight-bold: 700; - bold
+$icm-line-height-para-desktop: 36px;
+$icm-line-height-para-mobile: 32px;
+$icm-font-color-white: $icm-color-white;
+$icm-font-color-dark: $icm-color-dark;
+$icm-font-color-black: $icm-color-black;
+$icm-font-color-green: $icm-color-green;
+$icm-font-color-bright-green: $icm-color-bright-greeen;
+$icm-font-color-grey-2: $icm-color-grey2;
+$icm-font-color-grey-3: $icm-color-grey3;
+$icm-font-color-grey-4: $icm-color-grey4;
+$icm-font-color-highlight: #082f6c;
+$icm-navbar-bg: $icm-bg-color-black !default;
+$icm-navbar-color: $icm-color-white !default;
+$icm-navbar-active-color: #34e834;
+$icm-navbar-dropdown-list-color: $icm-navbar-active-color;
+
+/* Width - container, element, card, */
+
+$icm-max-viewport-container-size: 1440px;
+$icm-container-max-width: 960px;
+$icm-ui-element-width: 288px;
+$icm-ui-card-button-width: 240px;
+$icm-min-ui-card-width: $icm-ui-element-width;
+$icm-max-ui-card-width: 608px;
+
+/* Margin */
+
+$icm-margin-xs: 8px;
+$icm-margin-s: 2 * $icm-margin-xs;
+$icm-margin-m: 3 * $icm-margin-xs;
+$icm-margin-std: 4 * $icm-margin-xs;
+$icm-margin-l: 6 * $icm-margin-xs;
+$icm-margin-xl: 8 * $icm-margin-xs;
+
+/* padding */
+
+$icm-padding-xs: 8px; // 8 px
+$icm-padding-s: 2 * $icm-padding-xs;
+$icm-padding-m: 3 * $icm-padding-xs;
+$icm-padding-std: 4 * $icm-padding-xs;
+$icm-padding-l: 6 * $icm-padding-xs;
+$icm-padding-xl: 8 * $icm-padding-xs;
+
+/* Border */
+
+$icm-color-seperator-light: #e0e0e0;
+$icm-color-seperator-navbar: $icm-color-grey6;
+$icm-card-border-radius: 6px;
+$icm-card-box-shadow: 0 1px 3px 0 #999999;
+$icm-border-standard: 1px solid $icm-color-seperator-light;
+$icm-border-dark: 1px solid $icm-color-dark;
+$icm-border-grey5: 1px solid $icm-color-grey5;
+$icm-border-navbar: 1px solid $icm-color-seperator-navbar;
+//== Typography
+
+/*
+  Roboto font related weights
+   https://fonts.google.com/specimen/Roboto?selection.family=Roboto:100,300,400,500,700,900
+*/
+
+//
+//## Font, line-height, and color for body text, headings, and more.
+// Common for bootstrap and project codebase
+$font-family-roboto: "Roboto", sans-serif;
+//$font-family-base: $font-family-sans-serif !default;
+$font-family-base: $font-family-roboto !default;
+$font-size-base: 20px !default;
+$font-size-large: ceil(($font-size-base * 1.2)) !default; // 24~px
+$font-size-xl: ceil(($font-size-base * 1.6)) !default; // 32~px
+$font-size-small: ceil(($font-size-base * 0.9)) !default; // ~18px
+$font-size-xs: ceil(($font-size-base * 0.8)) !default; // ~16px
+$font-size-tiny: ceil(($font-size-base * 0.7)) !default; // ~14px
+$font-size-paragraph: $font-size-xs;
+$font-size-h1-desktop: floor(($font-size-base * 2.4)) !default; // ~48px
+$font-size-h1: floor(($font-size-base * 1.5)) !default; // ~30px
+$font-size-h2: floor(($font-size-base * 1.5)) !default; // ~30px
+$font-size-h3: ceil(($font-size-base * 1.5)) !default; // ~30px
+$font-size-h4: ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-h5: $font-size-base !default;
+$font-size-h6: ceil(($font-size-base * 0.85)) !default; // ~12px
+//** Unit-less `line-height` for use in components like buttons.
+$line-height-base: 1.428571429 !default; // 20/14
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+$line-height-computed: floor(
+  ($font-size-base * $line-height-base)
+) !default; // ~20px
+//** By default, this inherits from the `<body>`.
+$headings-font-family: inherit !default;
+$headings-font-weight: 500 !default;
+$headings-line-height: 1.1 !default;
+$headings-color: inherit !default;
+
+/* font color, background color */
+
+/* UI elements specific color */
+
+$icm-primary-button-bg: $icm-color-green;
+$icm-primary-button-color: $icm-font-color-black;
+$icm-primary-button-font-weight: $icm-font-weight-medium;
+$icm-primary-button-font-size: 18px;
+$icm-secondary-button-bg: $icm-color-white;
+$icm-secondary-button-color: $icm-color-black;
+
+/* Card specific color */
+
+$icm-card-header-bg-color: $icm-color-grey8;
+//== Media queries breakpoints
+//
+//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+// ICM : Modified the following variables to have proper break points.
+// Extra small screen / phone
+//** Deprecated `$screen-xs` as of v3.0.1
+$screen-xs: 320px;
+//** Deprecated `$screen-xs-min` as of v3.2.0
+$screen-xs-min: $screen-xs;
+//** Deprecated `$screen-phone` as of v3.0.1
+$screen-phone: $screen-xs-min;
+// Small screen / tablet
+//** Deprecated `$screen-sm` as of v3.0.1
+$screen-sm: 640px;
+$screen-sm-min: $screen-sm;
+//** Deprecated `$screen-tablet` as of v3.0.1
+$screen-tablet: $screen-sm-min;
+// Medium screen / desktop
+//** Deprecated `$screen-md` as of v3.0.1
+//$screen-md:                  992px !default;
+$screen-md: 960px;
+$screen-md-min: $screen-md;
+//** Deprecated `$screen-desktop` as of v3.0.1
+$screen-desktop: $screen-md-min;
+// Large screen / wide desktop
+//** Deprecated `$screen-lg` as of v3.0.1
+$screen-lg: 1024px;
+$screen-lg-min: $screen-lg;
+//** Deprecated `$screen-lg-desktop` as of v3.0.1
+$screen-lg-desktop: $screen-lg-min;
+// Extra Large screen / desktop
+$screen-xl: 1280px;
+$screen-xl-min: $screen-xl;
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max: ($screen-sm-min - 1);
+$screen-sm-max: ($screen-md-min - 1);
+$screen-md-max: ($screen-lg-min - 1);
+$screen-lg-max: ($screen-xl-min - 1);
+
+/* max width properties for UI Cards for different number of cards in a container */
+
+//The maximum card size is limited to 600px;
+$max-width-xs-one-or-more-card: 100%;
+
+/* one are more cards */
+
+$max-width-sm-two-card: $screen-sm-max/2;
+$max-width-sm-three-or-more-cards: 100%/3;
+
+/* three are more cards */
+
+$border-radius-small: 3px !default;
+$border-radius-base: 4px !default;
+$border-radius-large: 6px !default;
+@mixin caret-after($angle) {
+  font-family: "Glyphicons Halflings";
+  content: "\E072";
+  position: absolute;
+  color: $icm-font-color-black;
+  font-size: 12px;
+  line-height: 22px;
+  right: 0;
+  top: 0;
+  transform: rotate($angle);
+}
+
+@mixin icm-paragraph-standard--font-style() {
+  font-size: $font-size-paragraph;
+  font-weight: $icm-font-weight-light;
+  line-height: 2;
+  color: $icm-font-color-black;
+}
+
+@mixin icm-button-animation() {
+  transform: scale(1.05, 1.05);
+  opacity: 0.9;
+}

@@ -1,0 +1,719 @@
+@import '_global.scss';
+
+
+html.touch-device {
+    .navbar {
+        background: #191919;
+        margin: 0;
+    }
+
+    div#navbar {
+        height: auto;
+    }
+
+    .navbar-brand {
+        padding: 14px 15px 0;
+    }
+
+    .navbar-collapse {
+        border: none;
+        box-shadow: none;
+    }
+
+    .navbar-toggle {
+        margin-top: 15px;
+    }
+
+    .top-item.accent {
+        border: 1px solid #34E834 !important;
+        color: #34E834 !important;
+        padding: 10px;
+    }
+}
+
+.navbar .high-level-of-risk {
+    margin-top: 0 !important;
+    text-align: left !important;
+}
+
+.navbar-brand.navbar-brand--style {
+    display: flex;
+    align-items: center;
+    img {
+        width: 104px;
+    }
+}
+
+.dropdown-toggle {
+    position: relative;
+    padding-right: 2px;
+}
+
+.dropdown-toggle:after {
+    font-family: 'Glyphicons Halflings';
+    content: "\E080";
+    position: absolute;
+    color: #34E834 !important;
+    line-height: 1;
+    transform: rotate(90deg);
+    color: rgba(99, 99, 99, 1.0);
+    position: absolute;
+    top: 16px;
+    font-size: 18px;
+    right: 10px;
+}
+
+.navbar-list__item--style.open {
+    .dropdown-toggle,
+    .dropdown-toggle:hover {
+        opacity: 1 !important;
+        color: #34E834 !important;
+    }
+    .dropdown-toggle:after {
+        transform: rotate(-90deg);
+    }
+}
+
+.dropdown-menu.dropdown-menu--style {
+    width: 100%;
+    font-size: $font-size-small;
+}
+
+/* drop down list related style. applied to the active list */
+.dropdown-list-container {
+
+    padding-bottom: 32px;
+    .dropdown-header {
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: -0.4px;
+        color: rgba(255, 255, 255, 1);
+        padding-left: 0 !important;
+        margin-bottom: 40px;
+    }
+    .dropdown-list-container___list {
+        list-style: none;
+        padding: 0;
+        margin-top: 0;
+    }
+    .dropdown-list-container__list-item {
+        font-size: $font-size-xs;
+        font-weight: $icm-font-weight-light;
+        line-height: 1;
+        padding: 16px 0;
+        color: $icm-font-color-white;
+        border-bottom: $icm-border-navbar;
+        a {
+            color: inherit;
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+        }
+        a:hover {
+            color: $icm-color-bright-greeen;
+            text-decoration: none;
+        }
+    }
+    .dropdown-list-container__list-item {
+        .glyphicon.glyphicon-arrow-right {
+            display: none;
+        }
+    }
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.icm-blogmarker{
+    border: 1px solid #34E834;
+    border-radius: 20px;
+    padding: 8px 10px;
+    margin-left: -10px;
+    font-weight: 400;
+}
+
+.affix {
+    width: 100%;
+    z-index: 9998 !important;
+    padding: 0;
+    background-color: #000;
+}
+
+.affix-top {
+    width: 100%;
+    position: relative;
+    background-color: #000;
+}
+
+.affix {
+    animation-name: show-nav;
+    animation-duration: .5s;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-delay: 0;
+    animation-play-state: running;
+    animation-fill-mode: forwards;
+    -webkit-animation-name: show-nav;
+    -webkit-animation-duration: .5s;
+    -webkit-animation-timing-function: ease;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-direction: normal;
+    -webkit-animation-delay: 0;
+    -webkit-animation-play-state: running;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-name: show-nav;
+    -moz-animation-duration: .5s;
+    -moz-animation-timing-function: ease;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-direction: normal;
+    -moz-animation-delay: 0;
+    -moz-animation-play-state: running;
+    -moz-animation-fill-mode: forwards
+}
+
+@keyframes show-nav {
+    0% {
+        top: -100px
+    }
+
+    100% {
+        top: 0
+    }
+}
+
+@-webkit-keyframes show-nav {
+    0% {
+        top: -100px
+    }
+
+    100% {
+        top: 0
+    }
+}
+
+@-moz-keyframes show-nav {
+    0% {
+        top: -100px
+    }
+
+    100% {
+        top: 0
+    }
+}
+
+.client-login-button:hover,
+.start-trading-button:hover,
+.client-login-button:active,
+.start-trading-button:active {
+    @include icm-button-animation();
+    color: #000;
+}
+
+@media (max-width: 960px) {
+    .navbar-nav {
+        background: #202020;
+    }
+    .dropdown-list-container .dropdown-header {
+        margin-bottom: 0;
+    }
+}
+
+/* Media query for both tablet and mobile phone*/
+@media (max-width: $screen-sm-max) {
+
+    @keyframes show-nav {
+        0% {
+            top: -100px
+        }
+
+        100% {
+            top: 0
+        }
+    }
+
+    @-webkit-keyframes show-nav {
+        0% {
+            top: -100px
+        }
+
+        100% {
+            top: 0
+        }
+    }
+
+    @-moz-keyframes show-nav {
+        0% {
+            top: -100px
+        }
+
+        100% {
+            top: 0
+        }
+    }
+
+    .dropdown-list-container .dropdown-header {
+        padding-bottom: $icm-padding-s !important;
+        padding-top: $icm-padding-std !important;
+    }
+
+    /* reset bootstrap navbar default behaviour */
+    .panel-group .panel-heading + .panel-collapse > .panel-body,
+    .panel-group .panel-heading + .panel-collapse > .list-group {
+        border-top: none;
+    }
+    .language-select--style {
+        float: right;
+        margin-right: 10px;
+        font-size: 16px;
+        line-height: 18px;
+        background: transparent;
+        width: 70px;
+    }
+
+    html.locale-ar .language-select--style { float: left; }
+
+    html.locale-ar .navbar-toggle { float: left; }
+
+    html.locale-ar .navbar-brand.navbar-brand--style {float: right;}
+
+    .touch-device .single-top .language-select--style .lang_selector .lang_display span {
+        display: none !important;
+    }
+
+    .single-top.affix-top {
+        display: none;
+    }
+    .icm-fixed-navbar-xs-sm {
+        position: relative;
+        top: 0;
+        border-width: 0 0 1px;
+        z-index: 9999 !important;
+        width: 100%;
+        height: 50px;
+    }
+    .icm-navbar__bottom.icm-fixed-navbar-xs-sm.affix {
+        position: fixed;
+    }
+    /* Fix the scroll issue in mobile*/
+    div#navbar {
+        height: 500px;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    .navbar.navbar-default {
+        border-left: none;
+        border-right: none;
+        border-top: none;
+    }
+    .navbar-default .navbar-toggle {
+        margin-top: 15px;
+    }
+    .collapse.navbar-collapse.navbar-collapse--style {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .navbar-default .navbar-nav > li > a {
+        background-color: $icm-bg-color-black;
+    }
+    .navbar-default .navbar-nav > li > a.start-trading-button {
+        background-color: $icm-primary-button-bg;
+    }
+    .navbar-default .navbar-nav > .open > a,
+    .navbar-default .navbar-nav > .open > a:focus,
+    .navbar-default .navbar-nav > .open > a:hover {
+        background: $icm-navbar-bg;
+        padding-bottom: 0;
+    }
+
+    .navbar-list__item--style {
+        border-top: none;
+        font-size: 18px;
+        line-height: 1;
+        font-size: 18px;
+        font-weight: 500;
+        font-style: normal;
+        font-stretch: normal;
+        letter-spacing: -0.4px;
+        text-align: left;
+        color: rgba(255, 255, 255, 0.6);
+        padding: 10px;
+
+        a {
+            background-color: transparent !important;
+        }
+    }
+    .navbar-list__item--style:last-child {
+        border-bottom: none;
+    }
+    /* Navbar customization */
+    .navbar-default a.navbar-toggle,
+    .navbar-default a.navbar-toggle:hover {
+        background: transparent;
+        border: none;
+        color: $icm-navbar-color;
+    }
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: $icm-navbar-color;
+    }
+    .navbar-default a.navbar-toggle:before {
+        content: "";
+        left: -50px;
+        top: 6px;
+        position: absolute;
+        font-size: $font-size-small;
+        color: $icm-navbar-color;
+        line-height: 20px;
+    }
+    .navbar-collapse .icm-navbar-list-button {
+        padding: 12px 20px;
+        font-weight: $icm-font-weight-medium;
+        text-align: center;
+        background: #151515;
+        display: flex !important;
+
+        a, button.btn {
+		width: 90% !important;
+		text-decoration: none !important;
+            line-height: 1;
+            margin: 0 7px;
+            border: none;
+            color: rgba(255, 255, 255, 0.8);
+
+            &.btn-primary {
+                background-image: linear-gradient(94deg, #ff4086, #fe6da1);
+            }
+            &.btn-default {
+                background: #373737;
+            }
+        }
+    }
+
+    .navbar-default .navbar-nav > li > a:hover,
+    .navbar-default .navbar-nav > li > a:focus {
+        color: $icm-font-color-white !important;
+    }
+
+    /*http://stackoverflow.com/questions/19227496/scrollable-menu-with-bootstrap-3-menu-expanding-its-container-when-it-should-n*/
+    ul.scroll-menu {
+        position: relative;
+        overflow-x: hidden;
+        overflow-scrolling: touch;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100%;
+        height: auto;
+        max-height: 500px;
+        margin: 0;
+        border-left: none !important;
+        border-right: none !important;
+        border-radius: 0 !important;
+        box-shadow: none;
+    }
+    html.locale-ar ul.scroll-menu {
+        padding: 0px;
+    }
+
+    #nav-icon span {
+        display: block;
+        transform: rotate(0deg);
+        transition: .25s ease-in-out;
+    }
+
+    #nav-icon.open span:nth-child(1) {
+        top: 18px;
+        width: 0;
+        left: 50%;
+    }
+
+    #nav-icon.open span:nth-child(2) {
+        transform: rotate(45deg);
+        left: 10px;
+        display: block;
+        top: 13px;
+        position: absolute;
+    }
+
+    #nav-icon.open span:nth-child(3) {
+        transform: rotate(-45deg);
+    }
+
+    #nav-icon.open span:nth-child(4) {
+        top: 18px;
+        width: 0;
+        left: 50%;
+    }
+
+   
+}
+
+/* Tablet and above */
+@media (min-width: $screen-sm-min) {
+    .navbar-brand.navbar-brand--style {
+        img {
+            width: 120px;
+        }
+    }
+}
+
+/* For Laptop & larger screen i.e. md , lg*/
+@media (min-width: $screen-md-min) {
+
+    .navbar-header {
+        clear: both;
+    }
+    /* The followin four classes are to show/hide client login and open account buttons based on scroll */
+    // .icm-navbar__bottom.icm-fixed-navbar-xs-sm.icm-fixed-navbar-md-lg.affix .client-login-button {
+    //     display: none;
+    // }
+    // .icm-navbar__bottom.icm-fixed-navbar-xs-sm.icm-fixed-navbar-md-lg.affix-top .client-login-button {
+    //     display: block;
+    // }
+
+    .icm-navbar__bottom.icm-fixed-navbar-xs-sm.icm-fixed-navbar-md-lg.affix .start-trading-button {
+        display: block;
+        font-size: 18px;
+    }
+    .locale-it .icm-navbar__bottom.icm-fixed-navbar-xs-sm.icm-fixed-navbar-md-lg.affix .start-trading-button {
+        display: block;
+        font-size: 10px !important;
+    }
+    .icm-navbar__bottom.icm-fixed-navbar-xs-sm.icm-fixed-navbar-md-lg.affix-top .start-trading-button {
+        display: none;
+    }
+
+    .collapse.navbar-collapse.navbar-collapse--style {
+        max-width: $icm-max-viewport-container-size;
+        margin: auto;
+        padding-left: $icm-padding-s;
+        padding-right: $icm-padding-s;
+        display: flex !important;
+    }
+    .top-navbar.top-navbar--style {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .top-navbar__option--style {
+        font-size: $font-size-xs;
+        a, a:focus, a:hover, a:visited {
+            color: $icm-font-color-grey-3;
+        }
+    }
+    .top-navbar__option--style:not(:last-child) {
+        padding-right: $icm-padding-m;
+    }
+    .icm-fixed-navbar-md-lg {
+        margin: 0;
+    }
+    .icm-brand-logo {
+        width: 20%;
+    }
+
+    .navbar-list {
+        display: flex;
+        // min-width: 520px;
+        // width: calc(100% - 460px);
+        justify-content: center;
+        flex: 1;
+
+        .navbar-list {
+            &__item--style > a {
+                padding-right: 24px;
+                padding-bottom: 20px;
+                padding-top: 20px;
+            }
+
+            .navbar-list__item--style > a {
+                padding-top: 0;
+            }
+        }
+    }
+
+    /* style for the navlist inside dropdown list  */
+    .navbar-list__item--style {
+        position: static !important;
+        font-size: $font-size-small;
+    }
+
+    .lang-desktop-container {
+      float: right;
+      width: 120px;
+    }
+    .client-login-block {
+        float: right;
+        width: 140px;
+        margin-top: 14px;
+        a, .client-login-button, .start-trading-button {
+            border: none;
+            font-size: 18px;
+            width: 100%;
+            line-height: 1.3;
+        }
+    }
+    .dropdown-toggle:after {
+        display: none;
+    }
+    .dropdown-menu.dropdown-menu--style {
+        position: absolute;
+        display: block;
+        visibility: hidden;
+        width: 100%;
+        top: 68px;
+        padding: 30px 0%;
+        margin: auto;
+        background: #131313;
+        border-top: $icm-border-navbar;
+        border-radius: 0 !important;
+        opacity: 0.1;
+    }
+
+    .open > .dropdown-menu.dropdown-menu--style {
+        opacity: 1;
+        visibility: visible;
+    }
+    .dropdown-menu .icm-navbar-dropdown-container {
+        position: relative;
+        opacity: 0.1;
+        transition: opacity 300ms ease-in;
+
+        &> div:first-child {
+            margin-top: 60px;
+        }
+        .col-md-7::before {
+            content: "";
+            position: absolute;
+            left: 30px;
+            top: 56px;
+            right: 30px;
+            height: 1px;
+            background: #fff;
+            opacity: 0.2;
+        }
+    }
+
+    .open > .dropdown-menu .icm-navbar-dropdown-container {
+        opacity: 1;
+        /*height: 100%;*/
+    }
+    .icm-navbar {
+        .navbar-default .navbar-nav > li > a,
+        .navbar-default .navbar-nav > li > a:focus,
+        .navbar-default .navbar-nav > li > a:hover,
+        .navbar-default .navbar-nav > li > a:active {
+            color: $icm-font-color-white;
+            opacity: 1;
+        }
+        .icm-navbar {
+            &__top {
+                margin-bottom: 0;
+                background: $icm-navbar-bg;
+                height: 43px;
+                nav {
+                    padding-right: $icm-padding-s;
+                    padding-top: 12px;
+                    background: inherit;
+                    border: none;
+                    border-radius: 0;
+                    margin-bottom: 0;
+                    text-align: center;
+                }
+            }
+            &__bottom {
+                position: relative;
+                background: #000;
+                margin: auto;
+                nav {
+                    margin-bottom: 0px;
+                    background: inherit;
+                    border-radius: 0;
+                    border-right: none;
+                    border-left: none;
+                }
+            }
+        }
+    }
+
+    .navbar-default .navbar-nav > .open > a,
+    .navbar-default .navbar-nav > .open > a:focus,
+    .navbar-default .navbar-nav > .open > a:hover {
+        padding-bottom: 17px;
+        background: transparent !important;
+        border-bottom: 3px solid $icm-color-bright-greeen;
+        color: $icm-navbar-active-color !important;
+    }
+}
+
+/* Larget screen - desktop*/
+@media (min-width: $screen-lg-min) {
+    .navbar-brand.navbar-brand--style {
+        padding: 14px;
+        img {
+            width: 172px;
+        }
+    }
+}
+
+.navbar {
+    .top-item {
+        margin-top: 13px;
+        float: right;
+        margin-right: 16px;
+    }
+}
+
+html:not(.common-page) .icm-navbar .icm-navbar__bottom {
+    background: transparent;
+}
+.navbar-cta-block {
+
+    &__heading {
+        font-size: 36px;
+        font-weight: 100;
+        color: $icm-font-color-white;
+    }
+    &__primary-button {
+        margin-top: $icm-margin-m;
+
+        .icm-btn-primary {
+            width: max-content;
+            border-radius: 40px;
+            font-size: 12px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1;
+            letter-spacing: -0.2px;
+            text-align: center;
+            color: #1f1d31;
+            text-transform: uppercase;
+            min-width: 200px;
+        }
+    }
+    &__secondary-button {
+        margin-top: $icm-margin-m;
+
+        .icm-btn-demo {
+            width: max-content;
+            border-radius: 40px;
+            background: rgba(255,255,255,0.14);
+            font-size: 12px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1;
+            letter-spacing: -0.2px;
+            text-align: center;
+            color: #ffffff;
+            text-transform: uppercase;
+            min-width: 200px;
+
+            &:hover {
+                background: rgba(255,255,255,0.41);
+            }
+        }
+    }
+}
+
+@import 'components/lang-selector.scss';

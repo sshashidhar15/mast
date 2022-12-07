@@ -1,0 +1,100 @@
+<% setI18nPrefix('pages.education.education-overview') %>
+<meta name="description" content="<%- $t('meta', true) %>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/education-overview.css')%>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+    <div class="single-page education-overview">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('education_overview_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('education_overview_2')%></div>
+
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="education_overview_1" class="icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%- $t('education_overview_3') %></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'education-education-overview' }) %>
+        </article>
+        <article class="page-content-container ">
+            <div class="page-content bgcolor1">
+                <div class="page-section">
+                    <div class="double-sidebar-block">
+                        <div class="sidebar-cta-card-container sidebar-top-card random-background rnd-back-1">
+                            <div class="bottom-block">
+                                <p class="bottom-block__message"><%-$t('education_overview_8')%><br><b><%-$t('education_overview_9')%></b></p>
+                                <div class="icm-button-wrapper bottom-block__cta-button">
+                                    <a id="education_overview_2" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('education_overview_12')%></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-card contact-block">
+                            <div class="contact-header">
+                                <div class="header-label"><%-$t('education_overview_13')%></div>
+                                <div class="header-title"><%-$t('education_overview_14')%></div>
+                            </div>
+                            <div class="contact-pre-imaged chat-img">
+                                <div><%-$t('contact_card_help')%></div>
+                            </div>
+                            <% if (!fsa && !scb && !fsc && !cima) { %>
+                            <div class="contact-phone">
+                                <div><%-$t('contact_card_phone')%></div>
+                            </div>
+                            <% } %>
+                            <div class="contact-pre-imaged email-img">
+                                <% if (asic) {%>
+                                    <div><%-$t('contact_card_email_asic')%></div>
+                                <% } else { %>
+                                    <div><%-$t('contact_card_email')%></div>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="first-section">
+                        <h1><%-$t('education_overview_20')%></h1>
+                        <p><%-$t('education_overview_21')%></p>
+                        <% if (countryCode === 'cn' || locale === 'cn') { %>
+                            <a id="education_overview_3" class="link1 btn icm-btn-primary start-trading-button submit" href='<%- getWebsiteURL("cn") %>/blog/category/%E6%8A%80%E6%9C%AF%E9%9D%A2%E5%88%86%E6%9E%90/' target='_blank'><%-$t('education_overview_22')%></a>
+                        <% } else { %>
+                            <a id="education_overview_4" class="link1 btn icm-btn-primary start-trading-button submit" href='<%- getWebsiteURL(countryCode) %>/blog/' target='_blank'><%-$t('education_overview_22')%></a>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content bgcolor2">
+                <div class="page-section">
+                    <h1><%-$t('education_overview_23')%></h1>
+                    <p><%-$t('education_overview_24')%></p>
+                    <a id="education_overview_5" type="button" class="link1 btn icm-btn-primary start-trading-button submit" href="<%=  localePath('education-advantages-of-forex') %>"><%-$t('education_overview_25')%></a>
+                </div>
+            </div>
+            <div class="page-content bgcolor3">
+                <div class="page-section">
+                    <h1><%-$t('education_overview_26')%></h1>
+                    <p><%-$t('education_overview_27')%></p>
+                    <a id="education_overview_6" class="link1 btn icm-btn-primary start-trading-button submit" href="<%= localePath('education-advantages-of-cfds') %>"><%-$t('education_overview_28')%></a>
+                </div>
+            </div>
+            <div class="page-content bgcolor4">
+                <div class="page-section">
+                    <h1><%-$t('education_overview_29')%></h1>
+                    <p><%-$t('education_overview_30')%></p>
+                    <a id="education_overview_7" class="link1 btn icm-btn-primary start-trading-button submit" href="<%= localePath('education-video-tutorials') %>"><%-$t('education_overview_31')%></a>
+                </div>
+            </div>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('education_overview_4')%></div>
+                    <div class="global-today"><%-$t('education_overview_5')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="education_overview_8" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('education_overview_6')%></a>
+                        <a id="education_overview_9" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('education_overview_7')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

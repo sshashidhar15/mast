@@ -1,0 +1,47 @@
+
+<div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4">
+  <h1 class="h3">Counting words count per language</h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-4">
+    <div class="card">
+      <div class="card-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Language code</th>
+              <th>Exclude pages</th>
+              <th>Request calculation</th>
+              <th>Words count</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% langs.forEach(lang => {%>
+              <tr>
+                <td><b><%= lang.toUpperCase() %></b></td>
+                <td><input placeholder="page name"/></td>
+                <td><a id="counter_btn_warning" class="btn btn-sm btn-warning" onclick="words_count(this,'<%= lang %>')"><b>Count</b></button></td>
+                <td></td>
+              </tr>
+            <%})%>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  function words_count (el, lang) {
+    $(el).attr('disabled', 'disabled').html('<b>🔃</b>')
+    var page = $(el).closest('td').prev().find('input').val()
+
+    fetch('/<%- prefix_by_regulator %>/<%- locale %>/admin/words_count/' + lang + '/' + page)
+      .then(res => res.ok ? res.text() : Promise.reject(res.error || res.status))
+      .then(count => {
+        $(el).removeAttr('disabled').html('<b>Count</b>')
+        $(el).closest('td').next().html(count)
+      })
+  }
+</script>

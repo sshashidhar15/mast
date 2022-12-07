@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="<%=md5('/css/components/stocks1-table.css')%>">
+<div class="markets-spread-table stocks-spread-table">
+<%
+let stocks1Table = {
+    stocksSpreadsColHeadersDesktop: ['MT5 Symbol', 'ASX Shares'],
+    stocksSpreadsData: [
+        ["AMC.ASX", "Amcor CFD"],
+        ["AMP.ASX", "AMP (AUD) CFD"],
+        ["ANZ.ASX", "Australia and NZ Banking Group Ltd (AUD) CFD"],
+        ["BHP.ASX", "BHP Billiton (AUD) CFD"],
+        ["BXB.ASX", "Brambles Ltd CFD"],
+        ["CBA.ASX", "Commonwealth Bank of Australia CFD"],
+        ["CSL.ASX", "CSL Ltd CFD"],
+        ["FMG.ASX", "Fortescue Metals Group CFD"],
+        ["IAG.ASX", "Insurance Australia Group CFD"],
+        ["MQG.ASX", "Macquarie Group Ltd CFD"],
+        ["NAB.ASX", "National Australia Bank CFD"],
+        ["QBE.ASX", "QBE Insurance Group CFD"],
+        ["RIO.ASX", "Rio Tinto (AUD) CFD"],
+        ["SCG.ASX", "Scentre Group CFD"],
+        ["SUN.ASX", "Suncorp Group Ltd CFD"],
+        ["TCL.ASX", "Transurban Group CFD"],
+        ["TLS.ASX", "Telstra Corp (AUD) CFD"],
+        ["WBC.ASX", "Westpac Banking Corp (AUS) CFD"],
+        ["WES.ASX", "Wesfarmers CFD"],
+        ["WOW.ASX", "Woolworths (AUD) CFD"],
+        ["WPL.ASX", "Woodside Petroleum CFD"]
+    ]
+}
+%>
+<div class="single-design-search">
+    <div class="group search">
+        <span>Search by Symbol</span>
+        <input class="spreads-search-box" type="search"/>
+    </div>
+    <div class="group skin">
+        <span class="skin-label">Table Skin</span>
+        <span class="skin-toggle skin-light">&nbsp;</span>
+        <span class="skin-toggle skin-dark">&nbsp;</span>
+    </div>
+</div>
+
+<%- include('./spread-table-component.ejs', {
+    extraClass: 'stocks',
+    tableSkin: 'light-skin',
+    slotMobile: null,
+    slotTablet: null,
+    slotDesktop: null,
+    colHeadersMobile: stocks1Table.stocksSpreadsColHeadersDesktop,
+    mobileData: stocks1Table.stocksSpreadsData,
+    colHeadersTablet: stocks1Table.stocksSpreadsColHeadersDesktop,
+    tabletData: stocks1Table.stocksSpreadsData,
+    colHeadersDesktop: stocks1Table.stocksSpreadsColHeadersDesktop,
+    desktopData: stocks1Table.stocksSpreadsData
+}); %>
+</div>

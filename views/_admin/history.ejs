@@ -1,0 +1,134 @@
+<style media="screen">
+    .diff-table {
+        font-size: 12px;
+    }
+    .diff-table td, .diff-table th {
+        border-top: 1px solid #000;
+    }
+    table.table th {
+        white-space: nowrap;
+    }
+    table.table td {
+        line-height: 1.1;
+    }
+    .button-container {
+        display: flex;
+        justify-content: space-between;
+    }
+    #_icon_sort_up_count_changed_keys,
+    #_icon_sort_down_count_changed_keys,
+    #_icon_sort_up_time,
+    #_icon_sort_down_time,
+    #_icon_sort_up_locale,
+    #_icon_sort_down_locale,
+    #_icon_sort_up_note,
+    #_icon_sort_down_note,
+    #_icon_sort_up_approved_by,
+    #_icon_sort_down_approved_by {
+        font-size: xx-large;
+        cursor: pointer;
+    }
+    #_icon_sort_up_count_changed_keys:hover,
+    #_icon_sort_down_count_changed_keys:hover,
+    #_icon_sort_up_time:hover,
+    #_icon_sort_down_time:hover,
+    #_icon_sort_up_locale:hover,
+    #_icon_sort_down_locale:hover,
+    #_icon_sort_up_note:hover,
+    #_icon_sort_down_note:hover,
+    #_icon_sort_up_approved_by:hover,
+    #_icon_sort_down_approved_by:hover {
+        font-weight: bold;
+    }
+    #_icon_sort_up_count_changed_keys.active,
+    #_icon_sort_down_count_changed_keys.active,
+    #_icon_sort_up_time.active,
+    #_icon_sort_down_time.active,
+    #_icon_sort_up_locale.active,
+    #_icon_sort_down_locale.active,
+    #_icon_sort_up_note.active,
+    #_icon_sort_down_note.active,
+    #_icon_sort_up_approved_by.active,
+    #_icon_sort_down_approved_by.active {
+        color: black;
+    }
+    .sort-controls-container {
+        display: flex;
+        justify-content: space-around;
+    }
+    #wrapper #content-wrapper {
+        overflow-x: scroll;
+    }
+</style>
+<br>
+<button id="_button_restore_default_settings">Restore filters/sort to default</button>
+<br>
+<br>
+<label for="_input_filter_by_values">Filter by values in translations</label>
+<input id="_input_filter_by_values" type="text"/>
+<br>
+<label for="_input_filter_by_keys">Filter by translations keys</label>
+<input id="_input_filter_by_keys" type="text"/>
+<br>
+<br>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <input type="datetime-local" id="_input_time_from">
+                <br>
+                <input type="datetime-local" id="_input_time_to">
+                <br>
+                <span>Time</span>
+                <div class="sort-controls-container">
+                    <i id="_icon_sort_down_time">&darr;</i>
+                    <i id="_icon_sort_up_time">&uarr;</i>
+                </div>
+            </th>
+            <th>
+                <input type="text" id="_input_note" size="8"/>
+                <br>
+                <span>Note<span>
+                <div class="sort-controls-container">
+                    <i id="_icon_sort_down_note">&darr;</i>
+                    <i id="_icon_sort_up_note">&uarr;</i>
+                </div>
+            </th>
+            <th>
+                <input type="text" id="_input_approved_by" size="8"/>
+                <br>
+                <span>Approved by<span>
+                <div class="sort-controls-container">
+                    <i id="_icon_sort_down_approved_by">&darr;</i>
+                    <i id="_icon_sort_up_approved_by">&uarr;</i>
+                </div>
+            </th>
+            <th>
+                <select style="display: none;" id="_select_locale">
+                </select>
+                <br>
+                <span>Language</span>
+                <div class="sort-controls-container">
+                    <i id="_icon_sort_down_locale">&darr;</i>
+                    <i id="_icon_sort_up_locale">&uarr;</i>
+                </div>
+            </th>
+            <th>
+                <input id="_input_count_changed_keys_from" type="number" step="1"/>
+                <br>
+                <input id="_input_count_changed_keys_to" type="number" step="1"/>
+                <br>
+                <span>Count changed keys</span>
+                <br>
+                <div class="sort-controls-container">
+                    <i id="_icon_sort_down_count_changed_keys">&darr;</i>
+                    <i id="_icon_sort_up_count_changed_keys">&uarr;</i>
+                </div>
+            </th>
+            <th>Controls</th>
+        </tr>
+    </thead>
+    <tbody id="_pendings" style="display: none;">
+    </tbody>
+</table>
+<script src="<%=md5('/js/admin_views/history.js')%>"></script>

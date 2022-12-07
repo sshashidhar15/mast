@@ -1,0 +1,26 @@
+<% if (true/*!cysec*/) { %>
+  <div class="lang_selector dropdown navbar-list__item--style navbar-list__item--locale">
+    <a id="lang_selector_dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" data-hover="dropdown" data-delay="0" data-close-others="true">
+      <span class="lang_display">
+        <img src="/img/flags/<%= locale %>.jpg" width="24" height="16" />
+        <span><%= locale %></span>
+      </span>
+    </a>
+    <div class="dropdown-menu dropdown-menu--locale" role="menu">
+      <ul class="dropdown-list-container___list">
+        <% config.locales_per_regulator.forEach(r => { %>
+          <% if (r.regulator === regulator) { %>
+            <% config.locales.forEach(l => { %>
+              <% if (r.locales.includes(l.id)) { %>
+                <li id="lang_selector_option_<%= l.code%>" class="dropdown-list-container__list-item" onclick="window.location='<%= changeLocale(l.code) %>'" data-toggle="collapse" data-target=".navbar-collapse.in">
+                  <img src="/img/flags/<%= l.code %>.jpg" width="24" height="16" />
+                  <span><%= l.name %></span>
+                </li>
+              <% } %>
+            <% }) %>
+          <% } %>
+        <% }) %>
+      </ul>
+    </div>
+  </div>
+<% } %>

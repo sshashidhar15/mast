@@ -1,0 +1,32 @@
+{
+  "form_error_info": "Internal Server Error. Please contact support for advise.",
+  "form_sended_info": "Your support request has been successfully sent.",
+  "form_failed_info": "Something wrong sending you request. Please try again.",
+  "allfieldsarerequired": "All fields are required.",
+  "firstname": "First name",
+  "lastname": "Last name",
+  "phone": "Phone",
+  "emailaddress": "Email address",
+  "country": "Country",
+  "state": "State",
+  "city": "City",
+  "streetaddress": "Street address",
+  "postcode": "Post code",
+  "department": "Department",
+  "subject": "Subject",
+  "departmentsales": "Client Relations",
+  "departmentsupport": "Support",
+  "departmentaccount": "Accounts",
+  "departmentcompilance": "Compliance",
+  "departmentmarketing": "Marketing",
+  "departmentibpartners": "IB / Partners",
+
+  "havelivetradingaccount": "Do you currently have a Live trading account?",
+  "tradingaccountnumber": "Your Live trading account number",
+  "clearform": "Clear",
+  "submitform": "Submit",
+
+  "message": "Message",
+  "formHeading": "Send us a message",
+  "formDesc" : "Whether you're new to IC Markets or have a question about your existing account, we can help. Simply fill in your details below and we'll get back to you soon."
+}

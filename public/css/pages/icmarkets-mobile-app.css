@@ -1,0 +1,547 @@
+/* ICM Primary values from UX design */
+/* Width - container, element, card, */
+/* Margin */
+/* padding */
+/* Border */
+/*
+  Roboto font related weights
+   https://fonts.google.com/specimen/Roboto?selection.family=Roboto:100,300,400,500,700,900
+*/
+/* font color, background color */
+/* UI elements specific color */
+/* Card specific color */
+/* max width properties for UI Cards for different number of cards in a container */
+/* one are more cards */
+/* three are more cards */
+
+
+ .single-page.page-icmarkets-mobile-app {
+	 background-color: #f3f3f3 !important;
+}
+.single-page.page-icmarkets-mobile-app a:hover {
+        transform: scale(1.0,1.1);
+    }
+.single-page.page-icmarkets-mobile-app	a:focus {
+        transform: scale(1.0,1.1);
+    }
+ .single-page.page-icmarkets-mobile-app .highlight-text {
+	 color: #34e834;
+	 white-space: nowrap;
+}
+ .single-page.page-icmarkets-mobile-app .intro-block {
+	 display: grid;
+	 grid-template-columns: 40% 60%;
+	 background: url(./../../assets/img/mobile_trading_app/intro-background.png) bottom no-repeat;
+	 height: 800px;
+	 background-size: cover;
+}
+ .single-page.page-icmarkets-mobile-app .intro-block .intro-section {
+	 display: grid;
+	 align-content: center;
+	 row-gap: 42px;
+	 width: 665px;
+	 text-align: left;
+	 padding-left: 140px;
+	 height: 600px;
+}
+ .single-page.page-icmarkets-mobile-app .intro-block .intro-heading-1 {
+	 width: 86%;
+	 font-size: 44px;
+	 font-weight: 600;
+}
+ .single-page.page-icmarkets-mobile-app .gray-block {
+	 min-height: 450px;
+	 background-color: #f3f3f3;
+	 color: #000;
+	 display: grid;
+	 grid-template-columns: 40% 20% 40%;
+	 font-size: 14px;
+}
+ .single-page.page-icmarkets-mobile-app .gray-block .icons {
+	 padding-bottom: 3%;
+}
+ .single-page.page-icmarkets-mobile-app .gray-block .icons img {
+	 width: 7%;
+}
+ .single-page.page-icmarkets-mobile-app .gray-block .features {
+	 display: grid;
+	 align-content: center;
+	 font-size: 15px;
+}
+ .single-page.page-icmarkets-mobile-app .gray-block .right {
+	 text-align: right;
+}
+ .single-page.page-icmarkets-mobile-app .gray-block .left {
+	 text-align: left;
+}
+ .single-page.page-icmarkets-mobile-app .gray-block .support-contact-img-section {
+	 padding-right: 0;
+	 width: 80%;
+}
+ .single-page.page-icmarkets-mobile-app .gray-block .support-contact-section {
+	 width: 63%;
+}
+ .single-page.page-icmarkets-mobile-app .grid2-2 {
+	 display: grid;
+	 grid-template-columns: 50% 50%;
+}
+ .single-page.page-icmarkets-mobile-app .light-block {
+	 min-height: 440px;
+	 height: 550px;
+	 color: #000;
+	 background-color: #fff;
+	 font-size: 16px;
+}
+ .single-page.page-icmarkets-mobile-app .light-block .support-contact-section {
+	 width: 80%;
+	 margin-left: 17%;
+}
+ .single-page.page-icmarkets-mobile-app .light-block .traders-block {
+	 display: flex;
+	 width: 50%;
+	 height: 220px;
+	 justify-content: space-evenly;
+	 align-items: center;
+	 margin-left: 25%;
+}
+ .single-page.page-icmarkets-mobile-app .light-block .trader-icon {
+	 height: 75px;
+}
+ .single-page.page-icmarkets-mobile-app .light-block .download-options {
+	 display: flex;
+	 justify-content: space-between;
+	 width: 106%;
+}
+ .single-page.page-icmarkets-mobile-app .light-block .currency-name {
+	 height: 30px;
+	 width: 52px;
+	 justify-content: center;
+	 align-items: center;
+	 display: flex;
+	 border: 1px solid #f3f3f3;
+	 border-radius: 7%;
+	 font-size: 12px;
+	 font-weight: 500;
+	 box-shadow: 1px 1px 0 3px #f3f3f3;
+}
+ .single-page.page-icmarkets-mobile-app .light-block .currency-options {
+	 display: flex;
+	 flex-flow: row wrap;
+	 height: 46px;
+	 justify-content: space-between;
+	 width: 340px;
+}
+ .single-page.page-icmarkets-mobile-app .support-contact-section {
+	 text-align: left;
+	 display: flex;
+	 flex-flow: column wrap;
+	 justify-content: center;
+	 align-content: center;
+}
+ .single-page.page-icmarkets-mobile-app .section-header {
+	 font-size: 40px;
+	 font-weight: 600;
+	 margin: 16px 0;
+}
+ .single-page.page-icmarkets-mobile-app .section-text {
+	 font-size: 20px;
+}
+ .single-page.page-icmarkets-mobile-app .upload-section {
+	 grid-template-columns: 50% 46%;
+	 height: 556px;
+}
+ .single-page.page-icmarkets-mobile-app .support-contact-img-section {
+	 padding-top: 32px;
+	 padding-right: 80%;
+}
+ .single-page.page-icmarkets-mobile-app .h-150 {
+	 height: 150px;
+}
+ .single-page.page-icmarkets-mobile-app .icons {
+	 padding-bottom: 3%;
+}
+ .single-page.page-icmarkets-mobile-app .traders-block {
+	 display: flex;
+	 width: 50%;
+	 height: 220px;
+	 justify-content: space-evenly;
+	 align-items: center;
+	 margin-left: 25%;
+}
+ .single-page.page-icmarkets-mobile-app .trader-icon {
+	 height: 75px;
+}
+ .single-page.page-icmarkets-mobile-app .download-options {
+	 display: flex;
+	 justify-content: space-between;
+	 width: 106%;
+}
+ .single-page.page-icmarkets-mobile-app .dark-block {
+	 min-height: 450px;
+	 padding-top: 5%;
+	 font-size: 15px;
+	 background: #1c1a2b url(./../../assets/img/mobile_trading_app/world-map.png) bottom no-repeat;
+}
+ .single-page.page-icmarkets-mobile-app .dark-block .app-download-section .highlight-text {
+        color: #34e834;
+        white-space: break-spaces;
+}
+ .single-page.page-icmarkets-mobile-app .dark-block .mobile-app-download {
+	 display: grid;
+	 grid-template-columns: 20% 20% 20% 20%;
+	 justify-content: center;
+	 align-items: center;
+	 height: 700px;
+}
+ .single-page.page-icmarkets-mobile-app .dark-block .app-download-section {
+	 display: grid;
+	 gap: 20px;
+}
+ .single-page.page-icmarkets-mobile-app .dark-block .markets-description {
+	 height: 36px;
+}
+ .single-page.page-icmarkets-mobile-app .payment-image {
+	 height: 85%;
+	 padding-left: 60%;
+}
+ .single-page.page-icmarkets-mobile-app .traders {
+	 height: 440px !important;
+}
+ @media screen and (max-width: 1286px) {
+	 .single-page.page-icmarkets-mobile-app .intro-block {
+		 grid-template-columns: 55% 45%;
+		 min-height: 460px;
+		 height: 600px;
+	}
+	 .single-page.page-icmarkets-mobile-app .intro-block .intro-section {
+		 min-width: 600px;
+		 padding-left: 70px;
+	}
+	 .single-page.page-icmarkets-mobile-app .intro-block .app-login-image {
+		 width: 98%;
+	}
+	 .single-page.page-icmarkets-mobile-app .gray-block {
+		 grid-template-columns: 35% 30% 35%;
+	}
+	 .single-page.page-icmarkets-mobile-app .gray-block .icons img {
+		 width: 12%;
+	}
+	 .single-page.page-icmarkets-mobile-app .gray-block .support-contact-img-section {
+		 width: 88%;
+	}
+	 .single-page.page-icmarkets-mobile-app .grid2-2 {
+		 grid-template-columns: 50% 50%;
+	}
+	 .single-page.page-icmarkets-mobile-app .light-block {
+		 min-height: 370px;
+	}
+	 .single-page.page-icmarkets-mobile-app .light-block .traders-block {
+		 width: 94%;
+		 margin-left: 0;
+	}
+	 .single-page.page-icmarkets-mobile-app .dark-block .mobile-app-download {
+		 grid-template-columns: 21% 25% 25% 20%;
+		 height: 640px;
+	}
+	 .single-page.page-icmarkets-mobile-app .mobile-app-image1 {
+		 width: 85%;
+	}
+	 .single-page.page-icmarkets-mobile-app .mobile-app-image2 {
+		 width: 103%;
+	}
+	 .single-page.page-icmarkets-mobile-app .traders {
+		 height: 380px !important;
+	}
+}
+ @media screen and (max-width: 780px) {
+	 .single-page.page-icmarkets-mobile-app .signin-image {
+		 display: none;
+	}
+	 .single-page.page-icmarkets-mobile-app .h-150 {
+		 height: 110px;
+	}
+	 .single-page.page-icmarkets-mobile-app .grid2-2 {
+		 grid-template-columns: 100%;
+	}
+	 .single-page.page-icmarkets-mobile-app .metatrader-playstore {
+		 width: 80%;
+	}
+	 .single-page.page-icmarkets-mobile-app .ios-text {
+		 height: 64px;
+	}
+	 .single-page.page-icmarkets-mobile-app .play-store {
+		 width: 32%;
+	}
+	 .single-page.page-icmarkets-mobile-app .section-header {
+		 font-size: 30px;
+	}
+	 .single-page.page-icmarkets-mobile-app .payment-image {
+		 padding: 0;
+	}
+	 .single-page.page-icmarkets-mobile-app .payment-block {
+		 height: 870px !important;
+	}
+	.single-page.page-icmarkets-mobile-app .payment-block .section-text{
+		 height: 90px !important;
+	}
+	 .single-page.page-icmarkets-mobile-app .upload-block {
+		 height: 635px;
+	}
+	 .single-page.page-icmarkets-mobile-app .section-text {
+		 font-size: 18px;
+	}
+	 .single-page.page-icmarkets-mobile-app .intro-block {
+		 height: 900px;
+		 grid-template-columns: 100%;
+	}
+	 .single-page.page-icmarkets-mobile-app .intro-block .intro-section {
+		 width: 100%;
+		 height: 365px;
+		 text-align: center;
+		 padding: 0;
+	}
+	 .single-page.page-icmarkets-mobile-app .intro-block .intro-heading-1 {
+		 font-size: 35px;
+		 width: 100%;
+	}
+	 .single-page.page-icmarkets-mobile-app .intro-block .intro-heading-2 {
+		 width: 88%;
+		 padding-left: 12%;
+	}
+	 .single-page.page-icmarkets-mobile-app .intro-block .intro-image {
+		 position: relative;
+		 bottom: 11%;
+		 left: 4%;
+	}
+	 .single-page.page-icmarkets-mobile-app .intro-block .app-login-image {
+		 width: 70%;
+	}
+	 .single-page.page-icmarkets-mobile-app .gray-block {
+		 grid-template-columns: 100%;
+	}
+	 .single-page.page-icmarkets-mobile-app .gray-block .features {
+		 text-align: left;
+		 padding-left: 16%;
+	}
+	 .single-page.page-icmarkets-mobile-app .gray-block .icons img {
+		 width: 8%;
+	}
+	 .single-page.page-icmarkets-mobile-app .gray-block .support-contact-section {
+		 grid-column: 1;
+		 grid-row: 1;
+		 width: 75%;
+		 padding-top: 4%;
+	}
+	 .single-page.page-icmarkets-mobile-app .gray-block .support-contact-section img {
+		 height: 80%;
+	}
+	 .single-page.page-icmarkets-mobile-app .gray-block .support-contact-img-section {
+		 width: 100%;
+	}
+	 .single-page.page-icmarkets-mobile-app .dark-block .mobile-app-download {
+		 height: 450px;
+	}
+	 .single-page.page-icmarkets-mobile-app .dark-block .markets-description {
+		 height: 56px;
+		 width: 82%;
+		 padding-left: 18%;
+	}
+	 .single-page.page-icmarkets-mobile-app .light-block {
+		 grid-template-columns: 100%;
+		 grid-gap: 40px;
+		 height: 650px;
+	}
+	 .single-page.page-icmarkets-mobile-app .light-block .traders-block, .single-page.page-icmarkets-mobile-app .light-block .download-options {
+		 width: 100%;
+	}
+	 .single-page.page-icmarkets-mobile-app .light-block .support-contact-section {
+		 margin-left: 5%;
+		 margin-top: 4%;
+	}
+	 .single-page.page-icmarkets-mobile-app .support-contact-img-section {
+		 width: 100%;
+		 padding: 0;
+	}
+	 .single-page.page-icmarkets-mobile-app .support-contact-img-section img {
+		 height: 75%;
+	}
+}
+ @media screen and (max-width: 430px) {
+	 .single-page.page-icmarkets-mobile-app .play-store {
+		 width: 35%;
+	}
+	 .single-page.page-icmarkets-mobile-app .traders {
+		 height: 401px !important;
+	}
+	.single-page.page-icmarkets-mobile-app .section-header {
+        font-size: 26px;
+    }
+	.single-page.page-icmarkets-mobile-app .icmobile-app-download {
+        display: flex;
+        text-align: left;
+        padding-right: 30px;
+        margin-right: 0 !important;
+        padding-left: 2%;
+    }
+	 .single-page.page-icmarkets-mobile-app .intro-block {
+		 height: 700px;
+	}
+	 .single-page.page-icmarkets-mobile-app .intro-block .intro-section {
+		 height: 375px;
+		 row-gap: 25px;
+	}
+	 .single-page.page-icmarkets-mobile-app .intro-block .intro-heading-1 {
+		 font-size: 26px;
+		 width: 70%;
+		 padding: 0 5%;
+	}
+	 .single-page.page-icmarkets-mobile-app .intro-block .intro-heading-2 {
+		 width: 70%;
+		 padding: 0 5%;
+		 font-size: 16px;
+	}
+	 .single-page.page-icmarkets-mobile-app .intro-block .app-login-image {
+		 width: 90%;
+	}
+	 .single-page.page-icmarkets-mobile-app .light-block {
+		 height: 610px;
+	}
+	 .single-page.page-icmarkets-mobile-app .light-block .currency-options {
+		 padding-top: 7%;
+	}
+	 .single-page.page-icmarkets-mobile-app .light-block .traders-block {
+		 display: grid;
+		 height: 70%;
+	}
+	 .single-page.page-icmarkets-mobile-app .light-block .trader-icon {
+		 height: 55px;
+	}
+	 .single-page.page-icmarkets-mobile-app .gray-block .features {
+		 padding-left: 8%;
+		 font-size: 15px;
+	}
+	 .single-page.page-icmarkets-mobile-app .gray-block .support-contact-section {
+		 width: 95%;
+		 padding-left: 5%;
+	}
+	 .single-page.page-icmarkets-mobile-app .gray-block .support-contact-img-section {
+		 width: 100%;
+		 padding-left: 7%;
+	}
+	 .single-page.page-icmarkets-mobile-app .support-contact-img-section img {
+		 height: 65%;
+	}
+	 .single-page.page-icmarkets-mobile-app .markets-heading {
+		 height: 98px !important;
+	}
+	.single-page.page-icmarkets-mobile-app .dark-block .markets-heading {
+		 min-height: 135px !important;
+	}
+	 .single-page.page-icmarkets-mobile-app .dark-block .markets-description {
+		height: 86px;
+		 width: 93%;
+		 padding-left: 3%;
+	}
+	 .single-page.page-icmarkets-mobile-app .dark-block .mobile-app-download {
+		 grid-template-columns: 100%;
+		 height: 370px;
+	}
+	 .single-page.page-icmarkets-mobile-app .dark-block .app-download-section {
+		 gap: 10px;
+	}
+	 .single-page.page-icmarkets-mobile-app .dark-block .app-download-section .metatrader-playstore {
+		 width: 45%;
+	}
+	 .single-page.page-icmarkets-mobile-app .mobile-app-image {
+		 display: none;
+	}
+}
+@media screen and (max-width: 396px) {
+	 .single-page.page-icmarkets-mobile-app .intro-block .intro-heading-1 {
+		 width: 65%;
+	}
+	 .single-page.page-icmarkets-mobile-app .intro-block .intro-heading-2 {
+		width: 65%;
+	}
+	.single-page.page-icmarkets-mobile-app .playstore {
+		width: 80%;
+	}
+	.single-page.page-icmarkets-mobile-app #header-appstore {
+		margin-right: 16px !important;
+	}
+}
+ .locale-ar .left {
+	 text-align: right !important;
+}
+ .locale-ar .right {
+	 text-align: left !important;
+}
+ .locale-ar .payment-image {
+	 padding-left: 35% !important;
+}
+ .locale-ar .support-contact-img-section {
+	 padding-right: 15% !important;
+}
+.locale-ar .intro-block {
+	 direction: ltr;
+}
+.locale-ar .intro-section {
+	 direction: rtl !important
+}
+ .locale-ar .light-block .traders-block {
+	 margin-right: 25% !important;
+	 margin-left: 0% !important;
+}
+ @media screen and (max-width: 1286px) {
+	 .locale-ar .support-contact-img-section {
+		 padding-right: 0% !important;
+	}
+	 .locale-ar .light-block .traders-block {
+		 margin-right: 3% !important;
+	}
+	 .locale-ar .payment-image {
+		 padding-left: 0 !important;
+	}
+}
+@media screen and (max-width: 780px) {
+	 .locale-ar .right {
+		 text-align: left !important;
+	}
+	.locale-ar .left {
+		 text-align: left !important;
+	}
+	.locale-ar  .light-block .traders-block {
+		 margin-right: 0% !important;
+	}
+	 .locale-ar .intro-image {
+		 left: 0 !important;
+	}
+}
+ @media screen and (max-width: 430px) {
+	.locale-ar .right {
+		 text-align: left !important;
+	}
+	.locale-ar .left {
+		 text-align: left !important;
+	}
+	.locale-ar .intro-heading-1, .locale-ar .intro-heading-2 {
+		 width: 100% !important;
+	}
+	 .locale-ar .icmobile-app-download {
+		 padding-right: 0 !important;
+	}
+	 .locale-ar .intro-section {
+		 min-width: 390px !important;
+	}
+	 .locale-ar .intro-image {
+		 left: 1% !important;
+	}
+	.locale-ar #header-appstore {
+            margin-right: 26px !important;
+            margin-left: 11px !important;
+    }
+}
+
+ 
+ 
+/*# sourceMappingURL=icmarkets-mobile-app.css.map */

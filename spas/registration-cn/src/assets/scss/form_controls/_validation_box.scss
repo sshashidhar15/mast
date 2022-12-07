@@ -1,0 +1,31 @@
+.validation_box {
+    padding-bottom: 32px;
+
+    .field {
+        height: auto;
+        min-height: 54px;
+
+        .error-list {
+            margin-bottom: 5px;
+        }
+    }
+
+    .validation_wrap {
+        button {
+            margin-right: 10px;
+        }
+
+        input {
+            border: none;
+            border-bottom: 1px solid #949494;
+            outline: none;    
+            width: 120px;
+            margin-right: 10px;
+        }
+
+        .message-list {
+            margin-top: 5px;
+            font-size: 12px;
+        }
+    }
+}

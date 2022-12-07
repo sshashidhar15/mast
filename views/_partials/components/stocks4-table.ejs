@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="<%=md5('/css/components/stocks1-table.css')%>">
+<div class="markets-spread-table stocks-spread-table">
+<%
+let stocks4Table = {
+    stocksSpreadsColHeadersDesktop: ['MT5 Symbol', 'EURONEXT AMSTERDAM STOCKS'],
+    stocksSpreadsData: [
+        ["AALB.AMS", "Aalberts Inds"],
+        ["ABN.AMS", "ABN AMRO Group"],
+        ["AD.AMS", "Koninklijke Ahold Delhaize NV"],
+        ["AGN.AMS", "Aegon"],
+        ["AKZA.AMS", "Akzo Nobel NV"],
+        ["ASML.AMS", "ASML"],
+        ["ASRNL.AMS", "ASR Nederland NV"],
+        ["DSM.AMS", "DSM"],
+        ["ECMPA.AMS", "Eurocommercial Properties"],
+        ["FUR.AMS", "Fugro NV"],
+        ["GLPG.AMS", "Galapagos NV"],
+        ["HEIA.AMS", "Heineken"],
+        ["INGA.AMS", "ING Groep NV (NL)"],
+        ["KPN.AMS", "KPN"],
+        ["NN.AMS", "NN Group NV"],
+        ["PHIA.AMS", "Kon Philips"],
+        ["RAND.AMS", "Randstad"],
+        ["SBMO.AMS", "SBM Offshore"],
+        ["TOM2.AMS", "TomTom"],
+        ["UNA.AMS", "Unilever PLC - ADR"],
+        ["URW.AMS", "Unibail Rodamco SE & WFD"],
+        ["VPK.AMS", "Vopak"],
+        ["WHA.AMS", "Wereldhave"],
+        ["WKL.AMS", "Wolters Kluwer"]
+    ]
+}
+%>
+<div class="single-design-search">
+    <div class="group search">
+        <span>Search by Symbol</span>
+        <input class="spreads-search-box" type="search"/>
+    </div>
+    <div class="group skin">
+        <span class="skin-label">Table Skin</span>
+        <span class="skin-toggle skin-light">&nbsp;</span>
+        <span class="skin-toggle skin-dark">&nbsp;</span>
+    </div>
+</div>
+
+<%- include('./spread-table-component.ejs', {
+    extraClass: 'stocks',
+    tableSkin: 'light-skin',
+    slotMobile: null,
+    slotTablet: null,
+    slotDesktop: null,
+    colHeadersMobile: stocks4Table.stocksSpreadsColHeadersDesktop,
+    mobileData: stocks4Table.stocksSpreadsData,
+    colHeadersTablet: stocks4Table.stocksSpreadsColHeadersDesktop,
+    tabletData: stocks4Table.stocksSpreadsData,
+    colHeadersDesktop: stocks4Table.stocksSpreadsColHeadersDesktop,
+    desktopData: stocks4Table.stocksSpreadsData
+}); %>
+</div>

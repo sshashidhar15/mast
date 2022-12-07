@@ -1,0 +1,32 @@
+@import "../_global"; 
+
+.single-page.page-stocks {
+    .page-header {
+        background: url(/assets/img/single_market_page/banner2.png) no-repeat center right;
+    }
+    .page-first-text::before {
+        background: url(/assets/img/single_market_page/icon-stock.svg) center center no-repeat transparent;
+    }
+    .stck-image {
+        background: url(/assets/img/single_market_page/stckimg.png) center center no-repeat transparent;
+    }
+    .market-facts-card {
+        .facts-item::before {
+            color: #34E834;
+        }
+        .action-button {
+            background: #34E834;
+        }
+    }
+    .content-head {
+        margin-top: 50px !important;
+        margin-bottom: 30px !important;
+    }
+}
+@media screen and (max-width: 640px) {
+    .single-page.page-stocks {
+        .single-design-table .table-row {
+            height: 80px !important;
+        }
+    }
+}

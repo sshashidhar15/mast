@@ -1,0 +1,14 @@
+<% setI18nPrefix('menu.education') %>
+<div class="page-header__menu">
+<% [
+  'education-education-overview',
+  'education-advantages-of-forex',
+  'education-advantages-of-cfds',
+  'education-video-tutorials',
+  'education-web-tv'
+].map(e => { %>
+      <div class="menu-item<%= typeof current !== 'undefined' && e === current ? ' current-page' : '' %>"><a id="education_menu_1" href="<%= localePath(e) %>" class="menu-title"><%-$t(e)%></a></div>
+    <% }) %>
+    <div class="menu-item menu-switch"><span class="menu-icon icon-switch"></span></div>
+  </div>
+<% prevI18nPrefix() %>

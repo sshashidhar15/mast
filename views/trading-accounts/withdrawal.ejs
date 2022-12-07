@@ -1,0 +1,127 @@
+<% setI18nPrefix('pages.trading-accounts.withdrawal') %>
+<link rel="stylesheet" href="<%=md5('/css/pages/withdrawal.css')%>">
+<meta name="description" content="<%- $t('meta', true) %>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+
+    <div class="single-page withdrawal-page">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('withdrawal-page_0')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('withdrawal-page_1')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="withdraw_1" class="icm-btn icm-btn-primary" href="<%= clientAreaPath() %>"><%-$t('withdrawal-page_2')%></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+            <%- include('./_menu.ejs', { current: 'trading-accounts-withdrawal' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="first-section">
+                        <div class="page-first-text">
+                            <p><%-$t('withdrawal-page_9')%></p>
+                            <% if (cysec || fca) {%>
+                              <p style="text-align: left; font-weight: 300; font-style: italic; margin-top: 100px;">
+                                <b>*</b> <%-$t('withdrawal-page_27')%><br><br>
+                                <b>**</b> <%-$t('withdrawal-page_28')%><br><br>
+                                <b>***</b> <%-$t('withdrawal-page_29')%>
+                              </p>
+                            <% } else {%>
+                              <p><%-$t('withdrawal-page_10')%></p>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <% if (!cysec) { %>
+                <br>
+                <div class="page-section">
+                    <h1 id="top"><%-$t('withdrawal-page_11')%></h1>
+                    <div class="flex-container-for-two">
+                        <% if (!fca) { %>
+                            <div class="have-5-elements">
+                                <div class="withdrawal-note"><%-$t('withdrawal-page_13')%></div>
+                                <div class="withdrawal-note"><%-$t('withdrawal-page_14')%></div>
+                                <% if (asic) { %>
+                                    <div class="withdrawal-note"><%-$t('withdrawal-page_15')%></div>
+                                    <div class="withdrawal-note"><%-$t('withdrawal-page_16')%></div>
+                                <% } else if (fsa) { %>
+                                    <div class="withdrawal-note"><%-$t('withdrawal-page_15')%></div>
+                                <% } %>    
+                            </div>
+                            <div class="have-4-elements">
+                                <div class="withdrawal-note"><%-$t('withdrawal-page_17')%></div>
+                                <div class="withdrawal-note"><%-$t('withdrawal-page_18')%></div>
+                                <div class="withdrawal-note"><%-$t('withdrawal-page_19')%></div>
+                            </div>
+                        <% } else { %>
+                            <div class="have-5-elements">
+                                <div class="withdrawal-note"><%-$t('withdrawal-page_13')%></div>   
+                            </div>
+                            <div class="have-4-elements">
+                                <div class="withdrawal-note"><%-$t('withdrawal-page_14')%></div>
+                            </div>
+                        <% } %>
+                    </div>
+                    <% if (!fca) { %>
+                        <a id="more" style="cursor:pointer; color:#34e834;">More...</a>
+                        <div class="withdrawal-note collaps"><p class="icm-paragraph__desc"><%-$t('withdrawal-page__list-8')%></p></div>
+                        <div class="withdrawal-note collaps"><p class="icm-paragraph__desc"><%-$t('withdrawal-page__list-9')%></p></div>
+                        <div class="withdrawal-note collaps"><p class="icm-paragraph__desc"><%-$t('withdrawal-page__list-10')%></p></div>
+                        <div class="withdrawal-note collaps"><p class="icm-paragraph__desc"><%-$t('withdrawal-page__list-11')%></p></div>
+                        <div class="withdrawal-note collaps"><p class="icm-paragraph__desc"><%-$t('withdrawal-page__list-12')%></p></div>
+                        <div class="withdrawal-note collaps"><p class="icm-paragraph__desc"><%-$t('withdrawal-page__list-13')%></p></div>
+                        <div class="withdrawal-note collaps"><p class="icm-paragraph__desc"><%-$t('withdrawal-page__list-14')%></p></div>
+                        <div class="withdrawal-note collaps"><p class="icm-paragraph__desc"><%-$t('withdrawal-page__list-15')%></p></div>
+                        <!--<div class="withdrawal-note collaps"><p class="icm-paragraph__desc"><%-$t('withdrawal-page__list-16')%></p></div>-->
+                        <div class="withdrawal-note collaps"><p class="icm-paragraph__desc"><%-$t('withdrawal-page__list-16-1')%></p></div>
+                        <div class="withdrawal-note collaps"><p class="icm-paragraph__desc"><%-$t('withdrawal-page__list-16-2')%></p></div>
+                        <% if(asic) { %>
+                        <div class="withdrawal-note collaps"><p class="icm-paragraph__desc"><%-$t('withdrawal-page__list-16-3')%></p></div>
+                        <div class="withdrawal-note collaps"><p class="icm-paragraph__desc"><%-$t('withdrawal-page__list-16-4')%></p></div>
+                        <% } %>
+                        <div class="withdrawal-note collaps"><p class="icm-paragraph__desc"><%-$t('withdrawal-page__list-17')%></p></div>
+                        <div class="withdrawal-note collaps"><p class="icm-paragraph__desc"><%-$t('withdrawal-page__list-18')%></p></div>
+                        <a id="less" class="collaps" style="cursor:pointer; color:#34e834;">Less...%></a>
+                    <% } %>
+                </div>
+                <% } %>
+            </div>
+            <% if (!fca) { %>
+                <div class="page-content global-markets-today">
+                    <div class="page-section">
+                        <div class="start-trading"><%-$t('withdrawal-page_22')%></div>
+                        <div class="global-today"><%-$t('withdrawal-page_23')%></div>
+                        <div class="icm-button-wrapper page-header__primary-button">
+                            <a id="withdraw_4" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('withdrawal-page_24')%></a>
+                            <a id="withdraw_5" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('withdrawal-page_25')%></a>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </article>
+    </div>
+
+<script>
+var elements = {
+    anchor:  $('#top')[0],
+    more:    $('#more'),
+    less:    $('#less'),
+    collaps: $('.collaps')
+};
+
+elements.more[0].onclick = function () {
+    elements.more.hide();
+    elements.collaps.show();
+};
+elements.less[0].onclick = function () {
+    elements.collaps.hide();
+    elements.more.show();
+    window.scrollTo(0, elements.anchor.offsetTop);
+};
+</script>

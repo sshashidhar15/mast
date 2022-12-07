@@ -1,0 +1,270 @@
+<% setI18nPrefix('pages.forex-trading-tools.advanced-trading-tools') %>
+<link rel="stylesheet" href="<%=md5('/css/pages/mt4-advanced-trading-tools.css')%>">
+<meta name="description" content="<%- $t('meta', true) %>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+
+    <div class="single-page page-advanced-trading-tools">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('trading_tools_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('trading_tools_2')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="mt4_advanced_trading_tools_1" class="icm-btn icm-btn-primary" href="<%=localePath('open-trading-account-live') %>"><%-$t('trading_tools_3')%></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'forex-trading-tools-mt4-advanced-trading-tools' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="sidebar-cta-card-container sidebar-top-card random-background rnd-back-1">
+                        <div class="bottom-block">
+                            <p class="bottom-block__message"><%-$t('trading_tools_4')%> <b>200</b> <%-$t('trading_tools_5')%><br><b><%-$t('trading_tools_6')%></b></p>
+                            <div class="icm-button-wrapper bottom-block__cta-button">
+                                <a id="mt4_advanced_trading_tools_2" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('trading_tools_7')%></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="first-section">
+                        <div class="page-first-text"><%-$t('trading_tools_8')%></div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content highlighted-content">
+                <div class="page-section">
+                    <p><%-$t('trading_tools_9')%></p>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="page-section">
+                    <article class="advanced-trading-tools-block">
+                        <section class="icm-sub-component-container">
+                            <div class="ui-card-list ">
+                                <!-- There are 12 tools-card components(from tool-card.vue) below: -->
+                                <div class="tools-card-container ui-card--style">
+                                    <% if (locale !== 'cn') { %>
+                                        <a id="mt4_advanced_trading_tools_3" class="contract-details__high-light" target="_blank" href="<%- getCDN() %>/uploads/AdvancedTradingTools/AlarmManager.pdf">
+                                    <% } else { %>
+                                        <a id="mt4_advanced_trading_tools_4" class="contract-details__high-light" target="_blank" href="<%- getCDN() %>/uploads/AdvancedTradingTools/AlarmManager_CN.pdf">
+                                    <% } %>
+                                        <div class="tools-content">
+                                            <div class="tools-row">
+                                                <div class="tools-row__picture" class="tools-1"></div>
+                                            </div>
+                                            <div class="tools-row">
+                                                <div class="tools-row__head"><%-$t('card_tools_head-1')%></div>
+                                                <div class="tools-row__text"><%-$t('card_tools_text-1')%></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="tools-card-container ui-card--style">
+                                    <% if (locale !== 'cn') { %>
+                                        <a id="mt4_advanced_trading_tools_5" class="contract-details__high-light" target="_blank" href="<%- getCDN() %>/uploads/AdvancedTradingTools/CorrelationMatrix.pdf">
+                                    <% } else { %>
+                                        <a id="mt4_advanced_trading_tools_6" class="contract-details__high-light" target="_blank" href="<%- getCDN() %>/uploads/AdvancedTradingTools/CorrelationMatrix_CN.pdf">
+                                    <% } %>
+                                        <div class="tools-content">
+                                            <div class="tools-row">
+                                                <div class="tools-row__picture" class="tools-2"></div>
+                                            </div>
+                                            <div class="tools-row">
+                                                <div class="tools-row__head"><%-$t('card_tools_head-2')%></div>
+                                                <div class="tools-row__text"><%-$t('card_tools_text-2')%></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="tools-card-container ui-card--style">
+                                    <% if (locale !== 'cn') { %>
+                                        <a id="mt4_advanced_trading_tools_7" class="contract-details__high-light" target="_blank" href="<%- getCDN() %>/uploads/AdvancedTradingTools/CorrelationTrader.pdf">
+                                    <% } else { %>
+                                        <a id="mt4_advanced_trading_tools_8" class="contract-details__high-light" target="_blank" href="<%- getCDN() %>/uploads/AdvancedTradingTools/CorrelationTrader_CN.pdf">
+                                    <% } %>
+                                        <div class="tools-content">
+                                            <div class="tools-row">
+                                                <div class="tools-row__picture" class="tools-3"></div>
+                                            </div>
+                                            <div class="tools-row">
+                                                <div class="tools-row__head"><%-$t('card_tools_head-3')%></div>
+                                                <div class="tools-row__text"><%-$t('card_tools_text-3')%></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="tools-card-container ui-card--style">
+                                    <% if (locale !== 'cn') { %>
+                                        <a id="mt4_advanced_trading_tools_9" class="contract-details__high-light" target="_blank" href="<%- getCDN() %>/uploads/AdvancedTradingTools/TradeTerminal.pdf">
+                                    <% } else { %>
+                                        <a id="mt4_advanced_trading_tools_10" class="contract-details__high-light" target="_blank" href="<%- getCDN() %>/uploads/AdvancedTradingTools/TradeTerminal_CN.pdf">
+                                    <% } %>
+                                        <div class="tools-content">
+                                            <div class="tools-row">
+                                                <div class="tools-row__picture" class="tools-4"></div>
+                                            </div>
+                                            <div class="tools-row">
+                                                <div class="tools-row__head"><%-$t('card_tools_head-4')%></div>
+                                                <div class="tools-row__text"><%-$t('card_tools_text-4')%></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="tools-card-container ui-card--style">
+                                    <% if (locale !== 'cn') { %>
+                                        <a id="mt4_advanced_trading_tools_11" class="contract-details__high-light" target="_blank" href="<%- getCDN() %>/uploads/AdvancedTradingTools/MarketManager.pdf">
+                                    <% } else { %>
+                                        <a id="mt4_advanced_trading_tools_12" class="contract-details__high-light" target="_blank" href="<%- getCDN() %>/uploads/AdvancedTradingTools/MarketManager_CN.pdf">
+                                    <% } %>
+                                        <div class="tools-content">
+                                            <div class="tools-row">
+                                                <div class="tools-row__picture" class="tools-5"></div>
+                                            </div>
+                                            <div class="tools-row">
+                                                <div class="tools-row__head"><%-$t('card_tools_head-5')%></div>
+                                                <div class="tools-row__text"><%-$t('card_tools_text-5')%></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="tools-card-container ui-card--style">
+                                    <% if (locale !== 'cn') { %>
+                                        <a id="mt4_advanced_trading_tools_13" class="contract-details__high-light" target="_blank" href="<%- getCDN() %>/uploads/AdvancedTradingTools/MiniTerminal.pdf">
+                                    <% } else { %>
+                                        <a id="mt4_advanced_trading_tools_14" class="contract-details__high-light" target="_blank" href="<%- getCDN() %>/uploads/AdvancedTradingTools/MiniTerminal_CN.pdf">
+                                    <% } %>
+                                        <div class="tools-content">
+                                            <div class="tools-row">
+                                                <div class="tools-row__picture" class="tools-6"></div>
+                                            </div>
+                                            <div class="tools-row">
+                                                <div class="tools-row__head"><%-$t('card_tools_head-6')%></div>
+                                                <div class="tools-row__text"><%-$t('card_tools_text-6')%></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="tools-card-container ui-card--style">
+                                    <% if (locale !== 'cn') { %>
+                                        <a id="mt4_advanced_trading_tools_15" class="contract-details__high-light" target="_blank" href="<%- getCDN() %>/uploads/AdvancedTradingTools/SentimentTrader.pdf">
+                                    <% } else { %>
+                                        <a id="mt4_advanced_trading_tools_16" class="contract-details__high-light" target="_blank" href="<%- getCDN() %>/uploads/AdvancedTradingTools/SentimentTrader_CN.pdf">
+                                    <% } %>
+                                        <div class="tools-content">
+                                            <div class="tools-row">
+                                                <div class="tools-row__picture" class="tools-7"></div>
+                                            </div>
+                                            <div class="tools-row">
+                                                <div class="tools-row__head"><%-$t('card_tools_head-7')%></div>
+                                                <div class="tools-row__text"><%-$t('card_tools_text-7')%></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="tools-card-container ui-card--style">
+                                    <% if (locale !== 'cn') { %>
+                                        <a id="mt4_advanced_trading_tools_17" class="contract-details__high-light" target="_blank" href="<%- getCDN() %>/uploads/AdvancedTradingTools/SessionMap.pdf">
+                                    <% } else { %>
+                                        <a id="mt4_advanced_trading_tools_18" class="contract-details__high-light" target="_blank" href="<%- getCDN() %>/uploads/AdvancedTradingTools/SessionMap_CN.pdf">
+                                    <% } %>
+                                        <div class="tools-content">
+                                            <div class="tools-row">
+                                                <div class="tools-row__picture" class="tools-8"></div>
+                                            </div>
+                                            <div class="tools-row">
+                                                <div class="tools-row__head"><%-$t('card_tools_head-8')%></div>
+                                                <div class="tools-row__text"><%-$t('card_tools_text-8')%></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="tools-card-container ui-card--style">
+                                    <% if (locale !== 'cn') { %>
+                                        <a id="mt4_advanced_trading_tools_19" class="contract-details__high-light" target="_blank" href="<%- getCDN() %>/uploads/AdvancedTradingTools/ExcelRTD.pdf">
+                                    <% } else { %>
+                                        <a id="mt4_advanced_trading_tools_20" class="contract-details__high-light" target="_blank" href="<%- getCDN() %>/uploads/AdvancedTradingTools/ExcelRTD_CN.pdf">
+                                    <% } %>
+                                        <div class="tools-content">
+                                            <div class="tools-row">
+                                                <div class="tools-row__picture" class="tools-9"></div>
+                                            </div>
+                                            <div class="tools-row">
+                                                <div class="tools-row__head"><%-$t('card_tools_head-9')%></div>
+                                                <div class="tools-row__text"><%-$t('card_tools_text-9')%></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="tools-card-container ui-card--style">
+                                    <% if (locale !== 'cn') { %>
+                                        <a id="mt4_advanced_trading_tools_21" class="contract-details__high-light" target="_blank" href="<%- getCDN() %>/uploads/AdvancedTradingTools/StealthOrders.pdf">
+                                    <% } else { %>
+                                        <a id="mt4_advanced_trading_tools_22" class="contract-details__high-light" target="_blank" href="<%- getCDN() %>/uploads/AdvancedTradingTools/StealthOrders_CN.pdf">
+                                    <% } %>
+                                        <div class="tools-content">
+                                            <div class="tools-row">
+                                                <div class="tools-row__picture" class="tools-10"></div>
+                                            </div>
+                                            <div class="tools-row">
+                                                <div class="tools-row__head"><%-$t('card_tools_head-10')%></div>
+                                                <div class="tools-row__text"><%-$t('card_tools_text-10')%></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="tools-card-container ui-card--style">
+                                    <% if (locale !== 'cn') { %>
+                                        <a id="mt4_advanced_trading_tools_23" class="contract-details__high-light" target="_blank" href="<%- getCDN() %>/uploads/AdvancedTradingTools/TickChartTrader.pdf">
+                                    <% } else { %>
+                                        <a id="mt4_advanced_trading_tools_24" class="contract-details__high-light" target="_blank" href="<%- getCDN() %>/uploads/AdvancedTradingTools/TickChartTrader_CN.pdf">
+                                    <% } %>
+                                        <div class="tools-content">
+                                            <div class="tools-row">
+                                                <div class="tools-row__picture" class="tools-11"></div>
+                                            </div>
+                                            <div class="tools-row">
+                                                <div class="tools-row__head"><%-$t('card_tools_head-11')%></div>
+                                                <div class="tools-row__text"><%-$t('card_tools_text-11')%></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="tools-card-container ui-card--style">
+                                    <% if (locale !== 'cn') { %>
+                                        <a id="mt4_advanced_trading_tools_25" class="contract-details__high-light" href="<%= localePath('forex-trading-tools-mt4-advanced-tools') %>">
+                                    <% } else { %>
+                                        <a id="mt4_advanced_trading_tools_26"class="contract-details__high-light" target="_blank" href="<%- getCDN() %>/uploads/AdvancedTradingTools/AdvancedToolsChina.rar">
+                                    <% } %>
+                                        <div class="tools-content">
+                                            <div class="tools-row">
+                                                <div class="tools-row__picture" class="tools-12"></div>
+                                            </div>
+                                            <div class="tools-row">
+                                                <div class="tools-row__head"><%-$t('card_tools_head-12')%></div>
+                                                <div class="tools-row__text"><%-$t('card_tools_text-12')%></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                    </article>
+                </div>
+            </div>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('trading_tools_10')%></div>
+                    <div class="global-today"><%-$t('trading_tools_11')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="mt4_advanced_trading_tools_27" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('trading_tools_12')%></a>
+                        <a id="mt4_advanced_trading_tools_28" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%-$t('trading_tools_13')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

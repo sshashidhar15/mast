@@ -1,0 +1,42 @@
+Redirection behavior for users from Australia
+(open address means click link or type manually):
+
+1)
+open address: www.icmarkets.com
+redirect  to: www.icmarkets.com/au/en/
+
+2)
+open address: www.icmarkets.com.au
+redirect  to: www.icmarkets.com/au/en/
+
+3)
+open address: www.icmarkets.com/en
+redirect  to: www.icmarkets.com/au/en/
+
+4)
+open address: www.icmarkets.com/au
+redirect  to: www.icmarkets.com/au/en/
+
+5)
+open address: www.icmarkets.com/global
+redirect  to: www.icmarkets.com/global/en/
+
+6)
+open address: www.icmarkets.eu
+redirect  to: www.icmarkets.eu/en/
+
+7)
+open address: www.icmarkets.com/intl
+redirect  to: www.icmarkets.com/intl/en/
+
+8)
+open address: www.icmarkets.eu
+redirect  to: www.icmarkets.eu/en/
+
+9)
+open address: www.icmarkets.sc
+redirect  to: www.icmarkets.sc/en/
+
+10)
+open address: www.icmarkets.bs
+redirect  to: www.icmarkets.bs/en/

@@ -1,0 +1,66 @@
+@import "../_global";
+
+.single-page.page-bonds {
+    .grid-table {
+        display: grid;
+
+        .grid-table-row {
+            display: grid;
+            grid-template-columns: auto;
+            font-size: 14px;
+            font-weight: 500;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1;
+            letter-spacing: -0.3px;
+            text-align: left;
+            padding: 20px;
+            padding-left: 40px;
+            border-bottom: 1px solid #e2e3e3;
+
+            .grid-table-label {
+                color: rgba(0, 0, 0, 0.6);
+            }
+            .grid-table-value {
+                color: rgba(0, 0, 0, 0.8);
+            }
+
+            &.grid-table-header {
+                color: #009600;
+                background: #e2e3e3;
+                font-size: 18px;
+            }
+        }
+        &.grid-table-4 .grid-table-row {
+            grid-template-columns: auto 35% 20% 20%;
+        }
+        &.grid-table-5 .grid-table-row {
+            grid-template-columns: 20% 20% 20% 20% 20%;
+        }
+    }
+
+    .page-header {
+        background: url(/assets/img/single_market_page/banner2.png) no-repeat center right;
+    }
+    .page-first-text::before {
+        background: url(/assets/img/single_market_page/icon-bond.svg) center center no-repeat transparent;
+    }
+    .bonds-image {
+        background: url(/assets/img/single_market_page/bondsimg.png) center center no-repeat transparent;
+    }
+    .market-facts-card {
+        .facts-item::before {
+            color: #34E834;
+        }
+        .action-button {
+            background: #34E834;
+        }
+    }
+}
+@media screen and (max-width: 640px) {
+    .single-page.page-bonds {
+        .single-design-table .table-row {
+            height: 150px !important;
+        }
+    }
+}

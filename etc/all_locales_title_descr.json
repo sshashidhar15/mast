@@ -1,0 +1,148 @@
+[
+    {
+        "en": {
+            "meta": "Trade currencies, stocks, commodities, futures, bonds, and digital assets safely and securely with power for better trades.",
+            "pages": {
+                "index": {
+                    "title": "IC Markets | Your High-Performance Multi-Asset Trading Platform"
+                }
+            }
+        },
+        "ar": {
+            "meta": "تداول العملات والأسهم والسلع والعقود الآجلة والسندات والأصول الرقمية بأمان مع كفاءة منقطعة النظير لتحسين نتائج الصفقات.",
+            "pages": {
+              "index": {
+                "title": "IC Markets | منصة تداول متعددة الأصول تقدم أداء غير مسبوق"
+              }
+            }
+        },
+        "bg": {
+            "meta": "Търгувайте валути, акции, стоки, фючърси, облигации и цифрови активи безопасно и сигурно с изключително изпълнение на сделките.",
+            "pages": {
+                "index": {
+                    "title": "IC Markets | Вашата Високоефективна Платформа за Търговия с Множество Активи"
+                }
+            }
+        },
+        "cn": {
+            "meta": "凭借交易优化功能，安全交易加密货币、股票、大宗商品、期货、债券、以及数字资产。",
+            "pages": {
+                "index": {
+                    "title": "IC Markets | 您的高性能多资产交易平台"
+                }
+            }
+        },
+        "cz": {
+            "meta": "Obchodujte měny, akcie, komodity, futures, dluhopisy a digitální aktiva bezpečně. Lepší výkon, lepší obchody.",
+            "pages": {
+              "index": {
+                "title": "IC Markets | Nejvýkonnějších multi-asset obchodní platforma"
+              }
+            }
+        },
+        "de": {
+            "meta": "Handeln Sie Währungen, Aktien, Rohstoffe, Futures, Anleihen und digitale Assets in einer sicheren, leistungsstarken Umgebung, für bessere Trades.",
+            "pages": {
+                "index": {
+                    "title": "IC Markets | Ihre Leistungsstarke Multi-Asset Handelsplattform"
+                }
+            }
+        },
+        "es": {
+            "meta": "Opere divisas, valores, materias primas, futuros, bonos y activos digitales de forma segura con potencial para mejores operaciones.",
+            "pages": {
+                "index": {
+                    "title": "IC Markets | Su Plataforma de Trading Multiactivo de Alto Rendimiento"
+                }
+            }
+        },
+        "fr": {
+            "meta": "Négociez des devises, des actions, des matières premières, des contrats à terme, des obligations et des actifs numériques en toute sécurité avec la puissance nécessaire pour de meilleures transactions.",
+            "pages": {
+                "index": {
+                    "title": "IC Markets | Votre Plateforme de Négociation Multi-Actifs Haute Performance"
+                }
+            }
+        },
+        "hr": {
+            "meta": "Trgujte valutama, dionicama, budućnosnicama, obveznicama i digitalnom imovinom, potpuno sigurni i u poziciji da trgujete još bolje.",
+            "pages": {
+              "index": {
+                "title": "IC Markets | Vaša moćna platforma za trgovanje raznim oblicima imovine"
+              }
+            }
+        },
+        "id": {
+            "meta": "Perdagangkan mata uang, saham, komoditas, futures, obligasi, dan aset digital dengan aman dan terlindung untuk trade yang lebih hebat.",
+            "pages": {
+                "index": {
+                    "title": "IC Markets | Platform Trading Multi-Aset Berperforma Tinggi Pilihan Anda"
+                }
+            }
+        },
+        "it": {
+            "meta": "Opera su valute, azioni, materie prime, contratti future, obbligazioni e asset digitali in modo sicuro e conveniente.",
+            "pages": {
+                "index": {
+                    "title": "IC Markets | La Tua Piattaforma di Trading Multi-asset ad Alte Prestazioni"
+                }
+            }
+        },
+        "ko": {
+            "meta": "더 나은 거래를 위한 기술로 암호화폐, 주식, 원자재 상품, 선물, 채권, 디지털 자산을 안전하게 거래하세요.",
+            "pages": {
+                "index": {
+                    "title": "IC Markets | 고성능 멀티 에셋 거래 플랫폼"
+                }
+            }
+        },
+        "my": {
+            "meta": "Berdagang mata wang, saham, komoditi, niaga hadapan, bon, dan aset digital yang selamat dengan kuasa untuk dagangan yang lebih baik.",
+            "pages": {
+                "index": {
+                    "title": "IC Markets | Platform Perdagangan Pelbagai Aset Berprestasi Tinggi Anda"
+                }
+            }
+        },
+        "pt": {
+            "meta": "Negocie moedas, ações, matérias-primas, futuros, obrigações e ativos digitais, de forma segura e fiável, para melhores transações.",
+            "pages": {
+                "index": {
+                    "title": "IC Markets | A Sua Plataforma de Negociação Multi-ativos de Elevado Desempenho"
+                }
+            }
+        },
+        "ru": {
+            "meta": "Торгуйте валютой, акциями, сырьевыми товарами, фьючерсами, облигациями и цифровыми активами надёжно и безопасно и совершайте более удачные сделки.",
+            "pages": {
+                "index": {
+                    "title": "IC Markets | Ваша Надёждная Мульти-Инвестиционная Торговая Платформа"
+                }
+            }
+        },
+        "th": {
+            "meta": "เทรดสกุลเงิน, หุ้น, สินค้าโภคภัณฑ์, ฟิวเจอร์ส, พันธบัตร, และสินทรัพย์ดิจิทัลได้อย่างปลอดภัยเพื่อการเทรดที่ดียิ่งขึ้น",
+            "pages": {
+                "index": {
+                    "title": "IC Markets | แพลตฟอร์มเทรดแบบหลายสินทรัพย์ที่มีประสิทธิภาพสูงของคุณ"
+                }
+            }
+        },
+        "tw": {
+            "meta": "利用平台最佳交易功能，交易加密貨幣、股票、大宗商品、期貨、債券、及數位資產安全無虞。",
+            "pages": {
+                "index": {
+                    "title": "IC Markets | 您的高效能多資產交易平台"
+                }
+            }
+        },
+        "vn": {
+            "meta": "GIAO DỊCH ĐỒNG TIỀN, CỔ PHIẾU, HÀNG HÓA, HỢP ĐỒNG KỲ HẠN, VÀ CÁC TÀI SẢN KỸ THUẬT SỐ AN TOÀN VÀ BẢO MẬT MỘT CÁCH MẠNH MẼ CHO CÁC GIAO DỊCH TỐT HƠN.",
+            "pages": {
+                "index": {
+                    "title": "IC Markets | NỀN TẢNG GIAO DỊCH ĐA TÀI SẢN HIỆU SUẤT CAO CỦA BẠN"
+                }
+            }
+        }
+    }
+]

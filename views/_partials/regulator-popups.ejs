@@ -1,0 +1,124 @@
+<%- include('../_partials/components/popup-modal.ejs', { extraClass: 'be', noclose: false,
+title: 'CySEC Regulator Warning', content: ` IC Markets (EU) Ltd is regulated by
+the Cyprus Securities and Exchange Commission (CySEC) under the CIF Licence No
+362/18.
+<br /><br />
+IC Markets (EU) Ltd does not offer its services to residents of Belgium. For
+further information, please contact our support at
+<a id="regulator_popups_support" href="mailto:support@icmarkets.com">support@icmarkets.com</a>. <br /><br />
+<div style="width:100%; text-align:center;">
+    <span class="continue">Continue to www.icmarkets.com</span>
+</div>
+` }); %>
+
+<%- include('../_partials/components/popup-modal.ejs', { extraClass:
+'lv', noclose: false, title: 'CySEC Regulator Warning', content: ` IC Markets (EU) Ltd is
+regulated by the Cyprus Securities and Exchange Commission (CySEC) under the CIF
+Licence No 362/18.
+<br /><br />
+IC Markets (EU) Ltd does not offer its services to residents of Latvia . For
+further information, please contact our support at
+<a id="regulator_popups_support_2" href="mailto:support@icmarkets.com">support@icmarkets.com</a>. <br /><br />
+<div style="width:100%; text-align:center;">
+    <span class="continue">Continue to www.icmarkets.com</span>
+</div>
+` }); %>
+
+<%- include('../_partials/components/popup-modal.ejs', { extraClass:
+'cy', noclose: false, title: 'CySEC Regulator Warning', content: ` IC Markets (EU) Ltd is
+regulated by the Cyprus Securities and Exchange Commission (CySEC) under the CIF
+Licence No 362/18.
+<br /><br />
+Residents of Europe that wish to open an account under CySEC license, please
+proceed to
+<a id="regulator_popups_live_registration" href="${getWebsiteURL()}/open-trading-account/live"
+    >${getCurrentURL()}</a>
+<br /><br />
+<div style="width:100%; text-align:center;">
+    <span class="continue">Continue to www.icmarkets.com</span>
+</div>
+` }); %>
+
+<%- include('../_partials/components/popup-modal.ejs', { extraClass:
+'au', noclose: false, title: 'Important EU Risk Warning', content: `
+<p>
+    Dear Visitor,
+</p>
+<p>
+    You are now being redirected to Internation Capital Markets Pty Ltd, a company regulated by the Australian Regulator ASIC.
+</p>
+<p>
+    Please confirm that you want to be redirected by clicking Accept.
+</p>
+<div class="popup-modal-buttons">
+    <div class="popup-modal-button confirm-button">ACCEPT</div>
+    <div class="popup-modal-button decline-button">GO BACK</div>
+</div>
+` }); %>
+
+<%- include('../_partials/components/popup-modal.ejs', { extraClass:
+'sc', noclose: false, title: 'Important EU Risk Warning', content: `
+<p>
+    Dear Visitor,
+</p>
+<p>
+    You are now being redirected to Raw Trading Ltd, a company regulated by the Seychelles Regulator FSA.
+</p>
+<p>
+    Please confirm that you want to be redirected by clicking Accept.
+</p>
+<div class="popup-modal-buttons">
+    <div class="popup-modal-button confirm-button">ACCEPT</div>
+    <div class="popup-modal-button decline-button">GO BACK</div>
+</div>
+` }); %>
+
+<%- include('../_partials/components/popup-modal.ejs', { extraClass:
+'bs', noclose: false, title: 'Important EU Risk Warning', content: `
+<p>
+    Dear Visitor,
+</p>
+<p>
+    You are now being redirected to IC Markets (BS) Ltd, a company regulated by the Bahamas Regulator SCB.
+</p>
+<p>
+    Please confirm that you want to be redirected by clicking Accept.
+</p>
+<div class="popup-modal-buttons">
+    <div class="popup-modal-button confirm-button">ACCEPT</div>
+    <div class="popup-modal-button decline-button">GO BACK</div>
+</div>
+` }); %>
+
+<%- include('../_partials/components/popup-modal.ejs', { extraClass:
+'au-only', noclose: true, title: '', content: `
+<p>
+    We are very sorry, our ASIC licensed entity can accept residents of Australia only.
+    We're redirecting you to our SC licensed entity where you can choose to continue your application.
+</p>
+<div class="popup-modal-buttons">
+    <div class="popup-modal-button confirm-button">AGREE</div>
+</div>
+` }); %>
+
+<%- include('../_partials/components/popup-modal.ejs', { extraClass:
+'from-bs-to-com-sc', noclose: true, title: '', content: `
+<p>
+    We are sorry, our SCB licensed entity doesn't accept residents of your country at the moment. 
+    We are redirecting you to our Global website, where you can continue your application.
+</p>
+<div class="popup-modal-buttons">
+    <div class="popup-modal-button confirm-button">AGREE & CONTINUE</div>
+</div>
+` }); %>
+    
+    <%- include('../_partials/components/popup-modal.ejs', { extraClass:
+'from-bs-to-com-au', noclose: true, title: '', content: `
+<p>
+    We are sorry, our SCB licensed entity doesn't accept residents of your country at the moment. 
+    We are redirecting you to our ASIC regulated website, where you can continue with your application.
+</p>
+<div class="popup-modal-buttons">
+    <div class="popup-modal-button confirm-button">AGREE & CONTINUE</div>
+</div>
+` }); %>

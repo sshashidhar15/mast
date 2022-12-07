@@ -1,0 +1,32 @@
+<aside class="generic-layout-col-2">
+    <div class="sidebar-block">
+        <div class="sidebar-cta-card-container sidebar-top-card random-background">
+            <div class="bottom-block">
+                <p class="bottom-block__message"><%- $t('beanopportunitymakertrademarketstoday') %></p>
+
+                <div class="icm-button-wrapper bottom-block__cta-button">
+                    <a id="sidebar_blocks_live_registration" href="<%= localePath('open-trading-account-live') %>" class="icm-btn icm-btn-primary"><%- $t('starttrading') %></a>
+                </div>
+            </div>
+        </div>
+        <div class="contactus-card-container sidebar-bottom-card">
+            <div class="contactus-card-container__heading"> <%- $t('contactus') %></div>
+            <p class="contactus-card-container__message"><%- $t('werehere24hrsadaymondaytofriday') %></p>
+
+
+            <div class="icm-button-wrapper contactus-card-container__cta-button">
+                <%-$t('contact_card_help')%>
+            </div>
+            <div class="contactus-card-container__phone-number">
+                <%-$t('contact_card_phone')%>
+            </div>
+            <div class="contactus-card-container__email-us">
+                <% if (asic) {%>
+                    <%-$t('contact_card_email_asic')%>
+                <% } else { %>
+                    <%-$t('contact_card_email')%>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</aside>

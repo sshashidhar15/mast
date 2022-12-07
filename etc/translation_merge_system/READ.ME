@@ -1,0 +1,14 @@
+Automatic Merge System for GET the files system and
+all contents from "1_current_language_en" directory
+and PUT into "3_merged_target_on_current" with
+replace json-content from "2_target_language_other"
+
+
+1. Copy all last files with directory structure from "locale/en/" directory of our new website ("WWW" in the GIT) to "1_current_language_en" directory
+2. Copy other language given files with directory structure to "2_target_language_other" directory
+3. Run merging by command in terminal or console: > node index
+4. On any JSON parsing fail will be error message in the console
+5. Get merged result from "3_merged_target_on_current"
+6. Put result into separate directory (named with target language code, ex. "ru" for russian or "it" for italian etc.) of our new website
+
+NOTE: Directory "3_merged_target_on_current" will be removed on start (if it present) after run and re-created with actual structure from "1_current_language_en" after finish

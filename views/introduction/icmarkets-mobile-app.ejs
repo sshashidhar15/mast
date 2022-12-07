@@ -1,0 +1,173 @@
+<% setI18nPrefix('pages.introduction.mobile-trading-app') %>
+<link rel="stylesheet" type="text/css" href="<%=md5('/css/pages/mobile-app.css')%>">
+<meta name="description" content="<%- $t('meta', true) %>">
+<%- contentFor('title') %>
+<%- $t('title') %>
+<%- contentFor('body') %>
+<div class="single-page page-icmarkets-mobile-app">
+    <div class="intro-block page-content">
+        <div class="page-section grid2-2">
+            <div class="intro-section">
+                <div class="intro-heading-1"><%-$t('mobile_app_header_1')%></div>
+                <div class="intro-heading-3">powered by
+                    <div class="powered-by">
+                        <a target="_blank" href="#">
+                            <img id="poweredby metatrader4" alt="poweredby metatrader4" class="powered-icon-sm ml-2-sm" src="/assets/img/mobile_trading_app/powered_metatrader4.png"/>
+                        </a> 
+                        <a target="_blank" href="#">
+                            <img id="poweredby metatrader5" alt="poweredby metatrader5" class="powered-icon-sm ml-1-sm" src="/assets/img/mobile_trading_app/powered_metatrader5.png"/>
+                        </a>  
+                        <a target="_blank" href="#">
+                            <img id="poweredby ctrader" alt="poweredby ctrader" class="powered-icon-sm" src="/assets/img/mobile_trading_app/powered_ctrader.png"/>
+                        </a>         
+                    </div>      
+                </div>
+                <div class="intro-heading-2"><%-$t('mobile_app_header_2')%></div>
+                <div class="icmobile-app-download">
+                     <a target="_blank" href="https://play.google.com/store/apps/details?id=com.icmarkets.mobileapp">
+                        <img id="header-appstore" class="playstore" src="\assets\img\mobile_trading_app\playstore-icon.png"/>
+                    </a>
+                     <a target="_blank" href="https://apps.apple.com/au/app/ic-markets/id1552875348">
+                        <img class="playstore" src="\assets\img\mobile_trading_app\appstore-icon.png"/>
+                    </a>
+                </div>
+            </div>
+            <div class="intro-image">
+                <img class="app-login-image" src="\assets\img\mobile_trading_app\intro-mobile-app.png"></div>
+        </div>
+    </div>
+    <div class="gray-block page-content">
+        <div class="page-section grid3-3">
+            <div class="features right">
+                <div class="h-150">
+                    <div class="icons"><img src="\assets\img\mobile_trading_app\close_pane-icon.png"/></div>
+                    <div><%-$t('mobile_app_feature_1')%></div>
+                </div>
+                <div class="h-150">
+                    <div class="icons"><img src="\assets\img\mobile_trading_app\transfer-icon.png"/></div>
+                    <div><%-$t('mobile_app_feature_2')%></div>
+                </div>
+                <div class="h-150">
+                    <div class="icons"><img src="\assets\img\mobile_trading_app\payment_history-icon.png"/></div>
+                    <div><%-$t('mobile_app_feature_3')%></div>
+                </div>
+            </div>
+            <div>
+                <img class="signin-img" src="\assets\img\mobile_trading_app\iPhoneX.png"/>
+            </div>
+            <div class="features left fw-500">
+                <div class="h-150">
+                    <div class="icons"><img src="\assets\img\mobile_trading_app\messaging-icon.png"/></div>
+                    <div><%-$t('mobile_app_feature_4')%></div>
+                </div>
+                <div class="h-150">
+                    <div class="icons"><img src="\assets\img\mobile_trading_app\calendar-icon.png"/></div>
+                    <div><%-$t('mobile_app_feature_5')%></div>
+                </div>
+                 <div class="h-150">
+                    <div class="icons"><img src="\assets\img\mobile_trading_app\heart_monitor-icon.png"/></div>
+                    <div><%-$t('mobile_app_feature_6')%></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="light-block page-content">
+        <div class="page-section grid2-2">
+            <div class="text-section">
+                <div><img src="\assets\img\mobile_trading_app\24_hours.png" /></div>
+                <div class="section-header"><%-$t('mobile_app_section1_heading')%></div>
+                <div class="section-text"><%-$t('mobile_app_section1_text')%></div>
+            </div>
+            <div class="img-section"><img src="\assets\img\mobile_trading_app\support2.png" />
+            </div>
+        </div>
+    </div>
+    <div class="gray-block upload-block page-content">
+        <div class="page-section grid2-2">
+            <div style="padding-top: 28px;" class="left img-section"><img src="\assets\img\mobile_trading_app\upload-document.png" />
+            </div>
+            <div class="text-section">
+                <div><img src="\assets\img\mobile_trading_app\upload.png"/></div>
+                <div class="section-header"><%-$t('mobile_app_section2_heading')%></div>
+                <div class="section-text upload-text"><%-$t('mobile_app_section2_text')%></div>
+            </div>
+        </div>
+    </div>
+    <div class="light-block payment-block page-content">
+        <div class="page-section grid2-2">
+            <div class="text-section">
+                <div><img src="\assets\img\mobile_trading_app\card_security.png"></div>
+                <div class="section-header"><%-$t('mobile_app_section3_heading')%></div>
+                <div class="section-text"><%-$t('mobile_app_section3_text')%></div>
+                <div class="currency-options">
+                        <div class="currency-name">AUD</div>
+                        <div class="currency-name">USD</div>
+                        <div class="currency-name">EUR</div>
+                        <div class="currency-name">GBP</div>
+                        <div class="currency-name">SGD</div>
+                </div>
+                <div class="currency-options">
+                        <div class="currency-name">JPY</div>
+                        <div class="currency-name">HKD</div>
+                        <div class="currency-name">CHF</div>
+                        <div class="currency-name">CAD</div>
+                        <div class="currency-name">NZD</div>
+                </div>
+            </div>
+            <div class="img-section"><img class="payment-image" src="\assets\img\mobile_trading_app\payment-screen.png">
+            </div>
+        </div>
+    </div>
+    <div class="dark-block page-content">
+        <div class="page-section">
+            <div class="markets-heading">
+                <%-$t('mobile_app_footer_1')%>
+                <div class="fs-14" style="font-weight: 400;">
+                    <div><%-$t('mobile_app_footer_2')%></div>
+                    <div><%-$t('mobile_app_footer_3')%></div>
+                </div>
+            </div>
+            <div class="mobile-app-download">
+                <div class="app-download-section">
+                    <div class="fs-20 fw-500">Android</div>
+                    <div><a target="_blank" href="https://play.google.com/store/apps/details?id=com.icmarkets.mobileapp"><img class="metatrader-playstore" src="\assets\img\mobile_trading_app\playstore-icon.png"/></a></div>
+                    <div class="fs-14 fw-500 highlight-text">Download Andriod Version <div>from Google Play Store</div></div>
+                </div>
+                <div class="mobile-app-image"><img class="mobile-app-image1" src="\assets\img\mobile_trading_app\mobileapp-image.png"/></div>
+                <div class="mobile-app-image"><img class="mobile-app-image2" src="\assets\img\mobile_trading_app\mobile-image-2.png"/></div>
+                <div class="app-download-section">
+                    <div class="fs-20 fw-500">Apple iOS</div>
+                    <div><a target="_blank" href="https://apps.apple.com/au/app/ic-markets/id1552875348"><img class="metatrader-playstore" src="\assets\img\mobile_trading_app\appstore-icon.png"/></a></div>
+                    <div class="fs-14 fw-500 highlight-text">Download iOS Version <div>from App Store</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="light-block page-content">
+        <div class="page-section">
+         <div class="traders-heading1"><%-$t('mobile_app_trader_text')%></div>
+         <div class="traders-heading2"><%-$t('mobile_app_trader_heading')%></div>
+         <div class="grid2-2">
+            <div>
+                <div class="trader-icon"><img src="\assets\img\mobile_trading_app\mt5.png"/></div>
+                <div class="download-options">
+                    <% if(!cysec) {%>
+                    <a target="_blank" href="<%= localePath('forex-trading-platform-metatrader-android') %>"><img class="metatrader-playstore" src="\assets\img\mobile_trading_app\playstore-icon.png"/></a>
+                    <a target="_blank" href="<%= localePath('forex-trading-platform-metatrader-iphone') %>"><img class="metatrader-playstore" src="\assets\img\mobile_trading_app\appstore-icon.png"/></a>
+                    <%} else {%>
+                    <a target="_blank" href="<%= localePath('forex-trading-platform-metatrader-metatrader-4') %>"><img class="metatrader-playstore" src="\assets\img\mobile_trading_app\playstore-icon.png"/></a>
+                    <a target="_blank" href="<%= localePath('forex-trading-platform-metatrader-metatrader-4') %>"><img class="metatrader-playstore" src="\assets\img\mobile_trading_app\appstore-icon.png"/></a>
+                    <% } %>
+                </div>
+            </div>
+            <div>
+                <div class="trader-icon"><img src="\assets\img\mobile_trading_app\ctrader-icon.svg"/></div>
+                <div class="download-options">
+                    <a target="_blank" href="<%= localePath('forex-trading-platform-ctrader-ctrader-android') %>"><img class="metatrader-playstore" src="\assets\img\mobile_trading_app\playstore-icon.png"/></a>
+                    <a target="_blank" href="<%= localePath('forex-trading-platform-ctrader-ctrader-iphone') %>"><img class="metatrader-playstore" src="\assets\img\mobile_trading_app\appstore-icon.png"/></a>
+                </div>
+            </div>
+         </div>
+        </div>
+    </div>
+</div>

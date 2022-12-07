@@ -1,0 +1,33 @@
+<% setI18nPrefix('pages.error') %>
+<link rel="stylesheet" href="<%=md5('/css/pages/404.css')%>">
+<meta name="description" content="<%- $t('meta', true) %>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+
+    <div class="single-page error-404-page">
+        <article class="page-content-container">
+            <div class="container-for-center">
+                <div class="bot-img">
+                    <div class="oops"></div>
+                    <div class="sorry"></div>
+                </div>
+                <div class="title"><%- $t('error_404_0') %></div>
+                <div class="description"><%- $t('error_404_1') %></div>
+            </div>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a  id="404_live_registration_link" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%- $t('error_404_2') %></a>
+                        <a id="404_demo_registration_link" class="icm-btn demo" href="<%= localePath('open-trading-account-demo') %>"><%- $t('error_404_3') %></a>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="group-of-links">
+                <div><a id="404_prefix_by_regulator" class="link" href="/<%- prefix_by_regulator %>"><%- $t('error_404_4') %></a></div>
+                <div class="link">|</div>
+                <div><a id="404_company_contact_us" class="link" href="<%= localePath('company-contact-us') %>"><%- $t('error_404_5') %></a></div>
+            </div>
+        </article>
+    </div>

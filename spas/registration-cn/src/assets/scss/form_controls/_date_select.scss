@@ -1,0 +1,32 @@
+.date_select {
+    .input_group_items {
+        .searchDropdown {
+            label {
+                display: none;
+            }
+
+            input {
+                min-height: 40px;
+                border: none;
+                border-bottom: 1px solid #949494;
+                border-radius: 0;
+                padding: 0;
+                background: #fff url(../images/Dropdown.png) no-repeat 98%;
+            }
+        }
+
+        @include screen(768px) {
+            display: flex;
+
+            > div {
+                flex: auto;
+                width: 33.3%;
+                margin-right: 10px;
+
+                &:last-of-type {
+                    margin-right: 0;
+                }
+            }            
+        }
+    }
+}

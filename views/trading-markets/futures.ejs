@@ -1,0 +1,180 @@
+<% setI18nPrefix('pages.trading-markets.futures')%>
+<meta name="description" content="<%-$t('meta', true)%>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/futures.css')%>">
+<%- contentFor('title')%>
+  <%-$t('title')%>
+<%- contentFor('body')%>
+    <div class="single-page page-futures">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('futures_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('futures_2')%></div>
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="futures_1" class="icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('starttrading')%></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'trading-markets-futures' }) %>
+        </article>
+        <article class="page-content-container">
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="market-facts-card">
+                        <div class="facts-header">
+                            <div class="header-label"><%-$t('futures_4')%></div>
+                            <div class="header-title"><%-$t('futures_5')%></div>
+                        </div>
+                        <div class="facts-items">
+                            <div class="facts-item"><%-$t('futures_6')%></div>
+                            <div class="facts-item"><%-$t('futures_7')%></div>
+                            <div class="facts-item"><% if (cysec) { %><%-$t('futures_88')%><% } else { %><%-$t('futures_8')%><% } %></div>
+                            <div class="facts-item"><%-$t('futures_9')%></div>
+                            <div class="facts-item"><%-$t('futures_10')%></div>
+                            <div class="facts-item"><%-$t('futures_11')%></div>
+                        </div>
+                        <div class="action-buttons-container">
+                            <a id="futures_2" class="action-button icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('futures_12')%></a>
+                        </div>
+                    </div>
+                    <div class="first-section">
+                        <div class="page-first-text">
+                            <p><%-$t('futures_13')%></p>
+                            <p><%-$t('futures_14')%></p>
+                            <div class="grid-table grid-table-2">
+                                <div class="grid-table-row grid-table-header">
+                                    <div><%-$t('futures_15')%></div>
+                                    <div><%-$t('futures_16')%></div>
+                                </div>
+                                <div class="grid-table-row">
+                                    <div class="grid-table-label"><%-$t('futures_17')%></div>
+                                    <div class="grid-table-value">DXY</div>
+                                </div>
+                                <div class="grid-table-row">
+                                    <div class="grid-table-label"><%-$t('futures_18')%></div>
+                                    <div class="grid-table-value">VIX</div>
+                                </div>
+                                <div class="grid-table-row">
+                                    <div class="grid-table-label"><%-$t('futures_19')%></div>
+                                    <div class="grid-table-value">BRENT</div>
+                                </div>
+                                <div class="grid-table-row">
+                                    <div class="grid-table-label"><%-$t('futures_20')%></div>
+                                    <div class="grid-table-value">WTI</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content highlighted-content">
+                <div class="page-section">
+                    <h1><%-$t('futures_21')%></h1>
+                    <div class="accent-block"><%-$t('futures_22')%></div>
+                    <div class="flex-section">
+                        <div class="flex-content">
+                            <div class="content-head"><%-$t('futures_23')%></div>
+                            <div class="content-inside label"><%-$t('futures_24')%></div>
+                            <div class="content-inside value">$14.20</div>
+                            <div class="content-inside label"><%-$t('futures_25')%></div>
+                            <div class="content-inside value">$18.20</div>
+                            <div class="content-inside label"><%-$t('futures_26')%></div>
+                            <div class="content-inside value"><%-$t('futures_27')%></div>
+                            <div class="content-inside label"><%-$t('futures_28')%></div>
+                            <div class="content-inside value"><%-$t('futures_29')%></div>
+                        </div>
+                        <div class="flex-content">
+                            <div class="content-head"><%-$t('futures_30')%></div>
+                            <div class="content-inside ordinary"><%-$t('futures_31')%></div>
+                            <div class="content-inside description"><%-$t('futures_32')%></div>
+                        </div>
+                        <div class="flex-content">
+                            <div class="content-head"><%-$t('futures_33')%></div>
+                            <div class="content-inside ordinary"><%-$t('futures_34')%></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="node-desc"><%-$t('futures_35')%></div>
+                    <h1><%-$t('futures_36')%></h1>
+                    <p><b><%-$t('futures_37')%></b></p>
+                    <p><%-$t('futures_38')%></p>
+
+                    <div class="grid-table grid-table-5 external-futures-index-data-table">
+                        <div class="grid-table-row grid-table-header">
+                            <div><%-$t('futures_15')%></div>
+                            <div><%-$t('futures_63')%></div>
+                            <div><%-$t('futures_64')%></div>
+                            <div><%-$t('futures_52')%></div>
+                            <div><%-$t('futures_51')%></div>
+                        </div>
+                        <% futuresIndex.forEach((fI, id) => { %>
+                            <div class="grid-table-row" key="<%- id %>">
+                                <div class="grid-table-label"><%- fI.name %></div>
+                                <div class="grid-table-value"><%- fI.start_date %></div>
+                                <div class="grid-table-value"><%- fI.close_only_date %></div>
+                                <div class="grid-table-value"><%- fI.expire_date %></div>
+                                <div class="grid-table-value"><%- fI.month %></div>
+                            </div>
+                        <%})%>
+                    </div>
+
+                    <h1 style="margin-top:80px;"><%-$t('futures_49')%></h1>
+
+                    <div class="grid-table grid-table-5 external-futures-сommodity-data-table">
+                        <div class="grid-table-row grid-table-header">
+                            <div><%-$t('futures_50')%></div>
+                            <div><%-$t('futures_63')%></div>
+                            <div><%-$t('futures_64')%></div>
+                            <div><%-$t('futures_52')%></div>
+                            <div><%-$t('futures_51')%></div>
+                        </div>
+                        <% futuresCommodity.forEach((fC, id) => { %>
+                            <div class="grid-table-row" key="<%- id %>">
+                                <div class="grid-table-label"><%- fC.name %></div>
+                                <div class="grid-table-value"><%- fC.start_date %></div>
+                                <div class="grid-table-value"><%- fC.close_only_date %></div>
+                                <div class="grid-table-value"><%- fC.expire_date %></div>
+                                <div class="grid-table-value"><%- fC.month %></div>
+                            </div>
+                        <%})%>
+                    </div>
+                </div>
+            </div>
+            <% if (asic) { %>
+            <div class="page-content">
+                <div class="page-section">
+                    <div class="profile-buttons">
+                        <a id="futures_3" style="text-decoration:none;" class="profile-button" href="<%= localePath('trading-pricing-spreads')%>">
+                            <div class="profile-button-label"><%-$t('futures_53')%></div>
+                            <div class="profile-button-value"><%-$t('futures_54')%></div>
+                        </a>
+                        <a id="futures_4" style="text-decoration:none;" class="profile-button" href="<%- getCDN() %>/uploads/AU/Futures-Product-Specification-Sheet.pdf" target="_blank">
+                            <div class="profile-button-label"><%-$t('futures_55')%></div>
+                            <div class="profile-button-value"><%-$t('futures_56')%></div>
+                        </a>
+                        <a id="futures_5" style="text-decoration:none;" class="profile-button" href="<%= localePath('trading-accounts-raw-spread-account')%>">
+                            <div class="profile-button-label"><%-$t('futures_57')%></div>
+                            <div class="profile-button-value"><%-$t('futures_581')%></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('futures_59')%></div>
+                    <div class="global-today"><%-$t('futures_60')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="futures_6" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live')%>"><%-$t('futures_61')%></a>
+                        <a id="futures_7" class="icm-btn demo" href="<%= localePath('open-trading-account-demo')%>"><%-$t('futures_62')%></a>
+                    </div>
+                </div>
+            </div>
+
+        </article>
+    </div>

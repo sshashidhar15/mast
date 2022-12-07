@@ -1,0 +1,110 @@
+{
+  "name": "www-express",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "migrate": "node bin/migrate",
+    "start": "node bin/www",
+    "auto": "nodemon bin/www",
+    "smoke": "node test/smoke.js",
+    "load": "k6 run test/load.js",
+    "dev": "node bin/dev",
+    "dev-local-redis": "REDIS_DB_HOST=localhost node bin/dev",
+    "lint": "npm run eslint && npm run ejslint",
+    "ejslint": "ejslint $(find ./views -type f ! -iname 'test-only-invalid-template.ejs')",
+    "eslint": "eslint --ignore-pattern *.min.js --ignore-pattern etc --ignore-pattern live.js --ignore-pattern public/assets --ignore-pattern public/report/assets --ignore-pattern demo.js ./",
+    "test": "nyc mocha -b",
+    "test-local-redis": "REDIS_DB_HOST=localhost nyc mocha -b",
+    "test-translations-local-redis": "REDIS_DB_HOST=localhost nyc mocha -b test/translations.js",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "models",
+      "routes",
+      "utils",
+      "app.js",
+      "config.js",
+      "redis.js"
+    ]
+  },
+  "nyc": {
+    "check-coverage": true,
+    "per-file": false,
+    "statements": 60,
+    "branches": 50,
+    "functions": 40,
+    "lines": 60,
+    "include": [
+      "app.js",
+      "config.js",
+      "utils",
+      "redis.js",
+      "routes",
+      "bin"
+    ],
+    "exclude": [
+      "redis.js",
+      "redis_pub.js",
+      "redis_sub.js"
+    ],
+    "reporter": [
+      "html",
+      "text-summary"
+    ],
+    "all": true
+  },
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "browserify": "^16.2.3",
+    "cookie-parser": "~1.4.3",
+    "deep-object-diff": "^1.1.0",
+    "ejs": "~2.5.7",
+    "ejs-lint": "^1.1.0",
+    "express": "~4.16.0",
+    "express-ejs-layouts": "^2.5.0",
+    "express-robots.txt": "^1.0.3",
+    "forex-calculators": "git+https://icmjenkins:34eed9583e370d79616546e6f9f42553907875d0@github.com/ICMarkets/forex-calculators.git#1.5.0",
+    "glob": "^7.1.6",
+    "http-errors": "~1.6.2",
+    "i18n-2": "^0.7.3",
+    "jsonwebtoken": "^8.5.1",
+    "migrate": "^1.6.2",
+    "moment": "^2.24.0",
+    "morgan": "~1.9.0",
+    "msgpack-lite": "^0.1.26",
+    "node-fetch": "^2.6.1",
+    "node-sass-middleware": "0.11.0",
+    "nodemon": "^2.0.6",
+    "query-string": "^6.2.0",
+    "redis": "^3.1.2",
+    "request": "^2.88.2",
+    "simple-git": "^3.14.0",
+    "uuid": "^3.3.2",
+    "ws": "^7.5.1"
+  },
+  "devDependencies": {
+    "coveralls": "git+https://icmjenkins:34eed9583e370d79616546e6f9f42553907875d0@github.com/ICMarkets/node-coveralls.git",
+    "eslint": "^5.16.0",
+    "inquirer": "^6.3.1",
+    "mocha": "^8.2.1",
+    "mochawesome": "^4.1.0",
+    "nyc": "^15.1.0"
+  },
+  "description": "[![Coverage Status](https://coveralls.io/repos/github/ICMarkets/WWW2/badge.svg?t=gkYuFp)](https://coveralls.io/github/ICMarkets/WWW2)",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ICMarkets/WWW2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ICMarkets/WWW2/issues"
+  },
+  "homepage": "https://github.com/ICMarkets/WWW2#readme"
+}

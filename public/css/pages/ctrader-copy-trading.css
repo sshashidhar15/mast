@@ -1,0 +1,381 @@
+/* ICM Primary values from UX design */
+/* Width - container, element, card, */
+/* Margin */
+/* padding */
+/* Border */
+/*
+  Roboto font related weights
+   https://fonts.google.com/specimen/Roboto?selection.family=Roboto:100,300,400,500,700,900
+*/
+/* font color, background color */
+/* UI elements specific color */
+/* Card specific color */
+/* max width properties for UI Cards for different number of cards in a container */
+/* one are more cards */
+/* three are more cards */
+.ctrader-copy-trading .page-header {
+  background-image: url(/assets/img/single_market_page/ctrader-copy-trading-banner.png);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain !important;
+  background-color: #000000; }
+  .ctrader-copy-trading .page-header .page-header__heading {
+    font-size: 42px;
+    font-weight: 700; }
+  .ctrader-copy-trading .page-header .page-header__description {
+    font-size: 16px !important; }
+  .ctrader-copy-trading .page-header #ctrader_windows_1 {
+    border-radius: 2px !important;
+    padding: 25px !important;
+    font-size: 20px !important;
+    font-weight: 900 !important;
+    text-transform: uppercase; }
+
+.ctrader-copy-trading .page-content-container .page-content .page-section .left {
+  float: left; }
+
+.ctrader-copy-trading .page-content-container .page-content .page-section .right {
+  float: right; }
+
+.ctrader-copy-trading .page-content-container .page-content .page-section .mt10 {
+  margin-top: 10px; }
+
+.ctrader-copy-trading .page-content-container .page-content .page-section .mt20 {
+  margin-top: 20px; }
+
+.ctrader-copy-trading .page-content-container .page-content .page-section .mt30 {
+  margin-top: 30px; }
+
+.ctrader-copy-trading .page-content-container .page-content .page-section .mt40 {
+  margin-top: 40px; }
+
+.ctrader-copy-trading .page-content-container .page-content .page-section .mt50 {
+  margin-top: 50px; }
+
+.ctrader-copy-trading .page-content-container .page-content .page-section .mt100 {
+  margin-top: 100px; }
+
+.ctrader-copy-trading .page-content-container .page-content .page-section .ml20 {
+  margin-left: 20px; }
+
+.ctrader-copy-trading .page-content-container .page-content .page-section .ml_20 {
+  margin-left: -20px; }
+
+.ctrader-copy-trading .page-content-container .page-content .page-section ul li {
+  display: flex;
+  list-style-type: none; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section ul li span {
+    display: inline-flex;
+    margin-right: 10px; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section ul li span::before {
+    font-family: 'Glyphicons Halflings';
+    content: "\e013";
+    width: 20px;
+    height: 20px;
+    background: #34E834;
+    font-size: 10px;
+    padding-left: 5px;
+    border-radius: 50%; }
+
+.ctrader-copy-trading .page-content-container .page-content .page-section ul.tick {
+  padding-left: 0; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section ul.tick li {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    min-height: 50px;
+    margin-bottom: 20px; }
+
+.ctrader-copy-trading .page-content-container .page-content .page-section ul.tick-sm {
+  padding-left: 0px;
+  margin-left: -20px; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section ul.tick-sm li {
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 10px; }
+
+.ctrader-copy-trading .page-content-container .page-content .page-section ol {
+  counter-reset: li;
+  padding-left: 0px;
+  margin-left: -32px; }
+
+.ctrader-copy-trading .page-content-container .page-content .page-section ol li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  font-size: 11px;
+  line-height: 18px;
+  min-height: 35px;
+  margin-bottom: 10px; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section ol li span {
+    display: inline-flex;
+    margin-right: 10px; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section ol li span::before {
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    content: "";
+    width: 0px;
+    height: 100%;
+    border-left: 1px solid #ECECEC;
+    z-index: 100; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section ol li span::after {
+    counter-increment: li;
+    content: counter(li);
+    width: 20px;
+    height: 20px;
+    background: #34E834;
+    font-size: 11px;
+    font-weight: 500;
+    padding-top: 1px;
+    padding-left: 6px;
+    border-radius: 50%;
+    z-index: 101; }
+
+.ctrader-copy-trading .page-content-container .page-content .page-section .title {
+  font-size: 32px;
+  line-height: 42px; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .title span {
+    color: #34E834; }
+
+.ctrader-copy-trading .page-content-container .page-content .page-section .subtitle {
+  font-size: 16px;
+  line-height: 22px; }
+
+.ctrader-copy-trading .page-content-container .page-content .page-section .breadcrumb {
+  position: relative;
+  border-bottom: 1px solid #cccccc; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .breadcrumb b::after {
+    position: absolute;
+    content: "";
+    width: 100px;
+    height: 2px;
+    left: 0px;
+    bottom: -1px;
+    border-bottom: 2px solid #34E834; }
+
+.ctrader-copy-trading .page-content-container .page-content .page-section .center {
+  text-align: center; }
+
+.ctrader-copy-trading .page-content-container .page-content .page-section .ctrader-logo {
+  background-image: url(/assets/img/single_market_page/ctrader-copy-trading-ctrader-logo.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 30px; }
+
+.ctrader-copy-trading .page-content-container .page-content .page-section .ctrader-copy-trading-minimal {
+  background: url(/assets/img/single_market_page/ctrader-copy-trading-ctrader-copy-trading-minimal.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 365px; }
+
+.ctrader-copy-trading .page-content-container .page-content .page-section .card {
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+  padding: 25px;
+  min-height: 225px; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .card .icon {
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    width: 40px;
+    height: 40px; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .card .equity {
+    background: url(/assets/img/single_market_page/ctrader-copy-trading-icon-equity.png); }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .card .transaction {
+    background: url(/assets/img/single_market_page/ctrader-copy-trading-icon-transaction.png); }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .card .analytics {
+    background: url(/assets/img/single_market_page/ctrader-copy-trading-icon-analytics.png); }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .card .tools {
+    background: url(/assets/img/single_market_page/ctrader-copy-trading-icon-tools.png); }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .card .strategy {
+    background: url(/assets/img/single_market_page/ctrader-copy-trading-icon-strategy.png); }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .card .control {
+    background: url(/assets/img/single_market_page/ctrader-copy-trading-icon-control.png); }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .card .risk {
+    background: url(/assets/img/single_market_page/ctrader-copy-trading-icon-risk.png); }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .card .investment {
+    background: url(/assets/img/single_market_page/ctrader-copy-trading-icon-investment.png); }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .card .fee {
+    background: url(/assets/img/single_market_page/ctrader-copy-trading-icon-fee.png); }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .card .promotion {
+    background: url(/assets/img/single_market_page/ctrader-copy-trading-icon-promotion.png); }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .card .title {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 22px; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .card .text {
+    font-size: 14px;
+    line-height: 20px; }
+
+.ctrader-copy-trading .page-content-container .page-content .page-section .card:hover {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3); }
+
+.ctrader-copy-trading .page-content-container .page-content .page-section .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 15px; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .button .icon {
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    width: 35px;
+    height: 35px;
+    margin-right: 15px; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .button .setup {
+    background: url(/assets/img/single_market_page/ctrader-copy-trading-icon-setup.png); }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .button .outcomes {
+    background: url(/assets/img/single_market_page/ctrader-copy-trading-icon-outcomes.png); }
+
+.ctrader-copy-trading .page-content-container .page-content .page-section .button.left::after {
+  position: absolute;
+  content: '\21E2';
+  font-size: 65px;
+  color: #A0A0A0;
+  right: -35px; }
+
+.ctrader-copy-trading .page-content-container .page-content .page-section .grey {
+  background-color: #464646;
+  color: #ffffff; }
+
+.ctrader-copy-trading .page-content-container .page-content .page-section .light-grey {
+  background-color: #F2F2F2;
+  color: #000000; }
+
+.ctrader-copy-trading .page-content-container .page-content .page-section .green {
+  background-color: #34E834;
+  color: #000000; }
+
+.ctrader-copy-trading .page-content-container .page-content .page-section .button-sm {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  width: 225px;
+  font-size: 12px;
+  padding: 10px; }
+
+.ctrader-copy-trading .page-content-container .page-content .page-section .process {
+  background: url(/assets/img/single_market_page/ctrader-copy-trading-ctrader-process.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 100%;
+  height: 365px; }
+
+.ctrader-copy-trading .global-markets-today .icm-button-wrapper a.icm-btn.icm-btn-primary {
+  border-radius: 0px !important;
+  padding: 25px !important;
+  font-size: 20px !important;
+  text-transform: none !important; }
+
+.ctrader-copy-trading .global-markets-today .icm-button-wrapper #ctrader_windows_6 {
+  border-radius: 0 !important;
+  padding: 25px !important;
+  font-size: 20px !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  color: #fff !important;
+  margin-left: 9px; }
+
+.ctrader-copy-trading .page-header__menu-container {
+  padding: 15px 0 !important; }
+
+.ctrader-copy-trading #platform_ctrader_menu_1 {
+  text-transform: uppercase !important; }
+
+@media screen and (min-width: 641px) and (max-width: 1024px) {
+  .ctrader-copy-trading .page-content-container .page-content .page-section .left {
+    float: unset; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .right {
+    float: unset; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .mt10 {
+    margin-top: 10px; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .mt20 {
+    margin-top: 20px; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .mt30 {
+    margin-top: 0px; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .mt40 {
+    margin-top: 0px; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .mt50 {
+    margin-top: 50px; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .mt100 {
+    margin-top: 0px; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .ml20 {
+    margin-left: 0px; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .ml_20 {
+    margin-left: 0px; }
+  .ctrader-copy-trading ul.tick li {
+    min-height: 25px !important;
+    margin-bottom: 10px !important; }
+  .ctrader-copy-trading ol li span::before {
+    display: none; }
+  .ctrader-copy-trading .title {
+    text-align: center; }
+  .ctrader-copy-trading .subtitle {
+    text-align: center; }
+  .ctrader-copy-trading .ctrader-logo {
+    background-position: center; }
+  .ctrader-copy-trading .ctrader-copy-trading-minimal {
+    background-position: center !important; }
+  .ctrader-copy-trading .card {
+    margin-top: 30px !important;
+    margin-bottom: 15px !important; }
+    .ctrader-copy-trading .card .icon {
+      margin: auto; }
+  .ctrader-copy-trading .button {
+    width: 100% !important;
+    margin-top: 30px !important;
+    margin-bottom: 15px !important; }
+  .ctrader-copy-trading .button.left::after {
+    display: none; } }
+
+@media screen and (max-width: 640px) {
+  .ctrader-copy-trading .page-content-container .page-content .page-section .left {
+    float: unset; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .right {
+    float: unset; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .mt10 {
+    margin-top: 10px; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .mt20 {
+    margin-top: 20px; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .mt30 {
+    margin-top: 0px; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .mt40 {
+    margin-top: 0px; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .mt50 {
+    margin-top: 0px; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .mt100 {
+    margin-top: 0px; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .ml20 {
+    margin-left: 0px; }
+  .ctrader-copy-trading .page-content-container .page-content .page-section .ml_20 {
+    margin-left: 0px; }
+  .ctrader-copy-trading ul.tick li {
+    min-height: 25px !important;
+    margin-bottom: 10px !important; }
+  .ctrader-copy-trading ol li span::before {
+    display: none; }
+  .ctrader-copy-trading .title {
+    text-align: center; }
+  .ctrader-copy-trading .subtitle {
+    text-align: center; }
+  .ctrader-copy-trading .card {
+    margin-top: 30px !important;
+    margin-bottom: 15px !important; }
+    .ctrader-copy-trading .card .icon {
+      margin: auto; }
+  .ctrader-copy-trading .button {
+    width: 100% !important;
+    margin-top: 30px !important;
+    margin-bottom: 15px !important; }
+  .ctrader-copy-trading .button.left::after {
+    display: none; } }
+
+/*# sourceMappingURL=ctrader-copy-trading.css.map */

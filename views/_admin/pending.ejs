@@ -1,0 +1,101 @@
+<style media="screen">
+  .diff-table {
+    word-break: break-word;
+  }
+
+  #import-label {
+    cursor: pointer;
+  }
+
+  #import {
+    display: none;
+  }
+  .diff-table {
+    font-size: 12px;
+  }
+  .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+  }
+  #_import {
+      display: none;
+  }
+  #_title_time {
+      cursor: pointer;
+  }
+
+  #_pendings .key_intersection {
+      background: linear-gradient(90deg, rgba(255, 255, 0, 0.2), rgba(255, 255, 0, 0), rgba(255, 255, 0, 0.1), rgba(255, 255, 0, 0));
+      background-size: 100% 100%;
+      animation: gradient 0.2s ease infinite;
+  }
+
+  #_pendings .approving {
+      background: linear-gradient(90deg, rgba(0, 255, 0, 0.2), rgba(0, 255, 0, 0), rgba(0, 255, 0, 0.1), rgba(0, 255, 0, 0));
+      background-size: 100% 100%;
+      animation: gradient 0.2s ease infinite;
+  }
+
+  #_pendings .dismissing {
+      background: linear-gradient(90deg, rgba(255, 0, 0, 0.2), rgba(255, 0, 0, 0), rgba(255, 0, 0, 0.1), rgba(255, 0, 0, 0));
+      background-size: 100% 100%;
+      animation: gradient 0.2s ease infinite;
+  }
+
+  @keyframes gradient {
+      0% {
+          background-position: 0% 50%;
+      }
+      50% {
+          background-position: 100% 50%;
+      }
+      100% {
+          background-position: 0% 50%;
+      }
+  }
+</style>
+<div style="margin-top: 20px; min-height: 100px;">
+    <h1 id="_title" class="h3"></h1>
+    <label style="display: none;margin-right:15px;" id="_label_count">Count:&nbsp; <span id="_count"></span></label>
+</div>
+<div class="d-none d-sm-inline-block">
+    <button id="_button_create_token" class=" btn btn-sm btn-primary">
+        Create Translator
+    </button>
+    <button role="button" class="btn btn-sm btn-success" id="_button_approve_checked">
+        Approve checked
+    </button>
+    <button role="button" class="btn btn-sm btn-danger" id="_button_dismiss_checked">
+        Dismiss checked
+    </button>
+</div>
+<div class="manager-container">
+  <div class="row">
+    <div class="col md-12 mb-4">
+      <div class="card">
+        <div class="card-body">
+            <table class="table" style="width: 100%;">
+              <thead>
+                <tr>
+                  <th width="20">
+                    <div class="form-group form-check">
+                      <input type="checkbox" class="form-check-input" id="_bulk_check_all">
+                    </div>
+                  </th>
+                  <th id="_title_time" title="sort">Time</th>
+                  <th>Locale</th>
+                  <th>Note</th>
+                  <th>Keys</th>
+                  <th>Controls</th>
+                </tr>
+              </thead>
+              <tbody id="_pendings">
+              </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="<%=md5('/js/admin_views/pendings.js')%>"></script>

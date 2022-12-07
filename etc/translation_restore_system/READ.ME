@@ -1,0 +1,18 @@
+Automatic Restore Already Translated (oldest) phrases to the New (latest) target locale
+ATTENTION: FOR ONE-BY-ONE LOCALE RUN ONLY !!!
+
+0. Be sure you have an oldest locales directory (for example: locale_27-04-2018 from commit at 27.04.2018 into the WWW.DEV)
+1. Copy all last files with directory structure from "locale/en/" directory of our new website ("WWW" from the GIT) into "1_latest_language_en" directory
+2. Copy other latest language given files with directory structure to "2_latest_language_other" directory
+3. Copy oldest files with directory structure from "locale/en/" directory into "3_oldest_language_en" directory
+4. Copy other oldest language given files with directory structure to "4_oldest_language_other" directory
+5. Run restoring by command in terminal or console: > node index
+6. On any JSON parsing fail will be error message in the console
+7. Get restored results from "5_restored_oldest_to_latest"
+8. Put result into separate directory (named with target language code, ex. "ru" for russian or "it" for italian etc.) of our new website
+
+9. After restoring needs to be runned "translation_absent_system" for detect only untranslated keys for translators.
+A. Send untranslated keys to translators and wait for translate results.
+B. After get the translate results needs to be runned "translation_merge_system" for apply changes (and detect errors or mistakes).
+
+NOTE: Directory "5_restored_oldest_to_latest" will be removed on start (if it present) after run and re-created with actual structure from "1_latest_language_en" after finish

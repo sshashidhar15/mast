@@ -1,0 +1,95 @@
+<link rel="stylesheet" href="<%=md5('/css/components/stocks1-table.css')%>">
+<div class="markets-spread-table stocks-spread-table">
+<%
+let stocks7Table = {
+    stocksSpreadsColHeadersDesktop: ['MT5 Symbol', 'EURONEXT PARIS STOCKS'],
+    stocksSpreadsData: [
+        ["AC.PAR", "Accor"],
+        ["ACA.PAR", "Credit Agricole"],
+        ["AF.PAR", "AIR France-KLM"],
+        ["AI.PAR", "Air Liquide"],
+        ["AIR.PAR", "Airbus SE"],
+        ["AKE.PAR", "Arkema"],
+        ["ALD.PAR", "ALD SA"],
+        ["ALO.PAR", "Alstom"],
+        ["ATO.PAR", "Atos Origin"],
+        ["BN.PAR", "Danone"],
+        ["BNP.PAR", "BNP Paribas SA (FR)"],
+        ["BOL.PAR", "Bollore"],
+        ["BVI.PAR", "Bureau Veritas"],
+        ["CA.PAR", "Carrefour"],
+        ["CAP.PAR", "Cap Gemini"],
+        ["CDI.PAR", "Christian Dior SA"],
+        ["CO.PAR", "Casino Guichard Perrachon"],
+        ["CS.PAR", "AXA SA (FR)"],
+        ["DG.PAR", "Vinci"],
+        ["DSY.PAR", "Dassault Systemes"],
+        ["EDEN.PAR", "Edenred"],
+        ["EDF.PAR", "Electricite de France SA"],
+        ["EL.PAR", "Essilor International"],
+        ["EN.PAR", "Bouygues"],
+        ["ENGI.PAR", "Engie"],
+        ["EO.PAR", "Faurecia"],
+        ["FGR.PAR", "Eiffage"],
+        ["FNAC.PAR", "Fnac Darty"],
+        ["FP.PAR", "TotalEnergies (FR)"],
+        ["FR.PAR", "Valeo"],
+        ["GLE.PAR", "Société Générale"],
+        ["HO.PAR", "Thales"],
+        ["ICAD.PAR", "Icade"],
+        ["JCDX.PAR", "JCDecaux"],
+        ["KER.PAR", "Kering"],
+        ["LR.PAR", "Legrand"],
+        ["MAU.PAR", "Maurel & Prom"],
+        ["MC.PAR", "LVMH Moet Hennessy Louis Vuitton SA (FR)"],
+        ["ML.PAR", "Michelin"],
+        ["MMB.PAR", "Lagardere"],
+        ["OR.PAR", "L'Oreal"],
+        ["ORA.PAR", "Orange"],
+        ["POM.PAR", "Plastic Omnium"],
+        ["PUB.PAR", "Publicis Groupe"],
+        ["RCO.PAR", "Remy Cointreau"],
+        ["RI.PAR", "Pernod Ricard"],
+        ["RMS.PAR", "Hermes"],
+        ["RNO.PAR", "Renault SA (FR)"],
+        ["SAF.PAR", "Safran"],
+        ["SAN.PAR", "Sanofi (FR)"],
+        ["SGO.PAR", "Saint Gobain"],
+        ["SU.PAR", "Schneider Electric"],
+        ["SW.PAR", "Sodexo"],
+        ["TCH.PAR", "Technicolor"],
+        ["UBI.PAR", "Ubisoft Entertainment"],
+        ["UG.PAR", "Peugeot Invest"],
+        ["VCT.PAR", "Vicat"],
+        ["VIE.PAR", "Veolia Environment"],
+        ["VIV.PAR", "Vivendi"],
+        ["VK.PAR", "Vallourec"]
+    ]
+}
+%>
+<div class="single-design-search">
+    <div class="group search">
+        <span>Search by Symbol</span>
+        <input class="spreads-search-box" type="search"/>
+    </div>
+    <div class="group skin">
+        <span class="skin-label">Table Skin</span>
+        <span class="skin-toggle skin-light">&nbsp;</span>
+        <span class="skin-toggle skin-dark">&nbsp;</span>
+    </div>
+</div>
+
+<%- include('./spread-table-component.ejs', {
+    extraClass: 'stocks',
+    tableSkin: 'light-skin',
+    slotMobile: null,
+    slotTablet: null,
+    slotDesktop: null,
+    colHeadersMobile: stocks7Table.stocksSpreadsColHeadersDesktop,
+    mobileData: stocks7Table.stocksSpreadsData,
+    colHeadersTablet: stocks7Table.stocksSpreadsColHeadersDesktop,
+    tabletData: stocks7Table.stocksSpreadsData,
+    colHeadersDesktop: stocks7Table.stocksSpreadsColHeadersDesktop,
+    desktopData: stocks7Table.stocksSpreadsData
+}); %>
+</div>

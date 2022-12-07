@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.1 (44463) - http://www.bohemiancoding.com/sketch -->
+    <title>Market--Forex</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Templates" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Market--Forex">
+            <g id="Group-217" transform="translate(1.000000, 1.000000)">
+                <path d="M19,0 L19,0 C3.21167626,0 0,3.21167626 0,19 C0,34.7883237 3.21167626,38 19,38 C34.7883237,38 38,34.7883237 38,19 C38,3.21167626 34.7883237,0 19,0 L19,0 Z" id="Shape" stroke="#34E834" stroke-width="2" fill-rule="nonzero"></path>
+                <path d="M16.84375,19.7265625 L12.34375,19.7265625 L12.34375,24.375 L10,24.375 L10,13 L17.40625,13 L17.40625,14.8984375 L12.34375,14.8984375 L12.34375,17.8359375 L16.84375,17.8359375 L16.84375,19.7265625 Z M22.8359375,16.921875 L24.96875,13 L27.6640625,13 L24.3515625,18.640625 L27.75,24.375 L25.0234375,24.375 L22.8359375,20.390625 L20.6484375,24.375 L17.921875,24.375 L21.3203125,18.640625 L18.0078125,13 L20.703125,13 L22.8359375,16.921875 Z" id="FX" fill="#34E834"></path>
+            </g>
+        </g>
+    </g>
+</svg>

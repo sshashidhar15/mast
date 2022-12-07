@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>Device--Windows</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Templates" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ICM-landing-page-v3-4" transform="translate(-1001.000000, -6994.000000)" fill-rule="nonzero">
+            <g id="Group-193" transform="translate(506.000000, 6718.000000)">
+                <g id="Group-192" transform="translate(472.000000, 0.000000)">
+                    <g id="Group-122" transform="translate(0.000000, 253.000000)">
+                        <g id="Group-121" transform="translate(24.000000, 24.000000)">
+                            <g id="Device--Windows">
+                                <path d="M19,0 L19,0 C3.21167626,0 0,3.21167626 0,19 C0,34.7883237 3.21167626,38 19,38 C34.7883237,38 38,34.7883237 38,19 C38,3.21167626 34.7883237,0 19,0 L19,0 Z" id="Shape" stroke="#34E834" stroke-width="2"></path>
+                                <g id="win" transform="translate(11.000000, 11.000000)" fill="#34E834">
+                                    <path d="M0,2.25490909 L6.48854545,1.37123636 L6.49138182,7.62996364 L0.00592727273,7.66689636 L0,2.25490909 Z M6.48545455,8.35109091 L6.49049091,14.6152727 L0.00503636364,13.7236182 L0.00467272727,8.30907273 L6.48545455,8.35109091 Z M7.27201818,1.25563636 L15.8752909,6.21724894e-15 L15.8752909,7.55036364 L7.27201818,7.61866364 L7.27201818,1.25563636 Z M15.8772909,8.41 L15.8752727,15.9263636 L7.272,14.7121091 L7.25994545,8.39592727 L15.8772909,8.41 Z" id="Shape"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,419 @@
+#!groovy
+
+import java.text.SimpleDateFormat
+
+/*
+* Jenkins shared library
+*/
+@Library('utils@v1.0.1') _
+@Library('ecs-jenkins-lib@v1.0.0') awsECS
+@Library('DevOps') ops
+
+def killAllJobsWithSameParams() {
+    def currentJobName = env.JOB_NAME
+    def currentBuildNum = env.BUILD_NUMBER.toInteger()
+    def job = Jenkins.instance.getItemByFullName(currentJobName)
+    for (build in job.builds) {
+        if (!build.isBuilding()) {
+            continue;
+        }
+        if (currentBuildNum == build.getNumber().toInteger()) {
+            continue;
+        }
+
+        log.info("OLD_BRANCH ${build.environment["BRANCH"]} ::: ${env.BRANCH}")
+
+        if (build.environment["BRANCH"] == env.BRANCH) {
+            log.info("Aborting build: ${build}")
+            build.doStop()
+        }
+    }
+}
+
+def GIT_COMMIT_ID = ""
+
+/* Method for creating LB rules */
+
+def createALBListenerRule(listenerArn, priority, comHost, targetGroupArn, region) {
+    return sh(returnStatus: true, script: """
+                                    /usr/local/bin/aws elbv2 create-rule \
+                                    --listener-arn ${listenerArn} \
+                                    --priority ${priority} \
+                                    --conditions Field=host-header,Values='["${comHost}"]' \
+                                    --actions Type=forward,TargetGroupArn=${targetGroupArn} \
+                                    --region ${region}
+                                """)
+}
+
+def registerTD(taskFamily, taskName, memoryReservation, image, tag, containerPort, redisHostValue, region) {
+    return sh(returnStatus: true, script: """
+                            /usr/local/bin/aws ecs register-task-definition --network-mode bridge \
+                            --family ${taskFamily} \
+                            --container-definitions '[{"name":"${taskName}", \
+                                                    "image":"${image}", \
+                                                     "memoryReservation": ${memoryReservation}, \
+                                                     "logConfiguration": {"logDriver": "fluentd", "options": {"tag": "${tag}"}}, \
+                                                     "portMappings":[{"containerPort":${containerPort}, "protocol":"tcp"}], \
+                                                     "environment": [{"name": "REDIS_DB_HOST","value": "${redisHostValue}"},{"name": "REDIS_DB_PORT","value": "6379"}]}]' \
+                                                      --region "${region}"
+                        """)
+}
+
+def devDeploy(cluster, service, task_family, image, redisHost, region, boolean is_wait = true, String awscli = "aws") {
+    sh """
+        OLD_TASK_DEF=\$(${awscli} ecs describe-task-definition \
+                                --task-definition ${task_family} \
+                                --output json --region ${region})
+        OLD_TASK_DEF=\$(echo \$OLD_TASK_DEF | \
+                    jq --arg IMAGE ${image} '.taskDefinition.containerDefinitions[0].image=\$IMAGE')
+        NEW_TASK_DEF=\$(echo \$OLD_TASK_DEF | \
+                    jq --argjson ENV_PARAMS '[{"name": "REDIS_DB_HOST","value": "${redisHost}"},{"name": "REDIS_DB_PORT","value": "6379"}]' '.taskDefinition.containerDefinitions[0].environment=\$ENV_PARAMS')
+        FINAL_TASK=\$(echo \$NEW_TASK_DEF | \
+                    jq '.taskDefinition | \
+                            {family: .family, \
+                            networkMode: .networkMode, \
+                            volumes: .volumes, \
+                            containerDefinitions: .containerDefinitions, \
+                            placementConstraints: .placementConstraints}')
+                            
+        ${awscli} ecs register-task-definition \
+                --family ${task_family} \
+                --cli-input-json \
+                "\$(echo \$FINAL_TASK)" --region "${region}"    
+        if [ \$? -eq 0 ]
+        then
+            echo "New task has been registered"
+        else
+            echo "Error in task registration"
+            exit 1
+        fi
+        
+        echo "Now deploying new version..."
+                    
+        ${awscli} ecs update-service \
+            --cluster ${cluster} \
+            --service ${service} \
+            --force-new-deployment \
+            --task-definition ${task_family} \
+            --region "${region}"
+        
+        if ${is_wait}; then
+            echo "Waiting for deployment to reflect changes"
+            ${awscli} ecs wait services-stable \
+                --cluster ${cluster} \
+                --service ${service} \
+                --region "${region}"
+        fi
+    """
+}
+
+def devCreateECSService(name, cluster, taskFamily, desiredCount, tgArn, taskName, containerPort, region) {
+    sh(returnStatus: true, script: """
+                                /usr/local/bin/aws ecs create-service \
+                                --service-name ${name} \
+                                --launch-type EC2 \
+                                --cluster ${cluster} \
+                                --task-definition ${taskFamily} \
+                                --desired-count ${desiredCount} \
+                                --placement-strategy '[{"type":"binpack",
+                                                        "field":"memory"}, \
+                                                       {"type":"spread", \
+                                                        "field":"attribute:ecs.availability-zone"}]' \
+                                --health-check-grace-period-seconds 600 \
+                                --load-balancers '[{"targetGroupArn":"${tgArn}", \
+                                                "containerName":"${taskName}", \
+                                                "containerPort":${containerPort}}]' \
+                                --role ecsServiceRole \
+                                --region ${region}
+                            """)
+}
+
+// Pipeline
+pipeline {
+    agent any
+
+    // Pipeline options
+    options {
+        timeout(time: 1, unit: 'HOURS')
+        ansiColor('xterm')
+    }
+
+    // Environment specific parameters to be used throughout the pipeline
+    environment {
+
+        // Application specific parameters
+        ENVIRONMENT = "dev"
+        BRANCH =  "${params.BRANCH}"
+        VERSION = "${env.BRANCH}-${new SimpleDateFormat("yyyy-MM-dd-HHmmss").format(new Date())}"
+
+        // Github specific parameters
+        REPO_URL = "https://github.com/ICMarkets/WWW2.git"
+        // Application specific parameters
+        APPLICATION = "www2-migration"
+        TAG = "${env.VERSION}"
+        DOCKER_HUB_VERSION = "${env.APPLICATION}_${env.TAG}"
+
+//        // Platform on which application needs to be deployed
+//        boolean IS_GLOBAL = "${params.PLATFORM}".contains("GLOBAL")
+//        boolean IS_CHINA = "${params.PLATFORM}".contains("CHINA")
+//        boolean IS_RUSSIA = "${params.PLATFORM}".contains("RUSSIA")
+
+       // boolean IS_DEV_ENV = "${params.ENVIRONMENT}".contains("dev")
+
+        // AWS specific parameters
+        CLUSTER_NAME = "icm-dev-cluster"
+        SERVICE_NAME = "icm-${params.ENVIRONMENT}-${env.APPLICATION}-service"
+        TASK_FAMILY = "icm-${params.ENVIRONMENT}-${env.APPLICATION}"
+        ECS_IMAGE_TO_DEPLOY = "${env.ICM_ECR_REPO_URL}/${APPLICATION}:${env.TAG}"
+
+        // dev config
+        VPC = "vpc-bb8321d3"
+        ALB_ARN = "arn:aws:elasticloadbalancing:eu-west-2:466803351965:loadbalancer/app/icm-dev-lb/02aa38573ac93bed"
+        DEV_ALB_HTTP_LISTENER_ARN = "arn:aws:elasticloadbalancing:eu-west-2:466803351965:listener/app/icm-dev-lb/02aa38573ac93bed/2c8b1efb4e0c4dc2"
+        DEV_ALB_HTTPS_LISTENER_ARN = "arn:aws:elasticloadbalancing:eu-west-2:466803351965:listener/app/icm-dev-lb/02aa38573ac93bed/f777b76b6ff73aae"
+        COM_SITE_HOST = "${env.ENVIRONMENT}-${env.APPLICATION}-${env.BRANCH}.internal.icmarkets.com".toLowerCase()
+
+        LOAD_BALANCER = "icm-${env.ENVIRONMENT}-lb"
+        TARGET_GROUP = "icm-${env.ENVIRONMENT}-${env.APPLICATION}-${env.BRANCH}"
+
+    }
+
+    // Pipeline Stages
+    stages {
+        stage('Kill Jobs') {
+            steps {
+                script {
+                    log.info("Executing Stage 1: Kill other jobs having same parameters")
+
+                    /* Logic starts here */
+
+                    killAllJobsWithSameParams()
+
+                    /* Logic ends here */
+
+                    log.info("Completed Stage 1: Kill other jobs")
+                }
+            }
+        }
+
+        // Sleep for 15 seconds
+        stage('Sleep for 15 seconds') {
+            steps {
+                script {
+                    log.info("Executing Stage 2: Going to sleep for 15 seconds")
+
+                    /* Logic starts here */
+
+                    sleep 15
+
+                    /* Logic ends here */
+
+                    log.info("Completed Stage 2: Awake from sleep now...")
+
+                }
+            }
+        }
+
+        // Clean Jenkins workspace
+        stage('Clean workspace') {
+            steps {
+                script {
+                    log.info("Executing Stage 3: Clean workspace")
+
+                    /* Logic starts here */
+
+                    cleanWs()
+
+                    /* Logic ends here */
+
+                    log.success("Completed Stage 3: Clean workspace")
+                }
+            }
+        }
+
+        // Checkout code from Github
+        stage('Code checkout') {
+            steps {
+                script {
+                    log.info("Executing Stage 4: Code checkout")
+                    log.info("Getting pull of ${env.BRANCH} from WWW2 repository.")
+
+                    /* Logic starts here */
+
+                    git branch: "${env.BRANCH}", changelog: false, credentialsId: "${env.ICM_GITHUB_CRED_ID}", poll: false, url: "${env.REPO_URL}"
+
+                    GIT_COMMIT_ID = "${helper.gitShortCommit()}"
+
+                    /* Logic ends here */
+
+                    log.info("Fetched latest code from ${env.BRANCH} of WWW2 repository.")
+                    log.success("Completed Stage 4: Code checkout")
+                }
+            }
+        }
+
+        // Build docker image and push to AWS ECR repo with latest pointing to current build tag
+        stage('Docker build AWS ECR') {
+            steps {
+                script {
+                    log.info("Executing Stage 5: Docker build AWS ECR")
+                    log.info("Creating docker image for ECR (global)")
+
+                    /* Logic starts here */
+
+                    def tag = "${env.VERSION}"
+
+                    // Build arguments based on PR
+                    buildArgs = "--build-arg COMMIT=${GIT_COMMIT_ID} --build-arg CI_BRANCH=${env.BRANCH} "
+
+                    // Build and push docker image
+                    IMAGENAME = "${env.ICM_ECR_REPO_URL}/${env.APPLICATION}"
+                    docker.withRegistry("https://${env.ICM_ECR_REPO_URL}", "${env.ICM_IAM_ROLE}") {
+                        image = docker.build("${IMAGENAME}", "${buildArgs} -f MigDockerfile .")
+                        docker.image("${IMAGENAME}").push("${tag}")
+                    }
+
+                    /* Logic ends here */
+
+                    log.info("Pushed docker image ${tag}")
+                    log.success("Completed Stage 5: Docker build AWS ECR")
+                }
+            }
+        }
+
+        // Deploy to specified platforms
+        stage('Deploy') {
+            steps {
+                script {
+                        log.info("Starting deployment for Global audience for ${env.ENVIRONMENT}")
+
+                         /* Logic starts here */
+                        GIT_COMMIT_ID = "${helper.gitShortCommit()}"
+                        def service = "icm-${env.ENVIRONMENT}-${env.APPLICATION}-${env.BRANCH}-svc"
+                        def taskFamily = "icm-${env.ENVIRONMENT}-${env.APPLICATION}-${env.BRANCH}"
+                        def taskName = "icm-${env.APPLICATION}-${env.BRANCH}"
+
+                        def isServiceExists = awsHelper.isECSServiceExists("${env.CLUSTER_NAME}", service, "${env.ICM_AWS_DEFAULT_REGION}")
+
+                        if (isServiceExists == 0) {
+                            log.info("Service already exists, No need to create stack.")
+                            log.info("Deploying now...")
+                            devDeploy("${env.CLUSTER_NAME}",
+                                    service,
+                                    taskFamily,
+                                    "${env.ECS_IMAGE_TO_DEPLOY}",
+                                    "${env.REDIS_HOST}",
+                                    "${env.ICM_AWS_DEFAULT_REGION}",
+                                    true)
+                            log.success("Deployment done.")
+
+                        } else {
+                            log.info("New branch setup: Creating task definition now")
+
+                            def isTaskDefCreated = registerTD(taskFamily, taskName,
+                                    128, "${env.ECS_IMAGE_TO_DEPLOY}",
+                                    "www2-migrate", 8080, "${env.REDIS_HOST}",
+                                    "${env.ICM_AWS_DEFAULT_REGION}")
+
+                            if (isTaskDefCreated != 0) {
+                                currentBuild.result = 'FAILED'
+                                error("Error while creating TaskDefinition.")
+                            }
+
+                            log.success("TaskDefinition created successfully.")
+                            log.info("Creating TargetGroup now.")
+
+                            def tgArn = awsHelper.createTargetGroup("${env.TARGET_GROUP}", "${env.VPC}", 8080,
+                                    "/health", 15, 2, 2, 200, "${env.ICM_AWS_DEFAULT_REGION}")
+
+                            if (tgArn == "") {
+                                currentBuild.result = 'FAILED'
+                                error("Error while creating TargetGroup.")
+                            }
+
+                            log.success("TargetGroup created successfully.")
+                            log.info("Modifying TG attributes")
+
+                            def isModifiedTgAttr = awsHelper.modifyTargetGroupAttr("${tgArn}", 30, "${env.ICM_AWS_DEFAULT_REGION}")
+
+                            if (isModifiedTgAttr != 0) {
+                                currentBuild.result = 'FAILED'
+                                error("Error while modifying TargetGroup attributes.")
+                            }
+
+                            log.success("TargetGroup attributes modified successfully.")
+                            log.info("Creating LB listener now.")
+
+                            def priority = awsHelper.getNextALBRulePriority("${env.DEV_ALB_HTTP_LISTENER_ARN}", "${env.ICM_AWS_DEFAULT_REGION}")
+
+                            def isListenerRuleCreated = createALBListenerRule("${env.DEV_ALB_HTTP_LISTENER_ARN}",
+                                    "${priority}", "${env.COM_SITE_HOST}", "${tgArn}", "${env.ICM_AWS_DEFAULT_REGION}")
+
+
+                            if (isListenerRuleCreated != 0) {
+                                currentBuild.result = 'FAILED'
+                                error("Error while creating LB HTTP listener.")
+                            }
+
+
+                            isListenerRuleCreated = createALBListenerRule("${env.DEV_ALB_HTTPS_LISTENER_ARN}",
+                                    "${priority}", "${env.COM_SITE_HOST}","${tgArn}", "${env.ICM_AWS_DEFAULT_REGION}")
+
+                            if (isListenerRuleCreated != 0) {
+                                currentBuild.result = 'FAILED'
+                                error("Error while creating LB HTTPS listener.")
+                            }
+
+                            log.success("LB listener created successfully.")
+                            log.info("Creating service now.")
+
+                            def isServiceCreated = devCreateECSService(service, "${env.CLUSTER_NAME}", taskFamily,
+                                    1, "${tgArn}", taskName, 8080, "${env.ICM_AWS_DEFAULT_REGION}")
+
+                            if (isServiceCreated != 0) {
+                                currentBuild.result = 'FAILED'
+                                error("Error while creating service. Marking the status of build FAILED.")
+                            }
+                            log.success("Service created successfully. Waiting for service to be stable.")
+                            ecs.wait("${env.CLUSTER_NAME}", service, "${env.ICM_AWS_DEFAULT_REGION}")
+                            log.success("Deployment done.")
+                        }
+
+
+                    log.success("Completed Stage 6: Deploy")
+                    /* Logic ends here */
+                }
+            }
+        }
+    }
+
+    // Post actions
+    post {
+        aborted {
+            script {
+                log.info("###############################")
+                log.info('Build process is aborted')
+                //helper.notifySlack("warning", "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was aborted.")
+                log.info("###############################")
+            }
+        }
+        failure {
+            script {
+                log.error("#############################")
+                log.error('Build process failed.')
+                //helper.notifySlack("danger", "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was failed.")
+                log.error("#############################")
+            }
+        }
+        success {
+            script {
+                log.success("#################################################")
+                log.success('Build process completed successfully.')
+                log.success("#################################################")
+               // helper.notifySlack("good", "Job: ${env.JOB_NAME} with buildnumber ${env.BUILD_NUMBER} was successful.")
+            }
+        }
+    }
+}
+
+

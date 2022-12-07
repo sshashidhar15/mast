@@ -1,0 +1,39 @@
+.input_group {
+    margin-bottom: 23px;
+
+    .input_group_title {
+        color: #000;
+        text-transform: unset;
+        font-weight: 500;
+        font-size: 14px;
+        margin-bottom: 10px;        
+    }    
+
+    .error-list {
+        position: relative;
+        padding: 0;
+        margin: 10px 0 0;
+        font-size: 12px;
+        color: #d32121;            
+    }
+
+    input.waiting {
+        background-image: url("../images/oval.svg") !important;
+    }
+
+    @import 'form_controls/input';
+    @import 'form_controls/dropdown_select';
+    @import 'form_controls/select_buttons';
+    @import 'form_controls/date_select';
+    @import 'form_controls/checkbox';
+    @import 'form_controls/auto_address';
+    @import 'form_controls/validation_box';
+}
+
+.register_form.step4 {
+    .input_group:not(:last-of-type) {
+        border-bottom: 1px solid #e1e1e1;
+        padding-bottom: 20px;
+        margin-bottom: 15px !important;   
+    }
+}

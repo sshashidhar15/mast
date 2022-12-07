@@ -1,0 +1,172 @@
+<% setI18nPrefix('pages.company.about-icmarkets') %>
+<meta name="description" content="<%- $t('meta', true) %>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/about-icmarkets.css')%>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+  <div class="single-page page-about-us">
+      <article class="page-header">
+          <section class="page-header__container">
+              <header>
+                  <h1 class="page-header__heading--style"><%-$t('about_us_1')%></h1>
+              </header>
+              <div class="page-header__description"><%-$t('about_us_2')%></div>
+
+              <div class="icm-button-wrapper page-header__primary-button">
+                  <a id="about_icmarkets_live_registration" href="<%= localePath('open-trading-account-live') %>" class="icm-btn icm-btn-primary"><%- $t('about_us_3') %></a>
+              </div>
+          </section>
+      </article>
+      <article class="page-header__menu-container">
+        <%- include('./_menu.ejs', { current: 'company-about-icmarkets' }) %>
+      </article>
+      <article class="page-content-container">
+          <% if (cysec) { %>
+          <div class="page-content cysec">
+            <div class="page-section">
+                <h1><%-$t('about_us_cysec_0')%></h1>
+                <p><%-$t('about_us_cysec_1')%></p>
+                <p><%-$t('about_us_cysec_2')%></p>
+            </div>
+            <div class="page-section">
+                <h1><%-$t('about_us_cysec_3')%></h1>
+                <p><%-$t('about_us_cysec_4')%></p>
+            </div>
+            <div class="page-section">
+                <h1><%-$t('about_us_cysec_5')%></h1>
+                <p><%-$t('about_us_cysec_6')%></p>
+                <p><%-$t('about_us_cysec_7')%></p>
+            </div>
+            <div class="page-section">
+                <h1><%-$t('about_us_cysec_8')%></h1>
+                <p><%-$t('about_us_cysec_9')%></p>
+            </div>
+            <div class="page-section">
+                <h1><%-$t('about_us_cysec_10')%></h1>
+                  <div class="two-ul">
+                    <ul>
+                      <li><%-$t('about_us_cysec_11')%></li>
+                      <li><%-$t('about_us_cysec_12')%></li>
+                      <li><%-$t('about_us_cysec_13')%></li>
+                      <li><%-$t('about_us_cysec_14')%></li>
+                    </ul>
+                    <ul>
+                      <li><%-$t('about_us_cysec_15')%></li>
+                      <li><%-$t('about_us_cysec_16')%></li>
+                      <li><%-$t('about_us_cysec_17')%></li>
+                      <li><%-$t('about_us_cysec_18')%></li>
+                    </ul>
+                  </div>
+            </div>
+            <div class="page-section">
+              <h1><%-$t('about_us_cysec_19')%></h1>
+              <p><%-$t('about_us_cysec_20')%></p>
+              <p><%-$t('about_us_cysec_21')%></p>
+            </div>
+            <div class="page-section">
+              <h1><%-$t('about_us_cysec_22')%></h1>
+              <p><%-$t('about_us_cysec_23')%></p>
+            </div>
+            <div class="page-section">
+              <h1><%-$t('about_us_cysec_24')%></h1>
+              <p><%-$t('about_us_cysec_25')%></p>
+              <h4>
+                <%-$t('about_us_cysec_28')%>
+              </h4>
+              <a id="about_icmarkets_group" target="_blank" href="https://www.icmarketsgroup.com/"><%-$t('about_us_cysec_27')%></a>
+            </div>
+          </div>
+          <% } else { %>
+          <div class="page-content">
+              <div class="page-section">
+                  <div class="double-sidebar-block">
+                      <div class="sidebar-cta-card-container sidebar-top-card random-background rnd-back-1">
+                          <div class="bottom-block">
+                              <p class="bottom-block__message"><%-$t('about_us_11')%></p>
+                              <div class="icm-button-wrapper bottom-block__cta-button">
+                                  <a id="about_icmarkets_live_registration_2" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%-$t('about_us_13')%></a>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="contact-card contact-block">
+                          <div class="contact-header">
+                              <div class="header-label"><%-$t('about_us_14')%></div>
+                              <div class="header-title"><%-$t('about_us_15')%></div>
+                          </div>
+                          <div class="contact-pre-imaged chat-img">
+                              <div><%-$t('contact_card_help')%></div>
+                          </div>
+                          <% if (!fsa && !scb && !fsc && !cima) { %>
+                              <div class="contact-phone">
+                                  <div><%-$t('contact_card_phone')%></div>
+                              </div>
+                          <% } %>
+                          <div class="contact-pre-imaged email-img">
+                            <% if (asic) {%>
+                                <div><%-$t('contact_card_email_asic')%></div>
+                            <% } else { %>
+                                <div><%-$t('contact_card_email')%></div>
+                            <% } %>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="first-section">
+                      <div class="<% if (true/*!bs_host && !sc_host*/) { %>page-first-text<% } %>"><%-$t('about_us_18')%></div>
+                      <p><%-$t('about_us_19')%></p>
+                  </div>
+                  <div style="margin-top:77px;" class="page-section">
+                      <h1><%-$t('about_us_20')%></h1>
+                      <p><%-$t('about_us_21')%></p>
+                  </div>
+              </div>
+          </div>
+          <div class="page-content highlighted-content">
+              <div class="page-section">
+                  <h1><%-$t('about_us_22')%></h1>
+                  <p><%-$t('about_us_23')%></p>
+                  <p><%-$t('about_us_231')%></p>
+              </div>
+          </div>
+          <div class="page-content">
+              <div class="page-section">
+                  <h1><%-$t('about_us_24')%></h1>
+                  <p><%-$t('about_us_25')%></p>
+              </div>
+              <div style="margin-top:80px;" class="page-section">
+                  <h1><%-$t('about_us_26')%></h1>
+                  <div class="pre-image-item"><%-$t('about_us_27')%></div>
+                  <div class="pre-image-item"><%-$t('about_us_28')%></div>
+                  <div class="pre-image-item"><%-$t('about_us_29')%></div>
+                  <div class="pre-image-item"><%-$t('about_us_30')%></div>
+                  <div class="pre-image-item"><%-$t('about_us_31')%></div>
+                  <div class="pre-image-item"><%-$t('about_us_32')%></div>
+                  <div class="pre-image-item"><%-$t('about_us_33')%></div>
+                  <div class="pre-image-item"><%-$t('about_us_34')%></div>
+              </div>
+              <div style="margin-top:80px;" class="page-section">
+                  <h1><%-$t('about_us_35')%></h1>
+                  <p><%-$t('about_us_36')%></p>
+                  <p><%-$t('about_us_37')%></p>
+              </div>
+              <div style="margin-top:80px;" class="page-section">
+                  <h1><%-$t('about_us_38')%></h1>
+                  <p><%-$t('about_us_39')%></p>
+              </div>
+              <div style="margin-top:80px;" class="page-section">
+                  <h1><%-$t('about_us_40')%></h1>
+                  <p><%-$t('about_us_41')%></p>
+              </div>
+          </div>
+          <% } %>
+          <div class="page-content global-markets-today">
+              <div class="page-section">
+                  <div class="start-trading"><%-$t('about_us_42')%></div>
+                  <div class="global-today"><%-$t('about_us_43')%></div>
+                  <div class="icm-button-wrapper page-header__primary-button">
+                      <a id="about_icmarkets_live_registration_3" class="icm-btn live icm-btn-primary" href="<%= localePath('open-trading-account-live')%>"><%-$t('about_us_44')%></a>
+                      <a id="about_icmarkets_demo_registration" class="icm-btn demo" href="<%= localePath('open-trading-account-demo')%>"><%-$t('about_us_45')%></a>
+                  </div>
+              </div>
+          </div>
+      </article>
+  </div>

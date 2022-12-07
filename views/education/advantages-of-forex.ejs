@@ -1,0 +1,146 @@
+<% setI18nPrefix('pages.education.advantages-of-forex') %>
+<meta name="description" content="<%- $t('meta', true) %>" />
+<link rel="stylesheet" href="<%=md5('/css/pages/advantages-of-forex.css')%>">
+<%- contentFor('title') %>
+  <%- $t('title') %>
+<%- contentFor('body') %>
+    <div class="single-page advantages-of-forex">
+        <article class="page-header">
+            <section class="page-header__container">
+                <header>
+                    <h1 class="page-header__heading--style"><%-$t('advantages_of_forex_1')%></h1>
+                </header>
+                <div class="page-header__description"><%-$t('advantages_of_forex_2')%></div>
+
+                <div class="icm-button-wrapper page-header__primary-button">
+                    <a id="advantages_of_forex_1" class="icm-btn icm-btn-primary" href="<%= localePath('open-trading-account-live') %>"><%- $t('advantages_of_forex_3') %></a>
+                </div>
+            </section>
+        </article>
+        <article class="page-header__menu-container">
+          <%- include('./_menu.ejs', { current: 'education-advantages-of-forex' }) %>
+        </article>
+        <article class="page-content-container ">
+            <div class="page-content bgcolor1">
+                <div class="page-section">
+                    <div class="double-sidebar-block">
+                        <div class="sidebar-cta-card-container sidebar-top-card random-background rnd-back-1">
+                            <div class="bottom-block">
+                                <p class="bottom-block__message"><%-$t('advantages_of_forex_8')%><br><b><%-$t('advantages_of_forex_9')%></b></p>
+                                <div class="icm-button-wrapper bottom-block__cta-button">
+                                    <a id="advantages_of_forex_2" class="icm-btn live icm-btn-primary"  href="<%= localePath("open-trading-account-live") %>"><%-$t('advantages_of_forex_12')%></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-card contact-block">
+                            <div class="contact-header">
+                                <div class="header-label"><%-$t('advantages_of_forex_13')%></div>
+                                <div class="header-title"><%-$t('advantages_of_forex_14')%></div>
+                            </div>
+                            <div class="contact-pre-imaged chat-img">
+                                <div><%-$t('contact_card_help')%></div>
+                            </div>
+                            <% if (!fsa && !scb && !fsc && !cima) { %>
+                            <div class="contact-phone">
+                                <div><%-$t('contact_card_phone')%></div>
+                            </div>
+                            <% } %>
+                            <div class="contact-pre-imaged email-img">
+                                <% if (asic) {%>
+                                    <div><%-$t('contact_card_email_asic')%></div>
+                                <% } else { %>
+                                    <div><%-$t('contact_card_email')%></div>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="first-section">
+                        <div class="page-first-text"><%-$t('advantages_of_forex_20')%></div>
+                        <p><%-$t('advantages_of_forex_21')%></p>
+                        <p><%-$t('advantages_of_forex_22')%></p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-content bgcolor2">
+                <div class="page-section">
+                    <h1><%-$t('advantages_of_forex_23')%></h1>
+                    <p><%-$t('advantages_of_forex_24')%></p>
+                </div>
+            </div>
+            <div class="page-content bgcolor3">
+                <div class="page-section">
+                    <h1><%-$t('advantages_of_forex_25')%></h1>
+                    <p><%-$t('advantages_of_forex_26')%></p>
+                </div>
+            </div>
+            <div class="page-content bgcolor1">
+                <div class="page-section">
+                    <h1><%-$t('advantages_of_forex_27')%></h1>
+                    <p><%-$t('advantages_of_forex_28')%></p>
+                </div>
+            </div>
+            <div class="page-content bgcolor2">
+                <div class="page-section">
+                    <h1><%-$t('advantages_of_forex_29')%></h1>
+                    <p><a id="advantages_of_forex_3" class="blue-link" href="<%= localePath('trading-markets-forex') %>"><%-$t('advantages_of_forex_30')%></a> <%-$t('advantages_of_forex_31')%></p>
+                </div>
+            </div>
+            <div class="page-content bgcolor3">
+                <div class="page-section">
+                    <h1><%-$t('advantages_of_forex_32')%></h1>
+                    <p><%-$t('advantages_of_forex_33')%></p>
+                </div>
+            </div>
+            <div class="page-content bgcolor1">
+                <div class="page-section">
+                    <h1><%-$t('advantages_of_forex_34')%></h1>
+                    <p><%-$t('advantages_of_forex_35')%></p>
+                </div>
+            </div>
+            <div class="page-content bgcolor2">
+                <div class="page-section">
+                    <h1><%-$t('advantages_of_forex_36')%></h1>
+                    <p><%-$t('advantages_of_forex_37')%></p>
+                </div>
+            </div>
+            <div class="page-content bgcolor3">
+                <div class="page-section">
+                    <h1><%-$t('advantages_of_forex_38')%></h1>
+                    <p><%-$t('advantages_of_forex_39')%></p>
+                </div>
+            </div>
+            <div class="page-content bgcolor1">
+                <div class="page-section">
+                    <h1><%-$t('advantages_of_forex_40')%></h1>
+                    <p><%-$t('advantages_of_forex_41')%></p>
+                </div>
+            </div>
+            <div class="page-content bgcolor2">
+                <div class="page-section">
+                    <h1><%-$t('advantages_of_forex_42')%></h1>
+                    <p>
+                        <%-$t('advantages_of_forex_43')%>
+                        <% if (asic) { %>
+                            <a id="advantages_of_forex_4" class="blue-link" href="<%- getCDN() %>/uploads/IC-Markets-CFD-PDS.pdf" target="_blank"><%-$t('advantages_of_forex_44')%></a>
+                        <% } else if (cysec) { %>
+                            <a id="advantages_of_forex_4" class="blue-link" href="<%- getCDN() %>/uploads/EU/RISK+DISCLOSURE+NOTICE.pdf" target="_blank"><%-$t('advantages_of_forex_44')%></a>
+                        <% } else if (fsa) { %>
+                            <a id="advantages_of_forex_4" class="blue-link" href="<%- getCDN() %>/uploads/FSA/Risk_Disclosure_Notice_FSA.pdf" target="_blank"><%-$t('advantages_of_forex_44')%></a>
+                        <% } else if (scb) { %>
+                            <a id="advantages_of_forex_4" class="blue-link" href="<%- getCDN() %>/uploads/SCB/Risk_Disclosure_Notice.pdf" target="_blank"><%-$t('advantages_of_forex_44')%></a>
+                        <% } %>
+                    </p>
+                </div>
+            </div>
+            <div class="page-content global-markets-today">
+                <div class="page-section">
+                    <div class="start-trading"><%-$t('advantages_of_forex_4')%></div>
+                    <div class="global-today"><%-$t('advantages_of_forex_5a')%></div>
+                    <div class="icm-button-wrapper page-header__primary-button">
+                        <a id="advantages_of_forex_5" class="icm-btn live icm-btn-primary" href="<%= localePath("open-trading-account-live") %>"><%-$t('advantages_of_forex_6')%></a>
+                        <a id="advantages_of_forex_6" class="icm-btn demo" href="<%= localePath("open-trading-account-demo") %>"><%-$t('advantages_of_forex_7')%></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>

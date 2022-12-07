@@ -1,0 +1,75 @@
+@import '../_global';
+
+.single-page.page-economic-calendar {
+
+
+	.page-header {
+		background: url(/assets/img/single_market_page/economic-calendar-banner.jpg) no-repeat center right;
+
+		.icm-button-wrapper.page-header__primary-button
+			a.icm-btn.icm-btn-primary {
+			border-radius: 2px !important;
+			padding: 25px !important;
+			font-size: 20px !important;
+			font-weight: 900 !important;
+			text-transform: uppercase;
+		}
+	}
+	.page-content-container {
+		background: #fff !important;
+	}
+	.page-content.global-markets-today {
+		background-image: url(/assets/img/single_market_page/economic-calendar-btm-bg.png);
+	}
+	.page-header__menu-container .page-header__menu .menu-item .menu-title {
+		padding-left: 0 !important;
+		text-transform: uppercase;
+	}
+	.page-content.global-markets-today .icm-button-wrapper {
+		a.live {
+			border-radius: 0 !important;
+			padding: 25px !important;
+			font-size: 20px !important;
+			font-weight: 900 !important;
+			text-transform: uppercase;
+		}
+		a.demo {
+			border-radius: 0 !important;
+			padding: 25px !important;
+			font-size: 20px !important;
+			font-weight: 900 !important;
+			text-transform: uppercase !important;
+			background: #000 !important;
+			color: #fff !important;
+			margin-left: 9px;
+		}
+	}
+	.grid-section {
+		display: grid;
+        margin-top: 90px !important;
+		grid-template-columns: auto 285px;
+
+        .grid-item {
+            &.gi-2 {
+                padding-left: 50px;
+            }
+        }
+	}
+	@media screen and (max-width: 940px) {
+		.grid-section {
+			grid-template-columns: 100%;
+
+			.h-space {
+				display: none;
+			}
+			a.h-card {
+				justify-self: center !important;
+
+				&.h-2 {
+					border-top: 1px solid #c1c1c1;
+					border-bottom: 1px solid #c1c1c1;
+				}
+			}
+		}
+	}
+}
